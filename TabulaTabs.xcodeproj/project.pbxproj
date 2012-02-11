@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50EA125714E6763D00F687E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA125614E6763D00F687E9 /* UIKit.framework */; };
+		50EA125914E6763D00F687E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA125814E6763D00F687E9 /* Foundation.framework */; };
+		50EA125B14E6763D00F687E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA125A14E6763D00F687E9 /* CoreGraphics.framework */; };
+		50EA126114E6763D00F687E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EA125F14E6763D00F687E9 /* InfoPlist.strings */; };
+		50EA126314E6763D00F687E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA126214E6763D00F687E9 /* main.m */; };
+		50EA126714E6763D00F687E9 /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA126614E6763D00F687E9 /* TTAppDelegate.m */; };
+		50EA126F14E6763D00F687E9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA126E14E6763D00F687E9 /* SenTestingKit.framework */; };
+		50EA127014E6763D00F687E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA125614E6763D00F687E9 /* UIKit.framework */; };
+		50EA127114E6763D00F687E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA125814E6763D00F687E9 /* Foundation.framework */; };
+		50EA127914E6763D00F687E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EA127714E6763D00F687E9 /* InfoPlist.strings */; };
+		50EA127C14E6763D00F687E9 /* TabulaTabsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA127B14E6763D00F687E9 /* TabulaTabsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50EA127214E6763D00F687E9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50EA124914E6763D00F687E9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50EA125114E6763D00F687E9;
+			remoteInfo = TabulaTabs;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		50EA125214E6763D00F687E9 /* TabulaTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabulaTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50EA125614E6763D00F687E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		50EA125814E6763D00F687E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		50EA125A14E6763D00F687E9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		50EA125E14E6763D00F687E9 /* TabulaTabs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TabulaTabs-Info.plist"; sourceTree = "<group>"; };
+		50EA126014E6763D00F687E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50EA126214E6763D00F687E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50EA126414E6763D00F687E9 /* TabulaTabs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TabulaTabs-Prefix.pch"; sourceTree = "<group>"; };
+		50EA126514E6763D00F687E9 /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
+		50EA126614E6763D00F687E9 /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
+		50EA126D14E6763D00F687E9 /* TabulaTabsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TabulaTabsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50EA126E14E6763D00F687E9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		50EA127614E6763D00F687E9 /* TabulaTabsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TabulaTabsTests-Info.plist"; sourceTree = "<group>"; };
+		50EA127814E6763D00F687E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50EA127A14E6763D00F687E9 /* TabulaTabsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabulaTabsTests.h; sourceTree = "<group>"; };
+		50EA127B14E6763D00F687E9 /* TabulaTabsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabulaTabsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50EA124F14E6763D00F687E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EA125714E6763D00F687E9 /* UIKit.framework in Frameworks */,
+				50EA125914E6763D00F687E9 /* Foundation.framework in Frameworks */,
+				50EA125B14E6763D00F687E9 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50EA126914E6763D00F687E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EA126F14E6763D00F687E9 /* SenTestingKit.framework in Frameworks */,
+				50EA127014E6763D00F687E9 /* UIKit.framework in Frameworks */,
+				50EA127114E6763D00F687E9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50EA124714E6763D00F687E9 = {
+			isa = PBXGroup;
+			children = (
+				50EA125C14E6763D00F687E9 /* TabulaTabs */,
+				50EA127414E6763D00F687E9 /* TabulaTabsTests */,
+				50EA125514E6763D00F687E9 /* Frameworks */,
+				50EA125314E6763D00F687E9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50EA125314E6763D00F687E9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50EA125214E6763D00F687E9 /* TabulaTabs.app */,
+				50EA126D14E6763D00F687E9 /* TabulaTabsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50EA125514E6763D00F687E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50EA125614E6763D00F687E9 /* UIKit.framework */,
+				50EA125814E6763D00F687E9 /* Foundation.framework */,
+				50EA125A14E6763D00F687E9 /* CoreGraphics.framework */,
+				50EA126E14E6763D00F687E9 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50EA125C14E6763D00F687E9 /* TabulaTabs */ = {
+			isa = PBXGroup;
+			children = (
+				50EA126514E6763D00F687E9 /* TTAppDelegate.h */,
+				50EA126614E6763D00F687E9 /* TTAppDelegate.m */,
+				50EA125D14E6763D00F687E9 /* Supporting Files */,
+			);
+			path = TabulaTabs;
+			sourceTree = "<group>";
+		};
+		50EA125D14E6763D00F687E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50EA125E14E6763D00F687E9 /* TabulaTabs-Info.plist */,
+				50EA125F14E6763D00F687E9 /* InfoPlist.strings */,
+				50EA126214E6763D00F687E9 /* main.m */,
+				50EA126414E6763D00F687E9 /* TabulaTabs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50EA127414E6763D00F687E9 /* TabulaTabsTests */ = {
+			isa = PBXGroup;
+			children = (
+				50EA127A14E6763D00F687E9 /* TabulaTabsTests.h */,
+				50EA127B14E6763D00F687E9 /* TabulaTabsTests.m */,
+				50EA127514E6763D00F687E9 /* Supporting Files */,
+			);
+			path = TabulaTabsTests;
+			sourceTree = "<group>";
+		};
+		50EA127514E6763D00F687E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50EA127614E6763D00F687E9 /* TabulaTabsTests-Info.plist */,
+				50EA127714E6763D00F687E9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50EA125114E6763D00F687E9 /* TabulaTabs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50EA127F14E6763D00F687E9 /* Build configuration list for PBXNativeTarget "TabulaTabs" */;
+			buildPhases = (
+				50EA124E14E6763D00F687E9 /* Sources */,
+				50EA124F14E6763D00F687E9 /* Frameworks */,
+				50EA125014E6763D00F687E9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TabulaTabs;
+			productName = TabulaTabs;
+			productReference = 50EA125214E6763D00F687E9 /* TabulaTabs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50EA126C14E6763D00F687E9 /* TabulaTabsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50EA128214E6763D00F687E9 /* Build configuration list for PBXNativeTarget "TabulaTabsTests" */;
+			buildPhases = (
+				50EA126814E6763D00F687E9 /* Sources */,
+				50EA126914E6763D00F687E9 /* Frameworks */,
+				50EA126A14E6763D00F687E9 /* Resources */,
+				50EA126B14E6763D00F687E9 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50EA127314E6763D00F687E9 /* PBXTargetDependency */,
+			);
+			name = TabulaTabsTests;
+			productName = TabulaTabsTests;
+			productReference = 50EA126D14E6763D00F687E9 /* TabulaTabsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50EA124914E6763D00F687E9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 50EA124C14E6763D00F687E9 /* Build configuration list for PBXProject "TabulaTabs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 50EA124714E6763D00F687E9;
+			productRefGroup = 50EA125314E6763D00F687E9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50EA125114E6763D00F687E9 /* TabulaTabs */,
+				50EA126C14E6763D00F687E9 /* TabulaTabsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50EA125014E6763D00F687E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EA126114E6763D00F687E9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50EA126A14E6763D00F687E9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EA127914E6763D00F687E9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50EA126B14E6763D00F687E9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50EA124E14E6763D00F687E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EA126314E6763D00F687E9 /* main.m in Sources */,
+				50EA126714E6763D00F687E9 /* TTAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50EA126814E6763D00F687E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50EA127C14E6763D00F687E9 /* TabulaTabsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50EA127314E6763D00F687E9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50EA125114E6763D00F687E9 /* TabulaTabs */;
+			targetProxy = 50EA127214E6763D00F687E9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		50EA125F14E6763D00F687E9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50EA126014E6763D00F687E9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		50EA127714E6763D00F687E9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50EA127814E6763D00F687E9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50EA127D14E6763D00F687E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		50EA127E14E6763D00F687E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50EA128014E6763D00F687E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		50EA128114E6763D00F687E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		50EA128314E6763D00F687E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TabulaTabs.app/TabulaTabs";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				INFOPLIST_FILE = "TabulaTabsTests/TabulaTabsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		50EA128414E6763D00F687E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TabulaTabs.app/TabulaTabs";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				INFOPLIST_FILE = "TabulaTabsTests/TabulaTabsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50EA124C14E6763D00F687E9 /* Build configuration list for PBXProject "TabulaTabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50EA127D14E6763D00F687E9 /* Debug */,
+				50EA127E14E6763D00F687E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50EA127F14E6763D00F687E9 /* Build configuration list for PBXNativeTarget "TabulaTabs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50EA128014E6763D00F687E9 /* Debug */,
+				50EA128114E6763D00F687E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		50EA128214E6763D00F687E9 /* Build configuration list for PBXNativeTarget "TabulaTabsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50EA128314E6763D00F687E9 /* Debug */,
+				50EA128414E6763D00F687E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50EA124914E6763D00F687E9 /* Project object */;
+}
