@@ -65,4 +65,9 @@
     return [data copy];
 }
 
+- (NSString *)generatePassword;
+{
+    return [[self generateIv] hexString];
+}
+
 @end

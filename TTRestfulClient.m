@@ -8,9 +8,9 @@
 
 NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/";
 
-#import "TTRestfulController.h"
+#import "TTRestfulClient.h"
 
-@implementation TTRestfulController
+@implementation TTRestfulClient
 
 - (void)sendJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters callback:(void (^)(id))callback;
 {

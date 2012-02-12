@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TTBrowser.h"
+
 #import "TTAppDelegate.h"
 
 @implementation TTAppDelegate

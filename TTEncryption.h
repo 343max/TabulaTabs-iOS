@@ -18,5 +18,6 @@
 - (NSDictionary *)encrypt:(id)payload;
 - (id)decrypt:(NSDictionary *)encryptedDictionary;
 - (NSData *)generateIv;
+- (NSString *)generatePassword;
 
 @end

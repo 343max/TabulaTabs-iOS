@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TTRestfulController : NSObject
+@interface TTRestfulClient : NSObject
 
 - (void)sendJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters username:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
 - (void)sendJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters callback:(void(^)(id response))callback;
