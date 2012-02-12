@@ -59,18 +59,16 @@
 {
     const char * dataBuffer = [self bytes];
     unsigned char HEX_CHARS[] = "0123456789abcdef";
-    char current;
+    unsigned char current;
     NSMutableString *hexString = [NSMutableString stringWithCapacity:self.length * 2];
     
     for (int i = 0; i < self.length; i++) {
         current = dataBuffer[i];
         int first = current >> 4;
         int second = current % 16;
-        NSLog(@"c: %c, %i, %i, %i", current, current, first, second);
+        //NSLog(@"c: %c, %i, %i, %i, %c%c", current, current, first, second, HEX_CHARS[first], HEX_CHARS[second]);
         [hexString appendFormat:@"%c%c", HEX_CHARS[first], HEX_CHARS[second]];
     }
-    
-    NSLog(@"hex: %@", hexString);
     
     return [hexString copy];
 }
