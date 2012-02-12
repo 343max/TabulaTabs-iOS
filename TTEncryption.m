@@ -38,7 +38,7 @@
     NSData *jsonPayload = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&error];
     NSData *ic = [jsonPayload AES256EncryptWithKey:self.encryptionKey iv:iv];
     
-    return [NSDictionary dictionaryWithObjectsAndKeys: [ic base64EncodedString], @"ic", [iv base64EncodedString], @"iv", nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys: [ic base64EncodedString], @"ic", [iv hexString], @"iv", nil];
 }
 
 - (id)decrypt:(NSDictionary *)encryptedDictionary;
