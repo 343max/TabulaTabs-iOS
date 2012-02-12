@@ -18,6 +18,13 @@
 		50EA127114E6763D00F687E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA125814E6763D00F687E9 /* Foundation.framework */; };
 		50EA127914E6763D00F687E9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EA127714E6763D00F687E9 /* InfoPlist.strings */; };
 		50EA127C14E6763D00F687E9 /* TabulaTabsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA127B14E6763D00F687E9 /* TabulaTabsTests.m */; };
+		50EA129214E67F0E00F687E9 /* TTRestfulController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA128D14E67F0E00F687E9 /* TTRestfulController.m */; };
+		50EA129414E67F0E00F687E9 /* TTBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA129114E67F0E00F687E9 /* TTBrowserController.m */; };
+		50EA129914E67F2600F687E9 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA129614E67F2600F687E9 /* NSData+Base64.m */; };
+		50EA129A14E67F2600F687E9 /* NSData-AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA129814E67F2600F687E9 /* NSData-AES.m */; };
+		50EA129D14E67F5F00F687E9 /* NSData-hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA129C14E67F5F00F687E9 /* NSData-hex.m */; };
+		50EA12A314E6815300F687E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50EA12A214E6815300F687E9 /* Security.framework */; };
+		50EA12A614E6867200F687E9 /* TTEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EA12A514E6867200F687E9 /* TTEncryption.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,19 @@
 		50EA127814E6763D00F687E9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50EA127A14E6763D00F687E9 /* TabulaTabsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabulaTabsTests.h; sourceTree = "<group>"; };
 		50EA127B14E6763D00F687E9 /* TabulaTabsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabulaTabsTests.m; sourceTree = "<group>"; };
+		50EA128C14E67F0E00F687E9 /* TTRestfulController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulController.h; sourceTree = "<group>"; };
+		50EA128D14E67F0E00F687E9 /* TTRestfulController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulController.m; sourceTree = "<group>"; };
+		50EA129014E67F0E00F687E9 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
+		50EA129114E67F0E00F687E9 /* TTBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserController.m; sourceTree = "<group>"; };
+		50EA129514E67F2600F687E9 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		50EA129614E67F2600F687E9 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		50EA129714E67F2600F687E9 /* NSData-AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-AES.h"; sourceTree = "<group>"; };
+		50EA129814E67F2600F687E9 /* NSData-AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-AES.m"; sourceTree = "<group>"; };
+		50EA129B14E67F5F00F687E9 /* NSData-hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-hex.h"; sourceTree = "<group>"; };
+		50EA129C14E67F5F00F687E9 /* NSData-hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-hex.m"; sourceTree = "<group>"; };
+		50EA12A214E6815300F687E9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		50EA12A414E6867200F687E9 /* TTEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEncryption.h; sourceTree = "<group>"; };
+		50EA12A514E6867200F687E9 /* TTEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEncryption.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EA12A314E6815300F687E9 /* Security.framework in Frameworks */,
 				50EA125714E6763D00F687E9 /* UIKit.framework in Frameworks */,
 				50EA125914E6763D00F687E9 /* Foundation.framework in Frameworks */,
 				50EA125B14E6763D00F687E9 /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +97,8 @@
 		50EA124714E6763D00F687E9 = {
 			isa = PBXGroup;
 			children = (
+				50EA128914E676D800F687E9 /* External */,
+				50EA128A14E67EEA00F687E9 /* Communication */,
 				50EA125C14E6763D00F687E9 /* TabulaTabs */,
 				50EA127414E6763D00F687E9 /* TabulaTabsTests */,
 				50EA125514E6763D00F687E9 /* Frameworks */,
@@ -95,6 +118,7 @@
 		50EA125514E6763D00F687E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50EA12A214E6815300F687E9 /* Security.framework */,
 				50EA125614E6763D00F687E9 /* UIKit.framework */,
 				50EA125814E6763D00F687E9 /* Foundation.framework */,
 				50EA125A14E6763D00F687E9 /* CoreGraphics.framework */,
@@ -141,6 +165,32 @@
 				50EA127714E6763D00F687E9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50EA128914E676D800F687E9 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				50EA129B14E67F5F00F687E9 /* NSData-hex.h */,
+				50EA129C14E67F5F00F687E9 /* NSData-hex.m */,
+				50EA129514E67F2600F687E9 /* NSData+Base64.h */,
+				50EA129614E67F2600F687E9 /* NSData+Base64.m */,
+				50EA129714E67F2600F687E9 /* NSData-AES.h */,
+				50EA129814E67F2600F687E9 /* NSData-AES.m */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
+		50EA128A14E67EEA00F687E9 /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				50EA128C14E67F0E00F687E9 /* TTRestfulController.h */,
+				50EA128D14E67F0E00F687E9 /* TTRestfulController.m */,
+				50EA129014E67F0E00F687E9 /* TTBrowserController.h */,
+				50EA129114E67F0E00F687E9 /* TTBrowserController.m */,
+				50EA12A414E6867200F687E9 /* TTEncryption.h */,
+				50EA12A514E6867200F687E9 /* TTEncryption.m */,
+			);
+			name = Communication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +300,12 @@
 			files = (
 				50EA126314E6763D00F687E9 /* main.m in Sources */,
 				50EA126714E6763D00F687E9 /* TTAppDelegate.m in Sources */,
+				50EA129214E67F0E00F687E9 /* TTRestfulController.m in Sources */,
+				50EA129414E67F0E00F687E9 /* TTBrowserController.m in Sources */,
+				50EA129914E67F2600F687E9 /* NSData+Base64.m in Sources */,
+				50EA129A14E67F2600F687E9 /* NSData-AES.m in Sources */,
+				50EA129D14E67F5F00F687E9 /* NSData-hex.m in Sources */,
+				50EA12A614E6867200F687E9 /* TTEncryption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
