@@ -25,12 +25,12 @@
 {
     self = [super init];
     if (self) {
-        self.encryption = encryption;
+        self.encryption = theEncryption;
     }
     return self;
 }
 
-- (void)register:(NSString *)password callback:(void (^)())callback;
+- (void)registerWithPassword:(NSString *)password callback:(void (^)(id response))callback;
 {
     NSDictionary *payload = [NSDictionary dictionaryWithObjectsAndKeys:
                                            self.userAgent, @"useragent",
@@ -39,10 +39,11 @@
                                            self.iconURL.absoluteString, @"iconURL", nil];
     NSMutableDictionary *jsonParams = [[self.encryption encrypt:payload] mutableCopy];
     
-    [jsonParams setObject:[self.encryption generatePassword] forKey:@"password"];
+    [jsonParams setObject:password forKey:@"password"];
     
-    [self sendJsonRequest:@"browser.json" method:@"POST" jsonParameters:jsonParams callback:^(id response) {
-        NSLog(@"response: %@", response);
+    [self sendJsonRequest:@"browsers.json" method:@"POST" jsonParameters:jsonParams callback:^(NSDictionary* response) {
+        self.username = [response objectForKey:@"username"];
+        callback(response);
     }];
 }
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "AsyncTests.h"
 #import "TTBrowser.h"
 
 #import "TTAppDelegate.h"
@@ -20,6 +21,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    AsyncTests* tests = [[AsyncTests alloc] init];
+    [tests runTests];
+    
     return YES;
 }
 

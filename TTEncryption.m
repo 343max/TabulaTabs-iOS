@@ -29,7 +29,7 @@
 
 - (NSDictionary *)encrypt:(id)payload;
 {
-    return [self encrypt:payload iv:[self generateIv]];
+    return [self encrypt:payload iv:[TTEncryption generateIv]];
 }
 
 - (NSDictionary *)encrypt:(id)payload iv:(NSData *)iv;
@@ -57,7 +57,7 @@
     return payload;
 }
 
-- (NSData *)generateIv;
++ (NSData *)generateIv;
 {
     int err = 0;
     NSMutableData* data = [NSMutableData dataWithLength:16];
@@ -65,7 +65,15 @@
     return [data copy];
 }
 
-- (NSString *)generatePassword;
++ (NSData *)generateEncryptionKey;
+{
+    int err = 0;
+    NSMutableData* data = [NSMutableData dataWithLength:32];
+    err = SecRandomCopyBytes(kSecRandomDefault, 32, [data mutableBytes]);
+    return [data copy];    
+}
+
++ (NSString *)generatePassword;
 {
     return [[self generateIv] hexString];
 }

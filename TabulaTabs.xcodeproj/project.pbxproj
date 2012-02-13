@@ -25,6 +25,8 @@
 		50AE699B14E860DD00788808 /* NSData-AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699614E860DD00788808 /* NSData-AES.m */; };
 		50AE699C14E860DD00788808 /* NSData-hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699814E860DD00788808 /* NSData-hex.m */; };
 		50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699A14E860DD00788808 /* NSData+Base64.m */; };
+		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
+		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		50AE699814E860DD00788808 /* NSData-hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-hex.m"; sourceTree = "<group>"; };
 		50AE699914E860DD00788808 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		50AE699A14E860DD00788808 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
+		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
+		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
+		50F363AB14E9496600AB104C /* MWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWURLConnection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,10 @@
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
+				50F363A914E9402000AB104C /* Classes */,
 				50AE699414E860D000788808 /* External */,
-				50AE698914E860B400788808 /* Communication */,
+				50F3639D14E925C900AB104C /* AsyncTests */,
+				50AE698914E860B400788808 /* API */,
 				50AE695414E8606C00788808 /* TabulaTabs */,
 				50AE696C14E8606C00788808 /* TabulaTabsTests */,
 				50AE694D14E8606C00788808 /* Frameworks */,
@@ -167,7 +175,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		50AE698914E860B400788808 /* Communication */ = {
+		50AE698914E860B400788808 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				50AE698B14E860C700788808 /* TTBrowser.h */,
@@ -177,7 +185,7 @@
 				50AE698F14E860C700788808 /* TTRestfulClient.h */,
 				50AE699014E860C700788808 /* TTRestfulClient.m */,
 			);
-			name = Communication;
+			name = API;
 			sourceTree = "<group>";
 		};
 		50AE699414E860D000788808 /* External */ = {
@@ -191,6 +199,24 @@
 				50AE699A14E860DD00788808 /* NSData+Base64.m */,
 			);
 			name = External;
+			sourceTree = "<group>";
+		};
+		50F3639D14E925C900AB104C /* AsyncTests */ = {
+			isa = PBXGroup;
+			children = (
+				50F3639E14E925ED00AB104C /* AsyncTests.h */,
+				50F3639F14E925ED00AB104C /* AsyncTests.m */,
+			);
+			name = AsyncTests;
+			sourceTree = "<group>";
+		};
+		50F363A914E9402000AB104C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				50F363AA14E9496600AB104C /* MWURLConnection.h */,
+				50F363AB14E9496600AB104C /* MWURLConnection.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +332,8 @@
 				50AE699B14E860DD00788808 /* NSData-AES.m in Sources */,
 				50AE699C14E860DD00788808 /* NSData-hex.m in Sources */,
 				50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */,
+				50F363A014E925ED00AB104C /* AsyncTests.m in Sources */,
+				50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class MWURLConnection;
+
 @interface TTRestfulClient : NSObject
 
-- (void)sendJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters username:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
-- (void)sendJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters callback:(void(^)(id response))callback;
-- (void)sendJsonGetRequest:(NSString *)path username:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
+@property (strong) NSString *username;
+@property (strong) NSString *password;
+
+- (MWURLConnection *)sendJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters callback:(void(^)(id response))callback;
+- (MWURLConnection *)sendJsonGetRequest:(NSString *)path callback:(void(^)(id response))callback;
+- (NSMutableURLRequest *)prepareJsonRequest:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters;
+- (MWURLConnection *)prepareJsonConnection:(NSString *)path method:(NSString *)method jsonParameters:(id)jsonParameters callback:(void(^)(id response))callback;
 
 @end
