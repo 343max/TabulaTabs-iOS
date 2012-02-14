@@ -8,27 +8,11 @@
 
 #import "TTEncryption.h"
 #import "TTBrowser.h"
-
-@interface TTBrowser ()
-
-@property (strong) TTEncryption *encryption;
-
-@end
-
+#import "TTTab.h"
 
 @implementation TTBrowser
 
 @synthesize userAgent, label, description, iconURL;
-@synthesize encryption;
-
-- (id)initWithEncryption:(TTEncryption *)theEncryption;
-{
-    self = [super init];
-    if (self) {
-        self.encryption = theEncryption;
-    }
-    return self;
-}
 
 - (void)registerWithPassword:(NSString *)password callback:(void (^)(id response))callback;
 {
@@ -66,6 +50,21 @@
         NSMutableDictionary *mutableResponse = [response mutableCopy];
         [mutableResponse setObject:payload forKey:@"payload"];
         callback([mutableResponse copy]);
+    }];
+}
+
+- (void)saveTabs:(NSArray *)tabs callback:(void (^)(id))callback;
+{
+    NSMutableArray *encryptedTabs = [[NSMutableArray alloc] initWithCapacity:tabs.count];
+    
+    [tabs enumerateObjectsUsingBlock:^(TTTab *tab, NSUInteger idx, BOOL *stop) {
+        NSMutableDictionary *tabDict = [[self.encryption encrypt:[tab dictionary]] mutableCopy];
+        [tabDict setObject:tab.identifier forKey:@"identifier"];
+        [encryptedTabs addObject:tabDict];
+    }];
+    
+    [self sendJsonRequest:@"browsers/tabs.json" method:@"POST" jsonParameters:[encryptedTabs copy] callback:^(id response) {
+        callback(response);
     }];
 }
 

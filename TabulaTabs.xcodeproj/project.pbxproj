@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
+		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
+		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
 		50AE694F14E8606C00788808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE694E14E8606C00788808 /* UIKit.framework */; };
 		50AE695114E8606C00788808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695014E8606C00788808 /* Foundation.framework */; };
@@ -40,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5069084C14EAB50200D39759 /* TTTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTab.h; sourceTree = "<group>"; };
+		5069084D14EAB50200D39759 /* TTTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTab.m; sourceTree = "<group>"; };
+		5069085014EAEAA300D39759 /* TTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTClient.h; sourceTree = "<group>"; };
+		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTClient.m; sourceTree = "<group>"; };
+		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
+		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		50AE694A14E8606C00788808 /* TabulaTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabulaTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AE694E14E8606C00788808 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -180,10 +189,16 @@
 			children = (
 				50AE698B14E860C700788808 /* TTBrowser.h */,
 				50AE698C14E860C700788808 /* TTBrowser.m */,
+				5069085014EAEAA300D39759 /* TTClient.h */,
+				5069085114EAEAA300D39759 /* TTClient.m */,
+				5069084C14EAB50200D39759 /* TTTab.h */,
+				5069084D14EAB50200D39759 /* TTTab.m */,
 				50AE698D14E860C700788808 /* TTEncryption.h */,
 				50AE698E14E860C700788808 /* TTEncryption.m */,
 				50AE698F14E860C700788808 /* TTRestfulClient.h */,
 				50AE699014E860C700788808 /* TTRestfulClient.m */,
+				5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */,
+				5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -334,6 +349,9 @@
 				50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */,
 				50F363A014E925ED00AB104C /* AsyncTests.m in Sources */,
 				50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */,
+				5069084E14EAB50200D39759 /* TTTab.m in Sources */,
+				5069085214EAEAA300D39759 /* TTClient.m in Sources */,
+				5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

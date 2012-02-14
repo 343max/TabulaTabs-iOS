@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TTTab.h"
 #import "TTEncryption.h"
 #import "TTRestfulClient.h"
 #import "TTBrowser.h"
@@ -41,6 +42,29 @@
             NSAssert([browser.label isEqualToString:newBrowser.label], @"label not set correctly");
             NSAssert([browser.description isEqualToString:newBrowser.description], @"description not set correctly");
             
+            TTTab* tab1 = [[TTTab alloc] init];
+            tab1.title = @"Tab1";
+            tab1.URL = [NSURL URLWithString:@"http://tab1.de/"];
+            tab1.favIconURL = [NSURL URLWithString:@"http://tab1.de/favicon.ico"];
+            tab1.selected = YES;
+            tab1.identifier = @"1";
+            tab1.windowId = @"1";
+            tab1.index = 0;
+            
+            NSLog(@"tab1: %@", [tab1 dictionary]);
+            
+            TTTab* tab2 = [[TTTab alloc] init];
+            tab2.title = @"Tab2";
+            tab2.URL = [NSURL URLWithString:@"http://tab2.de/"];
+            tab2.favIconURL = [NSURL URLWithString:@"http://tab2.de/favicon.ico"];
+            tab2.selected = NO;
+            tab2.identifier = @"2";
+            tab2.windowId = @"2";
+            tab2.index = 1;
+            
+            [browser saveTabs:[NSArray arrayWithObjects:tab1, tab1, nil] callback:^(id response) {
+                NSLog(@"response: %@", response);
+            }];
         }];
         
     }];

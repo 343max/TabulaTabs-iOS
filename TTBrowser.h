@@ -6,21 +6,20 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "TTRestfulClient.h"
+#import "TTRestfulEncryptedClient.h"
 
 @class TTEncryption;
 
-@interface TTBrowser : TTRestfulClient
+@interface TTBrowser : TTRestfulEncryptedClient
 
 @property (strong) NSString *userAgent;
 @property (strong) NSString *label;
 @property (strong) NSString *description;
 @property (strong) NSURL *iconURL;
 
-- (id)initWithEncryption:(TTEncryption *)encryption;
-
 - (void)registerWithPassword:(NSString *)password callback:(void(^)(id response))callback;
 - (void)load:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
 - (void)load:(void(^)(id response))callback;
+- (void)saveTabs:(NSArray *)tabs callback:(void(^)(id response))callback;
 
 @end
