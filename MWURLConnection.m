@@ -61,8 +61,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
 {
-//    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;");
-    if ([challenge previousFailureCount] == 0) {
+    if (!challenge.error) {
         NSURLCredential *credentials = [NSURLCredential credentialWithUser:self.username password:self.password persistence:NSURLCredentialPersistenceForSession];
         [challenge.sender useCredential:credentials forAuthenticationChallenge:challenge];
     } else {

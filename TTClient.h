@@ -6,11 +6,9 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "TTRestfulClient.h"
+#import "TTRestfulEncryptedClient.h"
 
-@interface TTClient : TTRestfulClient
-
-@property (strong) NSString *claimingPassword;
+@interface TTClient : TTRestfulEncryptedClient
 
 @property (strong) NSString *userAgent;
 @property (strong) NSString *label;
@@ -21,6 +19,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
-- (void)create:(NSString *)username password:(NSString *)password claimngPassword:(NSString *)claimingPassword callback:(void(^)(id response))callback;
+- (void)claimClient:(NSString *)claimingPassword finalPassword:(NSString *)finalPassword callback:(void(^)(id response))callback;
+- (void)loadTabs:(void(^)(NSArray* tabs, id response))callback;
 
 @end

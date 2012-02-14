@@ -57,11 +57,8 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
     
     connection.connectionDidReceiveDataBlock = ^(NSData *data) {
         NSError *error;
-        
-        NSString *jsonResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"repsonse: %@", jsonResponse);
-        
         id response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
         NSAssert(!error, @"JSON deserialization error: %@", error);
         if (callback) {
             callback(response);

@@ -6,11 +6,12 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "TTTab.h"
+
 #import "TTClient.h"
 
 @implementation TTClient
 
-@synthesize claimingPassword;
 @synthesize userAgent, label, description, iconURL;
 @synthesize dictionary;
 
@@ -28,9 +29,6 @@
     return self;
 }
 
-
-#pragma mark Accessors
-
 - (NSDictionary *)dictionary;
 {
     return [NSDictionary dictionaryWithObjectsAndKeys:
@@ -41,9 +39,37 @@
             nil];
 }
 
-
-- (void)create:(NSString *)username password:(NSString *)password claimngPassword:(NSString *)claimingPassword callback:(void (^)(id))callback;
+- (void)claimClient:(NSString *)claimingPassword finalPassword:(NSString *)finalPassword callback:(void (^)(id))callback;
 {
+    self.password = claimingPassword;
+    
+    NSMutableDictionary *params = [[self.encryption encrypt:self.dictionary] mutableCopy];
+    [params setObject:finalPassword forKey:@"password"];
+    
+    [self sendJsonRequest:@"browsers/clients/claim.json" method:@"PUT" jsonParameters:params callback:^(id response) {
+        if ([[response objectForKey:@"success"] boolValue]) {
+            self.password = finalPassword;
+        } else {
+            self.password = nil;
+        }
+        
+        callback(response);
+    }];
+}
+
+- (void)loadTabs:(void (^)(NSArray *, id))callback;
+{
+    [self sendJsonGetRequest:@"browsers/tabs.json" callback:^(id response) {
+        NSMutableArray *tabs = [[NSMutableArray alloc] initWithCapacity:[response count]];
+        
+        [response enumerateObjectsUsingBlock:^(NSDictionary *encryptedTab, NSUInteger idx, BOOL *stop) {
+            TTTab *tab = [[TTTab alloc] initWithDictionary:[self.encryption decrypt:encryptedTab]];
+            tab.identifier = [encryptedTab objectForKey:@"identifier"];
+            [tabs addObject:tab];
+        }];
+        
+        callback([tabs copy], response);
+    }];
 }
 
 @end

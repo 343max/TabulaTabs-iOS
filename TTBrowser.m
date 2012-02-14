@@ -68,4 +68,13 @@
     }];
 }
 
+- (void)createClient:(NSString *)claimingPassword callback:(void (^)(NSString *, id))callback;
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObject:claimingPassword forKey:@"password"];
+    
+    [self sendJsonRequest:@"browsers/clients.json" method:@"POST" jsonParameters:params callback:^(id response) {
+        callback([response objectForKey:@"username"], response);
+    }];
+}
+
 @end
