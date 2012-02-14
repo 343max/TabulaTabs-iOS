@@ -43,7 +43,29 @@
     
     [self sendJsonRequest:@"browsers.json" method:@"POST" jsonParameters:jsonParams callback:^(NSDictionary* response) {
         self.username = [response objectForKey:@"username"];
+        self.password = password;
         callback(response);
+    }];
+}
+
+- (void)load:(void (^)(id))callback;
+{
+    [self load:self.username password:self.password callback:callback];
+}
+
+- (void)load:(NSString *)username password:(NSString *)password callback:(void (^)(id))callback;
+{
+    [self sendJsonGetRequest:@"browsers.json" callback:^(id response) {
+        NSDictionary *payload = [self.encryption decrypt:response];
+        
+        self.description = [payload objectForKey:@"description"];
+        self.iconURL = [NSURL URLWithString:[payload objectForKey:@"iconURL"]];
+        self.label = [payload objectForKey:@"label"];
+        self.userAgent = [payload objectForKey:@"useragent"];
+        
+        NSMutableDictionary *mutableResponse = [response mutableCopy];
+        [mutableResponse setObject:payload forKey:@"payload"];
+        callback([mutableResponse copy]);
     }];
 }
 

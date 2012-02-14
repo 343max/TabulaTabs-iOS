@@ -61,7 +61,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
 {
-    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;");
+//    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;");
     if ([challenge previousFailureCount] == 0) {
         NSURLCredential *credentials = [NSURLCredential credentialWithUser:self.username password:self.password persistence:NSURLCredentialPersistenceForSession];
         [challenge.sender useCredential:credentials forAuthenticationChallenge:challenge];
@@ -72,7 +72,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 {
-    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;");
+//    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;");
     [self.dataReceived appendData:data];
     
     if (self.connectionDidReceiveDataBlock) {
@@ -82,7 +82,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection;
 {
-    NSLog(@"- (void)connectionDidFinishLoading:(NSURLConnection *)connection;");
+//    NSLog(@"- (void)connectionDidFinishLoading:(NSURLConnection *)connection;");
     if (self.connectionDidFinishLoadingBlock) {
         self.connectionDidFinishLoadingBlock(self.dataReceived);
     }
@@ -90,7 +90,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
 {
-    NSLog(@"- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;");
+//    NSLog(@"- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;");
     if (self.connectionDidFailWithErrorBlock) {
         self.connectionDidFailWithErrorBlock(error);
     }

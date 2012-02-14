@@ -20,5 +20,7 @@
 - (id)initWithEncryption:(TTEncryption *)encryption;
 
 - (void)registerWithPassword:(NSString *)password callback:(void(^)(id response))callback;
+- (void)load:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
+- (void)load:(void(^)(id response))callback;
 
 @end
