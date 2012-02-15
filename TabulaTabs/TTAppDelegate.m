@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AsyncTests.h"
-#import "TTBrowser.h"
+//#import "AsyncTests.h"
+
+#import "TTWelcomeViewController.h"
+#import "TTTabListViewController.h"
 
 #import "TTAppDelegate.h"
 
@@ -22,10 +24,45 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    AsyncTests* tests = [[AsyncTests alloc] init];
-    [tests runTests];
+//    AsyncTests* tests = [[AsyncTests alloc] init];
+//    [tests runTests];
+    
+    
+    TTTabListViewController* tabListViewController = [[TTTabListViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:tabListViewController];
+    self.window.rootViewController = mainNavigationController;
+    
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/claim/username/password/key"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
+{
+    if (![url.scheme isEqualToString:@"tabulatabs"]) {
+        return NO;
+    } else {
+        NSLog(@"handleOpenURL: %@", url);
+        
+        NSString *module = url.host;
+        NSString *action = [url.pathComponents objectAtIndex:1];
+        
+        if ([module isEqualToString:@"client"] && [action isEqualToString:@"claim"]) {
+            NSString* authUsername = [url.pathComponents objectAtIndex:2];
+            NSString* authPassword = [url.pathComponents objectAtIndex:3];
+            NSString* encryptionKey = [url.pathComponents objectAtIndex:4];
+            
+            NSLog(@"should claim a new client: %@, %@, %@", authUsername, authPassword, encryptionKey);
+        } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
+            TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] initWithNibName:nil bundle:nil];
+            [(UINavigationController *)self.window.rootViewController pushViewController:welcomeViewController animated:YES];
+        } else {
+            NSLog(@"could not handle my URL: %@", url);
+        }
+        
+        return YES;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
