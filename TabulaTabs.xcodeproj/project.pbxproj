@@ -38,6 +38,18 @@
 		50FE0A9F14EB27DF00823CE6 /* TTTabListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */; };
 		50FE0AA214EB289400823CE6 /* TTWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */; };
 		50FE0AA514EB2A9B00823CE6 /* registrationGuide.html in Resources */ = {isa = PBXBuildFile; fileRef = 50FE0AA414EB2A9B00823CE6 /* registrationGuide.html */; };
+		50FE0ABE14EB2F5E00823CE6 /* TTScanQRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */; };
+		50FE0AC014EB315000823CE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0ABF14EB315000823CE6 /* AVFoundation.framework */; };
+		50FE0AC214EB315600823CE6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC114EB315600823CE6 /* CoreMedia.framework */; };
+		50FE0AC414EB315F00823CE6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC314EB315F00823CE6 /* CoreVideo.framework */; };
+		50FE0AC614EB316400823CE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC514EB316400823CE6 /* QuartzCore.framework */; };
+		50FE0AC814EB316E00823CE6 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC714EB316E00823CE6 /* libiconv.dylib */; };
+		50FE0AC914EB321600823CE6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695214E8606C00788808 /* CoreGraphics.framework */; };
+		50FE0ACA14EB327300823CE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0ABF14EB315000823CE6 /* AVFoundation.framework */; };
+		50FE0ACB14EB327900823CE6 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC114EB315600823CE6 /* CoreMedia.framework */; };
+		50FE0ACC14EB328200823CE6 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC314EB315F00823CE6 /* CoreVideo.framework */; };
+		50FE0ACD14EB328C00823CE6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC514EB316400823CE6 /* QuartzCore.framework */; };
+		50FE0ACE14EB329200823CE6 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0AC714EB316E00823CE6 /* libiconv.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +132,13 @@
 		50FE0AA014EB289400823CE6 /* TTWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWelcomeViewController.h; sourceTree = "<group>"; };
 		50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWelcomeViewController.m; sourceTree = "<group>"; };
 		50FE0AA414EB2A9B00823CE6 /* registrationGuide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuide.html; sourceTree = "<group>"; };
+		50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScanQRViewController.h; sourceTree = "<group>"; };
+		50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTScanQRViewController.m; sourceTree = "<group>"; };
+		50FE0ABF14EB315000823CE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		50FE0AC114EB315600823CE6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		50FE0AC314EB315F00823CE6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		50FE0AC514EB316400823CE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		50FE0AC714EB316E00823CE6 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +146,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50FE0ACE14EB329200823CE6 /* libiconv.dylib in Frameworks */,
+				50FE0ACD14EB328C00823CE6 /* QuartzCore.framework in Frameworks */,
+				50FE0ACC14EB328200823CE6 /* CoreVideo.framework in Frameworks */,
+				50FE0ACB14EB327900823CE6 /* CoreMedia.framework in Frameworks */,
+				50FE0ACA14EB327300823CE6 /* AVFoundation.framework in Frameworks */,
 				507C1F0414E8671F003085ED /* Security.framework in Frameworks */,
 				50AE694F14E8606C00788808 /* UIKit.framework in Frameworks */,
 				50AE695114E8606C00788808 /* Foundation.framework in Frameworks */,
@@ -142,6 +166,12 @@
 				50AE696714E8606C00788808 /* SenTestingKit.framework in Frameworks */,
 				50AE696814E8606C00788808 /* UIKit.framework in Frameworks */,
 				50AE696914E8606C00788808 /* Foundation.framework in Frameworks */,
+				50FE0AC914EB321600823CE6 /* CoreGraphics.framework in Frameworks */,
+				50FE0AC014EB315000823CE6 /* AVFoundation.framework in Frameworks */,
+				50FE0AC214EB315600823CE6 /* CoreMedia.framework in Frameworks */,
+				50FE0AC414EB315F00823CE6 /* CoreVideo.framework in Frameworks */,
+				50FE0AC614EB316400823CE6 /* QuartzCore.framework in Frameworks */,
+				50FE0AC814EB316E00823CE6 /* libiconv.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +207,11 @@
 		50AE694D14E8606C00788808 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50FE0AC714EB316E00823CE6 /* libiconv.dylib */,
+				50FE0AC514EB316400823CE6 /* QuartzCore.framework */,
+				50FE0AC314EB315F00823CE6 /* CoreVideo.framework */,
+				50FE0AC114EB315600823CE6 /* CoreMedia.framework */,
+				50FE0ABF14EB315000823CE6 /* AVFoundation.framework */,
 				507C1F0314E8671F003085ED /* Security.framework */,
 				50AE694E14E8606C00788808 /* UIKit.framework */,
 				50AE695014E8606C00788808 /* Foundation.framework */,
@@ -350,6 +385,8 @@
 				50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */,
 				50FE0AA014EB289400823CE6 /* TTWelcomeViewController.h */,
 				50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */,
+				50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */,
+				50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -407,7 +444,7 @@
 		50AE694114E8606C00788808 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 50AE694414E8606C00788808 /* Build configuration list for PBXProject "TabulaTabs" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -487,6 +524,7 @@
 				5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */,
 				50FE0A9F14EB27DF00823CE6 /* TTTabListViewController.m in Sources */,
 				50FE0AA214EB289400823CE6 /* TTWelcomeViewController.m in Sources */,
+				50FE0ABE14EB2F5E00823CE6 /* TTScanQRViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

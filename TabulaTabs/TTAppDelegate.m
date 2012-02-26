@@ -6,8 +6,11 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-//#import "AsyncTests.h"
+#import "AsyncTests.h"
 
+#import "ZBarSDK.h"
+
+#import "TTScanQRViewController.h"
 #import "TTWelcomeViewController.h"
 #import "TTTabListViewController.h"
 
@@ -33,7 +36,8 @@
     self.window.rootViewController = mainNavigationController;
     
 //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/claim/username/password/key"]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/snapcode/"]];
     
     return YES;
 }
@@ -48,7 +52,7 @@
         NSString *module = url.host;
         NSString *action = [url.pathComponents objectAtIndex:1];
         
-        if ([module isEqualToString:@"client"] && [action isEqualToString:@"claim"]) {
+        if ([module isEqualToString:@"client"] && [action isEqualToString:@"claim"] && url.pathComponents.count == 5) {
             NSString* authUsername = [url.pathComponents objectAtIndex:2];
             NSString* authPassword = [url.pathComponents objectAtIndex:3];
             NSString* encryptionKey = [url.pathComponents objectAtIndex:4];
@@ -57,6 +61,9 @@
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
             TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] initWithNibName:nil bundle:nil];
             [(UINavigationController *)self.window.rootViewController pushViewController:welcomeViewController animated:YES];
+        } else if([module isEqualToString:@"client"] && [action isEqualToString:@"snapcode"]) {
+            TTScanQRViewController *scanViewController = [[TTScanQRViewController alloc] initWithNibName:nil bundle:nil];
+            [(UINavigationController *)self.window.rootViewController pushViewController:scanViewController animated:YES];
         } else {
             NSLog(@"could not handle my URL: %@", url);
         }
