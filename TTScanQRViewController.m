@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "MKInfoPanel.h"
+
 #import "TTScanQRViewController.h"
 
 @interface TTScanQRViewController ()
@@ -90,9 +92,9 @@
         NSLog(@"scanned URL: %@", url.absoluteString);
         
         [[UIApplication sharedApplication] openURL:url];
+        [MKInfoPanel showPanelInView:self.view type:MKInfoPanelTypeInfo title:@"Scanned an QRCode" subtitle:nil hideAfter:2];
     } else {
-#warning Say something when the URL is incorret
-        NSLog(@"not an tabulatabs registration url");
+        [MKInfoPanel showPanelInView:self.view type:MKInfoPanelTypeError title:@"Invalid QR Code" subtitle:@"This is not a Tabulatabs QR Code." hideAfter:2];
     }
 }
 

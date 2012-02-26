@@ -11,6 +11,16 @@
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
+		50AB683F14FA98680040D328 /* Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683414FA98680040D328 /* Blue.png */; };
+		50AB684014FA98680040D328 /* Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683514FA98680040D328 /* Blue@2x.png */; };
+		50AB684114FA98680040D328 /* MKInfoPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB683714FA98680040D328 /* MKInfoPanel.m */; };
+		50AB684214FA98680040D328 /* MKInfoPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683814FA98680040D328 /* MKInfoPanel.xib */; };
+		50AB684314FA98680040D328 /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683914FA98680040D328 /* Red.png */; };
+		50AB684414FA98680040D328 /* Red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683A14FA98680040D328 /* Red@2x.png */; };
+		50AB684514FA98680040D328 /* Tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683B14FA98680040D328 /* Tick.png */; };
+		50AB684614FA98680040D328 /* Tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683C14FA98680040D328 /* Tick@2x.png */; };
+		50AB684714FA98680040D328 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683D14FA98680040D328 /* Warning.png */; };
+		50AB684814FA98680040D328 /* Warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683E14FA98680040D328 /* Warning@2x.png */; };
 		50AE694F14E8606C00788808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE694E14E8606C00788808 /* UIKit.framework */; };
 		50AE695114E8606C00788808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695014E8606C00788808 /* Foundation.framework */; };
 		50AE695314E8606C00788808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695214E8606C00788808 /* CoreGraphics.framework */; };
@@ -70,6 +80,17 @@
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		50AB683414FA98680040D328 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue.png; sourceTree = "<group>"; };
+		50AB683514FA98680040D328 /* Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@2x.png"; sourceTree = "<group>"; };
+		50AB683614FA98680040D328 /* MKInfoPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKInfoPanel.h; sourceTree = "<group>"; };
+		50AB683714FA98680040D328 /* MKInfoPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKInfoPanel.m; sourceTree = "<group>"; };
+		50AB683814FA98680040D328 /* MKInfoPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKInfoPanel.xib; sourceTree = "<group>"; };
+		50AB683914FA98680040D328 /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
+		50AB683A14FA98680040D328 /* Red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red@2x.png"; sourceTree = "<group>"; };
+		50AB683B14FA98680040D328 /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tick.png; sourceTree = "<group>"; };
+		50AB683C14FA98680040D328 /* Tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tick@2x.png"; sourceTree = "<group>"; };
+		50AB683D14FA98680040D328 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Warning.png; sourceTree = "<group>"; };
+		50AB683E14FA98680040D328 /* Warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Warning@2x.png"; sourceTree = "<group>"; };
 		50AE694A14E8606C00788808 /* TabulaTabs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabulaTabs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AE694E14E8606C00788808 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		50AE695014E8606C00788808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -178,6 +199,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50AB683314FA98680040D328 /* MKInfoBundle */ = {
+			isa = PBXGroup;
+			children = (
+				50AB683414FA98680040D328 /* Blue.png */,
+				50AB683514FA98680040D328 /* Blue@2x.png */,
+				50AB683614FA98680040D328 /* MKInfoPanel.h */,
+				50AB683714FA98680040D328 /* MKInfoPanel.m */,
+				50AB683814FA98680040D328 /* MKInfoPanel.xib */,
+				50AB683914FA98680040D328 /* Red.png */,
+				50AB683A14FA98680040D328 /* Red@2x.png */,
+				50AB683B14FA98680040D328 /* Tick.png */,
+				50AB683C14FA98680040D328 /* Tick@2x.png */,
+				50AB683D14FA98680040D328 /* Warning.png */,
+				50AB683E14FA98680040D328 /* Warning@2x.png */,
+			);
+			path = MKInfoBundle;
+			sourceTree = "<group>";
+		};
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +323,7 @@
 		50AE699414E860D000788808 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				50AB683314FA98680040D328 /* MKInfoBundle */,
 				50FE0A7314EB154100823CE6 /* ZBarSDK */,
 				50AE699514E860DD00788808 /* NSData-AES.h */,
 				50AE699614E860DD00788808 /* NSData-AES.m */,
@@ -475,6 +515,15 @@
 				50FE0A9414EB154100823CE6 /* zbar-helpicons.png in Resources */,
 				50FE0A9514EB154100823CE6 /* zbar-samples.png in Resources */,
 				50FE0AA514EB2A9B00823CE6 /* registrationGuide.html in Resources */,
+				50AB683F14FA98680040D328 /* Blue.png in Resources */,
+				50AB684014FA98680040D328 /* Blue@2x.png in Resources */,
+				50AB684214FA98680040D328 /* MKInfoPanel.xib in Resources */,
+				50AB684314FA98680040D328 /* Red.png in Resources */,
+				50AB684414FA98680040D328 /* Red@2x.png in Resources */,
+				50AB684514FA98680040D328 /* Tick.png in Resources */,
+				50AB684614FA98680040D328 /* Tick@2x.png in Resources */,
+				50AB684714FA98680040D328 /* Warning.png in Resources */,
+				50AB684814FA98680040D328 /* Warning@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +574,7 @@
 				50FE0A9F14EB27DF00823CE6 /* TTTabListViewController.m in Sources */,
 				50FE0AA214EB289400823CE6 /* TTWelcomeViewController.m in Sources */,
 				50FE0ABE14EB2F5E00823CE6 /* TTScanQRViewController.m in Sources */,
+				50AB684114FA98680040D328 /* MKInfoPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
