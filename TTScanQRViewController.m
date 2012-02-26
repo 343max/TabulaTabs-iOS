@@ -48,6 +48,7 @@
         self.cameraSimulator.readerView = self.readerView;
     }
     
+    self.readerView.torchMode = 0;
     self.readerView.readerDelegate = self;
     
     self.readerView.frame = self.view.bounds;
