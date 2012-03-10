@@ -63,6 +63,9 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
         NSError *error;
         id response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
         
+        NSString *rawJSON = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"request: %@\nresponse: %@", request.URL.absoluteString, rawJSON);
+        
         if (error) {
             NSLog(@"error in %@ request %@", connection.request.HTTPMethod, connection.request.URL.absoluteString);
             NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];

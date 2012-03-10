@@ -22,10 +22,17 @@
 
 @end
 
+@interface TTTabListViewController ()
+
+@property (weak) NSArray *tabs;
+
+@end
+
 
 @implementation TTTabListViewController
 
 @synthesize browserRepresentation;
+@synthesize tabs;
 
 - (void)loadTabs;
 {
@@ -46,6 +53,7 @@
                                                     name:TTBrowserReprensentationTabsWhereUpdatedNotification
                                                   object:browserRepresentation];
     browserRepresentation = aBrowserRepresentation;
+    self.tabs = browserRepresentation.tabs;
 
     [self browserWasUpdated:nil];
     
@@ -105,16 +113,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.tabs.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -126,7 +130,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = tab.title;
     
     return cell;
 }
@@ -202,6 +208,7 @@
 
 - (void)tabsWhereUpdated:(NSNotification *)notification;
 {
+    self.tabs = self.browserRepresentation.tabs;
     [self stopLoadingAnimation];
     [self.tableView reloadData];
 }

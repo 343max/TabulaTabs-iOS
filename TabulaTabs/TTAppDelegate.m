@@ -102,10 +102,13 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     if (self.tabListViewController.browserRepresentation == browserRepresentation) {
         [self.navigationController popToViewController:self.tabListViewController animated:animated];
     } else {
+        
         [self.navigationController popToRootViewControllerAnimated:NO];
         self.tabListViewController = [[TTTabListViewController alloc] init];
         self.tabListViewController.browserRepresentation = browserRepresentation;
-        [self.navigationController pushViewController:self.tabListViewController animated:animated];
+        
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
+        self.window.rootViewController = self.navigationController;
     }
     
     return self.tabListViewController;
@@ -197,6 +200,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     [clientDictionaries enumerateObjectsUsingBlock:^(NSDictionary *clientDictionary, NSUInteger idx, BOOL *stop) {
         TTClient *client = [[TTClient alloc] initWithDictionary:clientDictionary];
         client.password = [SSKeychain passwordForService:TTAppDelegatePasswordKey account:client.username];
+        NSLog(@"key: %@", [SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey account:client.username]);
         NSData *encryptionKey = [NSData dataWithHexString:[SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey account:client.username]];
         client.encryption = [[TTEncryption alloc] initWithEncryptionKey:encryptionKey];
         
