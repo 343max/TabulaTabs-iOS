@@ -14,13 +14,13 @@
 
 @property (strong) NSString *userAgent;
 @property (strong) NSString *label;
-@property (strong) NSString *description;
+@property (strong) NSString *browserDescription;
 @property (strong) NSURL *iconURL;
 
 - (void)registerWithPassword:(NSString *)password callback:(void(^)(id response))callback;
 - (void)load:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
 - (void)load:(void(^)(id response))callback;
-- (void)saveTabs:(NSArray *)tabs callback:(void(^)(id response))callback;
+- (void)saveTabs:(NSArray *)tabs callback:(void (^)(BOOL success, id repsonse))callback;
 - (void)createClient:(NSString *)claimingPassword callback:(void (^)(NSString *clientUsername, id response))callback;
 
 @end

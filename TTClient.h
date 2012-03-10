@@ -12,14 +12,17 @@
 
 @property (strong) NSString *userAgent;
 @property (strong) NSString *label;
-@property (strong) NSString *description;
+@property (strong) NSString *clientDescription;
 @property (strong) NSURL *iconURL;
+@property (strong) NSString *keychainIdentifier;
 
-@property (strong, readonly) NSDictionary *dictionary;
+@property (strong, nonatomic) NSDictionary *dictionary;
+
++ (NSString *)generatePassword;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
-- (void)claimClient:(NSString *)claimingPassword finalPassword:(NSString *)finalPassword callback:(void(^)(id response))callback;
+- (void)claimClient:(NSString *)claimingPassword finalPassword:(NSString *)finalPassword callback:(void (^)(BOOL success, id response))callback;
 - (void)loadTabs:(void(^)(NSArray* tabs, id response))callback;
 
 @end

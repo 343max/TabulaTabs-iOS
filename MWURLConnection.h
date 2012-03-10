@@ -14,9 +14,9 @@
 @property (copy, nonatomic) void(^connectionDidFinishLoadingBlock)(NSData *);
 @property (copy, nonatomic) void(^connectionDidReceiveDataBlock)(NSData *);
 @property (copy, nonatomic) void(^connectionDidFailWithErrorBlock)(NSError *);
+@property (copy, nonatomic) void(^connectionDidReceiveAuthentificationChallenge)(NSURLAuthenticationChallenge *);
 
-@property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *password;
+@property (strong, readonly) NSURLRequest *request;
 
 - (id)initWithRequest:(NSURLRequest *)request;
 - (void)start;

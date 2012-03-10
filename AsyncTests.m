@@ -23,7 +23,7 @@
     
     browser.userAgent = @"Tabulatabs iOS Test Browser";
     browser.label = @"TTT: TestTabulatabsBrowser";
-    browser.description = @"my Testbrowser";
+    browser.browserDescription = @"my Testbrowser";
     browser.iconURL = [NSURL URLWithString:@"http://tabulatabs.com/iPhone.png"];
     
     NSLog(@"trying to register browser");
@@ -39,7 +39,7 @@
             NSAssert([browser.userAgent isEqualToString:newBrowser.userAgent], @"useragent not set correctly");
             NSAssert([browser.iconURL.absoluteString isEqualToString:newBrowser.iconURL.absoluteString], @"iconURL not set correctly");
             NSAssert([browser.label isEqualToString:newBrowser.label], @"label not set correctly");
-            NSAssert([browser.description isEqualToString:newBrowser.description], @"description not set correctly");
+            NSAssert([browser.browserDescription isEqualToString:newBrowser.browserDescription], @"description not set correctly");
         }];
         
         TTTab* tab1 = [[TTTab alloc] init];
@@ -61,8 +61,8 @@
         tab2.index = 1;
 
         NSLog(@"trying to save tabs");
-        [browser saveTabs:[NSArray arrayWithObjects:tab1, tab2, nil] callback:^(id response) {
-            NSAssert([[response objectForKey:@"success"] boolValue], @"could not save tabs");
+        [browser saveTabs:[NSArray arrayWithObjects:tab1, tab2, nil] callback:^(BOOL success, id response) {
+            NSAssert(success, @"could not save tabs");
             NSString *claimingPassword = [TTEncryption generatePassword];
             
             NSLog(@"trying to createClient");
@@ -73,7 +73,7 @@
                 client.username = clientUsername;
                 
                 NSLog(@"trying to claim client");
-                [client claimClient:claimingPassword finalPassword:[TTEncryption generatePassword] callback:^(id response) {
+                [client claimClient:claimingPassword finalPassword:[TTEncryption generatePassword] callback:^(BOOL success, id response) {
                     NSAssert([[response objectForKey:@"success"] boolValue], @"could not save tabs");
                     
                     NSLog(@"trying to load tabs");
@@ -98,12 +98,49 @@
                         NSAssert([tab2.windowId isEqualToString:loadedTab2.windowId], @"Tab 2 windowId is incorrect");
                         NSAssert(tab2.index == loadedTab2.index, @"Tab 2 index is incorrect");
                         
-                        NSLog(@"all tests passed successfully");
+                        NSLog(@"trying to save lots of tabs");
+                        
+                        NSMutableArray *lotsOfTabs = [[NSMutableArray alloc] initWithCapacity:100];
+                        
+                        for (NSInteger i = 0; i < 100; i++) {
+                            TTTab* tab = [[TTTab alloc] init];
+                            tab.title = [NSString stringWithFormat:@"Tab%i", i];
+                            tab.URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://tab%i.de/", i]];
+                            tab.favIconURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://tab%i.de/favicon.ico", i]];
+                            tab.selected = NO;
+                            tab.identifier = [NSString stringWithFormat:@"%i", i];
+                            tab.windowId = @"1";
+                            tab.index = i;
+                            [lotsOfTabs addObject:tab];
+                        }
+                        
+                        [browser saveTabs:[lotsOfTabs copy] callback:^(BOOL success, id repsonse) {
+                            NSAssert(success, @"Lots of tabs could not be saved");
+                            
+                            NSLog(@"trying to restore lots of tabs");
+                            [client loadTabs:^(NSArray *tabs, id response) {
+                                NSAssert(tabs.count == lotsOfTabs.count, @"Invalid number of tabs returned");
+                                
+                                for (NSInteger i = 0; i < tabs.count; i++) {
+                                    TTTab *loadedTab = [tabs objectAtIndex:i];
+                                    TTTab *originalTab = [lotsOfTabs objectAtIndex:i];
+                                    
+                                    NSAssert([originalTab.title isEqualToString:loadedTab.title], @"lots of tabs Tab title is incorrect");
+                                    NSAssert([originalTab.URL.absoluteString isEqualToString:loadedTab.URL.absoluteString], @"lots of tabs Tab URL is incorrect");
+                                    NSAssert([originalTab.favIconURL.absoluteString isEqualToString:loadedTab.favIconURL.absoluteString], @"lots of tabs Tab favIconURL is incorrect");
+                                    NSAssert(originalTab.selected == loadedTab.selected, @"lots of tabs Tab title is incorrect");
+                                    NSAssert([originalTab.identifier isEqualToString:loadedTab.identifier], @"lots of tabs Tab identifier is incorrect");
+                                    NSAssert([originalTab.windowId isEqualToString:loadedTab.windowId], @"lots of tabs Tab windowId is incorrect");
+                                    NSAssert(originalTab.index == loadedTab.index, @"lots of tabs Tab index is incorrect");
+                                }
+                                
+                                NSLog(@"all tests passed successfully");
+                            }];
+                        }];
                     }];
                 }];
             }];
-       }];
-
+        }];
     }];
 }
 

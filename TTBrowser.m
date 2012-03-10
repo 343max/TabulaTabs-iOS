@@ -12,14 +12,14 @@
 
 @implementation TTBrowser
 
-@synthesize userAgent, label, description, iconURL;
+@synthesize userAgent, label, browserDescription, iconURL;
 
 - (void)registerWithPassword:(NSString *)password callback:(void (^)(id response))callback;
 {
     NSDictionary *payload = [NSDictionary dictionaryWithObjectsAndKeys:
                                            self.userAgent, @"useragent",
                                            self.label, @"label",
-                                           self.description, @"description",
+                                           self.browserDescription, @"description",
                                            self.iconURL.absoluteString, @"iconURL", nil];
     NSMutableDictionary *jsonParams = [[self.encryption encrypt:payload] mutableCopy];
     
@@ -39,10 +39,13 @@
 
 - (void)load:(NSString *)username password:(NSString *)password callback:(void (^)(id))callback;
 {
+    self.username = username;
+    self.password = password;
+    
     [self sendJsonGetRequest:@"browsers.json" callback:^(id response) {
         NSDictionary *payload = [self.encryption decrypt:response];
         
-        self.description = [payload objectForKey:@"description"];
+        self.browserDescription = [payload objectForKey:@"description"];
         self.iconURL = [NSURL URLWithString:[payload objectForKey:@"iconURL"]];
         self.label = [payload objectForKey:@"label"];
         self.userAgent = [payload objectForKey:@"useragent"];
@@ -53,7 +56,7 @@
     }];
 }
 
-- (void)saveTabs:(NSArray *)tabs callback:(void (^)(id))callback;
+- (void)saveTabs:(NSArray *)tabs callback:(void (^)(BOOL success, id repsonse))callback;
 {
     NSMutableArray *encryptedTabs = [[NSMutableArray alloc] initWithCapacity:tabs.count];
     
@@ -64,7 +67,8 @@
     }];
     
     [self sendJsonRequest:@"browsers/tabs.json" method:@"POST" jsonParameters:[encryptedTabs copy] callback:^(id response) {
-        callback(response);
+        BOOL success = [[response objectForKey:@"success"] boolValue];
+        callback(success, response);
     }];
 }
 

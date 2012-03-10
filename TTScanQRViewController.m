@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "MKInfoPanel.h"
+#import "TTAppDelegate.h"
 
 #import "TTScanQRViewController.h"
 
@@ -93,9 +93,8 @@
         NSLog(@"scanned URL: %@", url.absoluteString);
         
         [[UIApplication sharedApplication] openURL:url];
-        [MKInfoPanel showPanelInView:self.view type:MKInfoPanelTypeInfo title:@"Scanned an QRCode" subtitle:nil hideAfter:2];
     } else {
-        [MKInfoPanel showPanelInView:self.view type:MKInfoPanelTypeError title:@"Invalid QR Code" subtitle:@"This is not a Tabulatabs QR Code." hideAfter:2];
+        [appDelegate showPanelType:MKInfoPanelTypeError  title:@"Invalid QR Code" subtitle:@"This is not a Tabulatabs QR Code." hideAfter:2];
     }
 }
 

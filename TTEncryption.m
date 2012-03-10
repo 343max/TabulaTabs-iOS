@@ -16,6 +16,18 @@
 
 @synthesize encryptionKey;
 
++ (id)encryptionWithHexKey:(NSString *)hexKey;
+{
+    NSData *key = [NSData dataWithHexString:hexKey];
+    
+    return [self encryptionWithKey:key];
+}
+
++ (id)encryptionWithKey:(NSData *)encryptionKey;
+{
+    return [[TTEncryption alloc] initWithEncryptionKey:encryptionKey];
+}
+
 - (id)initWithEncryptionKey:(NSData *)theEncryptionKey;
 {
     self = [super init];
@@ -47,12 +59,13 @@
     NSData *ic = [NSData dataFromBase64String:[encryptedDictionary objectForKey:@"ic"]];
     
     NSData *decryptedData = [ic AES256DecryptWithKey:self.encryptionKey iv:iv];
-    NSError *error;
+    NSError *error = nil;
     id payload = [NSJSONSerialization JSONObjectWithData:decryptedData options:0 error:&error];
     
     if (error) {
-        NSLog(@"could not decrypt data: %@", error);
+//        NSLog(@"could not decrypt data: %@", error);
     }
+//    NSAssert(!error, @"could not decrypt data: %@", error);
     
     return payload;
 }

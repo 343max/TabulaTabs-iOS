@@ -27,8 +27,7 @@
 
 @synthesize dataReceived;
 @synthesize request, connection;
-@synthesize connectionDidFinishLoadingBlock, connectionDidReceiveDataBlock, connectionDidFailWithErrorBlock;
-@synthesize username, password;
+@synthesize connectionDidFinishLoadingBlock, connectionDidReceiveDataBlock, connectionDidFailWithErrorBlock, connectionDidReceiveAuthentificationChallenge;
 
 - (id)initWithRequest:(NSURLRequest *)aRequest
 {
@@ -59,16 +58,6 @@
 
 #pragma mark NSURLConnectionDataDelegate
 
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
-{
-    if (!challenge.error) {
-        NSURLCredential *credentials = [NSURLCredential credentialWithUser:self.username password:self.password persistence:NSURLCredentialPersistenceForSession];
-        [challenge.sender useCredential:credentials forAuthenticationChallenge:challenge];
-    } else {
-        NSLog(@"Could not login!");
-    }
-}
-
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 {
 //    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;");
@@ -84,6 +73,18 @@
 //    NSLog(@"- (void)connectionDidFinishLoading:(NSURLConnection *)connection;");
     if (self.connectionDidFinishLoadingBlock) {
         self.connectionDidFinishLoadingBlock(self.dataReceived);
+    }
+}
+
+
+#pragma mark NSURLConnectionDelegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+{
+    NSLog(@"invalid authentication: %@", self.request.URL.absoluteString);
+    
+    if (self.connectionDidReceiveAuthentificationChallenge) {
+        self.connectionDidReceiveAuthentificationChallenge(challenge);
     }
 }
 

@@ -8,6 +8,7 @@
 
 NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/";
 
+#import "NSData+Base64.h"
 #import "MWURLConnection.h"
 
 #import "TTRestfulClient.h"
@@ -38,6 +39,12 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     request.HTTPMethod = method;
     
+    if (self.username && self.password) {
+        NSData *userCredentials = [[NSString stringWithFormat:@"%@:%@", self.username, self.password] dataUsingEncoding:NSUTF8StringEncoding];
+        [request addValue:[NSString stringWithFormat:@"Basic %@==", [userCredentials base64EncodedString]]
+       forHTTPHeaderField:@"Authorization"];
+    }
+    
     if (jsonParameters) {
         NSError *error;
         request.HTTPBody = [NSJSONSerialization dataWithJSONObject:jsonParameters options:0 error:&error];
@@ -52,12 +59,15 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
     NSMutableURLRequest *request = [self prepareJsonRequest:path method:method jsonParameters:jsonParameters];
     MWURLConnection *connection = [[MWURLConnection alloc] initWithRequest:[request copy]];
     
-    connection.username = self.username;
-    connection.password = self.password;
-    
-    connection.connectionDidReceiveDataBlock = ^(NSData *data) {
+    connection.connectionDidFinishLoadingBlock = ^(NSData *data) {
         NSError *error;
         id response = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+        
+        if (error) {
+            NSLog(@"error in %@ request %@", connection.request.HTTPMethod, connection.request.URL.absoluteString);
+            NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"%@\n\n\n", responseString);
+        }
         
         NSAssert(!error, @"JSON deserialization error: %@", error);
         if (callback) {

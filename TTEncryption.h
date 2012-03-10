@@ -12,6 +12,9 @@
 
 @property (strong) NSData *encryptionKey;
 
++ (id)encryptionWithKey:(NSData *)encryptionKey;
++ (id)encryptionWithHexKey:(NSString *)hexKey;
+
 - (id)initWithEncryptionKey:(NSData *)encryptionKey;
 
 - (NSDictionary *)encrypt:(id)payload iv:(NSData *)iv;

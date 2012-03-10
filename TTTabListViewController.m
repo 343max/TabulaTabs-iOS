@@ -6,39 +6,66 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "TTBrowser.h"
+#import "TTTab.h"
+
+#import "TTAppDelegate.h"
+#import "TTBrowserRepresentation.h"
+
 #import "TTTabListViewController.h"
+
+@interface TTTabListViewController ()
+
+- (void)claimClient:(NSString *)claimingPassword;
+- (void)browserWasUpdated:(NSNotification *)notification;
+- (void)tabsWhereUpdated:(NSNotification *)notification;
+
+@end
 
 
 @implementation TTTabListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize browserRepresentation;
+
+- (void)loadTabs;
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [self startLoadingAnimation];
+    
+    [self.browserRepresentation loadTabs];
+    [self.browserRepresentation loadBrowser];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark Accessors
+
+- (void)setBrowserRepresentation:(TTBrowserRepresentation *)aBrowserRepresentation;
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+    [[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:TTBrowserReprensentationBrowserWasUpdatedNotification 
+                                                  object:browserRepresentation];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:TTBrowserReprensentationTabsWhereUpdatedNotification
+                                                  object:browserRepresentation];
+    browserRepresentation = aBrowserRepresentation;
+
+    [self browserWasUpdated:nil];
     
-    // Release any cached data, images, etc that aren't in use.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(browserWasUpdated:)
+                                                 name:TTBrowserReprensentationBrowserWasUpdatedNotification
+                                               object:browserRepresentation];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tabsWhereUpdated:)
+                                                 name:TTBrowserReprensentationTabsWhereUpdatedNotification
+                                               object:browserRepresentation];
 }
+
 
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -156,4 +183,27 @@
      */
 }
 
+
+#pragma mark PullRefreshTableViewController
+
+- (void)refresh;
+{
+    [self loadTabs];
+}
+
+
+#pragma mark Helper
+
+- (void)browserWasUpdated:(NSNotification *)notification;
+{
+    NSLog(@"loaded Browser Info: %@  /  %@", self.browserRepresentation.browser.label, self.browserRepresentation.browser.userAgent);
+    self.title = self.browserRepresentation.browser.label;
+}
+
+- (void)tabsWhereUpdated:(NSNotification *)notification;
+{
+    [self stopLoadingAnimation];
+    [self.tableView reloadData];
+}
+     
 @end
