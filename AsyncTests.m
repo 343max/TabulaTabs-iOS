@@ -21,7 +21,7 @@
     TTEncryption *encryption = [[TTEncryption alloc] initWithEncryptionKey:[TTEncryption generateEncryptionKey]]; 
     TTBrowser *browser = [[TTBrowser alloc] initWithEncryption:encryption];
     
-    browser.userAgent = @"Tabulatabs iOS Test Browser";
+    browser.userAgent = @"test - Tabulatabs iOS Test Browser";
     browser.label = @"TTT: TestTabulatabsBrowser";
     browser.browserDescription = @"my Testbrowser";
     browser.iconURL = [NSURL URLWithString:@"http://tabulatabs.com/iPhone.png"];
@@ -71,6 +71,8 @@
                 
                 TTClient *client = [[TTClient alloc] initWithEncryption:encryption];
                 client.username = clientUsername;
+                client.label = @"Testclient";
+                client.userAgent = @"test - iOS Testing Useragent";
                 
                 NSLog(@"trying to claim client");
                 [client claimClient:claimingPassword finalPassword:[TTEncryption generatePassword] callback:^(BOOL success, id response) {

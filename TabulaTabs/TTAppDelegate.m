@@ -32,14 +32,15 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+//    AsyncTests* tests = [[AsyncTests alloc] init];
+//    [tests runTests];
+//    return YES;
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-//    AsyncTests* tests = [[AsyncTests alloc] init];
-//    [tests runTests];
-    
+        
     [self restoreBrowserRepresentations];
     
     self.tabListViewController = [[TTTabListViewController alloc] initWithStyle:UITableViewStylePlain];

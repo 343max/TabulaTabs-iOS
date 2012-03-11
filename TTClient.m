@@ -71,6 +71,7 @@ const int kPasswordByteLength = 16;
     
     NSMutableDictionary *params = [[self.encryption encrypt:self.dictionary] mutableCopy];
     [params setObject:finalPassword forKey:@"password"];
+    [params setObject:self.userAgent forKey:@"useragent"];
     
     [self sendJsonRequest:@"browsers/clients/claim.json" method:@"PUT" jsonParameters:params callback:^(id response) {
         NSLog(@"response: %@", response);

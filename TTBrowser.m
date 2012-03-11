@@ -17,13 +17,13 @@
 - (void)registerWithPassword:(NSString *)password callback:(void (^)(id response))callback;
 {
     NSDictionary *payload = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           self.userAgent, @"useragent",
                                            self.label, @"label",
                                            self.browserDescription, @"description",
                                            self.iconURL.absoluteString, @"iconURL", nil];
     NSMutableDictionary *jsonParams = [[self.encryption encrypt:payload] mutableCopy];
     
     [jsonParams setObject:password forKey:@"password"];
+    [jsonParams setObject:self.userAgent forKey:@"useragent"];
     
     [self sendJsonRequest:@"browsers.json" method:@"POST" jsonParameters:jsonParams callback:^(NSDictionary* response) {
         self.username = [response objectForKey:@"username"];
@@ -48,7 +48,7 @@
         self.browserDescription = [payload objectForKey:@"description"];
         self.iconURL = [NSURL URLWithString:[payload objectForKey:@"iconURL"]];
         self.label = [payload objectForKey:@"label"];
-        self.userAgent = [payload objectForKey:@"useragent"];
+        self.userAgent = [response objectForKey:@"useragent"];
         
         NSMutableDictionary *mutableResponse = [response mutableCopy];
         [mutableResponse setObject:payload forKey:@"payload"];
