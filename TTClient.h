@@ -10,6 +10,7 @@
 
 @interface TTClient : TTRestfulEncryptedClient
 
+@property (assign, readonly) BOOL unclaimed;
 @property (strong) NSString *userAgent;
 @property (strong) NSString *label;
 @property (strong) NSString *clientDescription;

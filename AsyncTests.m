@@ -66,7 +66,7 @@
             NSString *claimingPassword = [TTEncryption generatePassword];
             
             NSLog(@"trying to createClient");
-            [browser createClient:claimingPassword callback:^(NSString *clientUsername, id response) {
+            [browser createClientWitClaimingPassword:claimingPassword callback:^(NSString *clientUsername, id response) {
                 NSAssert(clientUsername, @"could not create client");
                 
                 TTClient *client = [[TTClient alloc] initWithEncryption:encryption];

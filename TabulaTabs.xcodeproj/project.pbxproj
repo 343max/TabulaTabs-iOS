@@ -13,16 +13,6 @@
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
-		50AB683F14FA98680040D328 /* Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683414FA98680040D328 /* Blue.png */; };
-		50AB684014FA98680040D328 /* Blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683514FA98680040D328 /* Blue@2x.png */; };
-		50AB684114FA98680040D328 /* MKInfoPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB683714FA98680040D328 /* MKInfoPanel.m */; };
-		50AB684214FA98680040D328 /* MKInfoPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683814FA98680040D328 /* MKInfoPanel.xib */; };
-		50AB684314FA98680040D328 /* Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683914FA98680040D328 /* Red.png */; };
-		50AB684414FA98680040D328 /* Red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683A14FA98680040D328 /* Red@2x.png */; };
-		50AB684514FA98680040D328 /* Tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683B14FA98680040D328 /* Tick.png */; };
-		50AB684614FA98680040D328 /* Tick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683C14FA98680040D328 /* Tick@2x.png */; };
-		50AB684714FA98680040D328 /* Warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683D14FA98680040D328 /* Warning.png */; };
-		50AB684814FA98680040D328 /* Warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB683E14FA98680040D328 /* Warning@2x.png */; };
 		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
 		50AB685914FAAE100040D328 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685714FAAE100040D328 /* README.markdown */; };
 		50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */; };
@@ -44,6 +34,8 @@
 		50AE699B14E860DD00788808 /* NSData-AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699614E860DD00788808 /* NSData-AES.m */; };
 		50AE699C14E860DD00788808 /* NSData-hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699814E860DD00788808 /* NSData-hex.m */; };
 		50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699A14E860DD00788808 /* NSData+Base64.m */; };
+		50C129E2150D378900A3E3DA /* TTDevelopmentHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */; };
+		50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
 		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
 		50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0A8B14EB154100823CE6 /* libzbar.a */; };
@@ -90,17 +82,6 @@
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		50AB683414FA98680040D328 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blue.png; sourceTree = "<group>"; };
-		50AB683514FA98680040D328 /* Blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Blue@2x.png"; sourceTree = "<group>"; };
-		50AB683614FA98680040D328 /* MKInfoPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKInfoPanel.h; sourceTree = "<group>"; };
-		50AB683714FA98680040D328 /* MKInfoPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKInfoPanel.m; sourceTree = "<group>"; };
-		50AB683814FA98680040D328 /* MKInfoPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKInfoPanel.xib; sourceTree = "<group>"; };
-		50AB683914FA98680040D328 /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red.png; sourceTree = "<group>"; };
-		50AB683A14FA98680040D328 /* Red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Red@2x.png"; sourceTree = "<group>"; };
-		50AB683B14FA98680040D328 /* Tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tick.png; sourceTree = "<group>"; };
-		50AB683C14FA98680040D328 /* Tick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tick@2x.png"; sourceTree = "<group>"; };
-		50AB683D14FA98680040D328 /* Warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Warning.png; sourceTree = "<group>"; };
-		50AB683E14FA98680040D328 /* Warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Warning@2x.png"; sourceTree = "<group>"; };
 		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -133,6 +114,10 @@
 		50AE699814E860DD00788808 /* NSData-hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-hex.m"; sourceTree = "<group>"; };
 		50AE699914E860DD00788808 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		50AE699A14E860DD00788808 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		50C129E0150D378900A3E3DA /* TTDevelopmentHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDevelopmentHelpers.h; sourceTree = "<group>"; };
+		50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDevelopmentHelpers.m; sourceTree = "<group>"; };
+		50C129E8150D4F1300A3E3DA /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
+		50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
 		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
 		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
@@ -223,24 +208,6 @@
 			path = sskeychain;
 			sourceTree = "<group>";
 		};
-		50AB683314FA98680040D328 /* MKInfoBundle */ = {
-			isa = PBXGroup;
-			children = (
-				50AB683414FA98680040D328 /* Blue.png */,
-				50AB683514FA98680040D328 /* Blue@2x.png */,
-				50AB683614FA98680040D328 /* MKInfoPanel.h */,
-				50AB683714FA98680040D328 /* MKInfoPanel.m */,
-				50AB683814FA98680040D328 /* MKInfoPanel.xib */,
-				50AB683914FA98680040D328 /* Red.png */,
-				50AB683A14FA98680040D328 /* Red@2x.png */,
-				50AB683B14FA98680040D328 /* Tick.png */,
-				50AB683C14FA98680040D328 /* Tick@2x.png */,
-				50AB683D14FA98680040D328 /* Warning.png */,
-				50AB683E14FA98680040D328 /* Warning@2x.png */,
-			);
-			path = MKInfoBundle;
-			sourceTree = "<group>";
-		};
 		50AB685214FAADEE0040D328 /* PullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +269,8 @@
 				50AE695E14E8606C00788808 /* TTAppDelegate.m */,
 				503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */,
 				503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */,
+				50C129E0150D378900A3E3DA /* TTDevelopmentHelpers.h */,
+				50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */,
 			);
 			path = TabulaTabs;
 			sourceTree = "<group>";
@@ -360,9 +329,9 @@
 		50AE699414E860D000788808 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */,
 				504167D6150AB2A0007A3431 /* SSKeychain */,
 				50AB685214FAADEE0040D328 /* PullToRefresh */,
-				50AB683314FA98680040D328 /* MKInfoBundle */,
 				50FE0A7314EB154100823CE6 /* ZBarSDK */,
 				50AE699514E860DD00788808 /* NSData-AES.h */,
 				50AE699614E860DD00788808 /* NSData-AES.m */,
@@ -372,6 +341,15 @@
 				50AE699A14E860DD00788808 /* NSData+Base64.m */,
 			);
 			name = External;
+			sourceTree = "<group>";
+		};
+		50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				50C129E8150D4F1300A3E3DA /* MTStatusBarOverlay.h */,
+				50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */,
+			);
+			name = MTStatusBarOverlay;
 			sourceTree = "<group>";
 		};
 		50F3639D14E925C900AB104C /* AsyncTests */ = {
@@ -555,15 +533,6 @@
 				50FE0A9414EB154100823CE6 /* zbar-helpicons.png in Resources */,
 				50FE0A9514EB154100823CE6 /* zbar-samples.png in Resources */,
 				50FE0AA514EB2A9B00823CE6 /* registrationGuide.html in Resources */,
-				50AB683F14FA98680040D328 /* Blue.png in Resources */,
-				50AB684014FA98680040D328 /* Blue@2x.png in Resources */,
-				50AB684214FA98680040D328 /* MKInfoPanel.xib in Resources */,
-				50AB684314FA98680040D328 /* Red.png in Resources */,
-				50AB684414FA98680040D328 /* Red@2x.png in Resources */,
-				50AB684514FA98680040D328 /* Tick.png in Resources */,
-				50AB684614FA98680040D328 /* Tick@2x.png in Resources */,
-				50AB684714FA98680040D328 /* Warning.png in Resources */,
-				50AB684814FA98680040D328 /* Warning@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */,
 				504167DA150AB323007A3431 /* SSKeychain.m in Sources */,
 				50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */,
 				50AE695B14E8606C00788808 /* main.m in Sources */,
@@ -618,8 +588,8 @@
 				50FE0A9F14EB27DF00823CE6 /* TTTabListViewController.m in Sources */,
 				50FE0AA214EB289400823CE6 /* TTWelcomeViewController.m in Sources */,
 				50FE0ABE14EB2F5E00823CE6 /* TTScanQRViewController.m in Sources */,
-				50AB684114FA98680040D328 /* MKInfoPanel.m in Sources */,
 				503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */,
+				50C129E2150D378900A3E3DA /* TTDevelopmentHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

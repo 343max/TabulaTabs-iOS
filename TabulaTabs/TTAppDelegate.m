@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "AsyncTests.h"
+#import "TTDevelopmentHelpers.h"
 
 #import "NSData-hex.h"
-#import "MKInfoPanel.h"
+#import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
 
 #import "TTBrowserRepresentation.h"
@@ -24,22 +24,32 @@
 NSString * const TTAppDelegatePasswordKey = @"ClientPassword";
 NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
+@interface TTAppDelegate ()
+
+@property (assign) NSInteger jobsInProgress;
+
+- (void)registeringClient:(NSNotification *)notification;
+- (void)jobDone:(NSNotification *)notification;
+
+@end
+
+
 @implementation TTAppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController, tabListViewController;
 @synthesize browserRepresentations;
+@synthesize jobsInProgress;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    AsyncTests* tests = [[AsyncTests alloc] init];
-//    [tests runTests];
-//    return YES;
+//    [TTDevelopmentHelpers runAsynchronTests]; return YES;
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    self.jobsInProgress = 0;
         
     [self restoreBrowserRepresentations];
     
@@ -47,11 +57,13 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
     self.window.rootViewController = self.navigationController;
     
-    NSLog(@"browserRepresentations: %@", self.browserRepresentations);
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registeringClient:) name:TTBrowserReprensentationClaimingClientNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jobDone:) name:TTBrowserReprensentationClientWasUpdatedNotification object:nil];
+        
     if (self.browserRepresentations.count == 0) {
+#warning debug
+        [TTDevelopmentHelpers registerFakeClient];
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/claim/c_198/a19b731c558f397fc47f05db1437d019/e86a64e256820387f6d32de158be6b322404e1fe63886609900bc0a76b70fb80"]];
     } else {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tabs/first"]];
     }
@@ -154,25 +166,6 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
      */
 }
 
-#pragma mark MKInfoPanel
-
-- (MKInfoPanel *)showPanelType:(MKInfoPanelType)type title:(NSString *)title subtitle:(NSString *)subtitle;
-{
-    return [MKInfoPanel showPanelInView:self.navigationController.topViewController.view
-                                   type:type
-                                  title:title
-                               subtitle:subtitle];
-}
-
-- (MKInfoPanel *)showPanelType:(MKInfoPanelType)type title:(NSString *)title subtitle:(NSString *)subtitle hideAfter:(NSTimeInterval)interval;
-{
-    return [MKInfoPanel showPanelInView:self.navigationController.topViewController.view
-                                   type:type
-                                  title:title
-                               subtitle:subtitle
-                              hideAfter:interval];
-}
-
 #pragma mark Browser Representations
 
 - (void)setBrowserRepresentations:(NSArray *)newBrowserRepresentations;
@@ -195,6 +188,10 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 - (void)restoreBrowserRepresentations;
 {
+#warning debug
+    browserRepresentations = [NSArray array];
+    return;
+    
     NSArray *clientDictionaries = [[NSUserDefaults standardUserDefaults] arrayForKey:@"clients"];
     NSMutableArray *restoredBrowsers = [NSMutableArray arrayWithCapacity:clientDictionaries.count];
     
@@ -210,8 +207,26 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
         [restoredBrowsers addObject:browserRepresentation];
     }];
     
-    browserRepresentations = [restoredBrowsers mutableCopy];
+    browserRepresentations = [restoredBrowsers copy];
 }
 
+#pragma mark Helper
+
+- (void)registeringClient:(NSNotification *)notification;
+{
+    self.jobsInProgress++;
+    [[MTStatusBarOverlay sharedOverlay] postImmediateMessage:@"Handshake" animated:YES];
+}
+
+- (void)jobDone:(NSNotification *)notification;
+{
+    self.jobsInProgress--;
+    
+    NSAssert(self.jobsInProgress >= 0, @"finished more jobs then started");
+    
+    if (self.jobsInProgress == 0) {
+        [[MTStatusBarOverlay sharedOverlay] hide];
+    }
+}
 
 @end

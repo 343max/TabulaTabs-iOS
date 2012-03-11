@@ -6,8 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MKInfoPanel.h"
-
 #import <UIKit/UIKit.h>
 
 #define appDelegate ((TTAppDelegate *)[[UIApplication sharedApplication] delegate])
@@ -23,8 +21,6 @@
 
 @property (strong, nonatomic) NSArray *browserRepresentations;
 
-- (MKInfoPanel *)showPanelType:(MKInfoPanelType)type title:(NSString *)title subtitle:(NSString *)subtitle;
-- (MKInfoPanel *)showPanelType:(MKInfoPanelType)type title:(NSString *)title subtitle:(NSString *)subtitle hideAfter:(NSTimeInterval)interval;
 - (TTTabListViewController *)popToTablistViewControllerForBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation animated:(BOOL)animated;
 
 @end

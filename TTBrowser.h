@@ -17,10 +17,12 @@
 @property (strong) NSString *browserDescription;
 @property (strong) NSURL *iconURL;
 
++ (NSURL *)registrationURLForUsername:(NSString *)username claimingPassword:(NSString *)claimingPassword encryptionKey:(NSData *)encryptionKey;
+
 - (void)registerWithPassword:(NSString *)password callback:(void(^)(id response))callback;
 - (void)load:(NSString *)username password:(NSString *)password callback:(void(^)(id response))callback;
 - (void)load:(void(^)(id response))callback;
 - (void)saveTabs:(NSArray *)tabs callback:(void (^)(BOOL success, id repsonse))callback;
-- (void)createClient:(NSString *)claimingPassword callback:(void (^)(NSString *clientUsername, id response))callback;
+- (void)createClientWitClaimingPassword:(NSString *)claimingPassword callback:(void (^)(NSString *clientUsername, id response))callback;
 
 @end

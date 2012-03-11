@@ -14,6 +14,7 @@
 @implementation TTClient
 
 @synthesize userAgent, label, clientDescription, iconURL, keychainIdentifier;
+@synthesize unclaimed;
 @synthesize dictionary;
 
 const int kPasswordByteLength = 16;
@@ -32,12 +33,35 @@ const int kPasswordByteLength = 16;
     return [data hexString];
 }
 
-- (id)initWithDictionary:(NSDictionary *)aDictionary;
+- (id)init;
 {
     self = [super init];
     
     if (self) {
+        unclaimed = YES;
+    }
+    
+    return self;
+}
+
+- (id)initWithEncryption:(TTEncryption *)encryption;
+{
+    self = [super initWithEncryption:encryption];
+    
+    if (self) {
+        unclaimed = YES;
+    }
+    
+    return self;
+}
+
+- (id)initWithDictionary:(NSDictionary *)aDictionary;
+{
+    self = [self init];
+    
+    if (self) {
         self.dictionary = aDictionary;
+        unclaimed = NO;
     }
     
     return self;
@@ -77,6 +101,7 @@ const int kPasswordByteLength = 16;
         NSLog(@"response: %@", response);
         BOOL success = [[response objectForKey:@"success"] boolValue];
         if (success) {
+            unclaimed = NO;
             self.password = finalPassword;
         } else {
             self.password = nil;

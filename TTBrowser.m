@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "NSData-hex.h"
+
 #import "TTEncryption.h"
 #import "TTBrowser.h"
 #import "TTTab.h"
@@ -13,6 +15,12 @@
 @implementation TTBrowser
 
 @synthesize userAgent, label, browserDescription, iconURL;
+
++ (NSURL *)registrationURLForUsername:(NSString *)username claimingPassword:(NSString *)claimingPassword encryptionKey:(NSData *)encryptionKey;
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"tabulatabs://client/claim/%@/%@/%@", 
+                                 username, claimingPassword, encryptionKey.hexString]];
+}
 
 - (void)registerWithPassword:(NSString *)password callback:(void (^)(id response))callback;
 {
@@ -72,7 +80,7 @@
     }];
 }
 
-- (void)createClient:(NSString *)claimingPassword callback:(void (^)(NSString *, id))callback;
+- (void)createClientWitClaimingPassword:(NSString *)claimingPassword callback:(void (^)(NSString *, id))callback;
 {
     NSDictionary *params = [NSDictionary dictionaryWithObject:claimingPassword forKey:@"password"];
     

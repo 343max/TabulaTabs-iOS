@@ -12,12 +12,12 @@
 
 #import "TTBrowserRepresentation.h"
 
-NSString * const TTBrowserReprensentationClientWasUpdatedNotification = @"TTClientControllerClientWasUpdatedNotification";
-NSString * const TTBrowserReprensentationClaimingClientNotification = @"TTClientControllerClaimingClientNotification";
+NSString * const TTBrowserReprensentationClientWasUpdatedNotification = @"TTBrowserReprensentationClientWasUpdatedNotification";
+NSString * const TTBrowserReprensentationClaimingClientNotification = @"TTBrowserReprensentationClaimingClientNotification";
 
-NSString * const TTBrowserReprensentationBrowserWasUpdatedNotification = @"TTClientControllerBrowserWasUpdatedNotification";
+NSString * const TTBrowserReprensentationBrowserWasUpdatedNotification = @"TTBrowserReprensentationBrowserWasUpdatedNotification";
 
-NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTClientControllerTabsWhereUpdatedNotification";
+NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrowserReprensentationTabsWhereUpdatedNotification";
 
 
 @interface TTBrowserRepresentation ()
@@ -39,8 +39,10 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTClie
     
     client = aClient;
     
-    [self loadBrowser];
-    [self loadTabs];
+    if (!client.unclaimed) {
+        [self loadBrowser];
+        [self loadTabs];
+    }
 }
 
 - (TTClient *)claimURL:(NSURL *)url;
@@ -63,7 +65,6 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTClie
     self.client = aClient;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClaimingClientNotification object:self];
-    [appDelegate showPanelType:MKInfoPanelTypeInfo title:@"Synchronizing Browser Tabs" subtitle:nil];
     
     client.userAgent = [NSString stringWithFormat:@"TabulaTabs iOS (%@ %@ %@)", [UIDevice currentDevice].model, [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
     client.label = [UIDevice currentDevice].name;
@@ -77,7 +78,8 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTClie
             
             appDelegate.browserRepresentations = [appDelegate.browserRepresentations arrayByAddingObject:self];
         } else {
-            [appDelegate showPanelType:MKInfoPanelTypeError title:@"Could not add browser" subtitle:@"This browser could not be added. The URL might be out of date or claimed otherwise. For seccurity reasons you should click the \"Start Over\" link in your browser"];
+            // todo
+//            [appDelegate showPanelType:MKInfoPanelTypeError title:@"Could not add browser" subtitle:@"This browser could not be added. The URL might be out of date or claimed otherwise. For seccurity reasons you should click the \"Start Over\" link in your browser"];
         }
     }];
 }

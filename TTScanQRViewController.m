@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "TTAppDelegate.h"
+#import "MTStatusBarOverlay.h"
 
 #import "TTScanQRViewController.h"
 
@@ -94,7 +94,7 @@
         
         [[UIApplication sharedApplication] openURL:url];
     } else {
-        [appDelegate showPanelType:MKInfoPanelTypeError  title:@"Invalid QR Code" subtitle:@"This is not a Tabulatabs QR Code." hideAfter:2];
+        [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"Invalid QR Code" duration:3.0 animated:YES];
     }
 }
 
