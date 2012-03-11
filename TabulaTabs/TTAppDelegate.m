@@ -61,9 +61,9 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jobDone:) name:TTBrowserReprensentationClientWasUpdatedNotification object:nil];
         
     if (self.browserRepresentations.count == 0) {
-#warning debug
-        [TTDevelopmentHelpers registerFakeClient];
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
+//#warning debug: claiming an client
+//        [TTDevelopmentHelpers registerFakeClient];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
     } else {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tabs/first"]];
     }
@@ -188,9 +188,9 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 - (void)restoreBrowserRepresentations;
 {
-#warning debug
-    browserRepresentations = [NSArray array];
-    return;
+//#warning debug: claiming an client
+//    browserRepresentations = [NSArray array];
+//    return;
     
     NSArray *clientDictionaries = [[NSUserDefaults standardUserDefaults] arrayForKey:@"clients"];
     NSMutableArray *restoredBrowsers = [NSMutableArray arrayWithCapacity:clientDictionaries.count];
