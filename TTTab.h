@@ -18,6 +18,10 @@
 @property (strong) NSString *windowId;
 @property (assign) NSInteger index;
 @property (strong) NSArray *pageColors;
+@property (strong) NSString *pageTitle;
+@property (strong) NSString *shortDomain;
+@property (strong) NSString *siteTitle;
+@property (strong) NSURL *pageThumbnailURL;
 
 @property (strong, readonly) NSDictionary *dictionary;
 

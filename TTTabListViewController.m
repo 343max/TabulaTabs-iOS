@@ -127,12 +127,13 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = tab.title;
+    cell.textLabel.text = tab.pageTitle;
+    cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
     
     return cell;
 }
@@ -196,7 +197,6 @@
 {
     [self loadTabs];
 }
-
 
 #pragma mark Helper
 

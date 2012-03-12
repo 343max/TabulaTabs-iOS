@@ -129,6 +129,7 @@
     if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
         // Released above the header
         [self startLoadingAnimation];
+        [self refresh];
     }
 }
 

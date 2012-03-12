@@ -8,9 +8,16 @@
 
 #import "TTTab.h"
 
+/*
+ this.pageTitle = data.pageTitle;
+ this.shortDomain = data.shortDomain;
+ this.siteTitle = data.siteTitle;
+ this.pageThumbnail = data.pageThumbnail;
+*/
+
 @implementation TTTab
 
-@synthesize identifier, title, URL, selected, favIconURL, windowId, index, pageColors;
+@synthesize identifier, title, URL, selected, favIconURL, windowId, index, pageColors, pageTitle, shortDomain, siteTitle, pageThumbnailURL;
 @synthesize dictionary;
 
 - (id)initWithDictionary:(NSDictionary *)aDictionary;
@@ -24,6 +31,12 @@
         self.favIconURL = [NSURL URLWithString:[aDictionary objectForKey:@"favIconURL"]];
         self.windowId = [aDictionary objectForKey:@"windowId"];
         self.index = [[aDictionary objectForKey:@"index"] integerValue];
+        self.pageTitle = [aDictionary objectForKey:@"pageTitle"];
+        self.shortDomain = [aDictionary objectForKey:@"shortDomain"];
+        self.siteTitle = [aDictionary objectForKey:@"siteTitle"];
+        self.pageThumbnailURL = [NSURL URLWithString:[aDictionary objectForKey:@"pageThumbnail"]];
+        
+        if ([self.pageTitle isEqualToString:@""]) self.pageTitle = nil;
 #warning todo pageColors missing
     }
     

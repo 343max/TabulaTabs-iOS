@@ -198,7 +198,6 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     [clientDictionaries enumerateObjectsUsingBlock:^(NSDictionary *clientDictionary, NSUInteger idx, BOOL *stop) {
         TTClient *client = [[TTClient alloc] initWithDictionary:clientDictionary];
         client.password = [SSKeychain passwordForService:TTAppDelegatePasswordKey account:client.username];
-        NSLog(@"key: %@", [SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey account:client.username]);
         NSData *encryptionKey = [NSData dataWithHexString:[SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey account:client.username]];
         client.encryption = [[TTEncryption alloc] initWithEncryptionKey:encryptionKey];
         
