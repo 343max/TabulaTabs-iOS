@@ -6,7 +6,8 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "MWImageLoader.h"
+#import "UIImage+Resizing.h"
+#import "MWHTTPImageCache.h"
 
 #import "TTBrowser.h"
 #import "TTTab.h"
@@ -137,12 +138,17 @@
     
     cell.textLabel.text = tab.pageTitle;
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
+    cell.imageView.contentMode = UIViewContentModeCenter;
+    cell.imageView.clipsToBounds = YES;
     
     if (tab.pageThumbnailURL) {
-        [[MWImageLoader defaultLoader] loadImage:tab.pageThumbnailURL
-                                 completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
-                                     cell.imageView.image = image;
-                                 }];
+        [[MWHTTPImageCache defaultCache] loadImage:tab.pageThumbnailURL
+                                 processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]
+                                   processingBlock:^UIImage *(UIImage *image) {
+                                       return [image scaledImageOfMinimumSize:cell.imageView.bounds.size];
+                                   } completionBlock:^(UIImage *image) {
+                                       cell.imageView.image = image;
+                                   }];
     }
     
     return cell;
