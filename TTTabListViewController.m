@@ -6,12 +6,15 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "MWImageLoader.h"
+
 #import "TTBrowser.h"
 #import "TTTab.h"
 
 #import "TTAppDelegate.h"
 #import "TTBrowserRepresentation.h"
 
+#import "TTTabTableViewCell.h"
 #import "TTTabListViewController.h"
 
 @interface TTTabListViewController ()
@@ -125,15 +128,22 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TTTabTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[TTTabTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
     
     cell.textLabel.text = tab.pageTitle;
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
+    
+    if (tab.pageThumbnailURL) {
+        [[MWImageLoader defaultLoader] loadImage:tab.pageThumbnailURL
+                                 completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
+                                     cell.imageView.image = image;
+                                 }];
+    }
     
     return cell;
 }

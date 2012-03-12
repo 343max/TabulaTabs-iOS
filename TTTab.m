@@ -31,12 +31,13 @@
         self.favIconURL = [NSURL URLWithString:[aDictionary objectForKey:@"favIconURL"]];
         self.windowId = [aDictionary objectForKey:@"windowId"];
         self.index = [[aDictionary objectForKey:@"index"] integerValue];
-        self.pageTitle = [aDictionary objectForKey:@"pageTitle"];
+        if (![self.pageTitle isEqualToString:@""])
+            self.pageTitle = [aDictionary objectForKey:@"pageTitle"];
         self.shortDomain = [aDictionary objectForKey:@"shortDomain"];
         self.siteTitle = [aDictionary objectForKey:@"siteTitle"];
-        self.pageThumbnailURL = [NSURL URLWithString:[aDictionary objectForKey:@"pageThumbnail"]];
+        if (![[aDictionary objectForKey:@"pageThumbnail"] isEqualToString:@""])
+            self.pageThumbnailURL = [NSURL URLWithString:[aDictionary objectForKey:@"pageThumbnail"]];
         
-        if ([self.pageTitle isEqualToString:@""]) self.pageTitle = nil;
 #warning todo pageColors missing
     }
     

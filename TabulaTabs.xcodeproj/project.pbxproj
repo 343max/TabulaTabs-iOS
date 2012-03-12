@@ -36,6 +36,8 @@
 		50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699A14E860DD00788808 /* NSData+Base64.m */; };
 		50C129E2150D378900A3E3DA /* TTDevelopmentHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */; };
 		50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */; };
+		50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */; };
+		50C12A40150EA4B100A3E3DA /* MWImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3F150EA4B100A3E3DA /* MWImageLoader.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
 		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
 		50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0A8B14EB154100823CE6 /* libzbar.a */; };
@@ -118,6 +120,10 @@
 		50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDevelopmentHelpers.m; sourceTree = "<group>"; };
 		50C129E8150D4F1300A3E3DA /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
+		50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabTableViewCell.h; sourceTree = "<group>"; };
+		50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabTableViewCell.m; sourceTree = "<group>"; };
+		50C12A3E150EA4B100A3E3DA /* MWImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWImageLoader.h; sourceTree = "<group>"; };
+		50C12A3F150EA4B100A3E3DA /* MWImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWImageLoader.m; sourceTree = "<group>"; };
 		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
 		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
 		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
@@ -367,6 +373,8 @@
 			children = (
 				50F363AA14E9496600AB104C /* MWURLConnection.h */,
 				50F363AB14E9496600AB104C /* MWURLConnection.m */,
+				50C12A3E150EA4B100A3E3DA /* MWImageLoader.h */,
+				50C12A3F150EA4B100A3E3DA /* MWImageLoader.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -444,6 +452,8 @@
 				50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */,
 				50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */,
 				50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */,
+				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
+				50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -590,6 +600,8 @@
 				50FE0ABE14EB2F5E00823CE6 /* TTScanQRViewController.m in Sources */,
 				503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */,
 				50C129E2150D378900A3E3DA /* TTDevelopmentHelpers.m in Sources */,
+				50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */,
+				50C12A40150EA4B100A3E3DA /* MWImageLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
