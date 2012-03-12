@@ -9,7 +9,7 @@
 #import "TTTabTableViewCell.h"
 
 @implementation TTTabTableViewCell
-@synthesize imageView;
+@synthesize imageView, faviconView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -18,6 +18,9 @@
         // Initialization code
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.imageView];
+        
+        faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        [self addSubview:self.faviconView];
     }
     return self;
 }
@@ -37,13 +40,19 @@
     imageRect.size.width = imageRect.size.height;
     self.imageView.frame = imageRect;
     
+    CGRect faviconRect = self.textLabel.frame;
+    faviconRect.size = CGSizeMake(16.0, 16.0);
+    faviconRect.origin.x += imageRect.size.width - 4;
+    faviconRect.origin.y += 3;
+    self.faviconView.frame = faviconRect;
+    
     CGRect labelRect = self.textLabel.frame;
-    labelRect.origin.x += imageRect.size.width;
+    labelRect.origin.x += imageRect.size.width + 18;
     labelRect.size.width = self.bounds.size.width - labelRect.origin.x - 10;
     self.textLabel.frame = labelRect;
     
     CGRect detailLabelRect = self.detailTextLabel.frame;
-    detailLabelRect.origin.x += imageRect.size.width;
+    detailLabelRect.origin.x += imageRect.size.width + 18;
     detailLabelRect.size.width = self.bounds.size.width - detailLabelRect.origin.x - 10;
     self.detailTextLabel.frame = detailLabelRect;
 }

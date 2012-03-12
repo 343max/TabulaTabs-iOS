@@ -10,4 +10,6 @@
 
 @interface TTTabTableViewCell : UITableViewCell
 
+@property (strong, readonly) UIImageView *faviconView;
+
 @end

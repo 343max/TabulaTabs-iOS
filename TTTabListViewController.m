@@ -151,6 +151,13 @@
                                    }];
     }
     
+    if (tab.favIconURL) {
+        [[MWHTTPImageCache defaultCache] loadImage:tab.favIconURL
+                                   completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
+                                       cell.faviconView.image = image;
+                                   }];
+    }
+    
     return cell;
 }
 
