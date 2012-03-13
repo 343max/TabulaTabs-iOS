@@ -234,6 +234,19 @@
     self.tabs = self.browserRepresentation.tabs;
     [self stopLoadingAnimation];
     [self.tableView reloadData];
+    
+    __block NSIndexPath *selectedRow = nil;
+    
+    [self.tabs enumerateObjectsUsingBlock:^(TTTab *tab, NSUInteger idx, BOOL *stop) {
+        if (tab.selected) {
+            selectedRow = [NSIndexPath indexPathForRow:idx inSection:0];
+            *stop = YES;
+        }
+    }];
+    
+    if (selectedRow) {
+        [self.tableView selectRowAtIndexPath:selectedRow animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    }
 }
      
 @end
