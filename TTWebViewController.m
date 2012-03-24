@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TestFlight.h"
+
 #import "TTWebViewController.h"
 
 @interface TTWebViewController ()
@@ -33,13 +35,24 @@
 {
     [super viewDidLoad];
     
+    [TestFlight passCheckpoint:@"opened a tab"];
+    
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.delegate = self;
     [self.view addSubview:self.webView];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark UIWebViewDelegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
+{
+    NSString *pageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    self.title = pageTitle;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "TTDevelopmentHelpers.h"
 
+#import "TestFlight.h"
 #import "NSData-hex.h"
 #import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
@@ -44,6 +45,8 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    [TTDevelopmentHelpers runAsynchronTests]; return YES;
+    
+    [TestFlight takeOff:@"08b2e6be43c442789736edf1fecb1592_MTEwMjYyMDEyLTAzLTI0IDA5OjM1OjM0LjgxMDc5Ng"];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TestFlight.h"
 #import "TTAppDelegate.h"
 
 #import "TTClient.h"
@@ -81,6 +82,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
             [self loadTabs];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientWasUpdatedNotification object:self];
+            [TestFlight passCheckpoint:@"registered a client"];
             
             appDelegate.browserRepresentations = [appDelegate.browserRepresentations arrayByAddingObject:self];
         } else {

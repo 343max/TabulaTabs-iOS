@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5016BA8D151E05EB00AAA198 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA89151E05EB00AAA198 /* libTestFlight.a */; };
+		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
+		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
+		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
@@ -75,6 +79,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5016BA89151E05EB00AAA198 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5016BA8A151E05EB00AAA198 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		5016BA8C151E05EB00AAA198 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserRepresentation.h; sourceTree = "<group>"; };
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
@@ -178,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5016BA92151E063200AAA198 /* libz.dylib in Frameworks */,
 				50FE0ACE14EB329200823CE6 /* libiconv.dylib in Frameworks */,
 				50FE0ACD14EB328C00823CE6 /* QuartzCore.framework in Frameworks */,
 				50FE0ACC14EB328200823CE6 /* CoreVideo.framework in Frameworks */,
@@ -188,6 +198,7 @@
 				50AE695114E8606C00788808 /* Foundation.framework in Frameworks */,
 				50AE695314E8606C00788808 /* CoreGraphics.framework in Frameworks */,
 				50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */,
+				5016BA8D151E05EB00AAA198 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +221,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5016BA88151E05EB00AAA198 /* TestFlightSDK0.8.3 */ = {
+			isa = PBXGroup;
+			children = (
+				5016BA89151E05EB00AAA198 /* libTestFlight.a */,
+				5016BA8A151E05EB00AAA198 /* README.txt */,
+				5016BA8B151E05EB00AAA198 /* release_notes.txt */,
+				5016BA8C151E05EB00AAA198 /* TestFlight.h */,
+			);
+			path = TestFlightSDK0.8.3;
+			sourceTree = "<group>";
+		};
 		504167D6150AB2A0007A3431 /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +256,7 @@
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
+				5016BA91151E063200AAA198 /* libz.dylib */,
 				50FE0AA314EB2A4800823CE6 /* Ressources */,
 				50F363A914E9402000AB104C /* Classes */,
 				50AE699414E860D000788808 /* External */,
@@ -341,6 +364,7 @@
 		50AE699414E860D000788808 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5016BA88151E05EB00AAA198 /* TestFlightSDK0.8.3 */,
 				50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */,
 				504167D6150AB2A0007A3431 /* SSKeychain */,
 				50AB685214FAADEE0040D328 /* PullToRefresh */,
@@ -553,6 +577,8 @@
 				50FE0A9414EB154100823CE6 /* zbar-helpicons.png in Resources */,
 				50FE0A9514EB154100823CE6 /* zbar-samples.png in Resources */,
 				50FE0AA514EB2A9B00823CE6 /* registrationGuide.html in Resources */,
+				5016BA8E151E05EB00AAA198 /* README.txt in Resources */,
+				5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +703,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -696,6 +723,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -712,6 +740,7 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
+					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -730,6 +759,7 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
+					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

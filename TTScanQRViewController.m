@@ -7,6 +7,7 @@
 //
 
 #import "MTStatusBarOverlay.h"
+#import "TestFlight.h"
 
 #import "TTScanQRViewController.h"
 
@@ -36,11 +37,11 @@
 {
 	ZBarImageScanner *scanner = [[ZBarImageScanner alloc] init];
 
-	 [scanner setSymbology:ZBAR_I25
-					config:ZBAR_CFG_ENABLE
-						to:0];
+    [scanner setSymbology:ZBAR_I25
+                   config:ZBAR_CFG_ENABLE
+                       to:0];
 
-	 self.readerView = [[ZBarReaderView alloc] initWithImageScanner:scanner];
+    self.readerView = [[ZBarReaderView alloc] initWithImageScanner:scanner];
 
     if (TARGET_IPHONE_SIMULATOR) {
         self.cameraSimulator = [[ZBarCameraSimulator alloc]
@@ -55,6 +56,8 @@
     self.readerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     [self.view addSubview:self.readerView];
+    
+    [TestFlight passCheckpoint:@"opened QR Code scanner"];
 }
 
 - (void)viewDidAppear:(BOOL)animated;
@@ -92,9 +95,11 @@
     if ([url.scheme isEqualToString:@"tabulatabs"]) {
         NSLog(@"scanned URL: %@", url.absoluteString);
         
+        [TestFlight passCheckpoint:@"scanned an QR code"];
         [[UIApplication sharedApplication] openURL:url];
     } else {
         [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"Invalid QR Code" duration:3.0 animated:YES];
+        [TestFlight passCheckpoint:@"scanned an invalid QR code"];
     }
 }
 
