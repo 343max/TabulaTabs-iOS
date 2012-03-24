@@ -15,7 +15,8 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
 
 @implementation TTRestfulClient
 
-@synthesize username, password;
+@synthesize username = _username;
+@synthesize password = _password;
 
 - (MWURLConnection *)sendJsonGetRequest:(NSString *)path callback:(void (^)(id))callback;
 {

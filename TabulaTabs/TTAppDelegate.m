@@ -37,9 +37,9 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 @implementation TTAppDelegate
 
 @synthesize window = _window;
-@synthesize navigationController, tabListViewController;
-@synthesize browserRepresentations;
-@synthesize jobsInProgress;
+@synthesize navigationController = _navigationController, tabListViewController = _tabListViewController;
+@synthesize browserRepresentations = _browserRepresentations;
+@synthesize jobsInProgress = _jobsInProgress;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -170,11 +170,11 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 - (void)setBrowserRepresentations:(NSArray *)newBrowserRepresentations;
 {
-    browserRepresentations = newBrowserRepresentations;
+    _browserRepresentations = newBrowserRepresentations;
     NSLog(@"saving browserRepresentations");
     
-    NSMutableArray *clientDictionaries = [NSMutableArray arrayWithCapacity:browserRepresentations.count];
-    [browserRepresentations enumerateObjectsUsingBlock:^(TTBrowserRepresentation *browser, NSUInteger idx, BOOL *stop) {
+    NSMutableArray *clientDictionaries = [NSMutableArray arrayWithCapacity:_browserRepresentations.count];
+    [_browserRepresentations enumerateObjectsUsingBlock:^(TTBrowserRepresentation *browser, NSUInteger idx, BOOL *stop) {
         TTClient *client = browser.client;
         [clientDictionaries addObject:client.dictionary];
         
@@ -206,7 +206,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
         [restoredBrowsers addObject:browserRepresentation];
     }];
     
-    browserRepresentations = [restoredBrowsers copy];
+    _browserRepresentations = [restoredBrowsers copy];
 }
 
 #pragma mark Helper

@@ -14,7 +14,11 @@
 
 @implementation TTBrowser
 
-@synthesize userAgent, label, browserDescription, iconURL;
+@synthesize userAgent = _userAgent;
+@synthesize label = _label;
+@synthesize browserDescription = _browserDescription;
+@synthesize iconURL = _iconURL;
+
 
 + (NSURL *)registrationURLForUsername:(NSString *)username claimingPassword:(NSString *)claimingPassword encryptionKey:(NSData *)encryptionKey;
 {

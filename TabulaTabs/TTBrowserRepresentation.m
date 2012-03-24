@@ -30,16 +30,16 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 
 @implementation TTBrowserRepresentation
 
-@synthesize client, browser, tabs;
+@synthesize client = _client, browser = _browser, tabs = _tabs;
 
-- (void)setClient:(TTClient *)aClient;
+- (void)setClient:(TTClient *)client;
 {
     self.tabs = nil;
     self.browser = nil;
     
-    client = aClient;
+    _client = client;
     
-    if (!client.unclaimed) {
+    if (!_client.unclaimed) {
         [self loadBrowser];
         [self loadTabs];
     }
@@ -60,22 +60,22 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     }
 }
 
-- (void)claimClient:(TTClient *)aClient claimingPassword:(NSString *)claimingPassword;
+- (void)claimClient:(TTClient *)client claimingPassword:(NSString *)claimingPassword;
 {
-    self.client = aClient;
+    self.client = client;
     
     [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClaimingClientNotification object:self];
     
-    client.userAgent = [NSString stringWithFormat:@"TabulaTabs iOS (%@ %@ %@)", [UIDevice currentDevice].model, [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
-    client.label = [UIDevice currentDevice].name;
+    _client.userAgent = [NSString stringWithFormat:@"TabulaTabs iOS (%@ %@ %@)", [UIDevice currentDevice].model, [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
+    _client.label = [UIDevice currentDevice].name;
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        client.iconURL = [NSURL URLWithString:@"https://tabulatabs.heroku.com/icons/iPad.png"];
+        _client.iconURL = [NSURL URLWithString:@"https://tabulatabs.heroku.com/icons/iPad.png"];
     } else {
-        client.iconURL = [NSURL URLWithString:@"https://tabulatabs.heroku.com/icons/iPhone.png"];
+        _client.iconURL = [NSURL URLWithString:@"https://tabulatabs.heroku.com/icons/iPhone.png"];
     }
     
-    [client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
+    [_client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
         if (success) {
             [self loadBrowser];
             [self loadTabs];
@@ -92,9 +92,9 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 
 - (void)loadBrowser;
 {
-    self.browser = [[TTBrowser alloc] initWithEncryption:client.encryption];
+    self.browser = [[TTBrowser alloc] initWithEncryption:self.client.encryption];
     
-    [self.browser load:client.username password:client.password callback:^(id response) {
+    [self.browser load:self.client.username password:self.client.password callback:^(id response) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationBrowserWasUpdatedNotification
                                                             object:self
                                                           userInfo:nil];
@@ -103,7 +103,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 
 - (void)loadTabs;
 {
-    [client loadTabs:^(NSArray *loadedTabs, id response) {
+    [self.client loadTabs:^(NSArray *loadedTabs, id response) {
         self.tabs = loadedTabs;
         [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationTabsWhereUpdatedNotification
                                                             object:self

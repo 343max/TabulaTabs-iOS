@@ -10,7 +10,7 @@
 
 @implementation TTRestfulEncryptedClient
 
-@synthesize encryption;
+@synthesize encryption = _encryption;
 
 - (id)initWithEncryption:(TTEncryption *)theEncryption;
 {

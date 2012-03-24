@@ -9,7 +9,8 @@
 #import "TTTabTableViewCell.h"
 
 @implementation TTTabTableViewCell
-@synthesize imageView, faviconView;
+@synthesize faviconView = _faviconView;
+@synthesize imageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -19,7 +20,7 @@
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.imageView];
         
-        faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.faviconView];
     }
     return self;

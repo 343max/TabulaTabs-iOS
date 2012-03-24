@@ -17,8 +17,20 @@
 
 @implementation TTTab
 
-@synthesize identifier, title, URL, selected, favIconURL, windowId, index, pageColors, pageTitle, shortDomain, siteTitle, pageThumbnailURL;
-@synthesize dictionary;
+@synthesize identifier = _identifier;
+@synthesize title = _title;
+@synthesize URL = _URL;
+@synthesize selected = _selected;
+@synthesize favIconURL = _favIconURL;
+@synthesize windowId = _windowId;
+@synthesize index = _index;
+@synthesize pageColors = _pageColors;
+@synthesize pageTitle = _pageTitle;
+@synthesize shortDomain = _shortDomain;
+@synthesize siteTitle = _siteTitle;
+@synthesize pageThumbnailURL = _pageThumbnailURL;
+
+@synthesize dictionary = _dictionary;
 
 - (id)initWithDictionary:(NSDictionary *)aDictionary;
 {

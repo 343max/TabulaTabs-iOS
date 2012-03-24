@@ -19,7 +19,7 @@
 
 @implementation TTScanQRViewController
 
-@synthesize readerView, cameraSimulator;
+@synthesize readerView = _readerView, cameraSimulator = _cameraSimulator;
 
 - (void)didReceiveMemoryWarning
 {

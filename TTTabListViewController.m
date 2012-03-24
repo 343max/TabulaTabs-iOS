@@ -36,8 +36,8 @@
 
 @implementation TTTabListViewController
 
-@synthesize browserRepresentation;
-@synthesize tabs;
+@synthesize browserRepresentation = _browserRepresentation;
+@synthesize tabs = _tabs;
 
 - (void)loadTabs;
 {
@@ -49,28 +49,28 @@
 
 #pragma mark Accessors
 
-- (void)setBrowserRepresentation:(TTBrowserRepresentation *)aBrowserRepresentation;
+- (void)setBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self 
                                                     name:TTBrowserReprensentationBrowserWasUpdatedNotification 
-                                                  object:browserRepresentation];
+                                                  object:_browserRepresentation];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:TTBrowserReprensentationTabsWhereUpdatedNotification
-                                                  object:browserRepresentation];
-    browserRepresentation = aBrowserRepresentation;
-    self.tabs = browserRepresentation.tabs;
+                                                  object:_browserRepresentation];
+    _browserRepresentation = browserRepresentation;
+    self.tabs = _browserRepresentation.tabs;
 
     [self browserWasUpdated:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(browserWasUpdated:)
                                                  name:TTBrowserReprensentationBrowserWasUpdatedNotification
-                                               object:browserRepresentation];
+                                               object:_browserRepresentation];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(tabsWhereUpdated:)
                                                  name:TTBrowserReprensentationTabsWhereUpdatedNotification
-                                               object:browserRepresentation];
+                                               object:_browserRepresentation];
 }
 
 

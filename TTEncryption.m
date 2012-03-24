@@ -14,7 +14,7 @@
 
 @implementation TTEncryption
 
-@synthesize encryptionKey;
+@synthesize encryptionKey = _encryptionKey;
 
 + (id)encryptionWithHexKey:(NSString *)hexKey;
 {
