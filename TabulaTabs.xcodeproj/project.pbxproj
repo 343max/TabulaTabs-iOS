@@ -39,6 +39,7 @@
 		50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */; };
 		50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */; };
 		50C12A5D150EACB500A3E3DA /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resizing.m */; };
+		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
 		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
 		50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0A8B14EB154100823CE6 /* libzbar.a */; };
@@ -127,6 +128,8 @@
 		50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWHTTPImageCache.m; sourceTree = "<group>"; };
 		50C12A5B150EACB500A3E3DA /* UIImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resizing.h"; sourceTree = "<group>"; };
 		50C12A5C150EACB500A3E3DA /* UIImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resizing.m"; sourceTree = "<group>"; };
+		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
+		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
 		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
 		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
 		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 				50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */,
 				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
 				50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */,
+				50DB39DC151DEB7300CF421A /* TTWebViewController.h */,
+				50DB39DD151DEB7300CF421A /* TTWebViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -608,6 +613,7 @@
 				50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */,
 				50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */,
 				50C12A5D150EACB500A3E3DA /* UIImage+Resizing.m in Sources */,
+				50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
