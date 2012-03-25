@@ -17,6 +17,16 @@
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
+		5092F698151E9DF900E2EC52 /* UIButtonBarActionSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */; };
+		5092F699151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */; };
+		5092F69A151E9DF900E2EC52 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F692151E9DF900E2EC52 /* Back.png */; };
+		5092F69B151E9DF900E2EC52 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F693151E9DF900E2EC52 /* Back@2x.png */; };
+		5092F69C151E9DF900E2EC52 /* Forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F694151E9DF900E2EC52 /* Forward.png */; };
+		5092F69D151E9DF900E2EC52 /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F695151E9DF900E2EC52 /* Forward@2x.png */; };
+		5092F69E151E9DF900E2EC52 /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F696151E9DF900E2EC52 /* Reload.png */; };
+		5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F697151E9DF900E2EC52 /* Reload@2x.png */; };
+		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
+		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
 		50AB685914FAAE100040D328 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685714FAAE100040D328 /* README.markdown */; };
 		50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */; };
@@ -95,6 +105,16 @@
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarActionSmall.png; sourceTree = "<group>"; };
+		5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarActionSmall@2x.png"; sourceTree = "<group>"; };
+		5092F692151E9DF900E2EC52 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
+		5092F693151E9DF900E2EC52 /* Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back@2x.png"; sourceTree = "<group>"; };
+		5092F694151E9DF900E2EC52 /* Forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Forward.png; sourceTree = "<group>"; };
+		5092F695151E9DF900E2EC52 /* Forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Forward@2x.png"; sourceTree = "<group>"; };
+		5092F696151E9DF900E2EC52 /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
+		5092F697151E9DF900E2EC52 /* Reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reload@2x.png"; sourceTree = "<group>"; };
+		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
+		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
 		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -242,6 +262,33 @@
 			path = sskeychain;
 			sourceTree = "<group>";
 		};
+		5092F68D151E9DD600E2EC52 /* WebBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				5092F68F151E9DE400E2EC52 /* Resources */,
+				50DB39DC151DEB7300CF421A /* TTWebViewController.h */,
+				50DB39DD151DEB7300CF421A /* TTWebViewController.m */,
+				5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */,
+				5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */,
+			);
+			name = WebBrowser;
+			sourceTree = "<group>";
+		};
+		5092F68F151E9DE400E2EC52 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */,
+				5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */,
+				5092F692151E9DF900E2EC52 /* Back.png */,
+				5092F693151E9DF900E2EC52 /* Back@2x.png */,
+				5092F694151E9DF900E2EC52 /* Forward.png */,
+				5092F695151E9DF900E2EC52 /* Forward@2x.png */,
+				5092F696151E9DF900E2EC52 /* Reload.png */,
+				5092F697151E9DF900E2EC52 /* Reload@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		50AB685214FAADEE0040D328 /* PullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +310,7 @@
 				50AE698914E860B400788808 /* API */,
 				50AE695414E8606C00788808 /* TabulaTabs */,
 				50FE0A9614EB276000823CE6 /* ViewController */,
+				5092F68D151E9DD600E2EC52 /* WebBrowser */,
 				50AE695514E8606C00788808 /* Supporting Files */,
 				50AE696C14E8606C00788808 /* TabulaTabsTests */,
 				50AE696D14E8606C00788808 /* Supporting Files */,
@@ -486,8 +534,6 @@
 				50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */,
 				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
 				50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */,
-				50DB39DC151DEB7300CF421A /* TTWebViewController.h */,
-				50DB39DD151DEB7300CF421A /* TTWebViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -579,6 +625,14 @@
 				50FE0AA514EB2A9B00823CE6 /* registrationGuide.html in Resources */,
 				5016BA8E151E05EB00AAA198 /* README.txt in Resources */,
 				5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */,
+				5092F698151E9DF900E2EC52 /* UIButtonBarActionSmall.png in Resources */,
+				5092F699151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png in Resources */,
+				5092F69A151E9DF900E2EC52 /* Back.png in Resources */,
+				5092F69B151E9DF900E2EC52 /* Back@2x.png in Resources */,
+				5092F69C151E9DF900E2EC52 /* Forward.png in Resources */,
+				5092F69D151E9DF900E2EC52 /* Forward@2x.png in Resources */,
+				5092F69E151E9DF900E2EC52 /* Reload.png in Resources */,
+				5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +669,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */,
 				50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */,
 				504167DA150AB323007A3431 /* SSKeychain.m in Sources */,
 				50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */,
@@ -648,6 +703,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AE697414E8606C00788808 /* TabulaTabsTests.m in Sources */,
+				5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
