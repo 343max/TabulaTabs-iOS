@@ -99,10 +99,10 @@
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.titleLabel.backgroundColor = [UIColor clearColor];
     self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.titleLabel.textColor = [UIColor colorWithRed:0.180 green:0.209 blue:0.247 alpha:1.000];
+    self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.textAlignment = UITextAlignmentCenter;
-    self.titleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.3];
-    self.titleLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+    self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
     self.titleLabel.numberOfLines = 0;
     self.navigationItem.titleView = self.titleLabel;
     
