@@ -38,6 +38,56 @@
 @synthesize backButton = _backButton, forwardButton = _forwardButton, reloadButton = _reloadButton;
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    
+    if (self) {
+        self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
+        self.backButton.showsTouchWhenHighlighted = YES;
+        [self.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+        [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
+        
+        self.forwardButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
+        self.forwardButton.showsTouchWhenHighlighted = YES;
+        [self.forwardButton addTarget:self action:@selector(goForward:) forControlEvents:UIControlEventTouchUpInside];
+        [self.forwardButton setImage:[UIImage imageNamed:@"Forward"] forState:UIControlStateNormal];
+        
+        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:
+                                                  [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
+                                                  [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
+                                                  nil];
+        
+        self.navigationItem.leftItemsSupplementBackButton = YES;
+        
+        self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 24.0)];
+        self.actionButton.showsTouchWhenHighlighted = YES;
+        [self.actionButton setImage:[UIImage imageNamed:@"UIButtonBarActionSmall"] forState:UIControlStateNormal];
+        
+        self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"Reload"]];
+        self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
+        self.reloadButton.showsTouchWhenHighlighted = YES;
+        [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:
+                                                   [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
+                                                   [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton],
+                                                   nil];
+        
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        self.titleLabel.backgroundColor = [UIColor clearColor];
+        self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.titleLabel.textColor = [UIColor whiteColor];
+        self.titleLabel.textAlignment = UITextAlignmentCenter;
+        self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+        self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+        self.titleLabel.numberOfLines = 0;
+        self.navigationItem.titleView = self.titleLabel;
+    }
+    
+    return self;
+}
+
 - (NSURL *)URL;
 {
     if (self.webView) {
@@ -64,49 +114,6 @@
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
-    
-    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
-    self.backButton.showsTouchWhenHighlighted = YES;
-    [self.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
-    [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
-    
-    self.forwardButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
-    self.forwardButton.showsTouchWhenHighlighted = YES;
-    [self.forwardButton addTarget:self action:@selector(goForward:) forControlEvents:UIControlEventTouchUpInside];
-    [self.forwardButton setImage:[UIImage imageNamed:@"Forward"] forState:UIControlStateNormal];
-        
-    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:
-                                              [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
-                                              [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
-                                              nil];
-    
-    self.navigationItem.leftItemsSupplementBackButton = YES;
-    
-    self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 24.0)];
-    self.actionButton.showsTouchWhenHighlighted = YES;
-    [self.actionButton setImage:[UIImage imageNamed:@"UIButtonBarActionSmall"] forState:UIControlStateNormal];
-    
-    self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"Reload"]];
-    self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
-    self.reloadButton.showsTouchWhenHighlighted = YES;
-    [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
-
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:
-                                               [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
-                                               [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton],
-                                               nil];
-    
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.titleLabel.backgroundColor = [UIColor clearColor];
-    self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.titleLabel.textColor = [UIColor whiteColor];
-    self.titleLabel.textAlignment = UITextAlignmentCenter;
-    self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-    self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-    self.titleLabel.numberOfLines = 0;
-    self.navigationItem.titleView = self.titleLabel;
-    
-    [self startLoading];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;

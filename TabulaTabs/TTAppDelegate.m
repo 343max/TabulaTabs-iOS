@@ -56,7 +56,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
         
     [self restoreBrowserRepresentations];
     
-    self.tabListViewController = [[TTTabListViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.tabListViewController = [[TTTabListViewController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
     self.window.rootViewController = self.navigationController;
     

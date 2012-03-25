@@ -289,6 +289,13 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		5092F6BB151EA6F000E2EC52 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		50AB685214FAADEE0040D328 /* PullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +318,7 @@
 				50AE695414E8606C00788808 /* TabulaTabs */,
 				50FE0A9614EB276000823CE6 /* ViewController */,
 				5092F68D151E9DD600E2EC52 /* WebBrowser */,
+				5092F6BB151EA6F000E2EC52 /* Resources */,
 				50AE695514E8606C00788808 /* Supporting Files */,
 				50AE696C14E8606C00788808 /* TabulaTabsTests */,
 				50AE694D14E8606C00788808 /* Frameworks */,
