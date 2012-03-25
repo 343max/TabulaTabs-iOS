@@ -313,7 +313,6 @@
 				5092F68D151E9DD600E2EC52 /* WebBrowser */,
 				50AE695514E8606C00788808 /* Supporting Files */,
 				50AE696C14E8606C00788808 /* TabulaTabsTests */,
-				50AE696D14E8606C00788808 /* Supporting Files */,
 				50AE694D14E8606C00788808 /* Frameworks */,
 				50AE694B14E8606C00788808 /* Products */,
 			);
@@ -376,6 +375,7 @@
 				50F3639D14E925C900AB104C /* AsyncTests */,
 				50AE697214E8606C00788808 /* TabulaTabsTests.h */,
 				50AE697314E8606C00788808 /* TabulaTabsTests.m */,
+				50AE696D14E8606C00788808 /* Supporting Files */,
 			);
 			path = TabulaTabsTests;
 			sourceTree = "<group>";
@@ -387,7 +387,6 @@
 				50AE696F14E8606C00788808 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			path = TabulaTabsTests;
 			sourceTree = "<group>";
 		};
 		50AE698914E860B400788808 /* API */ = {
@@ -556,6 +555,7 @@
 				50AE694614E8606C00788808 /* Sources */,
 				50AE694714E8606C00788808 /* Frameworks */,
 				50AE694814E8606C00788808 /* Resources */,
+				5092F6BA151EA0EE00E2EC52 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -649,6 +649,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5092F6BA151EA0EE00E2EC52 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" TabulaTabs/TabulaTabs-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" TabulaTabs/TabulaTabs-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" TabulaTabs/TabulaTabs-Info.plist\n";
+		};
 		50AE696314E8606C00788808 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
