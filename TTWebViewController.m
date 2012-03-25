@@ -144,6 +144,10 @@
     self.forwardButton.enabled = NO;
     self.actionButton.enabled = NO;
     self.reloadButton.spinning = YES;
+    
+    [UIView animateWithDuration:0.1 animations:^{
+        self.titleLabel.alpha = 0.0;
+    }];
 }
 
 - (void)goBack:(id)sender;
@@ -173,6 +177,9 @@
 {
     NSString *pageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.titleLabel.text = pageTitle;
+    [UIView animateWithDuration:0.1 animations:^{
+        self.titleLabel.alpha = 1.0;
+    }];
     
     self.backButton.enabled = webView.canGoBack;
     self.forwardButton.enabled = webView.canGoForward;
