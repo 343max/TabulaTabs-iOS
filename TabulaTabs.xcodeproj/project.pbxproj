@@ -11,11 +11,15 @@
 		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
 		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
 		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
+		503288501520A41A000CC58D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5032884F1520A41A000CC58D /* Twitter.framework */; };
+		503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503288521520B1C2000CC58D /* MessageUI.framework */; };
+		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
+		5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
 		5092F698151E9DF900E2EC52 /* UIButtonBarActionSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */; };
 		5092F699151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */; };
@@ -94,6 +98,10 @@
 		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
 		5016BA8C151E05EB00AAA198 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5032884F1520A41A000CC58D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		503288521520B1C2000CC58D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		503288541520B745000CC58D /* NSURL+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+TabulaTabs.h"; sourceTree = "<group>"; };
+		503288551520B745000CC58D /* NSURL+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+TabulaTabs.m"; sourceTree = "<group>"; };
 		503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserRepresentation.h; sourceTree = "<group>"; };
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
@@ -104,6 +112,8 @@
 		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTClient.m; sourceTree = "<group>"; };
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
+		5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionSheet.h; sourceTree = "<group>"; };
+		5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionSheet.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarActionSmall.png; sourceTree = "<group>"; };
 		5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarActionSmall@2x.png"; sourceTree = "<group>"; };
@@ -207,6 +217,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */,
+				503288501520A41A000CC58D /* Twitter.framework in Frameworks */,
 				5016BA92151E063200AAA198 /* libz.dylib in Frameworks */,
 				50FE0ACE14EB329200823CE6 /* libiconv.dylib in Frameworks */,
 				50FE0ACD14EB328C00823CE6 /* QuartzCore.framework in Frameworks */,
@@ -270,6 +282,8 @@
 				50DB39DD151DEB7300CF421A /* TTWebViewController.m */,
 				5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */,
 				5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */,
+				5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */,
+				5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */,
 			);
 			name = WebBrowser;
 			sourceTree = "<group>";
@@ -338,6 +352,8 @@
 		50AE694D14E8606C00788808 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				503288521520B1C2000CC58D /* MessageUI.framework */,
+				5032884F1520A41A000CC58D /* Twitter.framework */,
 				50FE0AC714EB316E00823CE6 /* libiconv.dylib */,
 				50FE0AC514EB316400823CE6 /* QuartzCore.framework */,
 				50FE0AC314EB315F00823CE6 /* CoreVideo.framework */,
@@ -462,6 +478,8 @@
 				50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */,
 				50C12A5B150EACB500A3E3DA /* UIImage+Resizing.h */,
 				50C12A5C150EACB500A3E3DA /* UIImage+Resizing.m */,
+				503288541520B745000CC58D /* NSURL+TabulaTabs.h */,
+				503288551520B745000CC58D /* NSURL+TabulaTabs.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -716,6 +734,8 @@
 				50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */,
 				50C12A5D150EACB500A3E3DA /* UIImage+Resizing.m in Sources */,
 				50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */,
+				5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */,
+				503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +827,7 @@
 				PROVISIONING_PROFILE = "E657DC65-9106-46FD-A6BA-0944EA7E47F6";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E657DC65-9106-46FD-A6BA-0944EA7E47F6";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
+				TT_URL_SCHEME = "tabulatabs-adhoc";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -900,6 +921,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.Debug;
+				TT_URL_SCHEME = "tabulatabs-debug";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -920,6 +942,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs;
+				TT_URL_SCHEME = tabulatabs;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

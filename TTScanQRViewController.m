@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "NSURL+TabulaTabs.h"
 #import "MTStatusBarOverlay.h"
 #import "TestFlight.h"
 
@@ -96,7 +97,7 @@
         NSLog(@"scanned URL: %@", url.absoluteString);
         
         [TestFlight passCheckpoint:@"scanned an QR code"];
-        [[UIApplication sharedApplication] openURL:url];
+        [[UIApplication sharedApplication] openURL:[url buildalizedURL]];
     } else {
         [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"Invalid QR Code" duration:3.0 animated:YES];
         [TestFlight passCheckpoint:@"scanned an invalid QR code"];

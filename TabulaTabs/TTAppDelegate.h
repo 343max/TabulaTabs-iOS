@@ -15,6 +15,8 @@
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, readonly) NSString *URLScheme;
+
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) TTTabListViewController *tabListViewController;

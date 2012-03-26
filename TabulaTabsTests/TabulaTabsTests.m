@@ -68,7 +68,7 @@
      {"iv":"087e8bb8dcb4b20fcfe61b5769e19f8e","ic":"mS0C4rvilkpQaj5sO2E1qWqD7Chs7WOWbUxzgq3v5/9wuTC/uoQJ4iyZCFVVA/+C"}
     */
     
-    NSURL* urlWithKey = [NSURL URLWithString:@"tabulatabs://client/claim/c_187/6dada457383f4cf8b292a65ce6fc8d37/479ab49af16eda6b711c596071da53d2ba1e57c6dea3b5a11cadfc724ffe4611"];
+    NSURL* urlWithKey = [NSURL tabulatabsURLWithString:@"client/claim/c_187/6dada457383f4cf8b292a65ce6fc8d37/479ab49af16eda6b711c596071da53d2ba1e57c6dea3b5a11cadfc724ffe4611"];
     NSData* encryptedDataJson = [[NSString stringWithFormat:@"{\"iv\":\"087e8bb8dcb4b20fcfe61b5769e19f8e\",\"ic\":\"mS0C4rvilkpQaj5sO2E1qWqD7Chs7WOWbUxzgq3v5/9wuTC/uoQJ4iyZCFVVA/+C\"}"] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     NSDictionary* encryptedPayload = [NSJSONSerialization JSONObjectWithData:encryptedDataJson options:0 error:&error];

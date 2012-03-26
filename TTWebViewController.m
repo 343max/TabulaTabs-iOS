@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "TTSpinningReloadButton.h"
+#import "TTWebViewActionSheet.h"
 
 #import "TTWebViewController.h"
 
@@ -22,6 +23,10 @@
 @property (strong) TTSpinningReloadButton *reloadButton;
 @property (strong) UIButton *actionButton;
 @property (strong) UILabel *titleLabel;
+@property (strong, nonatomic) NSString *pageTitle;
+
+@property (strong) TTWebViewActionSheet *actionSheet;
+
 
 - (void)layoutNavBar;
 - (void)startLoading;
@@ -29,6 +34,7 @@
 - (void)goBack:(id)sender;
 - (void)goForward:(id)sender;
 - (void)reload:(id)sender;
+- (void)showPageActions:(id)sender;
 
 @end
 
@@ -38,6 +44,8 @@
 @synthesize webView = _webView;
 @synthesize backButton = _backButton, forwardButton = _forwardButton, reloadButton = _reloadButton;
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
+@synthesize pageTitle = _pageTitle;
+@synthesize actionSheet = _actionSheet;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {
@@ -64,6 +72,7 @@
         self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 24.0)];
         self.actionButton.showsTouchWhenHighlighted = YES;
         [self.actionButton setImage:[UIImage imageNamed:@"UIButtonBarActionSmall"] forState:UIControlStateNormal];
+        [self.actionButton addTarget:self action:@selector(showPageActions:) forControlEvents:UIControlEventTouchUpInside];
         
         self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"Reload"]];
         self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
@@ -136,8 +145,6 @@
 
 - (void)viewDidLayoutSubviews;
 {
-    NSLog(@"navBarHeight: %f", self.navigationController.navigationBar.frame.size.height);
-
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         self.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
     } else {
@@ -148,7 +155,7 @@
     CGFloat rightBorder = CGRectGetMinX(((UIView *)[[self.navigationItem.rightBarButtonItems lastObject] valueForKey:@"view"]).frame);
     CGFloat titleHeight = self.navigationController.navigationBar.bounds.size.height - 2.0;
     CGFloat titleWidth = rightBorder - leftBorder;
-    
+    NSLog(@"%f |<- %f ->| %f", leftBorder, titleWidth, rightBorder);    
     self.titleLabel.frame = CGRectMake(0.0, 0.0, titleWidth, titleHeight);
     
     CGRect webViewFrame = self.view.bounds;
@@ -160,10 +167,8 @@
     self.webView.scrollView.contentInset = newContentInset;
     
     CGPoint contentOffset = self.webView.scrollView.contentOffset;
-    contentOffset.y += oldContentInset.top - newContentInset.top;
+    contentOffset.y += fminf(0, oldContentInset.top - newContentInset.top);
     self.webView.scrollView.contentOffset = contentOffset;
-    
-    NSLog(@"oldContentInset: %@, newContentInset: %@", NSStringFromUIEdgeInsets(oldContentInset), NSStringFromUIEdgeInsets(newContentInset));
     
     
     [self layoutNavBar];
@@ -180,13 +185,35 @@
     [self.view setNeedsLayout];
 }
 
+- (void)setPageTitle:(NSString *)pageTitle;
+{
+    _pageTitle = pageTitle;
+    
+    if (_pageTitle) {
+        self.titleLabel.text = pageTitle;
+        [UIView animateWithDuration:0.1 animations:^{
+            self.titleLabel.alpha = 1.0;
+        }];
+    } else {
+        [UIView animateWithDuration:0.1 animations:^{
+            self.titleLabel.alpha = 0.0;
+        }];
+
+    }
+}
+
 #pragma mark Helpers
+
+- (void)showPageActions:(id)sender;
+{
+    self.actionSheet = [[TTWebViewActionSheet alloc] initWithPageTitle:self.pageTitle URL:self.webView.request.URL];
+    [self.actionSheet showInView:self.view];
+}
 
 - (void)layoutNavBar;
 {
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
     navBarFrame.origin.y = roundf(20.0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
-    NSLog(@"scrollOffset: %@, contentSize: %@", NSStringFromCGPoint(self.webView.scrollView.contentOffset), NSStringFromCGSize(self.webView.scrollView.contentSize));
     self.navigationController.navigationBar.frame = navBarFrame;
     
     UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
@@ -201,9 +228,7 @@
     self.actionButton.enabled = NO;
     self.reloadButton.spinning = YES;
     
-    [UIView animateWithDuration:0.1 animations:^{
-        self.titleLabel.alpha = 0.0;
-    }];
+    self.pageTitle = nil;
 }
 
 - (void)goBack:(id)sender;
@@ -231,11 +256,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
-    NSString *pageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    self.titleLabel.text = pageTitle;
-    [UIView animateWithDuration:0.1 animations:^{
-        self.titleLabel.alpha = 1.0;
-    }];
+    self.pageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     
     self.backButton.enabled = webView.canGoBack;
     self.forwardButton.enabled = webView.canGoForward;

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TTWebViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate>
+@interface TTWebViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSURL *URL;
+@property (strong, nonatomic, readonly) NSString *pageTitle;
 
 @end

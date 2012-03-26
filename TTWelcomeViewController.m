@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "TTAppDelegate.h"
+
 #import "TTWelcomeViewController.h"
 
 @implementation TTWelcomeViewController
@@ -18,7 +20,10 @@
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     NSData *htmlData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"registrationGuide" ofType:@"html"]];
-    [webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
+    NSString *htmlString = [[NSString alloc] initWithData:htmlData encoding:NSUTF8StringEncoding];
+    htmlString = [htmlString stringByReplacingOccurrencesOfString:@"tabulatabs://" withString:[NSString stringWithFormat:@"%@://", appDelegate.URLScheme]];
+    
+    [webView loadData:[htmlString dataUsingEncoding:NSUTF8StringEncoding] MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
     
     webView.delegate = self;
     webView.alpha = 0;

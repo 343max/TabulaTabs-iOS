@@ -13,6 +13,8 @@
 #import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
 
+#import "NSURL+TabulaTabs.h"
+
 #import "TTBrowserRepresentation.h"
 #import "TTClient.h"
 
@@ -38,6 +40,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 @implementation TTAppDelegate
 
 @synthesize window = _window;
+@synthesize URLScheme = _URLScheme;
 @synthesize navigationController = _navigationController, tabListViewController = _tabListViewController;
 @synthesize browserRepresentations = _browserRepresentations;
 @synthesize jobsInProgress = _jobsInProgress;
@@ -45,6 +48,8 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //    [TTDevelopmentHelpers runAsynchronTests]; return YES;
+    
+    _URLScheme =  [[[NSBundle mainBundle] infoDictionary] valueForKey:@"MainURLScheme"];
     
     [TestFlight takeOff:@"08b2e6be43c442789736edf1fecb1592_MTEwMjYyMDEyLTAzLTI0IDA5OjM1OjM0LjgxMDc5Ng"];
 
@@ -66,21 +71,24 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     if (self.browserRepresentations.count == 0) {
 //#warning debug: claiming an client
 //        [TTDevelopmentHelpers registerFakeClient];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
+//        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/c_276/c13171623aa6770c138eabc7325650a0/f2dbe2e55e777013f49661e809012569e804377afb70b5a5a36300981e486edc"]];
+        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/tour/"]];
     } else {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tabs/first"]];
+        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/tabs/first"]];
     }
     
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/claim/username/password/key"]];
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/tour/"]];
-//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tabulatabs://client/snapcode/"]];
+//    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/username/password/key"]];
+//    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/tour/"]];
+//    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/snapcode/"]];
     
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
 {
-    if (![url.scheme isEqualToString:@"tabulatabs"]) {
+    url = [url buildalizedURL];
+    
+    if (![url.scheme isEqualToString:self.URLScheme]) {
         return NO;
     } else {
         NSLog(@"handleOpenURL: %@", url);
@@ -130,44 +138,6 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     return self.tabListViewController;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    /*
-     Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-     Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-     */
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     */
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    /*
-     Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-     */
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    /*
-     Called when the application is about to terminate.
-     Save data if appropriate.
-     See also applicationDidEnterBackground:.
-     */
-}
 
 #pragma mark Browser Representations
 
