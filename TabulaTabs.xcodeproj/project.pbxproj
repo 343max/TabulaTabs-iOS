@@ -790,6 +790,8 @@
 		5016BA94151E0BF900AAA198 /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Max Winde (MR4S8XBL42)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Max Winde (MR4S8XBL42)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
 				HEADER_SEARCH_PATHS = ./sskeychain/;
@@ -802,6 +804,9 @@
 					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E657DC65-9106-46FD-A6BA-0944EA7E47F6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E657DC65-9106-46FD-A6BA-0944EA7E47F6";
+				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
 				WRAPPER_EXTENSION = app;
 			};
 			name = AdHoc;
@@ -894,6 +899,7 @@
 					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.Debug;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -913,6 +919,7 @@
 					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
