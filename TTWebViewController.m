@@ -167,9 +167,9 @@
 - (void)layoutNavBar;
 {
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
-    navBarFrame.origin.y = 20.0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top;
+    navBarFrame.origin.y = roundf(20.0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
     NSLog(@"scrollOffset: %@", NSStringFromCGPoint(self.webView.scrollView.contentOffset));
-    self.navigationController.navigationBar.frame = CGRectIntegral(navBarFrame);
+    self.navigationController.navigationBar.frame = navBarFrame;
     
     UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
     scrollIndicatorInsets.top = fmaxf(0.0, -self.webView.scrollView.contentOffset.y);
