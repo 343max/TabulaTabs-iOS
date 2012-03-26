@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TTWebViewController : UIViewController <UIWebViewDelegate>
+@interface TTWebViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) NSURL *URL;
 

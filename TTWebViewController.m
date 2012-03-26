@@ -23,6 +23,7 @@
 @property (strong) UIButton *actionButton;
 @property (strong) UILabel *titleLabel;
 
+- (void)layoutNavBar;
 - (void)startLoading;
 
 - (void)goBack:(id)sender;
@@ -109,8 +110,9 @@
     
     [TestFlight passCheckpoint:@"opened a tab"];
     
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
+    self.webView.scrollView.delegate = self;
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
@@ -123,6 +125,8 @@
 
 - (void)viewDidLayoutSubviews;
 {
+    NSLog(@"navBarHeight: %f", self.navigationController.navigationBar.frame.size.height);
+
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && UIDeviceOrientationIsLandscape(self.interfaceOrientation)) {
         self.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
     } else {
@@ -136,6 +140,15 @@
     
     NSLog(@"%f |<- %f ->| %f", leftBorder, titleWidth, rightBorder);
     self.titleLabel.frame = CGRectMake(0.0, 0.0, titleWidth, titleHeight);
+    
+    CGRect webViewFrame = self.view.bounds;
+    webViewFrame.origin.y -= self.navigationController.navigationBar.frame.size.height;
+    webViewFrame.size.height += self.navigationController.navigationBar.frame.size.height;
+//    self.navigationController.navigationBar.alpha = 0.2;
+    self.webView.frame = webViewFrame;
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0.0, 0.0, 0.0);
+    
+    [self layoutNavBar];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -143,7 +156,25 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation;
+{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    [self.view setNeedsLayout];
+}
+
 #pragma mark Helpers
+
+- (void)layoutNavBar;
+{
+    CGRect navBarFrame = self.navigationController.navigationBar.frame;
+    navBarFrame.origin.y = 20.0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top;
+    NSLog(@"scrollOffset: %@", NSStringFromCGPoint(self.webView.scrollView.contentOffset));
+    self.navigationController.navigationBar.frame = CGRectIntegral(navBarFrame);
+    
+    UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
+    scrollIndicatorInsets.top = fmaxf(0.0, -self.webView.scrollView.contentOffset.y);
+    self.webView.scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
+}
 
 - (void)startLoading;
 {
@@ -192,6 +223,13 @@
     self.forwardButton.enabled = webView.canGoForward;
     self.actionButton.enabled = YES;
     self.reloadButton.spinning = NO;
+}
+
+#pragma mark UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+{
+    [self layoutNavBar];
 }
 
 @end

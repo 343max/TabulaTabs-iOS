@@ -39,6 +39,17 @@
 @synthesize browserRepresentation = _browserRepresentation;
 @synthesize tabs = _tabs;
 
+- (id)init;
+{
+    self = [super init];
+    
+    if (self) {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"=" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    }
+    
+    return self;
+}
+
 - (void)loadTabs;
 {
     [self startLoadingAnimation];
