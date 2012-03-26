@@ -118,6 +118,17 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
 }
 
+- (void)viewWillDisappear:(BOOL)animated;
+{
+    [super viewWillDisappear:animated];
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect navBarFrame = self.navigationController.navigationBar.frame;
+        navBarFrame.origin.y = 20.0;
+        self.navigationController.navigationBar.frame = navBarFrame;
+    }];
+}
+
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 {
     self.titleLabel.frame = CGRectZero;
@@ -138,7 +149,6 @@
     CGFloat titleHeight = self.navigationController.navigationBar.bounds.size.height - 2.0;
     CGFloat titleWidth = rightBorder - leftBorder;
     
-    NSLog(@"%f |<- %f ->| %f", leftBorder, titleWidth, rightBorder);
     self.titleLabel.frame = CGRectMake(0.0, 0.0, titleWidth, titleHeight);
     
     CGRect webViewFrame = self.view.bounds;
@@ -168,7 +178,7 @@
 {
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
     navBarFrame.origin.y = roundf(20.0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
-    NSLog(@"scrollOffset: %@", NSStringFromCGPoint(self.webView.scrollView.contentOffset));
+    NSLog(@"scrollOffset: %@, contentSize: %@", NSStringFromCGPoint(self.webView.scrollView.contentOffset), NSStringFromCGSize(self.webView.scrollView.contentSize));
     self.navigationController.navigationBar.frame = navBarFrame;
     
     UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
