@@ -154,9 +154,17 @@
     CGRect webViewFrame = self.view.bounds;
     webViewFrame.origin.y -= self.navigationController.navigationBar.frame.size.height;
     webViewFrame.size.height += self.navigationController.navigationBar.frame.size.height;
-//    self.navigationController.navigationBar.alpha = 0.2;
     self.webView.frame = webViewFrame;
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0.0, 0.0, 0.0);
+    UIEdgeInsets oldContentInset = self.webView.scrollView.contentInset;
+    UIEdgeInsets newContentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0.0, 0.0, 0.0);
+    self.webView.scrollView.contentInset = newContentInset;
+    
+    CGPoint contentOffset = self.webView.scrollView.contentOffset;
+    contentOffset.y += oldContentInset.top - newContentInset.top;
+    self.webView.scrollView.contentOffset = contentOffset;
+    
+    NSLog(@"oldContentInset: %@, newContentInset: %@", NSStringFromUIEdgeInsets(oldContentInset), NSStringFromUIEdgeInsets(newContentInset));
+    
     
     [self layoutNavBar];
 }
