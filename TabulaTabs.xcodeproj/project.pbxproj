@@ -56,9 +56,14 @@
 		50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */; };
 		50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */; };
 		50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */; };
-		50C12A5D150EACB500A3E3DA /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resizing.m */; };
+		50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */; };
 		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
 		50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579B1521BE0700F2780F /* registrationGuide.html */; };
+		50F3579F1521BE4C00F2780F /* Gears.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579D1521BE4C00F2780F /* Gears.png */; };
+		50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579E1521BE4C00F2780F /* Gears@2x.png */; };
+		50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */; };
+		50F357C41521CD4300F2780F /* AppSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F357C31521CD4300F2780F /* AppSettings.storyboard */; };
+		50F357C71521CD6900F2780F /* TTAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C61521CD6900F2780F /* TTAppSettingsViewController.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
 		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
 		50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0A8B14EB154100823CE6 /* libzbar.a */; };
@@ -165,11 +170,18 @@
 		50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabTableViewCell.m; sourceTree = "<group>"; };
 		50C12A3E150EA4B100A3E3DA /* MWHTTPImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWHTTPImageCache.h; sourceTree = "<group>"; };
 		50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWHTTPImageCache.m; sourceTree = "<group>"; };
-		50C12A5B150EACB500A3E3DA /* UIImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resizing.h"; sourceTree = "<group>"; };
-		50C12A5C150EACB500A3E3DA /* UIImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resizing.m"; sourceTree = "<group>"; };
+		50C12A5B150EACB500A3E3DA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
 		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
 		50F3579B1521BE0700F2780F /* registrationGuide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuide.html; sourceTree = "<group>"; };
+		50F3579D1521BE4C00F2780F /* Gears.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gears.png; sourceTree = "<group>"; };
+		50F3579E1521BE4C00F2780F /* Gears@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gears@2x.png"; sourceTree = "<group>"; };
+		50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorOverlay.h"; sourceTree = "<group>"; };
+		50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorOverlay.m"; sourceTree = "<group>"; };
+		50F357C31521CD4300F2780F /* AppSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppSettings.storyboard; sourceTree = "<group>"; };
+		50F357C51521CD6900F2780F /* TTAppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAppSettingsViewController.h; sourceTree = "<group>"; };
+		50F357C61521CD6900F2780F /* TTAppSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAppSettingsViewController.m; sourceTree = "<group>"; };
 		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
 		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
 		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
@@ -468,8 +480,10 @@
 				50F363AB14E9496600AB104C /* MWURLConnection.m */,
 				50C12A3E150EA4B100A3E3DA /* MWHTTPImageCache.h */,
 				50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */,
-				50C12A5B150EACB500A3E3DA /* UIImage+Resizing.h */,
-				50C12A5C150EACB500A3E3DA /* UIImage+Resizing.m */,
+				50C12A5B150EACB500A3E3DA /* UIImage+Resize.h */,
+				50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */,
+				50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */,
+				50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */,
 				503288541520B745000CC58D /* NSURL+TabulaTabs.h */,
 				503288551520B745000CC58D /* NSURL+TabulaTabs.m */,
 			);
@@ -545,12 +559,15 @@
 			children = (
 				50FE0A9D14EB27DF00823CE6 /* TTTabListViewController.h */,
 				50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */,
+				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
+				50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */,
 				50FE0AA014EB289400823CE6 /* TTWelcomeViewController.h */,
 				50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */,
 				50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */,
 				50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */,
-				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
-				50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */,
+				50F357C31521CD4300F2780F /* AppSettings.storyboard */,
+				50F357C51521CD6900F2780F /* TTAppSettingsViewController.h */,
+				50F357C61521CD6900F2780F /* TTAppSettingsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -558,6 +575,8 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				50F3579D1521BE4C00F2780F /* Gears.png */,
+				50F3579E1521BE4C00F2780F /* Gears@2x.png */,
 				50F3579B1521BE0700F2780F /* registrationGuide.html */,
 			);
 			path = Resources;
@@ -651,6 +670,9 @@
 				5092F69E151E9DF900E2EC52 /* Reload.png in Resources */,
 				5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */,
 				50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */,
+				50F3579F1521BE4C00F2780F /* Gears.png in Resources */,
+				50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */,
+				50F357C41521CD4300F2780F /* AppSettings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -724,10 +746,12 @@
 				50C129E2150D378900A3E3DA /* TTDevelopmentHelpers.m in Sources */,
 				50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */,
 				50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */,
-				50C12A5D150EACB500A3E3DA /* UIImage+Resizing.m in Sources */,
+				50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */,
 				50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */,
 				5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */,
 				503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */,
+				50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */,
+				50F357C71521CD6900F2780F /* TTAppSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

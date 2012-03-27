@@ -6,14 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-    #import "MWURLConnection.h"
+#import "MWURLConnection.h"
 
-
-//{
-//    NSURLConnection *connection;
-//    void(^didFinishLoadingBlock)(NSData *);
-//}
-
+NSString * const MWURLConnectionDidStartNotification = @"MWURLConnectionDidStartNotification";
+NSString * const MWURLConnectionDidFinishNotification = @"MWURLConnectionDidFinishNotification";
 
 @interface MWURLConnection ()
 
@@ -25,9 +21,12 @@
 
 @implementation MWURLConnection
 
-@synthesize dataReceived;
-@synthesize request, connection;
-@synthesize connectionDidFinishLoadingBlock, connectionDidReceiveDataBlock, connectionDidFailWithErrorBlock, connectionDidReceiveAuthentificationChallenge;
+@synthesize dataReceived = _dataReceived;
+@synthesize request = _request, connection = _connection;
+@synthesize connectionDidFinishLoadingBlock = _connectionDidFinishLoadingBlock;
+@synthesize connectionDidReceiveDataBlock = _connectionDidReceiveDataBlock;
+@synthesize connectionDidFailWithErrorBlock = _connectionDidFailWithErrorBlock;
+@synthesize connectionDidReceiveAuthentificationChallenge = _connectionDidReceiveAuthentificationChallenge;
 
 - (id)initWithRequest:(NSURLRequest *)aRequest
 {
@@ -58,6 +57,12 @@
 
 #pragma mark NSURLConnectionDataDelegate
 
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)response;
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:MWURLConnectionDidStartNotification object:self];
+    return request;
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
 {
 //    NSLog(@"- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;");
@@ -74,6 +79,8 @@
     if (self.connectionDidFinishLoadingBlock) {
         self.connectionDidFinishLoadingBlock(self.dataReceived);
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MWURLConnectionDidFinishNotification object:self];
 }
 
 
@@ -95,6 +102,8 @@
         self.connectionDidFailWithErrorBlock(error);
     }
     NSLog(@"Connection Error: %@", [error description]);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MWURLConnectionDidFinishNotification object:self];
 }
 
 @end

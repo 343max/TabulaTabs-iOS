@@ -24,5 +24,6 @@
 @property (strong, nonatomic) NSArray *browserRepresentations;
 
 - (TTTabListViewController *)popToTablistViewControllerForBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation animated:(BOOL)animated;
+- (IBAction)showSettings:(id)sender;
 
 @end

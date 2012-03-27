@@ -6,7 +6,8 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "UIImage+Resizing.h"
+#import "UIImage+Resize.h"
+#import "UIImage+ColorOverlay.h"
 #import "MWHTTPImageCache.h"
 
 #import "TTBrowser.h"
@@ -45,6 +46,10 @@
     
     if (self) {
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"=" style:UIBarButtonItemStyleBordered target:nil action:nil];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"Gears"] imageWithColorOverlay:[UIColor whiteColor]]
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:appDelegate 
+                                                                                action:@selector(showSettings:)];
     }
     
     return self;

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const TTWebViewControllerStartedLoadingNotification;
+extern NSString * const TTWebViewControllerFinishedLoadingNotification;
+
 @interface TTWebViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) NSURL *URL;

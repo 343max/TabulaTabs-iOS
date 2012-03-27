@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (Resizing)
+@interface UIImage (Resize)
 
 - (UIImage *)scaledImageOfSize:(CGSize)size;
 - (UIImage *)scaledImageOfMaximumSize:(CGSize)manSize;
 - (UIImage *)scaledImageOfMinimumSize:(CGSize)minSize;
+
 @end

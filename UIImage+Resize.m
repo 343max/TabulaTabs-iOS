@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "UIImage+Resizing.h"
+#import "UIImage+Resize.h"
 
-@implementation UIImage (Resizing)
+@implementation UIImage (Resize)
 
 - (UIImage *)scaledImageOfSize:(CGSize)size;
 {

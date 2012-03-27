@@ -14,6 +14,9 @@
 
 #import "TTWebViewController.h"
 
+NSString * const TTWebViewControllerStartedLoadingNotification = @"TTWebViewControllerStartedLoadingNotification";
+NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewControllerFinishedLoadingNotification";
+
 @interface TTWebViewController ()
 
 @property (strong) UIWebView *webView;
@@ -24,12 +27,13 @@
 @property (strong) UIButton *actionButton;
 @property (strong) UILabel *titleLabel;
 @property (strong, nonatomic) NSString *pageTitle;
+@property (assign, nonatomic) NSInteger connectionCount;
 
 @property (strong) TTWebViewActionSheet *actionSheet;
 
-
 - (void)layoutNavBar;
-- (void)startLoading;
+- (void)loadingStarted;
+- (void)loadingFinished;
 
 - (void)goBack:(id)sender;
 - (void)goForward:(id)sender;
@@ -46,6 +50,7 @@
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
 @synthesize pageTitle = _pageTitle;
 @synthesize actionSheet = _actionSheet;
+@synthesize connectionCount = _connectionCount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {
@@ -98,6 +103,9 @@
     return self;
 }
 
+
+#pragma mark Accessors
+
 - (NSURL *)URL;
 {
     if (self.webView) {
@@ -112,6 +120,26 @@
     _URL = URL;
     [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
 }
+
+- (void)setConnectionCount:(NSInteger)connectionCount;
+{
+    BOOL oldConnectionsInProgress = _connectionCount > 0;    
+    _connectionCount = connectionCount;
+    BOOL newConnectionsInProgress = _connectionCount > 0;
+    
+    NSAssert(connectionCount >= 0, @"connection count dorpped below zero");
+    
+    if (oldConnectionsInProgress != newConnectionsInProgress) {
+        if (newConnectionsInProgress) {
+            [self loadingStarted];
+        } else {
+            [self loadingFinished];
+        }
+    }
+}
+
+#pragma mark Lifecycle
+
 
 - (void)viewDidLoad
 {
@@ -221,14 +249,27 @@
     self.webView.scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
 }
 
-- (void)startLoading;
+- (void)loadingStarted;
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerStartedLoadingNotification object:self];
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
     self.actionButton.enabled = NO;
     self.reloadButton.spinning = YES;
     
     self.pageTitle = nil;
+}
+
+- (void)loadingFinished;
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerFinishedLoadingNotification object:self];
+    
+    self.pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    self.backButton.enabled = self.webView.canGoBack;
+    self.forwardButton.enabled = self.webView.canGoForward;
+    self.actionButton.enabled = YES;
+    self.reloadButton.spinning = NO;
 }
 
 - (void)goBack:(id)sender;
@@ -250,18 +291,18 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
-    [self startLoading];
+    self.connectionCount++;
     return YES;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
-    self.pageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    
-    self.backButton.enabled = webView.canGoBack;
-    self.forwardButton.enabled = webView.canGoForward;
-    self.actionButton.enabled = YES;
-    self.reloadButton.spinning = NO;
+    self.connectionCount--;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
+{
+    self.connectionCount--;
 }
 
 #pragma mark UIScrollViewDelegate

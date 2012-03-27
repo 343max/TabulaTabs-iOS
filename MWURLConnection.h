@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const MWURLConnectionDidStartNotification;
+extern NSString * const MWURLConnectionDidFinishNotification;
+
 @interface MWURLConnection : NSObject <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
 @property (strong) NSMutableData *dataReceived;

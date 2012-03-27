@@ -14,6 +14,7 @@
 #import "SSKeychain.h"
 
 #import "NSURL+TabulaTabs.h"
+#import "MWURLConnection.h"
 
 #import "TTBrowserRepresentation.h"
 #import "TTClient.h"
@@ -21,6 +22,7 @@
 #import "TTScanQRViewController.h"
 #import "TTWelcomeViewController.h"
 #import "TTTabListViewController.h"
+#import "TTWebViewController.h"
 
 #import "TTAppDelegate.h"
 
@@ -29,10 +31,11 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 @interface TTAppDelegate ()
 
-@property (assign) NSInteger jobsInProgress;
+@property (assign, nonatomic) NSInteger networkConnectionsInProgress;
 
 - (void)registeringClient:(NSNotification *)notification;
-- (void)jobDone:(NSNotification *)notification;
+- (void)networkConnectionStarted:(NSNotification *)notification;
+- (void)networkConnectionFinished:(NSNotification *)notification;
 
 @end
 
@@ -43,7 +46,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 @synthesize URLScheme = _URLScheme;
 @synthesize navigationController = _navigationController, tabListViewController = _tabListViewController;
 @synthesize browserRepresentations = _browserRepresentations;
-@synthesize jobsInProgress = _jobsInProgress;
+@synthesize networkConnectionsInProgress = _networkConnectionsInProgress;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -57,7 +60,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.jobsInProgress = 0;
+    self.networkConnectionsInProgress = 0;
         
     [self restoreBrowserRepresentations];
     
@@ -65,9 +68,33 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
     self.window.rootViewController = self.navigationController;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(registeringClient:) name:TTBrowserReprensentationClaimingClientNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(jobDone:) name:TTBrowserReprensentationClientWasUpdatedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registeringClient:)
+                                                 name:TTBrowserReprensentationClaimingClientNotification
+                                               object:nil];    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkConnectionFinished:)
+                                                 name:TTBrowserReprensentationClientWasUpdatedNotification
+                                               object:nil];
         
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(networkConnectionStarted:)
+                                                 name:TTWebViewControllerStartedLoadingNotification 
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkConnectionFinished:)
+                                                 name:TTWebViewControllerFinishedLoadingNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(networkConnectionStarted:)
+                                                 name:MWURLConnectionDidStartNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkConnectionFinished:) 
+                                                 name:MWURLConnectionDidFinishNotification
+                                               object:nil];
+    
     if (self.browserRepresentations.count == 0) {
 //#warning debug: claiming an client
 //        [TTDevelopmentHelpers registerFakeClient];
@@ -152,7 +179,9 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
         [clientDictionaries addObject:client.dictionary];
         
         [SSKeychain setPassword:client.password forService:TTAppDelegatePasswordKey account:client.username];
-        [SSKeychain setPassword:client.encryption.encryptionKey.hexString forService:TTAppDelegateEncryptionKeyKey account:client.username];
+        [SSKeychain setPassword:client.encryption.encryptionKey.hexString
+                     forService:TTAppDelegateEncryptionKeyKey 
+                        account:client.username];
     }];
     
     [[NSUserDefaults standardUserDefaults] setObject:[clientDictionaries copy] forKey:@"clients"];
@@ -171,7 +200,8 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
     [clientDictionaries enumerateObjectsUsingBlock:^(NSDictionary *clientDictionary, NSUInteger idx, BOOL *stop) {
         TTClient *client = [[TTClient alloc] initWithDictionary:clientDictionary];
         client.password = [SSKeychain passwordForService:TTAppDelegatePasswordKey account:client.username];
-        NSData *encryptionKey = [NSData dataWithHexString:[SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey account:client.username]];
+        NSData *encryptionKey = [NSData dataWithHexString:[SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey 
+                                                                                 account:client.username]];
         client.encryption = [[TTEncryption alloc] initWithEncryptionKey:encryptionKey];
         
         TTBrowserRepresentation *browserRepresentation = [[TTBrowserRepresentation alloc] init];
@@ -184,21 +214,43 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 #pragma mark Helper
 
-- (void)registeringClient:(NSNotification *)notification;
+- (void)setNetworkConnectionsInProgress:(NSInteger)networkConnectionsInProgress;
 {
-    self.jobsInProgress++;
-    [[MTStatusBarOverlay sharedOverlay] postImmediateMessage:@"Handshake" animated:YES];
+    NSAssert(networkConnectionsInProgress >= 0, @"networkConnectionsInProgress below zero");
+    _networkConnectionsInProgress = networkConnectionsInProgress;
+    
+    NSLog(@"%i network connections in progress", networkConnectionsInProgress);
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = (networkConnectionsInProgress > 0);
 }
 
-- (void)jobDone:(NSNotification *)notification;
+- (void)registeringClient:(NSNotification *)notification;
 {
-    self.jobsInProgress--;
-    
-    NSAssert(self.jobsInProgress >= 0, @"finished more jobs then started");
-    
-    if (self.jobsInProgress == 0) {
+    [[MTStatusBarOverlay sharedOverlay] postImmediateMessage:@"Handshake" animated:YES];
+    [self networkConnectionStarted:nil];
+}
+
+- (void)networkConnectionStarted:(NSNotification *)notification;
+{
+    self.networkConnectionsInProgress++;
+}
+
+- (void)networkConnectionFinished:(NSNotification *)notification;
+{
+    self.networkConnectionsInProgress--;
+
+    if (self.networkConnectionsInProgress == 0) {
         [[MTStatusBarOverlay sharedOverlay] hide];
     }
+}
+
+- (IBAction)showSettings:(id)sender;
+{
+    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"AppSettings" bundle:nil];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[settingsStoryboard instantiateInitialViewController]];
+    
+    [self.window.rootViewController presentModalViewController:navigationController
+                                                      animated:YES];
 }
 
 @end
