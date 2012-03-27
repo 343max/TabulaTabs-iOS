@@ -11,6 +11,7 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
 #import "TestFlight.h"
 
 #import "TTBrowserRepresentation.h"
+#import "TTBrowserController.h"
 #import "TTAppDelegate.h"
 
 #import "TTAppSettingsViewController.h"
@@ -41,7 +42,7 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     if (section == TTAppSettingsViewControllerBrowsersSection) {
-        return appDelegate.browserRepresentations.count;
+        return appDelegate.browserController.allBrowsers.count;
     } else {
         return [super tableView:tableView numberOfRowsInSection:section];
     }
@@ -57,7 +58,7 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
         
-        TTBrowserRepresentation *browserRepresentation = [appDelegate.browserRepresentations objectAtIndex:indexPath.row];
+        TTBrowserRepresentation *browserRepresentation = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
         cell.textLabel.text = browserRepresentation.browser.label;
         cell.detailTextLabel.text = browserRepresentation.browser.description;
         

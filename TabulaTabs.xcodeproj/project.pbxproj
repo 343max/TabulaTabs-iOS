@@ -31,6 +31,7 @@
 		5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F697151E9DF900E2EC52 /* Reload@2x.png */; };
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
+		50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A833BB1521FB3F007F97A8 /* TTBrowserController.m */; };
 		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
 		50AB685914FAAE100040D328 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685714FAAE100040D328 /* README.markdown */; };
 		50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */; };
@@ -130,6 +131,8 @@
 		5092F697151E9DF900E2EC52 /* Reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reload@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
+		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TTBrowserController.h; sourceTree = "<group>"; };
+		50A833BB1521FB3F007F97A8 /* TTBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserController.m; sourceTree = "<group>"; };
 		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
@@ -381,6 +384,8 @@
 				503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */,
 				50C129E0150D378900A3E3DA /* TTDevelopmentHelpers.h */,
 				50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */,
+				50A833BA1521FB3F007F97A8 /* TTBrowserController.h */,
+				50A833BB1521FB3F007F97A8 /* TTBrowserController.m */,
 			);
 			path = TabulaTabs;
 			sourceTree = "<group>";
@@ -752,6 +757,7 @@
 				503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */,
 				50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */,
 				50F357C71521CD6900F2780F /* TTAppSettingsViewController.m in Sources */,
+				50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "TTAppDelegate.h"
 
 #import "TTClient.h"
+#import "TTBrowserController.h"
 
 #import "TTBrowserRepresentation.h"
 
@@ -32,6 +33,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 @implementation TTBrowserRepresentation
 
 @synthesize client = _client, browser = _browser, tabs = _tabs;
+@synthesize tabulatabsURL = _tabulatabsURL;
 
 - (void)setClient:(TTClient *)client;
 {
@@ -45,6 +47,8 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
         [self loadTabs];
     }
 }
+
+
 
 - (TTClient *)claimURL:(NSURL *)url;
 {
@@ -84,7 +88,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientWasUpdatedNotification object:self];
             [TestFlight passCheckpoint:@"registered a client"];
             
-            appDelegate.browserRepresentations = [appDelegate.browserRepresentations arrayByAddingObject:self];
+            appDelegate.browserController.allBrowsers = [appDelegate.browserController.allBrowsers arrayByAddingObject:self];
         } else {
             // todo
 //            [appDelegate showPanelType:MKInfoPanelTypeError title:@"Could not add browser" subtitle:@"This browser could not be added. The URL might be out of date or claimed otherwise. For seccurity reasons you should click the \"Start Over\" link in your browser"];

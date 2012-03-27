@@ -9,13 +9,13 @@
 #import "TTDevelopmentHelpers.h"
 
 #import "TestFlight.h"
-#import "NSData-hex.h"
 #import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
 
 #import "NSURL+TabulaTabs.h"
 #import "MWURLConnection.h"
 
+#import "TTBrowserController.h"
 #import "TTBrowserRepresentation.h"
 #import "TTClient.h"
 
@@ -25,9 +25,6 @@
 #import "TTWebViewController.h"
 
 #import "TTAppDelegate.h"
-
-NSString * const TTAppDelegatePasswordKey = @"ClientPassword";
-NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 @interface TTAppDelegate ()
 
@@ -45,7 +42,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 @synthesize window = _window;
 @synthesize URLScheme = _URLScheme;
 @synthesize navigationController = _navigationController, tabListViewController = _tabListViewController;
-@synthesize browserRepresentations = _browserRepresentations;
+@synthesize browserController = _browserController;
 @synthesize networkConnectionsInProgress = _networkConnectionsInProgress;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -95,7 +92,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
                                                  name:MWURLConnectionDidFinishNotification
                                                object:nil];
     
-    if (self.browserRepresentations.count == 0) {
+    if (self.browserController.allBrowsers.count == 0) {
 //#warning debug: claiming an client
 //        [TTDevelopmentHelpers registerFakeClient];
 //        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/c_276/c13171623aa6770c138eabc7325650a0/f2dbe2e55e777013f49661e809012569e804377afb70b5a5a36300981e486edc"]];
@@ -130,7 +127,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tabs"] && url.pathComponents.count == 3) {
             NSString *clientDescriptor = [url.pathComponents objectAtIndex:2];
             if ([clientDescriptor isEqualToString:@"first"]) {
-                [self popToTablistViewControllerForBrowserRepresentation:[self.browserRepresentations objectAtIndex:0] animated:YES];
+                [self popToTablistViewControllerForBrowserRepresentation:[self.browserController.allBrowsers objectAtIndex:0] animated:YES];
             }
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
             TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] initWithNibName:nil bundle:nil];
@@ -168,26 +165,6 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 
 #pragma mark Browser Representations
 
-- (void)setBrowserRepresentations:(NSArray *)newBrowserRepresentations;
-{
-    _browserRepresentations = newBrowserRepresentations;
-    NSLog(@"saving browserRepresentations");
-    
-    NSMutableArray *clientDictionaries = [NSMutableArray arrayWithCapacity:_browserRepresentations.count];
-    [_browserRepresentations enumerateObjectsUsingBlock:^(TTBrowserRepresentation *browser, NSUInteger idx, BOOL *stop) {
-        TTClient *client = browser.client;
-        [clientDictionaries addObject:client.dictionary];
-        
-        [SSKeychain setPassword:client.password forService:TTAppDelegatePasswordKey account:client.username];
-        [SSKeychain setPassword:client.encryption.encryptionKey.hexString
-                     forService:TTAppDelegateEncryptionKeyKey 
-                        account:client.username];
-    }];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:[clientDictionaries copy] forKey:@"clients"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 - (void)restoreBrowserRepresentations;
 {
 //#warning debug: claiming an client
@@ -195,21 +172,7 @@ NSString * const TTAppDelegateEncryptionKeyKey = @"ClientEncryptionKey";
 //    return;
     
     NSArray *clientDictionaries = [[NSUserDefaults standardUserDefaults] arrayForKey:@"clients"];
-    NSMutableArray *restoredBrowsers = [NSMutableArray arrayWithCapacity:clientDictionaries.count];
-    
-    [clientDictionaries enumerateObjectsUsingBlock:^(NSDictionary *clientDictionary, NSUInteger idx, BOOL *stop) {
-        TTClient *client = [[TTClient alloc] initWithDictionary:clientDictionary];
-        client.password = [SSKeychain passwordForService:TTAppDelegatePasswordKey account:client.username];
-        NSData *encryptionKey = [NSData dataWithHexString:[SSKeychain passwordForService:TTAppDelegateEncryptionKeyKey 
-                                                                                 account:client.username]];
-        client.encryption = [[TTEncryption alloc] initWithEncryptionKey:encryptionKey];
-        
-        TTBrowserRepresentation *browserRepresentation = [[TTBrowserRepresentation alloc] init];
-        browserRepresentation.client = client;
-        [restoredBrowsers addObject:browserRepresentation];
-    }];
-    
-    _browserRepresentations = [restoredBrowsers copy];
+    _browserController = [[TTBrowserController alloc] initWithClientDictionaries:clientDictionaries];
 }
 
 #pragma mark Helper

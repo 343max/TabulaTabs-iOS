@@ -11,6 +11,7 @@
 #define appDelegate ((TTAppDelegate *)[[UIApplication sharedApplication] delegate])
 
 @class TTTabListViewController;
+@class TTBrowserController;
 @class TTBrowserRepresentation;
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>
@@ -21,7 +22,7 @@
 @property (strong, nonatomic) UINavigationController *navigationController;
 @property (strong, nonatomic) TTTabListViewController *tabListViewController;
 
-@property (strong, nonatomic) NSArray *browserRepresentations;
+@property (strong, readonly) TTBrowserController *browserController;
 
 - (TTTabListViewController *)popToTablistViewControllerForBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation animated:(BOOL)animated;
 - (IBAction)showSettings:(id)sender;
