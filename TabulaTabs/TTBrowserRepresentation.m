@@ -48,7 +48,10 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     }
 }
 
-
+- (NSURL *)tabulatabsURL;
+{
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@://client/tabs/%@", appDelegate.URLScheme, self.client.username]];
+}
 
 - (TTClient *)claimURL:(NSURL *)url;
 {

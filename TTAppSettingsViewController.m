@@ -69,7 +69,10 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     if (indexPath.section == TTAppSettingsViewControllerBrowsersSection) {
-        NSLog(@"choose browser!");
+        [self dismissViewControllerAnimated:YES completion:^{
+            TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
+            [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
+        }];
     } else {
         
     }
