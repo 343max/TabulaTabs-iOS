@@ -17,6 +17,7 @@
 @property (assign) NSInteger tweetButtonIndex;
 @property (assign) NSInteger emailButtonIndex;
 @property (assign) NSInteger messageButtonIndex;
+@property (assign) NSInteger openInSafariIndex;
 
 @end
 
@@ -24,7 +25,7 @@
 @implementation TTWebViewActionSheet
 
 @synthesize URL = _URL, pageTitle = _pageTitle;
-@synthesize tweetButtonIndex = _tweetButtonIndex, emailButtonIndex = _emailButtonIndex, messageButtonIndex = _messageButtonIndex;
+@synthesize tweetButtonIndex = _tweetButtonIndex, emailButtonIndex = _emailButtonIndex, messageButtonIndex = _messageButtonIndex, openInSafariIndex = _openInSafariIndex;
 
 - (id)initWithPageTitle:(NSString *)pageTitle URL:(NSURL *)URL;
 {
@@ -52,6 +53,9 @@
             [self addButtonWithTitle:@"Send Link in Message"];
             self.messageButtonIndex = self.numberOfButtons - 1;
         }
+        
+        [self addButtonWithTitle:@"Open Page in Safari"];
+        self.openInSafariIndex = self.numberOfButtons - 1;
 
         [self addButtonWithTitle:@"Cancel"];
         self.cancelButtonIndex = self.numberOfButtons - 1;
@@ -84,6 +88,8 @@
         messageComposer.messageComposeDelegate = self;
         
         [[UIApplication sharedApplication].keyWindow.rootViewController presentModalViewController:messageComposer animated:YES];
+    } else if (buttonIndex == self.openInSafariIndex) {
+        [[UIApplication sharedApplication] openURL:self.URL];
     }
 }
 
