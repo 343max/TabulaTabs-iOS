@@ -7,6 +7,8 @@
 //
 
 #import "TestFlight.h"
+
+#import "NSURL+TabulaTabs.h"
 #import "TTAppDelegate.h"
 
 #import "TTClient.h"
@@ -50,7 +52,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 
 - (NSURL *)tabulatabsURL;
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@://client/tabs/%@", appDelegate.URLScheme, self.client.username]];
+    return [NSURL tabulatabsURLWithString:[NSString stringWithFormat:@"client/tabs/%@", self.client.username]];
 }
 
 - (TTClient *)claimURL:(NSURL *)url;
@@ -91,7 +93,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientWasUpdatedNotification object:self];
             [TestFlight passCheckpoint:@"registered a client"];
             
-            appDelegate.browserController.allBrowsers = [appDelegate.browserController.allBrowsers arrayByAddingObject:self];
+            [appDelegate.browserController addBrowser:self];
         } else {
             // todo
 //            [appDelegate showPanelType:MKInfoPanelTypeError title:@"Could not add browser" subtitle:@"This browser could not be added. The URL might be out of date or claimed otherwise. For seccurity reasons you should click the \"Start Over\" link in your browser"];

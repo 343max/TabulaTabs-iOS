@@ -14,6 +14,7 @@
 
 @implementation TTBrowser
 
+@synthesize identifier = _identifier;
 @synthesize userAgent = _userAgent;
 @synthesize label = _label;
 @synthesize browserDescription = _browserDescription;
@@ -38,6 +39,9 @@
     [jsonParams setObject:self.userAgent forKey:@"useragent"];
     
     [self sendJsonRequest:@"browsers.json" method:@"POST" jsonParameters:jsonParams callback:^(NSDictionary* response) {
+        NSNumber *identifier = [response objectForKey:@"id"];
+        self.identifier = [identifier integerValue];
+        
         self.username = [response objectForKey:@"username"];
         self.password = password;
         callback(response);
@@ -54,9 +58,11 @@
     self.username = username;
     self.password = password;
     
-    [self sendJsonGetRequest:@"browsers.json" callback:^(id response) {
+    [self sendJsonGetRequest:@"browsers.json" callback:^(NSDictionary *response) {
         NSDictionary *payload = [self.encryption decrypt:response];
         
+        NSNumber *identifier = [response objectForKey:@"id"];
+        self.identifier = [identifier integerValue];
         self.browserDescription = [payload objectForKey:@"description"];
         self.iconURL = [NSURL URLWithString:[payload objectForKey:@"iconURL"]];
         self.label = [payload objectForKey:@"label"];

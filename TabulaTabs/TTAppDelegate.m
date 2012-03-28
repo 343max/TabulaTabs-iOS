@@ -19,10 +19,10 @@
 #import "TTBrowserRepresentation.h"
 #import "TTClient.h"
 
-#import "TTScanQRViewController.h"
-#import "TTWelcomeViewController.h"
+#import "TTAddBrowserFlowViewController.h"
 #import "TTTabListViewController.h"
 #import "TTWebViewController.h"
+#import "TTSettingsNavController.h"
 
 #import "TTAppDelegate.h"
 
@@ -127,16 +127,15 @@
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tabs"] && url.pathComponents.count == 3) {
             NSString *clientDescriptor = [url.pathComponents objectAtIndex:2];
             if ([clientDescriptor isEqualToString:@"first"]) {
-                [self popToTablistViewControllerForBrowserRepresentation:[self.browserController.allBrowsers objectAtIndex:0] animated:YES];
+                [self popToTablistViewControllerForBrowserRepresentation:[self.browserController.allBrowsers objectAtIndex:0]
+                                                                animated:YES];
+            } else {
+                [self popToTablistViewControllerForBrowserRepresentation:[self.browserController browserWithClientIdentifier:clientDescriptor]
+                                                                animated:YES];
             }
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
-            TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] initWithNibName:nil bundle:nil];
-            [(UINavigationController *)self.window.rootViewController pushViewController:welcomeViewController animated:YES];
-            
-        } else if([module isEqualToString:@"client"] && [action isEqualToString:@"snapcode"]) {
-            TTScanQRViewController *scanViewController = [[TTScanQRViewController alloc] initWithNibName:nil bundle:nil];
-            [(UINavigationController *)self.window.rootViewController pushViewController:scanViewController animated:YES];
-            
+            TTAddBrowserFlowViewController *addBrowserFlow = [[TTAddBrowserFlowViewController alloc] init];
+            [self.window.rootViewController presentModalViewController:addBrowserFlow animated:YES];
         } else {
             NSLog(@"could not handle my URL: %@", url);
         }
@@ -182,8 +181,6 @@
     NSAssert(networkConnectionsInProgress >= 0, @"networkConnectionsInProgress below zero");
     _networkConnectionsInProgress = networkConnectionsInProgress;
     
-    NSLog(@"%i network connections in progress", networkConnectionsInProgress);
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = (networkConnectionsInProgress > 0);
 }
 
@@ -209,10 +206,8 @@
 
 - (IBAction)showSettings:(id)sender;
 {
-    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"AppSettings" bundle:nil];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[settingsStoryboard instantiateInitialViewController]];
-    
-    [self.window.rootViewController presentModalViewController:navigationController
+    TTSettingsNavController *settingsNavController = [[TTSettingsNavController alloc] init];
+    [self.window.rootViewController presentModalViewController:settingsNavController
                                                       animated:YES];
 }
 

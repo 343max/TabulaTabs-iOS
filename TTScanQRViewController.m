@@ -23,14 +23,16 @@
 
 @synthesize readerView = _readerView, cameraSimulator = _cameraSimulator;
 
-- (void)didReceiveMemoryWarning
+- (id)init;
 {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+    self = [super init];
     
-    // Release any cached data, images, etc that aren't in use.
+    if (self) {
+        self.title = @"Add Browser";
+    }
+    
+    return self;
 }
-
 
 #pragma mark - View lifecycle
 
@@ -97,7 +99,9 @@
         NSLog(@"scanned URL: %@", url.absoluteString);
         
         [TestFlight passCheckpoint:@"scanned an QR code"];
-        [[UIApplication sharedApplication] openURL:[url buildalizedURL]];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[UIApplication sharedApplication] openURL:[url buildalizedURL]];
+        }];
     } else {
         [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"Invalid QR Code" duration:3.0 animated:YES];
         [TestFlight passCheckpoint:@"scanned an invalid QR code"];

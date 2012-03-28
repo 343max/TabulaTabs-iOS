@@ -14,6 +14,14 @@
 NSString * const TTBrowserControllerPasswordKey = @"ClientPassword";
 NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
+
+@interface TTBrowserController ()
+
+@property (strong, nonatomic) NSArray *allBrowsers;
+
+@end
+
+
 @implementation TTBrowserController
 
 @synthesize allBrowsers = _allBrowsers;
@@ -43,18 +51,46 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
     return self;
 }
 
-- (TTBrowserRepresentation *)browserWithClientIdentifier:(NSString *)identifier;
+- (TTBrowserRepresentation *)browserWithClientIdentifier:(NSString *)clientIdentifier;
 {
     __block TTBrowserRepresentation *matchingBrowser;
     
     [self.allBrowsers enumerateObjectsUsingBlock:^(TTBrowserRepresentation *browser, NSUInteger idx, BOOL *stop) {
-        if ([browser.client.username isEqualToString:identifier]) {
+        if ([browser.client.username isEqualToString:clientIdentifier]) {
             matchingBrowser = browser;
             *stop = YES;
         }
     }];
     
     return matchingBrowser;
+}
+
+- (TTBrowserRepresentation *)browserWithBrowserIdentifier:(NSInteger)identifier;
+{
+    __block TTBrowserRepresentation *matchingBrowser;
+    
+    [self.allBrowsers enumerateObjectsUsingBlock:^(TTBrowserRepresentation *browser, NSUInteger idx, BOOL *stop) {
+        if (browser.browser.identifier == identifier) {
+            matchingBrowser = browser;
+            *stop = YES;
+        }
+    }];
+    
+    return matchingBrowser;    
+}
+
+- (void)addBrowser:(TTBrowserRepresentation *)browserReprensentation;
+{
+    TTBrowserRepresentation *existingBrowser = [self browserWithBrowserIdentifier:browserReprensentation.browser.identifier];
+    if (existingBrowser != nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Browser allready added"
+                                                        message:@"You have allready added this browser, you can't add the same browser twice."
+                                                       delegate:nil cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        self.allBrowsers = [self.allBrowsers arrayByAddingObject:browserReprensentation];
+    }
 }
 
 #pragma mark Accessors

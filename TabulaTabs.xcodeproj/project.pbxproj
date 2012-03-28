@@ -16,6 +16,8 @@
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
+		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
+		5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */; };
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
@@ -63,8 +65,7 @@
 		50F3579F1521BE4C00F2780F /* Gears.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579D1521BE4C00F2780F /* Gears.png */; };
 		50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579E1521BE4C00F2780F /* Gears@2x.png */; };
 		50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */; };
-		50F357C41521CD4300F2780F /* AppSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50F357C31521CD4300F2780F /* AppSettings.storyboard */; };
-		50F357C71521CD6900F2780F /* TTAppSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C61521CD6900F2780F /* TTAppSettingsViewController.m */; };
+		50F357C71521CD6900F2780F /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C61521CD6900F2780F /* TTSettingsViewController.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
 		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
 		50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0A8B14EB154100823CE6 /* libzbar.a */; };
@@ -112,6 +113,10 @@
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
+		5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBrowserFlowViewController.m; sourceTree = "<group>"; };
+		5067AE1815221B2800CF6BFA /* TTSettingsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsNavController.h; sourceTree = "<group>"; };
+		5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSettingsNavController.m; sourceTree = "<group>"; };
 		5069084C14EAB50200D39759 /* TTTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTab.h; sourceTree = "<group>"; };
 		5069084D14EAB50200D39759 /* TTTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTab.m; sourceTree = "<group>"; };
 		5069085014EAEAA300D39759 /* TTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTClient.h; sourceTree = "<group>"; };
@@ -131,7 +136,7 @@
 		5092F697151E9DF900E2EC52 /* Reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reload@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
-		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TTBrowserController.h; sourceTree = "<group>"; };
+		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
 		50A833BB1521FB3F007F97A8 /* TTBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserController.m; sourceTree = "<group>"; };
 		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
 		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
@@ -182,9 +187,8 @@
 		50F3579E1521BE4C00F2780F /* Gears@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gears@2x.png"; sourceTree = "<group>"; };
 		50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorOverlay.h"; sourceTree = "<group>"; };
 		50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorOverlay.m"; sourceTree = "<group>"; };
-		50F357C31521CD4300F2780F /* AppSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppSettings.storyboard; sourceTree = "<group>"; };
-		50F357C51521CD6900F2780F /* TTAppSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAppSettingsViewController.h; sourceTree = "<group>"; };
-		50F357C61521CD6900F2780F /* TTAppSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAppSettingsViewController.m; sourceTree = "<group>"; };
+		50F357C51521CD6900F2780F /* TTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsViewController.h; sourceTree = "<group>"; };
+		50F357C61521CD6900F2780F /* TTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSettingsViewController.m; sourceTree = "<group>"; };
 		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
 		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
 		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
@@ -566,13 +570,16 @@
 				50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */,
 				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
 				50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */,
+				5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */,
+				5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */,
 				50FE0AA014EB289400823CE6 /* TTWelcomeViewController.h */,
 				50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */,
 				50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */,
 				50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */,
-				50F357C31521CD4300F2780F /* AppSettings.storyboard */,
-				50F357C51521CD6900F2780F /* TTAppSettingsViewController.h */,
-				50F357C61521CD6900F2780F /* TTAppSettingsViewController.m */,
+				5067AE1815221B2800CF6BFA /* TTSettingsNavController.h */,
+				5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */,
+				50F357C51521CD6900F2780F /* TTSettingsViewController.h */,
+				50F357C61521CD6900F2780F /* TTSettingsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -677,7 +684,6 @@
 				50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */,
 				50F3579F1521BE4C00F2780F /* Gears.png in Resources */,
 				50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */,
-				50F357C41521CD4300F2780F /* AppSettings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,8 +762,10 @@
 				5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */,
 				503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */,
 				50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */,
-				50F357C71521CD6900F2780F /* TTAppSettingsViewController.m in Sources */,
+				50F357C71521CD6900F2780F /* TTSettingsViewController.m in Sources */,
 				50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */,
+				5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */,
+				5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

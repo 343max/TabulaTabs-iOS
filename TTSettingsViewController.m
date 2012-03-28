@@ -7,30 +7,19 @@
 //
 
 NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
+NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
 
-#import "TestFlight.h"
+#import "NSURL+TabulaTabs.h"
 
 #import "TTBrowserRepresentation.h"
 #import "TTBrowserController.h"
+
+#import "TTWelcomeViewController.h"
 #import "TTAppDelegate.h"
 
-#import "TTAppSettingsViewController.h"
+#import "TTSettingsViewController.h"
 
-@interface TTAppSettingsViewController ()
-
-- (void)dismiss:(id)sender;
-
-@end
-
-@implementation TTAppSettingsViewController
-
-- (void)awakeFromNib;
-{
-    [TestFlight passCheckpoint:@"Open Settings"];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                          target:self
-                                                                                          action:@selector(dismiss:)];
-}
+@implementation TTSettingsViewController
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -39,20 +28,23 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     if (section == TTAppSettingsViewControllerBrowsersSection) {
         return appDelegate.browserController.allBrowsers.count;
     } else {
-        return [super tableView:tableView numberOfRowsInSection:section];
+        return 1;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if (indexPath.section != TTAppSettingsViewControllerBrowsersSection) {
-        return [super tableView:tableView cellForRowAtIndexPath:indexPath];
-    } else {
+    if (indexPath.section == TTAppSettingsViewControllerBrowsersSection) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
@@ -61,6 +53,15 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
         TTBrowserRepresentation *browserRepresentation = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
         cell.textLabel.text = browserRepresentation.browser.label;
         cell.detailTextLabel.text = browserRepresentation.browser.description;
+        
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
+        }
+
+        cell.textLabel.text = @"Add Browser";
         
         return cell;
     }
@@ -73,17 +74,12 @@ NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
             TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
             [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
         }];
-    } else {
-        
+    } else if(indexPath.section == TTAppSettingsViewControllerAddBrowserSection) {
+        if (indexPath.row == 0) {
+            TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] init];
+            [self.navigationController pushViewController:welcomeViewController animated:YES];
+        }
     }
 }
-
-#pragma mark Helpers
-
-- (void)dismiss:(id)sender;
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 
 @end

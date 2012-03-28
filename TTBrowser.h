@@ -12,6 +12,7 @@
 
 @interface TTBrowser : TTRestfulEncryptedClient
 
+@property (assign) NSInteger identifier;
 @property (strong) NSString *userAgent;
 @property (strong) NSString *label;
 @property (strong) NSString *browserDescription;

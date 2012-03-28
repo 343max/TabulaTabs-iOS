@@ -12,10 +12,12 @@
 
 @interface TTBrowserController : NSObject
 
-@property (strong, nonatomic) NSArray *allBrowsers;
+@property (strong, nonatomic, readonly) NSArray *allBrowsers;
 
 - (id)initWithClientDictionaries:(NSArray *)clientDictionaries;
 
-- (TTBrowserRepresentation *)browserWithClientIdentifier:(NSString *)identifier;
+- (TTBrowserRepresentation *)browserWithClientIdentifier:(NSString *)clientIdentifier;
+- (TTBrowserRepresentation *)browserWithBrowserIdentifier:(NSInteger)identifier;
+- (void)addBrowser:(TTBrowserRepresentation *)browserReprensentation;
 
 @end

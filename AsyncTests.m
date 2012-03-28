@@ -40,6 +40,7 @@
             NSAssert([browser.iconURL.absoluteString isEqualToString:newBrowser.iconURL.absoluteString], @"iconURL not set correctly");
             NSAssert([browser.label isEqualToString:newBrowser.label], @"label not set correctly");
             NSAssert([browser.browserDescription isEqualToString:newBrowser.browserDescription], @"description not set correctly");
+            NSAssert(newBrowser.identifier == browser.identifier, @"borwser id not set correctly");
         }];
         
         TTTab* tab1 = [[TTTab alloc] init];

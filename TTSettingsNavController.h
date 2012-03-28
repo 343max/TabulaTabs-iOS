@@ -1,5 +1,5 @@
 //
-//  TTAppSettingsViewController.h
+//  TTSettingsNavController.h
 //  TabulaTabs
 //
 //  Created by Max Winde on 27.03.12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TTAppSettingsViewController : UITableViewController
+@interface TTSettingsNavController : UINavigationController <UINavigationControllerDelegate>
 
 @end

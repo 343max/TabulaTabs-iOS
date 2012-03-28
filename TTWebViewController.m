@@ -103,6 +103,10 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     return self;
 }
 
+- (void)dealloc;
+{
+    self.webView.delegate = nil;
+}
 
 #pragma mark Accessors
 
@@ -150,6 +154,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
+    self.webView.scalesPageToFit = YES;
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
