@@ -8,7 +8,6 @@
 
 #import "UIImage+Resize.h"
 #import "UIImage+ColorOverlay.h"
-#import "UIColor+TabulaTabs.h"
 #import "MWHTTPImageCache.h"
 
 #import "TTBrowser.h"
@@ -95,14 +94,8 @@
 
 - (void)viewDidLoad
 {
+    self.tableView.rowHeight = 70;
     [super viewDidLoad];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -143,6 +136,8 @@
     return self.tabs.count;
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
@@ -154,12 +149,16 @@
     
     TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
     
+    
     cell.textLabel.text = tab.pageTitle;
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
     cell.imageView.contentMode = UIViewContentModeCenter;
     cell.imageView.clipsToBounds = YES;
-    cell.textLabel.textColor = (tab.dominantColor ? tab.dominantColor : [UIColor defaultPageColor]);
+    cell.pageColor = tab.dominantColor;
     
+    NSLog(@"site: %@, pageColor: %@", cell.detailTextLabel.text, tab.dominantColor);
+
+    cell.imageView.image = nil;
     if (tab.pageThumbnailURL) {
         [[MWHTTPImageCache defaultCache] loadImage:tab.pageThumbnailURL
                                  processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]
@@ -170,6 +169,7 @@
                                    }];
     }
     
+    cell.faviconView.image = nil;
     if (tab.favIconURL) {
         [[MWHTTPImageCache defaultCache] loadImage:tab.favIconURL
                                    completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {

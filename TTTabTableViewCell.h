@@ -11,5 +11,6 @@
 @interface TTTabTableViewCell : UITableViewCell
 
 @property (strong, readonly) UIImageView *faviconView;
+@property (strong, nonatomic) UIColor *pageColor;
 
 @end

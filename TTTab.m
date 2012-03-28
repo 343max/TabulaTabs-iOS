@@ -46,12 +46,21 @@
         self.favIconURL = [NSURL URLWithString:[dictionary objectForKey:@"favIconURL"]];
         self.windowId = [dictionary objectForKey:@"windowId"];
         self.index = [[dictionary objectForKey:@"index"] integerValue];
-        if (![self.pageTitle isEqualToString:@""])
-            self.pageTitle = [dictionary objectForKey:@"pageTitle"];
+        self.pageTitle = [dictionary objectForKey:@"pageTitle"];
         self.shortDomain = [dictionary objectForKey:@"shortDomain"];
         self.siteTitle = [dictionary objectForKey:@"siteTitle"];
         if (![[dictionary objectForKey:@"pageThumbnail"] isEqualToString:@""])
             self.pageThumbnailURL = [NSURL URLWithString:[dictionary objectForKey:@"pageThumbnail"]];
+        
+        if ([self.pageTitle isEqualToString:@""]) {
+            self.pageTitle = nil;
+        }
+        if ([self.siteTitle isEqualToString:@""]) {
+            self.siteTitle = nil;
+        }
+        if ([self.shortDomain isEqualToString:@""]) {
+            self.shortDomain = nil;
+        }
         
         self.dominantColor = [UIColor colorWithArrayOfValues:[dictionary objectForKey:@"dominantColor"]];
         

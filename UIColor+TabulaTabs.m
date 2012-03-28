@@ -24,10 +24,16 @@
     NSNumber *green = [arrayOfValues objectAtIndex:1];
     NSNumber *blue = [arrayOfValues objectAtIndex:2];
     
-    return [UIColor colorWithRed:[red integerValue] / 255.0
+//    NSLog(@"r: %@ g: %@ b: %@", red, green, blue);
+    
+    UIColor *color = [UIColor colorWithRed:[red integerValue] / 255.0
                            green:[green integerValue] / 255.0
                             blue:[blue integerValue] / 255.0
                            alpha:1.0];
+    
+//    NSLog(@"color: %@", color);
+    
+    return color;
 }
 
 + (UIColor *)defaultPageColor;
