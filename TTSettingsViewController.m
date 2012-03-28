@@ -52,7 +52,7 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
         
         TTBrowserRepresentation *browserRepresentation = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
         cell.textLabel.text = browserRepresentation.browser.label;
-        cell.detailTextLabel.text = browserRepresentation.browser.description;
+        cell.detailTextLabel.text = browserRepresentation.browser.browserDescription;
         
         return cell;
     } else {
