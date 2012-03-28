@@ -8,6 +8,7 @@
 
 #import "UIImage+Resize.h"
 #import "UIImage+ColorOverlay.h"
+#import "UIColor+TabulaTabs.h"
 #import "MWHTTPImageCache.h"
 
 #import "TTBrowser.h"
@@ -157,6 +158,7 @@
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
     cell.imageView.contentMode = UIViewContentModeCenter;
     cell.imageView.clipsToBounds = YES;
+    cell.textLabel.textColor = (tab.dominantColor ? tab.dominantColor : [UIColor defaultPageColor]);
     
     if (tab.pageThumbnailURL) {
         [[MWHTTPImageCache defaultCache] loadImage:tab.pageThumbnailURL

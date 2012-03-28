@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "UIColor+TabulaTabs.h"
+
 #import "TTTab.h"
 
 /*
@@ -24,7 +26,8 @@
 @synthesize favIconURL = _favIconURL;
 @synthesize windowId = _windowId;
 @synthesize index = _index;
-@synthesize pageColors = _pageColors;
+@synthesize dominantColor = _dominantColor;
+@synthesize colorPalette = _colorPalette;
 @synthesize pageTitle = _pageTitle;
 @synthesize shortDomain = _shortDomain;
 @synthesize siteTitle = _siteTitle;
@@ -32,23 +35,36 @@
 
 @synthesize dictionary = _dictionary;
 
-- (id)initWithDictionary:(NSDictionary *)aDictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 {
     self = [super init];
     
     if (self) {
-        self.title = [aDictionary objectForKey:@"title"];
-        self.URL = [NSURL URLWithString:[aDictionary objectForKey:@"URL"]];
-        self.selected = [[aDictionary objectForKey:@"selected"] boolValue];
-        self.favIconURL = [NSURL URLWithString:[aDictionary objectForKey:@"favIconURL"]];
-        self.windowId = [aDictionary objectForKey:@"windowId"];
-        self.index = [[aDictionary objectForKey:@"index"] integerValue];
+        self.title = [dictionary objectForKey:@"title"];
+        self.URL = [NSURL URLWithString:[dictionary objectForKey:@"URL"]];
+        self.selected = [[dictionary objectForKey:@"selected"] boolValue];
+        self.favIconURL = [NSURL URLWithString:[dictionary objectForKey:@"favIconURL"]];
+        self.windowId = [dictionary objectForKey:@"windowId"];
+        self.index = [[dictionary objectForKey:@"index"] integerValue];
         if (![self.pageTitle isEqualToString:@""])
-            self.pageTitle = [aDictionary objectForKey:@"pageTitle"];
-        self.shortDomain = [aDictionary objectForKey:@"shortDomain"];
-        self.siteTitle = [aDictionary objectForKey:@"siteTitle"];
-        if (![[aDictionary objectForKey:@"pageThumbnail"] isEqualToString:@""])
-            self.pageThumbnailURL = [NSURL URLWithString:[aDictionary objectForKey:@"pageThumbnail"]];
+            self.pageTitle = [dictionary objectForKey:@"pageTitle"];
+        self.shortDomain = [dictionary objectForKey:@"shortDomain"];
+        self.siteTitle = [dictionary objectForKey:@"siteTitle"];
+        if (![[dictionary objectForKey:@"pageThumbnail"] isEqualToString:@""])
+            self.pageThumbnailURL = [NSURL URLWithString:[dictionary objectForKey:@"pageThumbnail"]];
+        
+        self.dominantColor = [UIColor colorWithArrayOfValues:[dictionary objectForKey:@"dominantColor"]];
+        
+        NSArray *rawColorPalette = [dictionary objectForKey:@"colorPalette"];
+        if ([rawColorPalette isKindOfClass:[NSArray class]]) {
+            self.colorPalette = [NSArray array];
+            [rawColorPalette enumerateObjectsUsingBlock:^(NSArray *rawColor, NSUInteger idx, BOOL *stop) {
+                UIColor *color = [UIColor colorWithArrayOfValues:rawColor];
+                if (color) {
+                    self.colorPalette = [self.colorPalette arrayByAddingObject:color];
+                }
+            }];
+        }
         
 #warning todo pageColors missing
     }

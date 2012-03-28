@@ -33,6 +33,7 @@
 		5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F697151E9DF900E2EC52 /* Reload@2x.png */; };
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
+		509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */; };
 		50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A833BB1521FB3F007F97A8 /* TTBrowserController.m */; };
 		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
 		50AB685914FAAE100040D328 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685714FAAE100040D328 /* README.markdown */; };
@@ -136,6 +137,8 @@
 		5092F697151E9DF900E2EC52 /* Reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reload@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
+		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
+		509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TabulaTabs.m"; sourceTree = "<group>"; };
 		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
 		50A833BB1521FB3F007F97A8 /* TTBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserController.m; sourceTree = "<group>"; };
 		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
@@ -493,6 +496,8 @@
 				50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */,
 				50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */,
 				50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */,
+				509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */,
+				509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */,
 				503288541520B745000CC58D /* NSURL+TabulaTabs.h */,
 				503288551520B745000CC58D /* NSURL+TabulaTabs.m */,
 			);
@@ -766,6 +771,7 @@
 				50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */,
 				5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */,
 				5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */,
+				509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

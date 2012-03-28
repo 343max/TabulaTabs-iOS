@@ -103,11 +103,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     return self;
 }
 
-- (void)dealloc;
-{
-    self.webView.delegate = nil;
-}
-
 #pragma mark Accessors
 
 - (NSURL *)URL;
@@ -162,6 +157,9 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 - (void)viewWillDisappear:(BOOL)animated;
 {
+    self.webView.delegate = nil;
+    self.webView.scrollView.delegate = nil;
+    
     [super viewWillDisappear:animated];
     
     [UIView animateWithDuration:0.4 animations:^{
