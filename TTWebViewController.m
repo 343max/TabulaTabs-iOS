@@ -9,6 +9,8 @@
 #import "TestFlight.h"
 #import <QuartzCore/QuartzCore.h>
 
+#import "ECSlidingViewController.h"
+
 #import "TTSpinningReloadButton.h"
 #import "TTWebViewActionSheet.h"
 
@@ -21,6 +23,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 @property (strong) UIWebView *webView;
 
+@property (strong) UIBarButtonItem *toggleTabListButton;
 @property (strong) UIButton *backButton;
 @property (strong) UIButton *forwardButton;
 @property (strong) TTSpinningReloadButton *reloadButton;
@@ -39,6 +42,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)goForward:(id)sender;
 - (void)reload:(id)sender;
 - (void)showPageActions:(id)sender;
+- (void)toggleListVisibility:(id)sender;
 
 @end
 
@@ -46,6 +50,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 @synthesize URL = _URL;
 @synthesize webView = _webView;
+@synthesize toggleTabListButton = _toggleTabListButton;
 @synthesize backButton = _backButton, forwardButton = _forwardButton, reloadButton = _reloadButton;
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
 @synthesize pageTitle = _pageTitle;
@@ -57,6 +62,11 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        self.toggleTabListButton = [[UIBarButtonItem alloc] initWithTitle:@"="
+                                                                    style:UIBarButtonSystemItemDone
+                                                                   target:self
+                                                                   action:@selector(toggleListVisibility:)];
+        
         self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
         self.backButton.showsTouchWhenHighlighted = YES;
         [self.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
@@ -68,6 +78,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
         [self.forwardButton setImage:[UIImage imageNamed:@"Forward"] forState:UIControlStateNormal];
         
         self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:
+                                                  self.toggleTabListButton,
                                                   [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
                                                   [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
                                                   nil];
@@ -164,7 +175,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     
     [UIView animateWithDuration:0.4 animations:^{
         CGRect navBarFrame = self.navigationController.navigationBar.frame;
-        navBarFrame.origin.y = 20.0;
+        navBarFrame.origin.y = 0;
         self.navigationController.navigationBar.frame = navBarFrame;
     }];
 }
@@ -244,7 +255,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)layoutNavBar;
 {
     CGRect navBarFrame = self.navigationController.navigationBar.frame;
-    navBarFrame.origin.y = roundf(20.0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
+    navBarFrame.origin.y = roundf(0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
     self.navigationController.navigationBar.frame = navBarFrame;
     
     UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
@@ -288,6 +299,15 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)reload:(id)sender;
 {
     [self.webView reload];
+}
+
+- (void)toggleListVisibility:(id)sender;
+{
+    if (self.slidingViewController.underLeftShowing) {
+        [self.slidingViewController resetTopView];
+    } else {
+        [self.slidingViewController anchorTopViewTo:ECRight];
+    }
 }
 
 #pragma mark UIWebViewDelegate

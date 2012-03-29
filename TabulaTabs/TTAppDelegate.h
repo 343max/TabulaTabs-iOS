@@ -13,6 +13,7 @@
 @class TTTabListViewController;
 @class TTBrowserController;
 @class TTBrowserRepresentation;
+@class ECSlidingViewController;
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,12 +21,12 @@
 @property (strong, nonatomic) NSURL *currentURL;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) UINavigationController *navigationController;
-@property (strong, nonatomic) TTTabListViewController *tabListViewController;
+@property (strong) ECSlidingViewController *slidingViewController;
 
 @property (strong, readonly) TTBrowserController *browserController;
 
-- (TTTabListViewController *)popToTablistViewControllerForBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation animated:(BOOL)animated;
+@property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
+
 - (IBAction)showSettings:(id)sender;
 
 @end

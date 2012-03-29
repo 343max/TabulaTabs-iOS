@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import "ECSlidingViewController.h"
+
 #import "UIImage+Resize.h"
 #import "UIImage+ColorOverlay.h"
 #import "MWHTTPImageCache.h"
@@ -17,6 +19,7 @@
 #import "TTBrowserRepresentation.h"
 
 #import "TTWebViewController.h"
+#import "TTTopWebViewController.h"
 
 #import "TTTabTableViewCell.h"
 #import "TTTabListViewController.h"
@@ -183,7 +186,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TTWebViewController *webViewController = [[TTWebViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:webViewController animated:YES];
+    TTTopWebViewController *navigationController = [[TTTopWebViewController alloc] initWithRootViewController:webViewController];
+    
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        self.slidingViewController.topViewController = navigationController;
+        CGRect topViewFrame = self.slidingViewController.underLeftViewController.view.frame;
+        topViewFrame.origin.x += topViewFrame.size.width;
+        self.slidingViewController.topViewController.view.frame = topViewFrame;
+        [self.slidingViewController resetTopView];
+    }];
+    
     TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
     webViewController.URL = tab.URL;
 }

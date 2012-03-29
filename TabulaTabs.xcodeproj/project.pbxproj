@@ -26,6 +26,9 @@
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
+		504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */; };
+		50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF215249A160018BBD8 /* ECSlidingViewController.m */; };
+		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
 		5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */; };
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
@@ -134,6 +137,12 @@
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		504F713A1524B9E2008B4F7A /* TTTopWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTopWebViewController.h; sourceTree = "<group>"; };
+		504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTopWebViewController.m; sourceTree = "<group>"; };
+		50623EF115249A160018BBD8 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECSlidingViewController.h; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.h; sourceTree = "<group>"; };
+		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
+		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageWithUIView.m"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
 		5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBrowserFlowViewController.m; sourceTree = "<group>"; };
 		5067AE1815221B2800CF6BFA /* TTSettingsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsNavController.h; sourceTree = "<group>"; };
@@ -316,6 +325,17 @@
 			path = sskeychain;
 			sourceTree = "<group>";
 		};
+		50623EF715249A1D0018BBD8 /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				50623EF115249A160018BBD8 /* ECSlidingViewController.h */,
+				50623EF215249A160018BBD8 /* ECSlidingViewController.m */,
+				50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */,
+				50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */,
+			);
+			name = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
 		5092F68D151E9DD600E2EC52 /* WebBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +491,7 @@
 		50AE699414E860D000788808 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				50623EF715249A1D0018BBD8 /* ECSlidingViewController */,
 				5016BA88151E05EB00AAA198 /* TestFlightSDK0.8.3 */,
 				50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */,
 				504167D6150AB2A0007A3431 /* SSKeychain */,
@@ -605,6 +626,8 @@
 				5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */,
 				50F357C51521CD6900F2780F /* TTSettingsViewController.h */,
 				50F357C61521CD6900F2780F /* TTSettingsViewController.m */,
+				504F713A1524B9E2008B4F7A /* TTTopWebViewController.h */,
+				504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -812,6 +835,9 @@
 				5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */,
 				5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */,
 				509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */,
+				50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */,
+				50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */,
+				504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "TestFlight.h"
 #import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
+#import "ECSlidingViewController.h"
 
 #import "NSURL+TabulaTabs.h"
 #import "MWURLConnection.h"
@@ -18,6 +19,7 @@
 #import "TTBrowserController.h"
 #import "TTBrowserRepresentation.h"
 #import "TTClient.h"
+#import "TTTab.h"
 
 #import "TTAddBrowserFlowViewController.h"
 #import "TTTabListViewController.h"
@@ -42,9 +44,10 @@
 @synthesize window = _window;
 @synthesize currentURL = _currentURL;
 @synthesize URLScheme = _URLScheme;
-@synthesize navigationController = _navigationController, tabListViewController = _tabListViewController;
+@synthesize slidingViewController = _slidingViewController;
 @synthesize browserController = _browserController;
 @synthesize networkConnectionsInProgress = _networkConnectionsInProgress;
+@synthesize currentBrowser = _currentBrowser;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -61,10 +64,9 @@
     self.networkConnectionsInProgress = 0;
         
     [self restoreBrowserRepresentations];
-    
-    self.tabListViewController = [[TTTabListViewController alloc] init];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
-    self.window.rootViewController = self.navigationController;
+
+    self.slidingViewController = [[ECSlidingViewController alloc] init];
+    self.window.rootViewController = self.slidingViewController;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(registeringClient:)
@@ -126,15 +128,13 @@
         if ([module isEqualToString:@"client"] && [action isEqualToString:@"claim"] && url.pathComponents.count == 5) {
             TTBrowserRepresentation *browserRepresentation = [[TTBrowserRepresentation alloc] init];
             [browserRepresentation claimURL:url];
-            [self popToTablistViewControllerForBrowserRepresentation:browserRepresentation animated:YES];
+            self.currentBrowser = browserRepresentation;
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tabs"] && url.pathComponents.count == 3) {
             NSString *clientDescriptor = [url.pathComponents objectAtIndex:2];
             if ([clientDescriptor isEqualToString:@"first"]) {
-                [self popToTablistViewControllerForBrowserRepresentation:[self.browserController.allBrowsers objectAtIndex:0]
-                                                                animated:YES];
+                self.currentBrowser = [self.browserController.allBrowsers objectAtIndex:0];
             } else {
-                [self popToTablistViewControllerForBrowserRepresentation:[self.browserController browserWithClientIdentifier:clientDescriptor]
-                                                                animated:YES];
+                self.currentBrowser = [self.browserController browserWithClientIdentifier:clientDescriptor];
             }
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
             TTAddBrowserFlowViewController *addBrowserFlow = [[TTAddBrowserFlowViewController alloc] init];
@@ -171,24 +171,34 @@
 
 }
 
-
-- (TTTabListViewController *)popToTablistViewControllerForBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation animated:(BOOL)animated;
+- (TTBrowserRepresentation *)currentBrowser;
 {
-    if (self.tabListViewController.browserRepresentation == browserRepresentation) {
-        [self.navigationController popToViewController:self.tabListViewController animated:animated];
-    } else {
-        
-        [self.navigationController popToRootViewControllerAnimated:NO];
-        self.tabListViewController = [[TTTabListViewController alloc] init];
-        self.tabListViewController.browserRepresentation = browserRepresentation;
-        
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
-        self.window.rootViewController = self.navigationController;
+    return self.browserController.currentBrowser;
+}
+
+- (void)setCurrentBrowser:(TTBrowserRepresentation *)currentBrowser;
+{
+    if (self.currentBrowser == currentBrowser) {
+        NSLog(@"tried to set allready active browser - maybe we should do a little bit more then – well, lets say: nothing.");
+        return;
     }
     
-    self.browserController.currentBrowser = browserRepresentation;
+    self.browserController.currentBrowser = currentBrowser;
     
-    return self.tabListViewController;
+    TTTabListViewController *tablistViewController = [[TTTabListViewController alloc] init];
+    tablistViewController.browserRepresentation = currentBrowser;
+    
+    self.slidingViewController.anchorRightPeekAmount = 40.0;
+
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tablistViewController];
+    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.slidingViewController.underLeftViewController = navigationController;
+    
+//    TTWebViewController *webViewController = [[TTWebViewController alloc] init];
+//    UINavigationController *webNavigationController = [[UINavigationController alloc] initWithRootViewController:webViewController];
+//    webViewController.URL = ((TTTab *)[currentBrowser.tabs objectAtIndex:0]).URL;
+//    self.slidingViewController.topViewController = webNavigationController;
+//    [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 
