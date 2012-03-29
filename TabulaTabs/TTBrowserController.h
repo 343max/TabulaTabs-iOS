@@ -19,5 +19,6 @@
 - (TTBrowserRepresentation *)browserWithClientIdentifier:(NSString *)clientIdentifier;
 - (TTBrowserRepresentation *)browserWithBrowserIdentifier:(NSInteger)identifier;
 - (void)addBrowser:(TTBrowserRepresentation *)browserReprensentation;
+- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation;
 
 @end

@@ -19,11 +19,31 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
 
 #import "TTSettingsViewController.h"
 
+@interface TTSettingsViewController ()
+
+- (void)toggleEditMode:(id)sender;
+
+@end
+
+
 @implementation TTSettingsViewController
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+- (id)initWithStyle:(UITableViewStyle)style;
+{
+    self = [super initWithStyle:style];
+    
+    if (self) {
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                                                                              target:self 
+                                                                                              action:@selector(toggleEditMode:)];
+    }
+    
+    return self;
 }
 
 #pragma mark - Table view data source
@@ -67,6 +87,20 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return indexPath.section == TTAppSettingsViewControllerBrowsersSection;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [appDelegate.browserController removeBrowser:[appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row]];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                              withRowAnimation:UITableViewRowAnimationMiddle];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     if (indexPath.section == TTAppSettingsViewControllerBrowsersSection) {
@@ -80,6 +114,13 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
             [self.navigationController pushViewController:welcomeViewController animated:YES];
         }
     }
+}
+
+#pragma mark Helpers
+
+- (void)toggleEditMode:(id)sender;
+{
+    [self.tableView setEditing:!self.tableView.editing animated:YES];
 }
 
 @end

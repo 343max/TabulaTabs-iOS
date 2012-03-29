@@ -76,7 +76,7 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
         }
     }];
     
-    return matchingBrowser;    
+    return matchingBrowser;
 }
 
 - (void)addBrowser:(TTBrowserRepresentation *)browserReprensentation;
@@ -91,6 +91,17 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
     } else {
         self.allBrowsers = [self.allBrowsers arrayByAddingObject:browserReprensentation];
     }
+}
+
+- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation;
+{
+    if (![self.allBrowsers containsObject:browserRepresentation]) {
+        return NO;
+    }
+    
+    NSMutableArray *mutableBrowsers = [[NSMutableArray alloc] initWithArray:self.allBrowsers];
+    [mutableBrowsers removeObject:browserRepresentation];
+    self.allBrowsers = [mutableBrowsers copy];
 }
 
 #pragma mark Accessors
