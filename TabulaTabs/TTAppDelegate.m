@@ -40,6 +40,7 @@
 @implementation TTAppDelegate
 
 @synthesize window = _window;
+@synthesize currentURL = _currentURL;
 @synthesize URLScheme = _URLScheme;
 @synthesize navigationController = _navigationController, tabListViewController = _tabListViewController;
 @synthesize browserController = _browserController;
@@ -92,7 +93,9 @@
                                                  name:MWURLConnectionDidFinishNotification
                                                object:nil];
     
-    if (self.browserController.allBrowsers.count == 0) {
+    if (self.currentURL) {
+        [[UIApplication sharedApplication] openURL:self.currentURL];
+    } else if (self.browserController.allBrowsers.count == 0) {
 //#warning debug: claiming an client
 //        [TTDevelopmentHelpers registerFakeClient];
 //        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/c_276/c13171623aa6770c138eabc7325650a0/f2dbe2e55e777013f49661e809012569e804377afb70b5a5a36300981e486edc"]];
@@ -144,6 +147,31 @@
     }
 }
 
+
+#pragma mark Accessors
+
+- (NSURL *)currentURL;
+{
+    if (!_currentURL) {
+        NSString *URLString = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentURL"];
+        if (URLString) {
+            _currentURL = [NSURL URLWithString:URLString];
+        }
+    }
+    
+    return _currentURL;
+}
+
+- (void)setCurrentURL:(NSURL *)currentURL;
+{
+    _currentURL = currentURL;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:currentURL.absoluteString forKey:@"currentURL"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+}
+
+
 - (TTTabListViewController *)popToTablistViewControllerForBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation animated:(BOOL)animated;
 {
     if (self.tabListViewController.browserRepresentation == browserRepresentation) {
@@ -157,6 +185,8 @@
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.tabListViewController];
         self.window.rootViewController = self.navigationController;
     }
+    
+    self.browserController.currentBrowser = browserRepresentation;
     
     return self.tabListViewController;
 }

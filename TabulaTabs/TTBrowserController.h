@@ -12,6 +12,7 @@
 
 @interface TTBrowserController : NSObject
 
+@property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
 @property (strong, nonatomic, readonly) NSArray *allBrowsers;
 
 - (id)initWithClientDictionaries:(NSArray *)clientDictionaries;

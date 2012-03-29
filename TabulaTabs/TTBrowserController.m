@@ -9,6 +9,8 @@
 #import "NSData-hex.h"
 #import "SSKeychain.h"
 
+#import "TTAppDelegate.h"
+
 #import "TTBrowserController.h"
 
 NSString * const TTBrowserControllerPasswordKey = @"ClientPassword";
@@ -24,6 +26,7 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
 @implementation TTBrowserController
 
+@synthesize currentBrowser = _currentBrowser;
 @synthesize allBrowsers = _allBrowsers;
 
 - (id)initWithClientDictionaries:(NSArray *)clientDictionaries;
@@ -102,6 +105,8 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
     NSMutableArray *mutableBrowsers = [[NSMutableArray alloc] initWithArray:self.allBrowsers];
     [mutableBrowsers removeObject:browserRepresentation];
     self.allBrowsers = [mutableBrowsers copy];
+    
+    return YES;
 }
 
 #pragma mark Accessors
@@ -123,6 +128,13 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
     
     [[NSUserDefaults standardUserDefaults] setObject:[clientDictionaries copy] forKey:@"clients"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)setCurrentBrowser:(TTBrowserRepresentation *)currentBrowser;
+{
+    _currentBrowser = currentBrowser;
+    
+    appDelegate.currentURL = currentBrowser.tabulatabsURL;
 }
 
 @end
