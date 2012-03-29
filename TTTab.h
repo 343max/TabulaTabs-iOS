@@ -17,7 +17,6 @@
 @property (strong) NSURL *favIconURL;
 @property (strong) NSString *windowId;
 @property (assign) NSInteger index;
-@property (strong) UIColor *dominantColor;
 @property (strong) NSArray *colorPalette;
 @property (strong) NSString *pageTitle;
 @property (strong) NSString *shortDomain;

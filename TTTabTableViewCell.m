@@ -14,7 +14,7 @@
 
 @property (strong) UIView *backgroundColorView;
 @property (strong) UIImageView *gradientView;
-@property (strong) UIImageView *textBoxView;
+@property (strong) UIView *textBoxView;
 
 @end
 
@@ -39,7 +39,7 @@
         self.gradientView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabCellViewGradient"]];
         [self insertSubview:self.gradientView aboveSubview:imageView];
         
-        self.textBoxView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabCellViewTextbox"]];
+        self.textBoxView = [[UIView alloc] init];
         [self insertSubview:self.textBoxView aboveSubview:imageView];
         
         _faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -78,15 +78,14 @@
     CGFloat hue; CGFloat saturation; CGFloat brightness; CGFloat alpha;
     [pageColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     
-    NSLog(@"hue:%f saturation:%f brightness:%f", hue, saturation, brightness);
-    
     CGFloat saturationFactor = 1;
     if (saturation == 0) {
         saturationFactor = 0;
     }
     
+    self.textBoxView.backgroundColor = pageColor;
     self.backgroundColorView.backgroundColor = [UIColor colorWithHue:hue saturation:0.1 * saturationFactor brightness:0.95 alpha:1.0];
-    self.textLabel.textColor = [UIColor colorWithHue:hue saturation:0.9 * saturationFactor brightness:0.4 alpha:1.0];
+    self.textLabel.textColor = pageColor;
 }
 
 - (void)layoutSubviews;
@@ -101,7 +100,9 @@
     self.gradientView.frame = gradientFrame;
     
     CGRect textboxFrame = self.bounds;
-    textboxFrame.size.height = self.textBoxView.image.size.height;
+    textboxFrame.size.height = 14;
+    textboxFrame.origin.x = 90;
+    textboxFrame.size.width -= 90;
     self.textBoxView.frame = textboxFrame;
     
     CGRect imageRect = self.bounds;

@@ -154,10 +154,8 @@
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
     cell.imageView.contentMode = UIViewContentModeCenter;
     cell.imageView.clipsToBounds = YES;
-    cell.pageColor = tab.dominantColor;
+    cell.pageColor = [tab.colorPalette objectAtIndex:0];
     
-    NSLog(@"site: %@, pageColor: %@", cell.detailTextLabel.text, tab.dominantColor);
-
     cell.imageView.image = nil;
     if (tab.pageThumbnailURL) {
         [[MWHTTPImageCache defaultCache] loadImage:tab.pageThumbnailURL

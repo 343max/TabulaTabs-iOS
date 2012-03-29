@@ -26,7 +26,6 @@
 @synthesize favIconURL = _favIconURL;
 @synthesize windowId = _windowId;
 @synthesize index = _index;
-@synthesize dominantColor = _dominantColor;
 @synthesize colorPalette = _colorPalette;
 @synthesize pageTitle = _pageTitle;
 @synthesize shortDomain = _shortDomain;
@@ -62,8 +61,6 @@
             self.shortDomain = nil;
         }
         
-        self.dominantColor = [UIColor colorWithArrayOfValues:[dictionary objectForKey:@"dominantColor"]];
-        
         NSArray *rawColorPalette = [dictionary objectForKey:@"colorPalette"];
         if ([rawColorPalette isKindOfClass:[NSArray class]]) {
             self.colorPalette = [NSArray array];
@@ -74,8 +71,6 @@
                 }
             }];
         }
-        
-#warning todo pageColors missing
     }
     
     return self;
