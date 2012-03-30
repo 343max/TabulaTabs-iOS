@@ -66,6 +66,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
+        self.navigationController.toolbarHidden = NO;
         self.toggleTabListButton = [[UIBarButtonItem alloc] initWithTitle:@"="
                                                                     style:UIBarButtonSystemItemDone
                                                                    target:self
@@ -81,11 +82,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
         [self.forwardButton addTarget:self action:@selector(goForward:) forControlEvents:UIControlEventTouchUpInside];
         [self.forwardButton setImage:[UIImage imageNamed:@"Forward"] forState:UIControlStateNormal];
         
-        self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:
-                                                  self.toggleTabListButton,
-                                                  [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
-                                                  [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
-                                                  nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewWillBecomeInactive:)
@@ -112,11 +108,8 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
         self.reloadButton.showsTouchWhenHighlighted = YES;
         [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:
-                                                   [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
-                                                   [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton],
-                                                   nil];
-        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton];
+
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.titleLabel.backgroundColor = [UIColor clearColor];
         self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -197,6 +190,17 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
                                                                                            action:@selector(resetTopView)];
     [self.gestureView addGestureRecognizer:tapGestureRecognizer];
     [self.view addSubview:self.gestureView];
+
+    self.toolbarItems = [NSArray arrayWithObjects:
+                         self.toggleTabListButton,
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                         [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                         [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
+                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                         [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
+                         nil];
+    self.navigationController.toolbarHidden = NO;
 }
 
 - (void)viewDidBecomeActive:(NSNotification *)notification;

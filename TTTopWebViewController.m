@@ -30,6 +30,7 @@
     self.view.clipsToBounds = NO;
     
     [self.navigationBar addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.toolbar addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
