@@ -43,6 +43,8 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)reload:(id)sender;
 - (void)showPageActions:(id)sender;
 - (void)toggleListVisibility:(id)sender;
+- (void)viewWillBecomeInactive:(NSNotification *)notification;
+- (void)viewDidBecomeActive:(NSNotification *)notification;
 
 @end
 
@@ -83,8 +85,21 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
                                                   [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
                                                   nil];
         
-        self.navigationItem.leftItemsSupplementBackButton = YES;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(viewWillBecomeInactive:)
+                                                     name:ECSlidingViewUnderLeftWillAppear
+                                                   object:self.slidingViewController];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(viewWillBecomeInactive:)
+                                                     name:ECSlidingViewUnderRightWillAppear
+                                                   object:self.slidingViewController];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(viewDidBecomeActive:)
+                                                     name:ECSlidingViewTopDidReset
+                                                   object:self.slidingViewController];
         
+        self.navigationItem.leftItemsSupplementBackButton = YES;
+    
         self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 24.0)];
         self.actionButton.showsTouchWhenHighlighted = YES;
         [self.actionButton setImage:[UIImage imageNamed:@"UIButtonBarActionSmall"] forState:UIControlStateNormal];
@@ -112,6 +127,11 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     }
     
     return self;
+}
+
+- (void)dealloc;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark Accessors
@@ -166,8 +186,20 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
 }
 
+- (void)viewDidBecomeActive:(NSNotification *)notification;
+{
+    self.webView.scrollView.scrollsToTop = YES;
+}
+
+- (void)viewWillBecomeInactive:(NSNotification *)notification;
+{
+    self.webView.scrollView.scrollsToTop = NO;
+}
+
 - (void)viewWillDisappear:(BOOL)animated;
 {
+    [super viewDidDisappear:animated];
+    
     self.webView.delegate = nil;
     self.webView.scrollView.delegate = nil;
     

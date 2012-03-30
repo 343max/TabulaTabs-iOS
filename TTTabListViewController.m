@@ -29,6 +29,9 @@
 - (void)browserWasUpdated:(NSNotification *)notification;
 - (void)tabsWhereUpdated:(NSNotification *)notification;
 
+- (void)viewDidBecomeInactive:(NSNotification *)notification;
+- (void)viewWillBecomeActive:(NSNotification *)notification;
+
 @end
 
 @interface TTTabListViewController ()
@@ -53,9 +56,22 @@
                                                                                  style:UIBarButtonItemStylePlain
                                                                                 target:appDelegate 
                                                                                 action:@selector(showSettings:)];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(viewWillBecomeActive:)
+                                                     name:ECSlidingViewUnderLeftWillAppear
+                                                   object:self.slidingViewController];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(viewDidBecomeInactive:)
+                                                     name:ECSlidingViewTopDidReset
+                                                   object:self.slidingViewController];
     }
     
     return self;
+}
+
+- (void)dealloc;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)loadTabs;
@@ -125,6 +141,16 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)viewWillBecomeActive:(NSNotification *)notification;
+{
+    self.tableView.scrollsToTop = YES;
+}
+
+- (void)viewDidBecomeInactive:(NSNotification *)notification;
+{
+    self.tableView.scrollsToTop = NO;
 }
 
 #pragma mark - Table view data source
