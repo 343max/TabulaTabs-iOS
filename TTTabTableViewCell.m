@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "UIColor+TabulaTabs.h"
 
 #import "TTTabTableViewCell.h"
@@ -13,7 +14,6 @@
 @interface TTTabTableViewCell ()
 
 @property (strong) UIView *backgroundColorView;
-@property (strong) UIImageView *gradientView;
 @property (strong) UIView *textBoxView;
 
 @end
@@ -23,8 +23,9 @@
 @synthesize faviconView = _faviconView;
 @synthesize imageView;
 @synthesize pageColor = _pageColor;
+@synthesize imageSize = _imageSize;
 
-@synthesize gradientView = _gradientView, backgroundColorView = _backgroundColorView, textBoxView = _textBoxView;
+@synthesize backgroundColorView = _backgroundColorView, textBoxView = _textBoxView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -36,23 +37,25 @@
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         [self insertSubview:imageView aboveSubview:self.backgroundColorView];
         
-        self.gradientView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabCellViewGradient"]];
-        [self insertSubview:self.gradientView aboveSubview:imageView];
-        
         self.textBoxView = [[UIView alloc] init];
         [self insertSubview:self.textBoxView aboveSubview:imageView];
         
         _faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.faviconView.layer.shadowColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
+        self.faviconView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        self.faviconView.layer.shadowRadius = 2.0;
+        self.faviconView.layer.shadowOpacity = 1.0;
+        self.faviconView.layer.shouldRasterize = YES;
         [self addSubview:self.faviconView];
         
         self.detailTextLabel.backgroundColor = [UIColor clearColor];
         self.detailTextLabel.textColor = [UIColor whiteColor];
         self.detailTextLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.6];
         self.detailTextLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-        self.detailTextLabel.font = [UIFont fontWithName:@"Karla-Regular" size:11.0];
+        self.detailTextLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:11.0];
         
         self.textLabel.numberOfLines = 3;
-        self.textLabel.font = [UIFont fontWithName:@"Karla-Regular" size:15.0];
+        self.textLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:15.0];
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.6];
         self.textLabel.shadowOffset = CGSizeMake(0.0, 1.0);
@@ -88,38 +91,40 @@
     self.textLabel.textColor = pageColor;
 }
 
+- (CGSize)imageSize;
+{
+    CGSize imageSize = self.bounds.size;
+    imageSize.width = 90;
+    imageSize.height -= 14;
+    
+    return imageSize;
+}
+
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
     
     self.backgroundColorView.frame = self.bounds;
-    
-    CGRect gradientFrame = self.bounds;
-    gradientFrame.origin.y += (gradientFrame.size.height - self.gradientView.image.size.height);
-    gradientFrame.size.height = self.gradientView.image.size.height;
-    self.gradientView.frame = gradientFrame;
-    
+        
     CGRect textboxFrame = self.bounds;
     textboxFrame.size.height = 14;
-    textboxFrame.origin.x = 90;
-    textboxFrame.size.width -= 90;
+    textboxFrame.origin.x = 0;
     self.textBoxView.frame = textboxFrame;
     
     CGRect imageRect = self.bounds;
-    imageRect.size.width = 90;
-    imageRect.size.height -= 2;
-    imageRect.origin.y += 1;
+    imageRect.size = self.imageSize;
+    
+    if (!self.imageView.image) {
+        imageRect.size.width = 0;
+    }
+    imageRect.origin.y = CGRectGetMaxY(textboxFrame);
+    imageRect.origin.x = self.bounds.size.width - imageRect.size.width;
     self.imageView.frame = imageRect;
     
-    CGRect faviconRect = CGRectMake(79, 3, 8, 8);
+    CGRect faviconRect = CGRectMake(self.bounds.size.width - 18, 3, 8, 8);
     self.faviconView.frame = faviconRect;
     
-    CGRect labelRect = self.textLabel.frame;
-    labelRect.origin.x += imageRect.size.width + 18;
-    labelRect.size.width = self.bounds.size.width - labelRect.origin.x - 10;
-    self.textLabel.frame = labelRect;
-    
-    CGRect detailLabelRect = CGRectMake(94.0, 0.0, 320 - 94 - 10, 14);
+    CGRect detailLabelRect = CGRectMake(10.0, 0.0, 320 - 20 - imageRect.size.width, 14);
     self.detailTextLabel.frame = detailLabelRect;
     
     CGRect textLabelRect = detailLabelRect;

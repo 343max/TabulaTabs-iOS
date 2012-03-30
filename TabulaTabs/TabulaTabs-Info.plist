@@ -34,7 +34,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>473</string>
+	<string>496</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MainURLScheme</key>
@@ -44,7 +44,13 @@
 		<string>Karla-Bold.ttf</string>
 		<string>Karla-BoldItalic.ttf</string>
 		<string>Karla-Italic.ttf</string>
-		<string>Karla-Regular.ttf</string>
+		<string>Dosis-Bold.ttf</string>
+		<string>Dosis-ExtraBold.ttf</string>
+		<string>Dosis-ExtraLight.ttf</string>
+		<string>Dosis-Light.ttf</string>
+		<string>Dosis-Medium.ttf</string>
+		<string>Dosis-Regular.ttf</string>
+		<string>Dosis-SemiBold.ttf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

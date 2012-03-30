@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		500BBF7B152352DF008D44E0 /* TabCellViewEmptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */; };
 		500BBF7C152352DF008D44E0 /* TabCellViewEmptyImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */; };
-		500BBF7D152352DF008D44E0 /* TabCellViewGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF77152352DF008D44E0 /* TabCellViewGradient.png */; };
-		500BBF7E152352DF008D44E0 /* TabCellViewGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF78152352DF008D44E0 /* TabCellViewGradient@2x.png */; };
 		500BBF7F152352DF008D44E0 /* TabCellViewTextbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */; };
 		500BBF80152352DF008D44E0 /* TabCellViewTextbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */; };
 		500BBF8615235C39008D44E0 /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF8215235C39008D44E0 /* Karla-Bold.ttf */; };
@@ -27,6 +25,13 @@
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
 		504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */; };
+		504F71451525C1C7008B4F7A /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */; };
+		504F71461525C1C7008B4F7A /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F713F1525C1C7008B4F7A /* Dosis-ExtraBold.ttf */; };
+		504F71471525C1C7008B4F7A /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71401525C1C7008B4F7A /* Dosis-ExtraLight.ttf */; };
+		504F71481525C1C7008B4F7A /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71411525C1C7008B4F7A /* Dosis-Light.ttf */; };
+		504F71491525C1C7008B4F7A /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */; };
+		504F714A1525C1C7008B4F7A /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */; };
+		504F714B1525C1C7008B4F7A /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */; };
 		50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF215249A160018BBD8 /* ECSlidingViewController.m */; };
 		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
@@ -116,8 +121,6 @@
 /* Begin PBXFileReference section */
 		500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabCellViewEmptyImage.png; sourceTree = "<group>"; };
 		500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabCellViewEmptyImage@2x.png"; sourceTree = "<group>"; };
-		500BBF77152352DF008D44E0 /* TabCellViewGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabCellViewGradient.png; sourceTree = "<group>"; };
-		500BBF78152352DF008D44E0 /* TabCellViewGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabCellViewGradient@2x.png"; sourceTree = "<group>"; };
 		500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabCellViewTextbox.png; sourceTree = "<group>"; };
 		500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabCellViewTextbox@2x.png"; sourceTree = "<group>"; };
 		500BBF8215235C39008D44E0 /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
@@ -139,6 +142,13 @@
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		504F713A1524B9E2008B4F7A /* TTTopWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTopWebViewController.h; sourceTree = "<group>"; };
 		504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTopWebViewController.m; sourceTree = "<group>"; };
+		504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		504F713F1525C1C7008B4F7A /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		504F71401525C1C7008B4F7A /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
+		504F71411525C1C7008B4F7A /* Dosis-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.ttf"; sourceTree = "<group>"; };
+		504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
+		504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		50623EF115249A160018BBD8 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECSlidingViewController.h; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.h; sourceTree = "<group>"; };
 		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -635,14 +645,19 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */,
+				504F713F1525C1C7008B4F7A /* Dosis-ExtraBold.ttf */,
+				504F71401525C1C7008B4F7A /* Dosis-ExtraLight.ttf */,
+				504F71411525C1C7008B4F7A /* Dosis-Light.ttf */,
+				504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */,
+				504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */,
+				504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */,
 				500BBF8215235C39008D44E0 /* Karla-Bold.ttf */,
 				500BBF8315235C39008D44E0 /* Karla-BoldItalic.ttf */,
 				500BBF8415235C39008D44E0 /* Karla-Italic.ttf */,
 				500BBF8515235C39008D44E0 /* Karla-Regular.ttf */,
 				500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */,
 				500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */,
-				500BBF77152352DF008D44E0 /* TabCellViewGradient.png */,
-				500BBF78152352DF008D44E0 /* TabCellViewGradient@2x.png */,
 				500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */,
 				500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */,
 				50F3579D1521BE4C00F2780F /* Gears.png */,
@@ -744,14 +759,19 @@
 				50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */,
 				500BBF7B152352DF008D44E0 /* TabCellViewEmptyImage.png in Resources */,
 				500BBF7C152352DF008D44E0 /* TabCellViewEmptyImage@2x.png in Resources */,
-				500BBF7D152352DF008D44E0 /* TabCellViewGradient.png in Resources */,
-				500BBF7E152352DF008D44E0 /* TabCellViewGradient@2x.png in Resources */,
 				500BBF7F152352DF008D44E0 /* TabCellViewTextbox.png in Resources */,
 				500BBF80152352DF008D44E0 /* TabCellViewTextbox@2x.png in Resources */,
 				500BBF8615235C39008D44E0 /* Karla-Bold.ttf in Resources */,
 				500BBF8715235C39008D44E0 /* Karla-BoldItalic.ttf in Resources */,
 				500BBF8815235C39008D44E0 /* Karla-Italic.ttf in Resources */,
 				500BBF8915235C39008D44E0 /* Karla-Regular.ttf in Resources */,
+				504F71451525C1C7008B4F7A /* Dosis-Bold.ttf in Resources */,
+				504F71461525C1C7008B4F7A /* Dosis-ExtraBold.ttf in Resources */,
+				504F71471525C1C7008B4F7A /* Dosis-ExtraLight.ttf in Resources */,
+				504F71481525C1C7008B4F7A /* Dosis-Light.ttf in Resources */,
+				504F71491525C1C7008B4F7A /* Dosis-Medium.ttf in Resources */,
+				504F714A1525C1C7008B4F7A /* Dosis-Regular.ttf in Resources */,
+				504F714B1525C1C7008B4F7A /* Dosis-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

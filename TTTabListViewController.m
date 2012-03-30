@@ -190,9 +190,10 @@
         [[MWHTTPImageCache defaultCache] loadImage:tab.pageThumbnailURL
                                  processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]
                                    processingBlock:^UIImage *(UIImage *image) {
-                                       return [image scaledImageOfMinimumSize:cell.imageView.bounds.size];
+                                       return [image scaledImageOfMinimumSize:cell.imageSize];
                                    } completionBlock:^(UIImage *image) {
                                        cell.imageView.image = image;
+                                       [cell setNeedsLayout];
                                    }];
     }
     
