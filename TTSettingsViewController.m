@@ -74,6 +74,12 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
         cell.textLabel.text = browserRepresentation.browser.label;
         cell.detailTextLabel.text = browserRepresentation.browser.browserDescription;
         
+        if (browserRepresentation == appDelegate.currentBrowser) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
@@ -104,10 +110,22 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     if (indexPath.section == TTAppSettingsViewControllerBrowsersSection) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
-            [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
-        }];
+        UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+        newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        NSInteger currentBrowserRow = [appDelegate.browserController.allBrowsers indexOfObject:appDelegate.currentBrowser];
+        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:currentBrowserRow
+                                                                                       inSection:TTAppSettingsViewControllerBrowsersSection]];
+        oldCell.accessoryType = UITableViewCellAccessoryNone;
+        
+        double delayInSeconds = 0.2;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self dismissViewControllerAnimated:YES completion:^{
+                TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
+                [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
+            }];
+        });
     } else if(indexPath.section == TTAppSettingsViewControllerAddBrowserSection) {
         if (indexPath.row == 0) {
             TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] init];
