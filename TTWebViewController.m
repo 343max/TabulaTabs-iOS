@@ -23,6 +23,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 @property (strong) UIWebView *webView;
 
+@property (strong) UIView *gestureView;
 @property (strong) UIBarButtonItem *toggleTabListButton;
 @property (strong) UIButton *backButton;
 @property (strong) UIButton *forwardButton;
@@ -52,6 +53,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 @synthesize URL = _URL;
 @synthesize webView = _webView;
+@synthesize gestureView = _gestureView;
 @synthesize toggleTabListButton = _toggleTabListButton;
 @synthesize backButton = _backButton, forwardButton = _forwardButton, reloadButton = _reloadButton;
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
@@ -184,16 +186,30 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
+    
+    self.gestureView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.gestureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.gestureView.userInteractionEnabled = YES;
+    self.gestureView.hidden = YES;
+    [self.gestureView addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.slidingViewController
+                                                                                           action:@selector(resetTopView)];
+    [self.gestureView addGestureRecognizer:tapGestureRecognizer];
+    [self.view addSubview:self.gestureView];
 }
 
 - (void)viewDidBecomeActive:(NSNotification *)notification;
 {
     self.webView.scrollView.scrollsToTop = YES;
+    self.gestureView.hidden = YES;
 }
 
 - (void)viewWillBecomeInactive:(NSNotification *)notification;
 {
     self.webView.scrollView.scrollsToTop = NO;
+    self.gestureView.hidden = NO;
+    self.gestureView.frame = self.webView.frame;
 }
 
 - (void)viewWillDisappear:(BOOL)animated;
