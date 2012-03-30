@@ -26,6 +26,8 @@
 
 @interface TTTabListViewController ()
 
+@property (strong) TTWebViewController *webViewController;
+
 - (void)browserWasUpdated:(NSNotification *)notification;
 - (void)tabsWhereUpdated:(NSNotification *)notification;
 
@@ -43,6 +45,7 @@
 
 @implementation TTTabListViewController
 
+@synthesize webViewController = _webViewController;
 @synthesize browserRepresentation = _browserRepresentation;
 @synthesize tabs = _tabs;
 
@@ -64,6 +67,8 @@
                                                  selector:@selector(viewDidBecomeInactive:)
                                                      name:ECSlidingViewTopDidReset
                                                    object:self.slidingViewController];
+        
+        self.clearsSelectionOnViewWillAppear = NO;
     }
     
     return self;
@@ -212,19 +217,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TTWebViewController *webViewController = [[TTWebViewController alloc] initWithNibName:nil bundle:nil];
-    TTTopWebViewController *navigationController = [[TTTopWebViewController alloc] initWithRootViewController:webViewController];
-    
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        self.slidingViewController.topViewController = navigationController;
-        CGRect topViewFrame = self.slidingViewController.underLeftViewController.view.frame;
-        topViewFrame.origin.x += topViewFrame.size.width;
-        self.slidingViewController.topViewController.view.frame = topViewFrame;
-        [self.slidingViewController resetTopView];
-    }];
-    
     TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
-    webViewController.URL = tab.URL;
+
+    if ([tab.URL.absoluteString isEqualToString:self.webViewController.URL.absoluteString]) {
+        [self.slidingViewController resetTopView];
+    } else {
+        self.webViewController = [[TTWebViewController alloc] initWithNibName:nil bundle:nil];
+        TTTopWebViewController *navigationController = [[TTTopWebViewController alloc] initWithRootViewController:self.webViewController];
+        
+        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+            self.slidingViewController.topViewController = navigationController;
+            CGRect topViewFrame = self.slidingViewController.underLeftViewController.view.frame;
+            topViewFrame.origin.x += topViewFrame.size.width;
+            self.slidingViewController.topViewController.view.frame = topViewFrame;
+            [self.slidingViewController resetTopView];
+        }];
+        
+        self.webViewController.URL = tab.URL;
+    }
 }
 
 
