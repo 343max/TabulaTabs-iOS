@@ -188,7 +188,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.gestureView = [[UIView alloc] initWithFrame:CGRectZero];
     self.gestureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.gestureView.userInteractionEnabled = YES;
-    self.gestureView.hidden = YES;
     [self.gestureView addGestureRecognizer:self.slidingViewController.panGesture];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.slidingViewController
@@ -215,14 +214,15 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)viewDidBecomeActive:(NSNotification *)notification;
 {
     self.webView.scrollView.scrollsToTop = YES;
-    self.gestureView.hidden = YES;
+    CGRect gestureViewFrame = self.webView.frame;
+    gestureViewFrame.size.width = 1;
+    self.gestureView.frame = gestureViewFrame;
     [self.toggleTabListButton setDirection:TTFlippingButtonDirectionLeft animated:YES];
 }
 
 - (void)viewWillBecomeInactive:(NSNotification *)notification;
 {
     self.webView.scrollView.scrollsToTop = NO;
-    self.gestureView.hidden = NO;
     self.gestureView.frame = self.webView.frame;
     [self.toggleTabListButton setDirection:TTFlippingButtonDirectionRight animated:YES];
 }
@@ -271,10 +271,14 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     UIEdgeInsets newContentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0.0, 0.0, 0.0);
     self.webView.scrollView.contentInset = newContentInset;
     
+    if (!self.slidingViewController.underLeftShowing) {
+        webViewFrame.size.width = 10.0;
+    }
+    self.gestureView.frame = webViewFrame;
+    
     CGPoint contentOffset = self.webView.scrollView.contentOffset;
     contentOffset.y += fminf(0, oldContentInset.top - newContentInset.top);
     self.webView.scrollView.contentOffset = contentOffset;
-    
     
     [self layoutNavBar];
 }
