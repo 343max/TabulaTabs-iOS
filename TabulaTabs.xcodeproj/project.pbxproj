@@ -32,6 +32,23 @@
 		504F71491525C1C7008B4F7A /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */; };
 		504F714A1525C1C7008B4F7A /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */; };
 		504F714B1525C1C7008B4F7A /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */; };
+		504F71F21527642D008B4F7A /* BrowserBackToList.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E21527642D008B4F7A /* BrowserBackToList.png */; };
+		504F71F31527642D008B4F7A /* BrowserBackToList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E31527642D008B4F7A /* BrowserBackToList@2x.png */; };
+		504F71F61527642D008B4F7A /* BrowserHistoryBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E61527642D008B4F7A /* BrowserHistoryBack.png */; };
+		504F71F71527642D008B4F7A /* BrowserHistoryBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E71527642D008B4F7A /* BrowserHistoryBack@2x.png */; };
+		504F71F81527642D008B4F7A /* BrowserHistoryFwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E81527642D008B4F7A /* BrowserHistoryFwd.png */; };
+		504F71F91527642D008B4F7A /* BrowserHistoryFwd@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E91527642D008B4F7A /* BrowserHistoryFwd@2x.png */; };
+		504F71FA1527642D008B4F7A /* BrowserReload.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EA1527642D008B4F7A /* BrowserReload.png */; };
+		504F71FB1527642D008B4F7A /* BrowserReload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EB1527642D008B4F7A /* BrowserReload@2x.png */; };
+		504F71FC1527642D008B4F7A /* BrowserReloadShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EC1527642D008B4F7A /* BrowserReloadShadow.png */; };
+		504F71FD1527642D008B4F7A /* BrowserReloadShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71ED1527642D008B4F7A /* BrowserReloadShadow@2x.png */; };
+		504F71FE1527642D008B4F7A /* BrowserShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EE1527642D008B4F7A /* BrowserShare.png */; };
+		504F71FF1527642D008B4F7A /* BrowserShare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EF1527642D008B4F7A /* BrowserShare@2x.png */; };
+		504F72001527642D008B4F7A /* BrowserToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71F01527642D008B4F7A /* BrowserToolbar.png */; };
+		504F72011527642D008B4F7A /* BrowserToolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71F11527642D008B4F7A /* BrowserToolbar@2x.png */; };
+		504F72041527646B008B4F7A /* BrowserBackToListShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F72021527646B008B4F7A /* BrowserBackToListShadow.png */; };
+		504F72051527646B008B4F7A /* BrowserBackToListShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */; };
+		504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F724B152789BC008B4F7A /* TTFlippingButton.m */; };
 		50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF215249A160018BBD8 /* ECSlidingViewController.m */; };
 		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
@@ -41,14 +58,6 @@
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
-		5092F698151E9DF900E2EC52 /* UIButtonBarActionSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */; };
-		5092F699151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */; };
-		5092F69A151E9DF900E2EC52 /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F692151E9DF900E2EC52 /* Back.png */; };
-		5092F69B151E9DF900E2EC52 /* Back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F693151E9DF900E2EC52 /* Back@2x.png */; };
-		5092F69C151E9DF900E2EC52 /* Forward.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F694151E9DF900E2EC52 /* Forward.png */; };
-		5092F69D151E9DF900E2EC52 /* Forward@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F695151E9DF900E2EC52 /* Forward@2x.png */; };
-		5092F69E151E9DF900E2EC52 /* Reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F696151E9DF900E2EC52 /* Reload.png */; };
-		5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5092F697151E9DF900E2EC52 /* Reload@2x.png */; };
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */; };
@@ -149,6 +158,24 @@
 		504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.ttf"; sourceTree = "<group>"; };
 		504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		504F71E21527642D008B4F7A /* BrowserBackToList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserBackToList.png; sourceTree = "<group>"; };
+		504F71E31527642D008B4F7A /* BrowserBackToList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserBackToList@2x.png"; sourceTree = "<group>"; };
+		504F71E61527642D008B4F7A /* BrowserHistoryBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserHistoryBack.png; sourceTree = "<group>"; };
+		504F71E71527642D008B4F7A /* BrowserHistoryBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserHistoryBack@2x.png"; sourceTree = "<group>"; };
+		504F71E81527642D008B4F7A /* BrowserHistoryFwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserHistoryFwd.png; sourceTree = "<group>"; };
+		504F71E91527642D008B4F7A /* BrowserHistoryFwd@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserHistoryFwd@2x.png"; sourceTree = "<group>"; };
+		504F71EA1527642D008B4F7A /* BrowserReload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserReload.png; sourceTree = "<group>"; };
+		504F71EB1527642D008B4F7A /* BrowserReload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserReload@2x.png"; sourceTree = "<group>"; };
+		504F71EC1527642D008B4F7A /* BrowserReloadShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserReloadShadow.png; sourceTree = "<group>"; };
+		504F71ED1527642D008B4F7A /* BrowserReloadShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserReloadShadow@2x.png"; sourceTree = "<group>"; };
+		504F71EE1527642D008B4F7A /* BrowserShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserShare.png; sourceTree = "<group>"; };
+		504F71EF1527642D008B4F7A /* BrowserShare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserShare@2x.png"; sourceTree = "<group>"; };
+		504F71F01527642D008B4F7A /* BrowserToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserToolbar.png; sourceTree = "<group>"; };
+		504F71F11527642D008B4F7A /* BrowserToolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserToolbar@2x.png"; sourceTree = "<group>"; };
+		504F72021527646B008B4F7A /* BrowserBackToListShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserBackToListShadow.png; sourceTree = "<group>"; };
+		504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserBackToListShadow@2x.png"; sourceTree = "<group>"; };
+		504F724A152789BC008B4F7A /* TTFlippingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFlippingButton.h; sourceTree = "<group>"; };
+		504F724B152789BC008B4F7A /* TTFlippingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFlippingButton.m; sourceTree = "<group>"; };
 		50623EF115249A160018BBD8 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECSlidingViewController.h; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.h; sourceTree = "<group>"; };
 		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -166,14 +193,6 @@
 		5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionSheet.h; sourceTree = "<group>"; };
 		5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionSheet.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarActionSmall.png; sourceTree = "<group>"; };
-		5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarActionSmall@2x.png"; sourceTree = "<group>"; };
-		5092F692151E9DF900E2EC52 /* Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Back.png; sourceTree = "<group>"; };
-		5092F693151E9DF900E2EC52 /* Back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back@2x.png"; sourceTree = "<group>"; };
-		5092F694151E9DF900E2EC52 /* Forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Forward.png; sourceTree = "<group>"; };
-		5092F695151E9DF900E2EC52 /* Forward@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Forward@2x.png"; sourceTree = "<group>"; };
-		5092F696151E9DF900E2EC52 /* Reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reload.png; sourceTree = "<group>"; };
-		5092F697151E9DF900E2EC52 /* Reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reload@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
 		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
@@ -335,6 +354,58 @@
 			path = sskeychain;
 			sourceTree = "<group>";
 		};
+		504F71DF152763CA008B4F7A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */,
+				504F713F1525C1C7008B4F7A /* Dosis-ExtraBold.ttf */,
+				504F71401525C1C7008B4F7A /* Dosis-ExtraLight.ttf */,
+				504F71411525C1C7008B4F7A /* Dosis-Light.ttf */,
+				504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */,
+				504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */,
+				504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */,
+				500BBF8215235C39008D44E0 /* Karla-Bold.ttf */,
+				500BBF8315235C39008D44E0 /* Karla-BoldItalic.ttf */,
+				500BBF8415235C39008D44E0 /* Karla-Italic.ttf */,
+				500BBF8515235C39008D44E0 /* Karla-Regular.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		504F71E0152763D4008B4F7A /* TabListCellView */ = {
+			isa = PBXGroup;
+			children = (
+				500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */,
+				500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */,
+				500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */,
+				500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */,
+			);
+			name = TabListCellView;
+			sourceTree = "<group>";
+		};
+		504F71E1152763F1008B4F7A /* BrowserToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				504F71E21527642D008B4F7A /* BrowserBackToList.png */,
+				504F71E31527642D008B4F7A /* BrowserBackToList@2x.png */,
+				504F72021527646B008B4F7A /* BrowserBackToListShadow.png */,
+				504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */,
+				504F71E61527642D008B4F7A /* BrowserHistoryBack.png */,
+				504F71E71527642D008B4F7A /* BrowserHistoryBack@2x.png */,
+				504F71E81527642D008B4F7A /* BrowserHistoryFwd.png */,
+				504F71E91527642D008B4F7A /* BrowserHistoryFwd@2x.png */,
+				504F71EA1527642D008B4F7A /* BrowserReload.png */,
+				504F71EB1527642D008B4F7A /* BrowserReload@2x.png */,
+				504F71EC1527642D008B4F7A /* BrowserReloadShadow.png */,
+				504F71ED1527642D008B4F7A /* BrowserReloadShadow@2x.png */,
+				504F71EE1527642D008B4F7A /* BrowserShare.png */,
+				504F71EF1527642D008B4F7A /* BrowserShare@2x.png */,
+				504F71F01527642D008B4F7A /* BrowserToolbar.png */,
+				504F71F11527642D008B4F7A /* BrowserToolbar@2x.png */,
+			);
+			name = BrowserToolbar;
+			sourceTree = "<group>";
+		};
 		50623EF715249A1D0018BBD8 /* ECSlidingViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,30 +420,16 @@
 		5092F68D151E9DD600E2EC52 /* WebBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				5092F68F151E9DE400E2EC52 /* Resources */,
 				50DB39DC151DEB7300CF421A /* TTWebViewController.h */,
 				50DB39DD151DEB7300CF421A /* TTWebViewController.m */,
 				5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */,
 				5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */,
 				5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */,
 				5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */,
+				504F724A152789BC008B4F7A /* TTFlippingButton.h */,
+				504F724B152789BC008B4F7A /* TTFlippingButton.m */,
 			);
 			name = WebBrowser;
-			sourceTree = "<group>";
-		};
-		5092F68F151E9DE400E2EC52 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				5092F690151E9DF900E2EC52 /* UIButtonBarActionSmall.png */,
-				5092F691151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png */,
-				5092F692151E9DF900E2EC52 /* Back.png */,
-				5092F693151E9DF900E2EC52 /* Back@2x.png */,
-				5092F694151E9DF900E2EC52 /* Forward.png */,
-				5092F695151E9DF900E2EC52 /* Forward@2x.png */,
-				5092F696151E9DF900E2EC52 /* Reload.png */,
-				5092F697151E9DF900E2EC52 /* Reload@2x.png */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		50AB685214FAADEE0040D328 /* PullToRefresh */ = {
@@ -645,21 +702,9 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */,
-				504F713F1525C1C7008B4F7A /* Dosis-ExtraBold.ttf */,
-				504F71401525C1C7008B4F7A /* Dosis-ExtraLight.ttf */,
-				504F71411525C1C7008B4F7A /* Dosis-Light.ttf */,
-				504F71421525C1C7008B4F7A /* Dosis-Medium.ttf */,
-				504F71431525C1C7008B4F7A /* Dosis-Regular.ttf */,
-				504F71441525C1C7008B4F7A /* Dosis-SemiBold.ttf */,
-				500BBF8215235C39008D44E0 /* Karla-Bold.ttf */,
-				500BBF8315235C39008D44E0 /* Karla-BoldItalic.ttf */,
-				500BBF8415235C39008D44E0 /* Karla-Italic.ttf */,
-				500BBF8515235C39008D44E0 /* Karla-Regular.ttf */,
-				500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */,
-				500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */,
-				500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */,
-				500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */,
+				504F71E1152763F1008B4F7A /* BrowserToolbar */,
+				504F71DF152763CA008B4F7A /* Fonts */,
+				504F71E0152763D4008B4F7A /* TabListCellView */,
 				50F3579D1521BE4C00F2780F /* Gears.png */,
 				50F3579E1521BE4C00F2780F /* Gears@2x.png */,
 				50F3579B1521BE0700F2780F /* registrationGuide.html */,
@@ -746,14 +791,6 @@
 				50FE0A9514EB154100823CE6 /* zbar-samples.png in Resources */,
 				5016BA8E151E05EB00AAA198 /* README.txt in Resources */,
 				5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */,
-				5092F698151E9DF900E2EC52 /* UIButtonBarActionSmall.png in Resources */,
-				5092F699151E9DF900E2EC52 /* UIButtonBarActionSmall@2x.png in Resources */,
-				5092F69A151E9DF900E2EC52 /* Back.png in Resources */,
-				5092F69B151E9DF900E2EC52 /* Back@2x.png in Resources */,
-				5092F69C151E9DF900E2EC52 /* Forward.png in Resources */,
-				5092F69D151E9DF900E2EC52 /* Forward@2x.png in Resources */,
-				5092F69E151E9DF900E2EC52 /* Reload.png in Resources */,
-				5092F69F151E9DF900E2EC52 /* Reload@2x.png in Resources */,
 				50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */,
 				50F3579F1521BE4C00F2780F /* Gears.png in Resources */,
 				50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */,
@@ -772,6 +809,22 @@
 				504F71491525C1C7008B4F7A /* Dosis-Medium.ttf in Resources */,
 				504F714A1525C1C7008B4F7A /* Dosis-Regular.ttf in Resources */,
 				504F714B1525C1C7008B4F7A /* Dosis-SemiBold.ttf in Resources */,
+				504F71F21527642D008B4F7A /* BrowserBackToList.png in Resources */,
+				504F71F31527642D008B4F7A /* BrowserBackToList@2x.png in Resources */,
+				504F71F61527642D008B4F7A /* BrowserHistoryBack.png in Resources */,
+				504F71F71527642D008B4F7A /* BrowserHistoryBack@2x.png in Resources */,
+				504F71F81527642D008B4F7A /* BrowserHistoryFwd.png in Resources */,
+				504F71F91527642D008B4F7A /* BrowserHistoryFwd@2x.png in Resources */,
+				504F71FA1527642D008B4F7A /* BrowserReload.png in Resources */,
+				504F71FB1527642D008B4F7A /* BrowserReload@2x.png in Resources */,
+				504F71FC1527642D008B4F7A /* BrowserReloadShadow.png in Resources */,
+				504F71FD1527642D008B4F7A /* BrowserReloadShadow@2x.png in Resources */,
+				504F71FE1527642D008B4F7A /* BrowserShare.png in Resources */,
+				504F71FF1527642D008B4F7A /* BrowserShare@2x.png in Resources */,
+				504F72001527642D008B4F7A /* BrowserToolbar.png in Resources */,
+				504F72011527642D008B4F7A /* BrowserToolbar@2x.png in Resources */,
+				504F72041527646B008B4F7A /* BrowserBackToListShadow.png in Resources */,
+				504F72051527646B008B4F7A /* BrowserBackToListShadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -858,6 +911,7 @@
 				50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */,
 				50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */,
 				504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */,
+				504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

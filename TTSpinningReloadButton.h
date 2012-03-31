@@ -12,6 +12,6 @@
 
 @property (assign, nonatomic) BOOL spinning;
 
-- (id)initWithImage:(UIImage *)image;
+- (id)initWithImage:(UIImage *)image shadowImage:(UIImage *)shadowImage;
 
 @end

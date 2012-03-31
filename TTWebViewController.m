@@ -12,6 +12,7 @@
 #import "ECSlidingViewController.h"
 
 #import "TTSpinningReloadButton.h"
+#import "TTFlippingButton.h"
 #import "TTWebViewActionSheet.h"
 
 #import "TTWebViewController.h"
@@ -24,7 +25,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @property (strong) UIWebView *webView;
 
 @property (strong) UIView *gestureView;
-@property (strong) UIBarButtonItem *toggleTabListButton;
+@property (strong) TTFlippingButton *toggleTabListButton;
 @property (strong) UIButton *backButton;
 @property (strong) UIButton *forwardButton;
 @property (strong) TTSpinningReloadButton *reloadButton;
@@ -66,22 +67,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     
     if (self) {
-        self.navigationController.toolbarHidden = NO;
-        self.toggleTabListButton = [[UIBarButtonItem alloc] initWithTitle:@"="
-                                                                    style:UIBarButtonSystemItemDone
-                                                                   target:self
-                                                                   action:@selector(toggleListVisibility:)];
-        
-        self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
-        self.backButton.showsTouchWhenHighlighted = YES;
-        [self.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
-        [self.backButton setImage:[UIImage imageNamed:@"Back"] forState:UIControlStateNormal];
-        
-        self.forwardButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
-        self.forwardButton.showsTouchWhenHighlighted = YES;
-        [self.forwardButton addTarget:self action:@selector(goForward:) forControlEvents:UIControlEventTouchUpInside];
-        [self.forwardButton setImage:[UIImage imageNamed:@"Forward"] forState:UIControlStateNormal];
-        
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewWillBecomeInactive:)
@@ -97,13 +82,9 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
                                                    object:self.slidingViewController];
         
         self.navigationItem.leftItemsSupplementBackButton = YES;
-    
-        self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 24.0)];
-        self.actionButton.showsTouchWhenHighlighted = YES;
-        [self.actionButton setImage:[UIImage imageNamed:@"UIButtonBarActionSmall"] forState:UIControlStateNormal];
-        [self.actionButton addTarget:self action:@selector(showPageActions:) forControlEvents:UIControlEventTouchUpInside];
         
-        self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"Reload"]];
+        self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"BrowserReload"] 
+                                                              shadowImage:[UIImage imageNamed:@"BrowserReloadShadow"]];
         self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
         self.reloadButton.showsTouchWhenHighlighted = YES;
         [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
@@ -152,7 +133,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     _connectionCount = connectionCount;
     BOOL newConnectionsInProgress = _connectionCount > 0;
     
-    NSAssert(connectionCount >= 0, @"connection count dorpped below zero");
+    NSAssert(connectionCount >= 0, @"connection count dropped below zero");
     
     if (oldConnectionsInProgress != newConnectionsInProgress) {
         if (newConnectionsInProgress) {
@@ -172,6 +153,30 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     
     [TestFlight passCheckpoint:@"opened a tab"];
     
+    self.toggleTabListButton = [[TTFlippingButton alloc] initWithImage:[UIImage imageNamed:@"BrowserBackToList"]
+                                                           shadowImage:[UIImage imageNamed:@"BrowserBackToListShadow"]];
+    self.toggleTabListButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
+    self.toggleTabListButton.showsTouchWhenHighlighted = YES;
+    [self.toggleTabListButton addTarget:self 
+                                 action:@selector(toggleListVisibility:)
+                       forControlEvents:UIControlEventTouchUpInside];
+    
+    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
+    self.backButton.showsTouchWhenHighlighted = YES;
+    self.backButton.imageView.contentMode = UIViewContentModeCenter;
+    [self.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
+    [self.backButton setImage:[UIImage imageNamed:@"BrowserHistoryBack"] forState:UIControlStateNormal];
+    
+    self.forwardButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
+    self.forwardButton.showsTouchWhenHighlighted = YES;
+    [self.forwardButton addTarget:self action:@selector(goForward:) forControlEvents:UIControlEventTouchUpInside];
+    [self.forwardButton setImage:[UIImage imageNamed:@"BrowserHistoryFwd"] forState:UIControlStateNormal];
+
+    self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
+    self.actionButton.showsTouchWhenHighlighted = YES;
+    [self.actionButton setImage:[UIImage imageNamed:@"BrowserShare"] forState:UIControlStateNormal];
+    [self.actionButton addTarget:self action:@selector(showPageActions:) forControlEvents:UIControlEventTouchUpInside];
+
     self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
@@ -190,9 +195,13 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
                                                                                            action:@selector(resetTopView)];
     [self.gestureView addGestureRecognizer:tapGestureRecognizer];
     [self.view addSubview:self.gestureView];
+    
+    [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"BrowserToolbar"]
+                                       forToolbarPosition:UIToolbarPositionAny
+                                               barMetrics:UIBarMetricsDefault];
 
     self.toolbarItems = [NSArray arrayWithObjects:
-                         self.toggleTabListButton,
+                         [[UIBarButtonItem alloc] initWithCustomView:self.toggleTabListButton],
                          [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                          [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
                          [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -207,6 +216,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 {
     self.webView.scrollView.scrollsToTop = YES;
     self.gestureView.hidden = YES;
+    [self.toggleTabListButton setDirection:TTFlippingButtonDirectionLeft animated:YES];
 }
 
 - (void)viewWillBecomeInactive:(NSNotification *)notification;
@@ -214,6 +224,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.webView.scrollView.scrollsToTop = NO;
     self.gestureView.hidden = NO;
     self.gestureView.frame = self.webView.frame;
+    [self.toggleTabListButton setDirection:TTFlippingButtonDirectionRight animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated;
@@ -356,9 +367,11 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)toggleListVisibility:(id)sender;
 {
     if (self.slidingViewController.underLeftShowing) {
+        [self.toggleTabListButton setDirection:TTFlippingButtonDirectionLeft animated:YES];
         [self.slidingViewController resetTopView];
     } else {
         [self.slidingViewController anchorTopViewTo:ECRight];
+        [self.toggleTabListButton setDirection:TTFlippingButtonDirectionRight animated:YES];
     }
 }
 

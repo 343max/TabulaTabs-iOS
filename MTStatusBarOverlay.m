@@ -195,10 +195,10 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
 - (void)showNextMessage;
 
 // is called when the user touches the statusbar
-- (void)contentViewClicked:(UIGestureRecognizer *)gestureRecognizer;
+- (IBAction)contentViewClicked:(UIGestureRecognizer *)gestureRecognizer;
 // is called when the user swipes down the statusbar
-- (void)contentViewSwipedUp:(UIGestureRecognizer *)gestureRecognizer;
-- (void)contentViewSwipedDown:(UIGestureRecognizer *)gestureRecognizer;
+- (IBAction)contentViewSwipedUp:(UIGestureRecognizer *)gestureRecognizer;
+- (IBAction)contentViewSwipedDown:(UIGestureRecognizer *)gestureRecognizer;
 
 // updates the current status bar background image for the given style and current size
 - (void)setStatusBarBackgroundForStyle:(UIStatusBarStyle)style;

@@ -11,6 +11,7 @@
 @interface TTSpinningReloadButton ()
 
 @property (strong) UIImageView *spinningImageView;
+@property (strong) UIImageView *spinningShadowImageView;
 
 - (void)spinIfNeeded;
 
@@ -21,17 +22,21 @@
 
 @synthesize spinning = _spinning;
 @synthesize spinningImageView = _spinningImageView;
+@synthesize spinningShadowImageView = _spinningShadowImageView;
 
-- (id)initWithImage:(UIImage *)image;
+- (id)initWithImage:(UIImage *)image shadowImage:(UIImage *)shadowImage;
 {
     self = [super init];
     
     if (self) {
-        CGRect imageViewFrame = CGRectMake(-image.size.width / 2.0, -image.size.height / 2.0, image.size.width, image.size.height);
         self.spinningImageView = [[UIImageView alloc] initWithImage:image];
-        self.spinningImageView.frame = imageViewFrame;
         self.spinningImageView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
         [self addSubview:self.spinningImageView];
+        
+        self.spinningShadowImageView = [[UIImageView alloc] initWithImage:shadowImage];
+        [self insertSubview:self.spinningShadowImageView belowSubview:self.spinningImageView];
+        
+        [self setNeedsLayout];
     }
     
     return self;
@@ -41,18 +46,30 @@
 {
     if (self.spinning) {
         [UIView animateWithDuration:1.0/3.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
-            self.spinningImageView.transform = CGAffineTransformMakeRotation(M_PI * 2/3);
+            self.spinningImageView.transform = self.spinningShadowImageView.transform = CGAffineTransformMakeRotation(M_PI * 2/3);
         } completion:^(BOOL finished) {
             [UIView animateWithDuration:1.0/3.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
-                self.spinningImageView.transform = CGAffineTransformMakeRotation(M_PI * 4/3);
+                self.spinningImageView.transform = self.spinningShadowImageView.transform = CGAffineTransformMakeRotation(M_PI * 4/3);
             } completion:^(BOOL finished) {
                 [UIView animateWithDuration:1.0/3.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
-                    self.spinningImageView.transform = CGAffineTransformMakeRotation(0.0);
+                    self.spinningImageView.transform = self.spinningShadowImageView.transform = CGAffineTransformMakeRotation(0.0);
                 } completion:^(BOOL finished) {
                     [self performSelector:@selector(spinIfNeeded) withObject:nil afterDelay:0.0];
                 }];
             }];
         }];
+    }
+}
+
+- (void)layoutSubviews;
+{
+    [super layoutSubviews];
+
+    if (CGAffineTransformIsIdentity(self.spinningImageView.transform)) {
+        CGRect imageViewFrame = self.spinningImageView.frame;
+        
+        imageViewFrame.origin.y -= 1;
+        self.spinningShadowImageView.frame = CGRectIntegral(imageViewFrame);
     }
 }
 
