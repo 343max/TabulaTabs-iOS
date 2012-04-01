@@ -81,8 +81,10 @@
     CGFloat hue; CGFloat saturation; CGFloat brightness; CGFloat alpha;
     [pageColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     
+    NSLog(@"saturation: %f, brightness: %f", saturation, brightness);
+    
     CGFloat saturationFactor = 1;
-    if (saturation == 0) {
+    if (saturation <= 0.01) {
         saturationFactor = 0;
     }
     
