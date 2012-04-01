@@ -58,6 +58,12 @@
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
+		5090704E1528B928006D9DE4 /* TabListNavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090704C1528B928006D9DE4 /* TabListNavbar.png */; };
+		5090704F1528B928006D9DE4 /* TabListNavbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */; };
+		509070521528B969006D9DE4 /* TabListSettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070501528B969006D9DE4 /* TabListSettingsButton.png */; };
+		509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */; };
+		509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070541528BAF8006D9DE4 /* TabListBackground.png */; };
+		509070571528BAF8006D9DE4 /* TabListBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070551528BAF8006D9DE4 /* TabListBackground@2x.png */; };
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */; };
@@ -193,6 +199,12 @@
 		5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionSheet.h; sourceTree = "<group>"; };
 		5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionSheet.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5090704C1528B928006D9DE4 /* TabListNavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListNavbar.png; sourceTree = "<group>"; };
+		5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListNavbar@2x.png"; sourceTree = "<group>"; };
+		509070501528B969006D9DE4 /* TabListSettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListSettingsButton.png; sourceTree = "<group>"; };
+		509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListSettingsButton@2x.png"; sourceTree = "<group>"; };
+		509070541528BAF8006D9DE4 /* TabListBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBackground.png; sourceTree = "<group>"; };
+		509070551528BAF8006D9DE4 /* TabListBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListBackground@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
 		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
@@ -415,6 +427,19 @@
 				50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */,
 			);
 			name = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
+		5090704A1528B91A006D9DE4 /* TabListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				509070501528B969006D9DE4 /* TabListSettingsButton.png */,
+				509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */,
+				5090704C1528B928006D9DE4 /* TabListNavbar.png */,
+				5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */,
+				509070541528BAF8006D9DE4 /* TabListBackground.png */,
+				509070551528BAF8006D9DE4 /* TabListBackground@2x.png */,
+			);
+			name = TabListViewController;
 			sourceTree = "<group>";
 		};
 		5092F68D151E9DD600E2EC52 /* WebBrowser */ = {
@@ -702,6 +727,7 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5090704A1528B91A006D9DE4 /* TabListViewController */,
 				504F71E1152763F1008B4F7A /* BrowserToolbar */,
 				504F71DF152763CA008B4F7A /* Fonts */,
 				504F71E0152763D4008B4F7A /* TabListCellView */,
@@ -825,6 +851,12 @@
 				504F72011527642D008B4F7A /* BrowserToolbar@2x.png in Resources */,
 				504F72041527646B008B4F7A /* BrowserBackToListShadow.png in Resources */,
 				504F72051527646B008B4F7A /* BrowserBackToListShadow@2x.png in Resources */,
+				5090704E1528B928006D9DE4 /* TabListNavbar.png in Resources */,
+				5090704F1528B928006D9DE4 /* TabListNavbar@2x.png in Resources */,
+				509070521528B969006D9DE4 /* TabListSettingsButton.png in Resources */,
+				509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */,
+				509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */,
+				509070571528BAF8006D9DE4 /* TabListBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

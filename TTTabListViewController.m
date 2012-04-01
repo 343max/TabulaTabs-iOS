@@ -54,11 +54,6 @@
     self = [super init];
     
     if (self) {
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"=" style:UIBarButtonItemStyleBordered target:nil action:nil];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"Gears"] imageWithColorOverlay:[UIColor whiteColor]]
-                                                                                 style:UIBarButtonItemStylePlain
-                                                                                target:appDelegate 
-                                                                                action:@selector(showSettings:)];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(viewWillBecomeActive:)
                                                      name:ECSlidingViewUnderLeftWillAppear
@@ -118,6 +113,21 @@
 
 - (void)viewDidLoad
 {
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"TabListNavbar"] 
+                                                  forBarMetrics:UIBarMetricsDefault];
+    
+    UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
+    [settingsButton setImage:[UIImage imageNamed:@"TabListSettingsButton"]
+                    forState:UIControlStateNormal];
+    [settingsButton addTarget:appDelegate
+                       action:@selector(showSettings:)
+             forControlEvents:UIControlEventTouchUpInside];
+    settingsButton.showsTouchWhenHighlighted = YES;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:settingsButton];
+    
+    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabListBackground"]];
+    self.view.backgroundColor = [UIColor clearColor];
+    
     self.tableView.rowHeight = 70;
     [super viewDidLoad];
 }

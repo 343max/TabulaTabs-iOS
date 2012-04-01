@@ -36,8 +36,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @property (strong) TTWebViewActionSheet *actionSheet;
 
 - (void)layoutNavBar;
-- (void)loadingStarted;
-- (void)loadingFinished;
 
 - (void)goBack:(id)sender;
 - (void)goForward:(id)sender;
@@ -311,29 +309,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.webView.scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
 }
 
-- (void)loadingStarted;
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerStartedLoadingNotification object:self];
-    self.backButton.enabled = NO;
-    self.forwardButton.enabled = NO;
-    self.actionButton.enabled = NO;
-    self.reloadButton.spinning = YES;
-    
-    self.pageTitle = nil;
-}
-
-- (void)loadingFinished;
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerFinishedLoadingNotification object:self];
-    
-    self.pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    
-    self.backButton.enabled = self.webView.canGoBack;
-    self.forwardButton.enabled = self.webView.canGoForward;
-    self.actionButton.enabled = YES;
-    self.reloadButton.spinning = NO;
-}
-
 - (void)goBack:(id)sender;
 {
     [self.webView goBack];
@@ -346,7 +321,11 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 - (void)reload:(id)sender;
 {
-    [self.webView reload];
+    if (self.webView.loading) {
+        [self.webView stopLoading];
+    } else {
+        [self.webView reload];
+    }
 }
 
 - (void)toggleListVisibility:(id)sender;
@@ -364,12 +343,25 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 - (void)webViewDidStartLoad:(UIWebView *)webView;
 {
-    [self loadingStarted];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerStartedLoadingNotification object:self];
+    self.backButton.enabled = NO;
+    self.forwardButton.enabled = NO;
+    self.actionButton.enabled = NO;
+    self.reloadButton.spinning = YES;
+    
+    self.pageTitle = nil;
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
-    [self loadingFinished];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerFinishedLoadingNotification object:self];
+    
+    self.pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    self.backButton.enabled = self.webView.canGoBack;
+    self.forwardButton.enabled = self.webView.canGoForward;
+    self.actionButton.enabled = YES;
+    self.reloadButton.spinning = NO;
 }
 
 #pragma mark UIScrollViewDelegate
