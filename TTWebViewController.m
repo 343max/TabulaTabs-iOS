@@ -36,6 +36,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @property (strong) TTWebViewActionSheet *actionSheet;
 
 - (void)layoutNavBar;
+- (void)didFinishLoading;
 
 - (void)goBack:(id)sender;
 - (void)goForward:(id)sender;
@@ -209,17 +210,11 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)viewWillDisappear:(BOOL)animated;
 {
     [super viewDidDisappear:animated];
-    
+        
+    [self.webView stopLoading];
+
     self.webView.delegate = nil;
     self.webView.scrollView.delegate = nil;
-    
-    [super viewWillDisappear:animated];
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        CGRect navBarFrame = self.navigationController.navigationBar.frame;
-        navBarFrame.origin.y = 0;
-        self.navigationController.navigationBar.frame = navBarFrame;
-    }];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
@@ -339,6 +334,18 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     }
 }
 
+- (void)didFinishLoading;
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerFinishedLoadingNotification object:self];
+    
+    self.pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    
+    self.backButton.enabled = self.webView.canGoBack;
+    self.forwardButton.enabled = self.webView.canGoForward;
+    self.actionButton.enabled = YES;
+    self.reloadButton.spinning = NO;
+}
+
 #pragma mark UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView;
@@ -352,16 +359,14 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.pageTitle = nil;
 }
 
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
+{
+    [self didFinishLoading];
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerFinishedLoadingNotification object:self];
-    
-    self.pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    
-    self.backButton.enabled = self.webView.canGoBack;
-    self.forwardButton.enabled = self.webView.canGoForward;
-    self.actionButton.enabled = YES;
-    self.reloadButton.spinning = NO;
+    [self didFinishLoading];
 }
 
 #pragma mark UIScrollViewDelegate
