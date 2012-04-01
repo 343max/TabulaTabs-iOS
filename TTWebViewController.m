@@ -32,7 +32,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @property (strong) UIButton *actionButton;
 @property (strong) UILabel *titleLabel;
 @property (strong, nonatomic) NSString *pageTitle;
-@property (assign, nonatomic) NSInteger connectionCount;
 
 @property (strong) TTWebViewActionSheet *actionSheet;
 
@@ -60,7 +59,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
 @synthesize pageTitle = _pageTitle;
 @synthesize actionSheet = _actionSheet;
-@synthesize connectionCount = _connectionCount;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {
@@ -125,23 +123,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 {
     _URL = URL;
     [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
-}
-
-- (void)setConnectionCount:(NSInteger)connectionCount;
-{
-    BOOL oldConnectionsInProgress = _connectionCount > 0;    
-    _connectionCount = connectionCount;
-    BOOL newConnectionsInProgress = _connectionCount > 0;
-    
-    NSAssert(connectionCount >= 0, @"connection count dropped below zero");
-    
-    if (oldConnectionsInProgress != newConnectionsInProgress) {
-        if (newConnectionsInProgress) {
-            [self loadingStarted];
-        } else {
-            [self loadingFinished];
-        }
-    }
 }
 
 #pragma mark Lifecycle
@@ -381,20 +362,14 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 #pragma mark UIWebViewDelegate
 
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+- (void)webViewDidStartLoad:(UIWebView *)webView;
 {
-    self.connectionCount++;
-    return YES;
+    [self loadingStarted];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
-    self.connectionCount--;
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
-{
-    self.connectionCount--;
+    [self loadingFinished];
 }
 
 #pragma mark UIScrollViewDelegate
