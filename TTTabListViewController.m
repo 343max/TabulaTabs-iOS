@@ -27,6 +27,7 @@
 @interface TTTabListViewController ()
 
 @property (strong) TTWebViewController *webViewController;
+@property (assign) CGFloat browserOverlap;
 
 - (void)browserWasUpdated:(NSNotification *)notification;
 - (void)tabsWhereUpdated:(NSNotification *)notification;
@@ -48,6 +49,7 @@
 @synthesize webViewController = _webViewController;
 @synthesize browserRepresentation = _browserRepresentation;
 @synthesize tabs = _tabs;
+@synthesize browserOverlap = _browserOverlap;
 
 - (id)init;
 {
@@ -113,8 +115,14 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"TabListNavbar"] 
                                                   forBarMetrics:UIBarMetricsDefault];
+    
+    UIView *stichesView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 44.0, 320, 5)];
+    stichesView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabListStitches"]];
+    [self.navigationController.view insertSubview:stichesView atIndex:0];
     
     UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     [settingsButton setImage:[UIImage imageNamed:@"TabListSettingsButton"]
@@ -129,7 +137,6 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     self.tableView.rowHeight = 70;
-    [super viewDidLoad];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -191,8 +198,9 @@
         cell = [[TTTabTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
+    cell.marginRight = self.browserOverlap;
     
+    TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
     
     cell.textLabel.text = tab.pageTitle;
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
@@ -240,7 +248,17 @@
             CGRect topViewFrame = self.slidingViewController.underLeftViewController.view.frame;
             topViewFrame.origin.x += topViewFrame.size.width;
             self.slidingViewController.topViewController.view.frame = topViewFrame;
-            [self.slidingViewController resetTopView];
+            [self.slidingViewController resetTopViewWithAnimations:nil 
+                                                        onComplete:^{
+                                                            if (self.browserOverlap == 0) {
+                                                                self.browserOverlap = 40.0;
+                                                                NSIndexPath *selection = [self.tableView indexPathForSelectedRow];
+                                                                [self.tableView reloadData];
+                                                                [self.tableView selectRowAtIndexPath:selection
+                                                                                            animated:NO
+                                                                                      scrollPosition:UITableViewScrollPositionNone];
+                                                            }
+                                                        }];
         }];
         
         self.webViewController.URL = tab.URL;

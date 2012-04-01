@@ -20,6 +20,8 @@
 
 
 @implementation TTTabTableViewCell
+
+@synthesize marginRight = _marginRight;
 @synthesize faviconView = _faviconView;
 @synthesize imageView;
 @synthesize pageColor = _pageColor;
@@ -46,6 +48,7 @@
         self.faviconView.layer.shadowRadius = 2.0;
         self.faviconView.layer.shadowOpacity = 1.0;
         self.faviconView.layer.shouldRasterize = YES;
+        self.marginRight = 0.0;
         [self addSubview:self.faviconView];
         
         self.detailTextLabel.backgroundColor = [UIColor clearColor];
@@ -80,16 +83,14 @@
     
     CGFloat hue; CGFloat saturation; CGFloat brightness; CGFloat alpha;
     [pageColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-    
-    NSLog(@"saturation: %f, brightness: %f", saturation, brightness);
-    
-    CGFloat saturationFactor = 1;
-    if (saturation <= 0.01) {
-        saturationFactor = 0;
+        
+    if (saturation > 0.01) {
+        self.backgroundColorView.backgroundColor = [UIColor colorWithHue:hue saturation:0.1 brightness:0.95 alpha:1.0];
+    } else {
+        self.backgroundColorView.backgroundColor = [UIColor whiteColor];
     }
     
     self.textBoxView.backgroundColor = pageColor;
-    self.backgroundColorView.backgroundColor = [UIColor colorWithHue:hue saturation:0.1 * saturationFactor brightness:0.95 alpha:1.0];
     self.textLabel.textColor = pageColor;
 }
 
@@ -120,13 +121,13 @@
         imageRect.size.width = 0;
     }
     imageRect.origin.y = CGRectGetMaxY(textboxFrame);
-    imageRect.origin.x = self.bounds.size.width - imageRect.size.width;
+    imageRect.origin.x = self.bounds.size.width - imageRect.size.width - self.marginRight;
     self.imageView.frame = imageRect;
     
-    CGRect faviconRect = CGRectMake(self.bounds.size.width - 18, 3, 8, 8);
+    CGRect faviconRect = CGRectMake(self.bounds.size.width - 18 - self.marginRight, 3, 8, 8);
     self.faviconView.frame = faviconRect;
     
-    CGRect detailLabelRect = CGRectMake(10.0, 0.0, 320 - 20 - imageRect.size.width, 14);
+    CGRect detailLabelRect = CGRectMake(10.0, 0.0, imageRect.origin.x - 30, 14);
     self.detailTextLabel.frame = detailLabelRect;
     
     CGRect textLabelRect = detailLabelRect;

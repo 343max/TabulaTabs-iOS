@@ -13,5 +13,6 @@
 @property (strong, readonly) UIImageView *faviconView;
 @property (strong, nonatomic) UIColor *pageColor;
 @property (assign, nonatomic, readonly) CGSize imageSize;
+@property (assign) CGFloat marginRight;
 
 @end
