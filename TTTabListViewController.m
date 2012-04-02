@@ -206,7 +206,11 @@
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
     cell.imageView.contentMode = UIViewContentModeCenter;
     cell.imageView.clipsToBounds = YES;
-    cell.pageColor = [tab.colorPalette objectAtIndex:0];
+    if (tab.colorPalette.count > 0) {
+        cell.pageColor = [tab.colorPalette objectAtIndex:0];
+    } else {
+        cell.pageColor = nil;
+    }
     
     cell.imageView.image = nil;
     if (tab.pageThumbnailURL) {
