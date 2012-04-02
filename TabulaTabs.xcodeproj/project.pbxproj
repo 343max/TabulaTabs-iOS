@@ -349,7 +349,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5016BA88151E05EB00AAA198 /* TestFlightSDK0.8.3 */ = {
+		5016BA88151E05EB00AAA198 /* TestFlightSDK */ = {
 			isa = PBXGroup;
 			children = (
 				5016BA89151E05EB00AAA198 /* libTestFlight.a */,
@@ -357,7 +357,7 @@
 				5016BA8B151E05EB00AAA198 /* release_notes.txt */,
 				5016BA8C151E05EB00AAA198 /* TestFlight.h */,
 			);
-			path = TestFlightSDK0.8.3;
+			path = TestFlightSDK;
 			sourceTree = "<group>";
 		};
 		504167D6150AB2A0007A3431 /* SSKeychain */ = {
@@ -590,7 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				50623EF715249A1D0018BBD8 /* ECSlidingViewController */,
-				5016BA88151E05EB00AAA198 /* TestFlightSDK0.8.3 */,
+				5016BA88151E05EB00AAA198 /* TestFlightSDK */,
 				50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */,
 				504167D6150AB2A0007A3431 /* SSKeychain */,
 				50AB685214FAADEE0040D328 /* PullToRefresh */,
@@ -1037,7 +1037,7 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
-					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
+					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME) α";
 				PROVISIONING_PROFILE = "";
@@ -1133,7 +1133,7 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
-					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
+					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME) Δ";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.Debug;
@@ -1154,7 +1154,7 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 					"\"$(SRCROOT)/ZBarSDK\"",
-					"\"$(SRCROOT)/TestFlightSDK0.8.3\"",
+					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs;
