@@ -12,6 +12,7 @@
 
 @property (strong) UIImageView *spinningImageView;
 @property (strong) UIImageView *spinningShadowImageView;
+@property (assign) BOOL animationInProgress;
 
 - (void)spinIfNeeded;
 
@@ -23,6 +24,7 @@
 @synthesize spinning = _spinning;
 @synthesize spinningImageView = _spinningImageView;
 @synthesize spinningShadowImageView = _spinningShadowImageView;
+@synthesize animationInProgress = _animationInProgress;
 
 - (id)initWithImage:(UIImage *)image shadowImage:(UIImage *)shadowImage;
 {
@@ -44,7 +46,8 @@
 
 - (void)spinIfNeeded;
 {
-    if (self.spinning) {
+    if (self.spinning && !self.animationInProgress) {
+        self.animationInProgress = YES;
         [UIView animateWithDuration:1.0/3.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.spinningImageView.transform = self.spinningShadowImageView.transform = CGAffineTransformMakeRotation(M_PI * 2/3);
         } completion:^(BOOL finished) {
@@ -54,6 +57,7 @@
                 [UIView animateWithDuration:1.0/3.0 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
                     self.spinningImageView.transform = self.spinningShadowImageView.transform = CGAffineTransformMakeRotation(0.0);
                 } completion:^(BOOL finished) {
+                    self.animationInProgress = NO;
                     [self performSelector:@selector(spinIfNeeded) withObject:nil afterDelay:0.0];
                 }];
             }];

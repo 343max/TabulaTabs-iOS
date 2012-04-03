@@ -271,18 +271,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)setPageTitle:(NSString *)pageTitle;
 {
     _pageTitle = pageTitle;
-    
-    if (_pageTitle) {
-        self.titleLabel.text = pageTitle;
-        [UIView animateWithDuration:0.1 animations:^{
-            self.titleLabel.alpha = 1.0;
-        }];
-    } else {
-        [UIView animateWithDuration:0.1 animations:^{
-            self.titleLabel.alpha = 0.0;
-        }];
-
-    }
+    self.titleLabel.text = pageTitle;
 }
 
 #pragma mark Helpers
@@ -355,8 +344,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     self.forwardButton.enabled = NO;
     self.actionButton.enabled = NO;
     self.reloadButton.spinning = YES;
-    
-    self.pageTitle = nil;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
