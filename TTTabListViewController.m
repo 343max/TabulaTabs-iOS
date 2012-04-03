@@ -39,7 +39,7 @@
 
 @interface TTTabListViewController ()
 
-@property (weak) NSArray *tabs;
+@property (strong) NSArray *tabs;
 
 @end
 
@@ -287,9 +287,35 @@
 
 - (void)tabsWhereUpdated:(NSNotification *)notification;
 {
-    self.tabs = self.browserRepresentation.tabs;
+    NSArray *oldTabs = self.tabs;
+    NSArray *newTabs = self.browserRepresentation.tabs;
+    
     [self stopLoadingAnimation];
-    [self.tableView reloadData];
+    
+    self.tabs = newTabs;
+    if (!oldTabs) {
+        [self.tableView reloadData];
+    } else {
+        [self.tableView beginUpdates]; {
+            NSIndexSet *removedIndexes = [oldTabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+                return ![newTabs containsObject:tab];
+            }];
+            NSMutableArray *removedTabs = [[NSMutableArray alloc] initWithCapacity:removedIndexes.count];
+            [removedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+                [removedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+            }];
+            [self.tableView deleteRowsAtIndexPaths:[removedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
+            
+            NSIndexSet *insertedIndexes = [newTabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+                return ![oldTabs containsObject:tab];
+            }];
+            NSMutableArray *insertedTabs = [[NSMutableArray alloc] initWithCapacity:insertedIndexes.count];
+            [insertedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+                [insertedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+            }];
+            [self.tableView insertRowsAtIndexPaths:[insertedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
+        } [self.tableView endUpdates];
+    }
     
     __block NSIndexPath *selectedRow = nil;
     

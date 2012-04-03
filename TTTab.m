@@ -76,6 +76,15 @@
     return self;
 }
 
+- (BOOL)isEqual:(TTTab *)otherTab;
+{
+    if (![otherTab isKindOfClass:[TTTab class]]) {
+        return NO;
+    } else {
+        return [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString];
+    }
+}
+
 
 #pragma mark Accessors
 
