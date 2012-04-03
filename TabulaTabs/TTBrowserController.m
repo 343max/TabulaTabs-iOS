@@ -8,6 +8,7 @@
 
 #import "NSData-hex.h"
 #import "SSKeychain.h"
+#import "TestFlight.h"
 
 #import "TTAppDelegate.h"
 
@@ -86,8 +87,9 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 {
     TTBrowserRepresentation *existingBrowser = [self browserWithBrowserIdentifier:browserReprensentation.browser.identifier];
     if (existingBrowser != nil) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Browser allready added"
-                                                        message:@"You have allready added this browser, you can't add the same browser twice."
+        [TestFlight passCheckpoint:@"Tried to register a browser twice"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Browser is allready there"
+                                                        message:@"This browser is allready in your browser list, you don't need to add it twice."
                                                        delegate:nil cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];

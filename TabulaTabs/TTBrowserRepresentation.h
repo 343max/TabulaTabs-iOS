@@ -28,6 +28,7 @@ extern NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification;
 - (void)claimClient:(TTClient *)client claimingPassword:(NSString *)claimingPassword;
 
 - (void)loadBrowser;
+- (void)loadBrowserCompletion:(void (^)(id))callback;
 - (void)loadTabs;
 
 @end

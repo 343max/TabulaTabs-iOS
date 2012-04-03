@@ -87,13 +87,13 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     
     [_client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
         if (success) {
-            [self loadBrowser];
+            [self loadBrowserCompletion:^(id response) {
+                 [appDelegate.browserController addBrowser:self];
+            }];
             [self loadTabs];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientWasUpdatedNotification object:self];
             [TestFlight passCheckpoint:@"registered a client"];
-            
-            [appDelegate.browserController addBrowser:self];
         } else {
             // todo
 //            [appDelegate showPanelType:MKInfoPanelTypeError title:@"Could not add browser" subtitle:@"This browser could not be added. The URL might be out of date or claimed otherwise. For seccurity reasons you should click the \"Start Over\" link in your browser"];
@@ -103,13 +103,21 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 
 - (void)loadBrowser;
 {
+    [self loadBrowserCompletion:nil];
+}
+
+- (void)loadBrowserCompletion:(void (^)(id))callback;
+{
     self.browser = [[TTBrowser alloc] initWithEncryption:self.client.encryption];
     
     [self.browser load:self.client.username password:self.client.password callback:^(id response) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationBrowserWasUpdatedNotification
                                                             object:self
                                                           userInfo:nil];
-    }];
+        if (callback) {
+            callback(response);
+        }
+    }];    
 }
 
 - (void)loadTabs;
