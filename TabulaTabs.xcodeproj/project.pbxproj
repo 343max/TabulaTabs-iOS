@@ -1040,8 +1040,8 @@
 		5016BA94151E0BF900AAA198 /* AdHoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Max Winde (MR4S8XBL42)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Max Winde (MR4S8XBL42)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
 				HEADER_SEARCH_PATHS = ./sskeychain/;
@@ -1054,8 +1054,8 @@
 					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME) α";
-				PROVISIONING_PROFILE = "3D874BAE-3B24-41CF-9F2F-2735494B2EB9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D874BAE-3B24-41CF-9F2F-2735494B2EB9";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
 				TT_URL_SCHEME = "tabulatabs-adhoc";
 				WRAPPER_EXTENSION = app;
