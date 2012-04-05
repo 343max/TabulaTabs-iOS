@@ -13,7 +13,7 @@
 @class TTTabListViewController;
 @class TTBrowserController;
 @class TTBrowserRepresentation;
-@class ECSlidingViewController;
+@class MWSlidingViewController;
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -21,7 +21,7 @@
 @property (strong, nonatomic) NSURL *currentURL;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong) ECSlidingViewController *slidingViewController;
+@property (strong) MWSlidingViewController *slidingViewController;
 
 @property (strong, readonly) TTBrowserController *browserController;
 

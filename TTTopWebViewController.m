@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "ECSlidingViewController.h"
+#import "MWSlidingViewController.h"
 
 #import "TTTopWebViewController.h"
 

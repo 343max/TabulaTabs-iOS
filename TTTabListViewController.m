@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "ECSlidingViewController.h"
+#import "MWSlidingViewController.h"
 
 #import "UIImage+Resize.h"
 #import "UIImage+ColorOverlay.h"

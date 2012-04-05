@@ -11,7 +11,7 @@
 #import "TestFlight.h"
 #import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
-#import "ECSlidingViewController.h"
+#import "MWSlidingViewController.h"
 
 #import "NSURL+TabulaTabs.h"
 #import "MWURLConnection.h"
@@ -65,7 +65,7 @@
         
     [self restoreBrowserRepresentations];
 
-    self.slidingViewController = [[ECSlidingViewController alloc] init];
+    self.slidingViewController = [[MWSlidingViewController alloc] init];
     self.window.rootViewController = self.slidingViewController;
     
     [[NSNotificationCenter defaultCenter] addObserver:self

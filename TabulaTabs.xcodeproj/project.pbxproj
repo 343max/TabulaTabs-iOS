@@ -19,6 +19,7 @@
 		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
 		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
 		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
+		5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */; };
 		503288501520A41A000CC58D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5032884F1520A41A000CC58D /* Twitter.framework */; };
 		503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503288521520B1C2000CC58D /* MessageUI.framework */; };
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
@@ -151,6 +152,8 @@
 		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
 		5016BA8C151E05EB00AAA198 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5030B475152DFFEC002EAE15 /* MWSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWSlidingViewController.h; sourceTree = "<group>"; };
+		5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWSlidingViewController.m; sourceTree = "<group>"; };
 		5032884F1520A41A000CC58D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		503288521520B1C2000CC58D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		503288541520B745000CC58D /* NSURL+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+TabulaTabs.h"; sourceTree = "<group>"; };
@@ -714,6 +717,8 @@
 		50FE0A9614EB276000823CE6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5030B475152DFFEC002EAE15 /* MWSlidingViewController.h */,
+				5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */,
 				50FE0A9D14EB27DF00823CE6 /* TTTabListViewController.h */,
 				50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */,
 				50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */,
@@ -960,6 +965,7 @@
 				50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */,
 				504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */,
 				504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */,
+				5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

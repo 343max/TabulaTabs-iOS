@@ -9,7 +9,7 @@
 #import "TestFlight.h"
 #import <QuartzCore/QuartzCore.h>
 
-#import "ECSlidingViewController.h"
+#import "MWSlidingViewController.h"
 
 #import "TTSpinningReloadButton.h"
 #import "TTFlippingButton.h"
