@@ -226,6 +226,7 @@
 
 - (void)registeringClient:(NSNotification *)notification;
 {
+    [self.window.rootViewController dismissModalViewControllerAnimated:YES];
     [[MTStatusBarOverlay sharedOverlay] postImmediateMessage:@"Handshake" animated:YES];
     [self networkConnectionStarted:nil];
 }

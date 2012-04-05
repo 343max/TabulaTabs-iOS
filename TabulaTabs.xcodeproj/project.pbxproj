@@ -24,6 +24,8 @@
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
+		504A984B152C81D800AEF75D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 504A984A152C81D800AEF75D /* AppIcon.png */; };
+		504A984E152C81DE00AEF75D /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504A984D152C81DE00AEF75D /* AppIcon@2x.png */; };
 		504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */; };
 		504F71451525C1C7008B4F7A /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */; };
 		504F71461525C1C7008B4F7A /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504F713F1525C1C7008B4F7A /* Dosis-ExtraBold.ttf */; };
@@ -157,6 +159,8 @@
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		504A984A152C81D800AEF75D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = ../AppIcon.png; sourceTree = "<group>"; };
+		504A984D152C81DE00AEF75D /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon@2x.png"; path = "../AppIcon@2x.png"; sourceTree = "<group>"; };
 		504F713A1524B9E2008B4F7A /* TTTopWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTopWebViewController.h; sourceTree = "<group>"; };
 		504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTopWebViewController.m; sourceTree = "<group>"; };
 		504F713E1525C1C7008B4F7A /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.ttf"; sourceTree = "<group>"; };
@@ -739,6 +743,8 @@
 				504F71E0152763D4008B4F7A /* TabListCellView */,
 				50F3579D1521BE4C00F2780F /* Gears.png */,
 				50F3579E1521BE4C00F2780F /* Gears@2x.png */,
+				504A984D152C81DE00AEF75D /* AppIcon@2x.png */,
+				504A984A152C81D800AEF75D /* AppIcon.png */,
 				50F3579B1521BE0700F2780F /* registrationGuide.html */,
 			);
 			path = Resources;
@@ -865,6 +871,8 @@
 				509070571528BAF8006D9DE4 /* TabListBackground@2x.png in Resources */,
 				5090705A1528C326006D9DE4 /* TabListStitches.png in Resources */,
 				5090705B1528C326006D9DE4 /* TabListStitches@2x.png in Resources */,
+				504A984B152C81D800AEF75D /* AppIcon.png in Resources */,
+				504A984E152C81DE00AEF75D /* AppIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
