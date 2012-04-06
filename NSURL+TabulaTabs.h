@@ -13,5 +13,7 @@
 + (NSURL *)tabulatabsURLWithString:(NSString *)stringURL;
 
 - (NSURL *)buildalizedURL;
+- (NSDictionary *)queryParamters;
+- (NSURL *)mapImageURLForSize:(CGSize)size scale:(CGFloat)scale;
 
 @end

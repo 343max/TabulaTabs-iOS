@@ -10,6 +10,7 @@
 
 #import "UIImage+Resize.h"
 #import "UIImage+ColorOverlay.h"
+#import "NSURL+TabulaTabs.h"
 #import "MWHTTPImageCache.h"
 
 #import "TTBrowser.h"
@@ -213,8 +214,16 @@
     }
     
     cell.imageView.image = nil;
-    if (tab.pageThumbnailURL) {
-        [[MWHTTPImageCache defaultCache] loadImage:tab.pageThumbnailURL
+    
+    NSURL *thumbnailImageURL = tab.pageThumbnailURL;
+    
+    if ([tab.URL.host isEqualToString:@"maps.google.com"]) {
+        thumbnailImageURL = [tab.URL mapImageURLForSize:cell.imageSize scale:0];
+    }
+    
+    NSLog(@"imageURL: %@", thumbnailImageURL);
+    if (thumbnailImageURL) {
+        [[MWHTTPImageCache defaultCache] loadImage:thumbnailImageURL
                                  processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]
                                    processingBlock:^UIImage *(UIImage *image) {
                                        return [image scaledImageOfMinimumSize:cell.imageSize];
