@@ -62,8 +62,9 @@
         }
         
         NSArray *rawColorPalette = [dictionary objectForKey:@"colorPalette"];
+        self.colorPalette = [NSArray array];
+
         if ([rawColorPalette isKindOfClass:[NSArray class]]) {
-            self.colorPalette = [NSArray array];
             [rawColorPalette enumerateObjectsUsingBlock:^(NSArray *rawColor, NSUInteger idx, BOOL *stop) {
                 UIColor *color = [UIColor colorWithArrayOfValues:rawColor];
                 if (color) {
@@ -90,7 +91,25 @@
 
 - (NSDictionary *)dictionary;
 {
-#warning todo pageColors missing
+    NSMutableArray *colorPalette = [NSMutableArray arrayWithCapacity:self.colorPalette.count];
+    [self.colorPalette enumerateObjectsUsingBlock:^(UIColor *color, NSUInteger idx, BOOL *stop) {
+        [colorPalette addObject:[color arrayOfValues]];
+    }];
+    
+//    @synthesize identifier = _identifier;
+//    @synthesize title = _title;
+//    @synthesize URL = _URL;
+//    @synthesize selected = _selected;
+//    @synthesize favIconURL = _favIconURL;
+//    @synthesize windowId = _windowId;
+//    @synthesize index = _index;
+//    @synthesize colorPalette = _colorPalette;
+//    @synthesize pageTitle = _pageTitle;
+//    @synthesize shortDomain = _shortDomain;
+//    @synthesize siteTitle = _siteTitle;
+//    @synthesize pageThumbnailURL = _pageThumbnailURL;
+
+    
     return [NSDictionary dictionaryWithObjectsAndKeys:
             self.title, @"title",
             self.URL.absoluteString, @"URL",
@@ -98,6 +117,11 @@
             self.favIconURL.absoluteString, @"favIconURL",
             self.windowId, @"windowId",
             [NSNumber numberWithInteger:self.index], @"index",
+            colorPalette, @"colorPalette",
+            self.pageTitle, @"pageTitle",
+            self.shortDomain, @"shortDomain",
+            self.siteTitle, @"siteTitle",
+            self.pageThumbnailURL.absoluteString, @"pageThumbnailURL",
             nil];
 }
 

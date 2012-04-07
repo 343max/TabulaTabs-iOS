@@ -13,4 +13,6 @@
 + (UIColor *)colorWithArrayOfValues:(NSArray *)arrayOfValues;
 + (UIColor *)defaultPageColor;
 
+- (NSArray *)arrayOfValues;
+
 @end

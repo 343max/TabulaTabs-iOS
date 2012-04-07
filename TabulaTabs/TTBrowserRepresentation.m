@@ -12,6 +12,8 @@
 #import "TTAppDelegate.h"
 
 #import "TTClient.h"
+#import "TTTab.h"
+#import "TTBrowser.h"
 #import "TTBrowserController.h"
 
 #import "TTBrowserRepresentation.h"
@@ -28,7 +30,10 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 @interface TTBrowserRepresentation ()
 
 @property (strong) TTBrowser *browser;
-@property (strong) NSArray *tabs;
+@property (strong, nonatomic) NSArray *tabs;
+@property (strong, nonatomic, readonly) NSString *archiveFilePath;
+
+- (void)saveToDisk;
 
 @end
 
@@ -37,6 +42,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 
 @synthesize client = _client, browser = _browser, tabs = _tabs;
 @synthesize tabulatabsURL = _tabulatabsURL;
+@synthesize archiveFilePath = _archiveFilePath;
 
 - (void)setClient:(TTClient *)client;
 {
@@ -54,14 +60,61 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     }];
     
     if (!_client.unclaimed) {
+        NSDictionary *archivedData = [NSDictionary dictionaryWithContentsOfFile:self.archiveFilePath];
+        
+        if (archivedData) {
+            NSArray *archivedTabs = [archivedData objectForKey:@"tabs"];
+            NSMutableArray *tabs = [NSMutableArray arrayWithCapacity:archivedTabs.count];
+            
+            [archivedTabs enumerateObjectsUsingBlock:^(NSDictionary *tabDict, NSUInteger idx, BOOL *stop) {
+                TTTab *tab = [[TTTab alloc] initWithDictionary:tabDict];
+                [tabs addObject:tab];
+            }];
+            self.tabs = tabs;
+            
+            self.browser = [[TTBrowser alloc] initWithDictionary:[archivedData objectForKey:@"browser"]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationBrowserWasUpdatedNotification
+                                                                object:self
+                                                              userInfo:nil];
+        }
+        
         [self loadBrowser];
         [self loadTabs];
     }
 }
 
+- (void)setTabs:(NSArray *)tabs;
+{
+    _tabs = tabs;
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationTabsWhereUpdatedNotification
+                                                        object:self
+                                                      userInfo:nil];
+}
+
 - (NSURL *)tabulatabsURL;
 {
     return [NSURL tabulatabsURLWithString:[NSString stringWithFormat:@"client/tabs/%@", self.client.username]];
+}
+
+- (NSString *)archiveFilePath;
+{
+    NSString *cacheDirPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filename = [NSString stringWithFormat:@"%@.plist", self.client.username];
+    return [cacheDirPath stringByAppendingPathComponent:filename];
+}
+
+- (void)saveToDisk;
+{
+    NSMutableArray *encodedTabs = [NSMutableArray arrayWithCapacity:self.tabs.count];
+    
+    [self.tabs enumerateObjectsUsingBlock:^(TTTab *tab, NSUInteger idx, BOOL *stop) {
+        [encodedTabs addObject:tab.dictionary];
+    }];
+    
+    NSDictionary *dataForArchive = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    self.browser.dictionary, @"browser",
+                                    encodedTabs, @"tabs", nil];
+    [dataForArchive writeToFile:self.archiveFilePath atomically:YES];
 }
 
 - (TTClient *)claimURL:(NSURL *)url;
@@ -124,6 +177,8 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     self.browser = [[TTBrowser alloc] initWithEncryption:self.client.encryption];
     
     [self.browser load:self.client.username password:self.client.password callback:^(id response) {
+        [self saveToDisk];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationBrowserWasUpdatedNotification
                                                             object:self
                                                           userInfo:nil];
@@ -137,9 +192,8 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 {
     [self.client loadTabs:^(NSArray *loadedTabs, id response) {
         self.tabs = loadedTabs;
-        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationTabsWhereUpdatedNotification
-                                                            object:self
-                                                          userInfo:nil];
+        
+        [self saveToDisk];
     }];
 }
 

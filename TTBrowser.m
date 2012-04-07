@@ -19,7 +19,33 @@
 @synthesize label = _label;
 @synthesize browserDescription = _browserDescription;
 @synthesize iconURL = _iconURL;
+@synthesize dictionary = _dictionary;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+{
+    self = [super init];
+    
+    if (self) {
+        self.identifier = [[dictionary objectForKey:@"identifier"] integerValue];
+        self.userAgent = [dictionary objectForKey:@"userAgent"];
+        self.label = [dictionary objectForKey:@"label"];
+        self.browserDescription = [dictionary objectForKey:@"browserDescription"];
+        self.iconURL = [NSURL URLWithString:[dictionary objectForKey:@"iconURL"]];
+    }
+    
+    return self;
+}
+
+- (NSDictionary *)dictionary;
+{
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            [NSNumber numberWithInteger:self.identifier], @"identifier",
+            self.userAgent, @"userAgent",
+            self.label, @"label",
+            self.browserDescription, @"browserDescription",
+            self.iconURL.absoluteString, @"iconURL",
+            nil];
+}
 
 + (NSURL *)registrationURLForUsername:(NSString *)username claimingPassword:(NSString *)claimingPassword encryptionKey:(NSData *)encryptionKey;
 {
