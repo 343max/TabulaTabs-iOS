@@ -193,12 +193,7 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tablistViewController];
     navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.slidingViewController.underLeftViewController = navigationController;
-    
-//    TTWebViewController *webViewController = [[TTWebViewController alloc] init];
-//    UINavigationController *webNavigationController = [[UINavigationController alloc] initWithRootViewController:webViewController];
-//    webViewController.URL = ((TTTab *)[currentBrowser.tabs objectAtIndex:0]).URL;
-//    self.slidingViewController.topViewController = webNavigationController;
-//    [self.slidingViewController anchorTopViewTo:ECRight];
+    self.slidingViewController.topViewController = nil;
 }
 
 

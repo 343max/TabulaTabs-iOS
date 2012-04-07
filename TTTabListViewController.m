@@ -219,9 +219,8 @@
     
     if ([tab.URL.host isEqualToString:@"maps.google.com"]) {
         thumbnailImageURL = [tab.URL mapImageURLForSize:cell.imageSize scale:0];
+        NSLog(@"imageURL: %@", thumbnailImageURL);
     }
-    
-    NSLog(@"imageURL: %@", thumbnailImageURL);
     if (thumbnailImageURL) {
         [[MWHTTPImageCache defaultCache] loadImage:thumbnailImageURL
                                  processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]

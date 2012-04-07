@@ -118,13 +118,13 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
                                                                                        inSection:TTAppSettingsViewControllerBrowsersSection]];
         oldCell.accessoryType = UITableViewCellAccessoryNone;
         
+        TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
+        [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
+
         double delayInSeconds = 0.2;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self dismissViewControllerAnimated:YES completion:^{
-                TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
-                [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
-            }];
+            [self dismissViewControllerAnimated:YES completion:nil];
         });
     } else if(indexPath.section == TTAppSettingsViewControllerAddBrowserSection) {
         if (indexPath.row == 0) {
