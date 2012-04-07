@@ -82,7 +82,16 @@
     if (![otherTab isKindOfClass:[TTTab class]]) {
         return NO;
     } else {
-        return [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString];
+        return self.identifier == otherTab.identifier &&
+               [self.title isEqualToString:otherTab.title] &&
+               [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString] &&
+               [self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString] &&
+               [self.windowId isEqualToString:otherTab.windowId] &&
+               self.index == otherTab.index &&
+               [self.pageTitle isEqualToString:otherTab.pageTitle] &&
+               [self.shortDomain isEqualToString:otherTab.shortDomain] &&
+               [self.siteTitle isEqualToString:otherTab.siteTitle] &&
+               [self.pageThumbnailURL.absoluteString isEqualToString:otherTab.pageThumbnailURL.absoluteString];
     }
 }
 
