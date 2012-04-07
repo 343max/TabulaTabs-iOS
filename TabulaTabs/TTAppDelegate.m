@@ -9,7 +9,6 @@
 #import "TTDevelopmentHelpers.h"
 
 #import "TestFlight.h"
-#import "MTStatusBarOverlay.h"
 #import "SSKeychain.h"
 #import "MWSlidingViewController.h"
 
@@ -222,7 +221,6 @@
 - (void)registeringClient:(NSNotification *)notification;
 {
     [self.window.rootViewController dismissModalViewControllerAnimated:YES];
-    [[MTStatusBarOverlay sharedOverlay] postImmediateMessage:@"Handshake" animated:YES];
     [self networkConnectionStarted:nil];
 }
 
@@ -234,10 +232,6 @@
 - (void)networkConnectionFinished:(NSNotification *)notification;
 {
     self.networkConnectionsInProgress--;
-
-    if (self.networkConnectionsInProgress == 0) {
-        [[MTStatusBarOverlay sharedOverlay] hide];
-    }
 }
 
 - (IBAction)showSettings:(id)sender;
