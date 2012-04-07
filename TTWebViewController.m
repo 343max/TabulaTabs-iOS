@@ -82,11 +82,13 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
         
         self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"BrowserReload"] 
                                                               shadowImage:[UIImage imageNamed:@"BrowserReloadShadow"]];
-        self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
+        self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 24.0);
         self.reloadButton.showsTouchWhenHighlighted = YES;
         [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
-        
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton];
+
+        UIView *emptyLeftView = [[UIView alloc] initWithFrame:self.reloadButton.frame];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:emptyLeftView];
 
         self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         self.titleLabel.backgroundColor = [UIColor clearColor];
