@@ -104,8 +104,12 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientWasUpdatedNotification object:self];
             [TestFlight passCheckpoint:@"registered a client"];
         } else {
-            // todo
-//            [appDelegate showPanelType:MKInfoPanelTypeError title:@"Could not add browser" subtitle:@"This browser could not be added. The URL might be out of date or claimed otherwise. For seccurity reasons you should click the \"Start Over\" link in your browser"];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not add browser"
+                                                                message:@"This browser could not be added because the authentication code is to old or allready in use. Please try again with a fresh code."
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Okay"
+                                                      otherButtonTitles:nil];
+            [alertView show];
         }
     }];
 }
