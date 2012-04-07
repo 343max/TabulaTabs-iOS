@@ -95,7 +95,7 @@
     [self.colorPalette enumerateObjectsUsingBlock:^(UIColor *color, NSUInteger idx, BOOL *stop) {
         [colorPalette addObject:[color arrayOfValues]];
     }];
-        
+
     return [NSDictionary dictionaryWithObjectsAndKeys:
             self.title, @"title",
             self.URL.absoluteString, @"URL",
