@@ -11,6 +11,8 @@
 @interface NSURL (TabulaTabs)
 
 + (NSURL *)tabulatabsURLWithString:(NSString *)stringURL;
++ (NSURL *)addBrowserRepresentationFlowURL;
++ (NSURL *)firstBrowserURL;
 
 - (NSURL *)buildalizedURL;
 - (NSDictionary *)queryParamters;

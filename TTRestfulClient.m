@@ -18,6 +18,10 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
 @synthesize username = _username;
 @synthesize password = _password;
 
+@synthesize connectionDidFailWithErrorBlock = _connectionDidFailWithErrorBlock;
+@synthesize connectionDidReceiveAuthentificationChallenge = _connectionDidReceiveAuthentificationChallenge;
+@synthesize connectionDidReceiveDataBlock = _connectionDidReceiveDataBlock;
+
 - (MWURLConnection *)sendJsonGetRequest:(NSString *)path callback:(void (^)(id))callback;
 {
     return [self sendJsonRequest:path method:@"GET" jsonParameters:nil callback:callback];
@@ -75,6 +79,10 @@ NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/
             callback(response);
         }
     };
+    
+    connection.connectionDidFailWithErrorBlock = self.connectionDidFailWithErrorBlock;
+    connection.connectionDidReceiveAuthentificationChallenge = self.connectionDidReceiveAuthentificationChallenge;
+    connection.connectionDidReceiveDataBlock = connection.connectionDidReceiveDataBlock;
     
     return connection;
 }

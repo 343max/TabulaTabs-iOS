@@ -17,6 +17,16 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@", appDelegate.URLScheme, stringURL]];
 }
 
++ (NSURL *)addBrowserRepresentationFlowURL;
+{
+    return [NSURL tabulatabsURLWithString:@"client/tour/"];
+}
+
++ (NSURL *)firstBrowserURL;
+{
+    return [NSURL tabulatabsURLWithString:@"client/tabs/first"];
+}
+
 - (NSURL *)buildalizedURL;
 {
     if (![self.scheme isEqualToString:@"tabulatabs"]) {

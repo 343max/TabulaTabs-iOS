@@ -96,11 +96,7 @@
 
 - (CGSize)imageSize;
 {
-    CGSize imageSize = self.bounds.size;
-    imageSize.width = 90;
-    imageSize.height -= 14;
-    
-    return imageSize;
+    return CGSizeMake(90, 56);
 }
 
 - (void)layoutSubviews;

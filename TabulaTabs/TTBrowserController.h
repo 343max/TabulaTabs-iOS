@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TTBrowserController : NSObject
+@interface TTBrowserController : NSObject <UIAlertViewDelegate>
 
 @property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
 @property (strong, nonatomic, readonly) NSArray *allBrowsers;
@@ -21,5 +21,6 @@
 - (TTBrowserRepresentation *)browserWithBrowserIdentifier:(NSInteger)identifier;
 - (void)addBrowser:(TTBrowserRepresentation *)browserReprensentation;
 - (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation;
+
 
 @end

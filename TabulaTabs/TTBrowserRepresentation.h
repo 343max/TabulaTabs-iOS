@@ -13,7 +13,10 @@
 
 extern NSString * const TTBrowserReprensentationClientWasUpdatedNotification;
 extern NSString * const TTBrowserReprensentationClaimingClientNotification;
+extern NSString * const TTBrowserReprensentationClientAccessWasRevokedNotification;
+
 extern NSString * const TTBrowserReprensentationBrowserWasUpdatedNotification;
+
 extern NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification;
 
 

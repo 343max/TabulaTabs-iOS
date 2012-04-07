@@ -101,9 +101,9 @@
 //#warning debug: claiming an client
 //        [TTDevelopmentHelpers registerFakeClient];
 //        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/c_276/c13171623aa6770c138eabc7325650a0/f2dbe2e55e777013f49661e809012569e804377afb70b5a5a36300981e486edc"]];
-        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/tour/"]];
+        [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
     } else {
-        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/tabs/first"]];
+        [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
     }
     
 //    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/username/password/key"]];

@@ -9,6 +9,7 @@
 #import "NSData-hex.h"
 #import "SSKeychain.h"
 #import "TestFlight.h"
+#import "NSURL+TabulaTabs.h"
 
 #import "TTAppDelegate.h"
 
@@ -21,6 +22,8 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 @interface TTBrowserController ()
 
 @property (strong, nonatomic) NSArray *allBrowsers;
+
+- (void)clientHasInvalidCredentials:(NSNotification *)notifcation;
 
 @end
 
@@ -46,6 +49,10 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
             
             TTBrowserRepresentation *browserRepresentation = [[TTBrowserRepresentation alloc] init];
             browserRepresentation.client = client;
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(clientHasInvalidCredentials:)
+                                                         name:TTBrowserReprensentationClientAccessWasRevokedNotification
+                                                       object:browserRepresentation];
             [restoredBrowsers addObject:browserRepresentation];
         }];
         
@@ -115,6 +122,8 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
 - (void)setAllBrowsers:(NSArray *)allBrowsers;
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:TTBrowserReprensentationClientAccessWasRevokedNotification];
+    
     _allBrowsers = allBrowsers;
     
     NSMutableArray *clientDictionaries = [NSMutableArray arrayWithCapacity:_allBrowsers.count];
@@ -126,6 +135,11 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
         [SSKeychain setPassword:client.encryption.encryptionKey.hexString
                      forService:TTBrowserControllerEncryptionKeyKey 
                         account:client.username];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(clientHasInvalidCredentials:)
+                                                     name:TTBrowserReprensentationClientAccessWasRevokedNotification
+                                                   object:browser];
     }];
     
     [[NSUserDefaults standardUserDefaults] setObject:[clientDictionaries copy] forKey:@"clients"];
@@ -137,6 +151,42 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
     _currentBrowser = currentBrowser;
     
     appDelegate.currentURL = currentBrowser.tabulatabsURL;
+}
+
+
+#pragma mark Helpers
+
+- (void)clientHasInvalidCredentials:(NSNotification *)notifcation;
+{
+    TTBrowserRepresentation *browser = notifcation.object;
+    
+    if (![self.allBrowsers containsObject:browser]) {
+        return;
+    }
+    
+    [self removeBrowser:browser];
+        
+    NSString *message = [NSString stringWithFormat:@"The synchronization of the browser \"%@\" to this client was canceled. The browser will be removed from this device. If you want to see the tabs of this browser here again you have to reestablish a connection in the settings.", browser.browser.label];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synchronization canceled"
+                                                        message:message
+                                                       delegate:self
+                                              cancelButtonTitle:@"Okay"
+                                              otherButtonTitles:nil];
+
+    [alert show];
+}
+
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    if (self.allBrowsers.count == 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
+    } else {
+        [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
+    }
+
 }
 
 @end

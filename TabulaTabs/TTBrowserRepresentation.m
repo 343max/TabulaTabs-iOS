@@ -18,6 +18,7 @@
 
 NSString * const TTBrowserReprensentationClientWasUpdatedNotification = @"TTBrowserReprensentationClientWasUpdatedNotification";
 NSString * const TTBrowserReprensentationClaimingClientNotification = @"TTBrowserReprensentationClaimingClientNotification";
+NSString * const TTBrowserReprensentationClientAccessWasRevokedNotification = @"TTBrowserReprensentationClientAccessWasRevokedNotification";
 
 NSString * const TTBrowserReprensentationBrowserWasUpdatedNotification = @"TTBrowserReprensentationBrowserWasUpdatedNotification";
 
@@ -42,7 +43,15 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     self.tabs = nil;
     self.browser = nil;
     
+    _client.connectionDidReceiveAuthentificationChallenge = nil;
+    
     _client = client;
+    
+    __block TTBrowserRepresentation *weakSelf = self; 
+    [_client setConnectionDidReceiveAuthentificationChallenge:^(NSURLAuthenticationChallenge *authenticationChallange) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientAccessWasRevokedNotification 
+                                                            object:weakSelf];
+    }];
     
     if (!_client.unclaimed) {
         [self loadBrowser];
