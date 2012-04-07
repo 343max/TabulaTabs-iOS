@@ -12,10 +12,16 @@ typedef void (^MWHTTPImageCacheImageLoadedCallback)(NSURLResponse *response, UII
 typedef UIImage *(^MWHTTPImageCacheProcessImageBlock)(UIImage *image);
 typedef void (^MWHTTPImageCacheImageProcessedBlock)(UIImage *image);
 
+typedef enum {
+    MWHTTPImageCachePersistentCacheFormatPNG,
+    MWHTTPImageCachePersistentCacheFormatJPG,
+    MWHTTPImageCachePersistentCacheFormatNone
+} MWHTTPImageCachePersistentCacheFormat;
+
 @interface MWHTTPImageCache : NSObject
 
 + (MWHTTPImageCache *)defaultCache;
 
-- (void)loadImage:(NSURL *)imageURL completionBlock:(MWHTTPImageCacheImageLoadedCallback)completionBlock;
-- (void)loadImage:(NSURL *)imageURL processIdentifier:(NSString *)processIdentifier processingBlock:(MWHTTPImageCacheProcessImageBlock)processingBlock completionBlock:(MWHTTPImageCacheImageProcessedBlock)completionBlock;
+- (void)loadImage:(NSURL *)imageURL cacheFormat:(MWHTTPImageCachePersistentCacheFormat)cacheFormat completionBlock:(MWHTTPImageCacheImageLoadedCallback)completionBlock;
+- (void)loadImage:(NSURL *)imageURL cacheFormat:(MWHTTPImageCachePersistentCacheFormat)cacheFormat processIdentifier:(NSString *)processIdentifier processingBlock:(MWHTTPImageCacheProcessImageBlock)processingBlock completionBlock:(MWHTTPImageCacheImageProcessedBlock)completionBlock;
 @end

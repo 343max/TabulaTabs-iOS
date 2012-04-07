@@ -223,6 +223,7 @@
     }
     if (thumbnailImageURL) {
         [[MWHTTPImageCache defaultCache] loadImage:thumbnailImageURL
+                                       cacheFormat:MWHTTPImageCachePersistentCacheFormatJPG
                                  processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]
                                    processingBlock:^UIImage *(UIImage *image) {
                                        return [image scaledImageOfMinimumSize:cell.imageSize];
@@ -235,6 +236,7 @@
     cell.faviconView.image = nil;
     if (tab.favIconURL) {
         [[MWHTTPImageCache defaultCache] loadImage:tab.favIconURL
+                                       cacheFormat:MWHTTPImageCachePersistentCacheFormatPNG
                                    completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
                                        cell.faviconView.image = image;
                                    }];

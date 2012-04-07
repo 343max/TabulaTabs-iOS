@@ -8,12 +8,18 @@
 
 #import "MWHTTPImageCache.h"
 
+#import "NSString+SHA1.h"
+
 @interface MWHTTPImageCache ()
 
 @property (strong) NSMutableDictionary *cache;
+@property (strong, readonly, nonatomic) NSURL *cacheDirectory;
 
 - (void)didReceiveMemoryWarning:(NSNotification *)notification;
 - (NSMutableDictionary *)cacheForIdentifier:(NSString *)processIdentifier;
+- (NSString *)cacheFilenameForImageURL:(NSURL *)URL cacheIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
+- (UIImage *)loadFromDiskURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
+- (void)saveToDiskImage:(UIImage *)image withURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
 
 @end
 
@@ -32,7 +38,8 @@ static MWHTTPImageCache *staticDefaultImageLoader;
     return staticDefaultImageLoader;
 }
 
-@synthesize cache;
+@synthesize cache = _cache;
+@synthesize cacheDirectory = _cacheDirectory;
 
 - (id)init;
 {
@@ -69,10 +76,87 @@ static MWHTTPImageCache *staticDefaultImageLoader;
     return [self.cache objectForKey:processIdentifier];
 }
 
-- (void)loadImage:(NSURL *)imageURL completionBlock:(MWHTTPImageCacheImageLoadedCallback)completionBlock;
+- (NSString *)cacheFilenameForImageURL:(NSURL *)URL cacheIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
 {
-    if ([[self cacheForIdentifier:@"loaded"] objectForKey:imageURL]) {
-        completionBlock(nil, [[self cacheForIdentifier:@"loaded"] objectForKey:imageURL], nil);
+    NSString *extension;
+    
+    switch (format) {
+        case MWHTTPImageCachePersistentCacheFormatJPG:
+            extension = @"jpg";
+            break;
+            
+        case MWHTTPImageCachePersistentCacheFormatPNG:
+            extension = @"png";
+            break;
+            
+        case MWHTTPImageCachePersistentCacheFormatNone:
+            return nil;
+    }
+    
+    return [NSString stringWithFormat:@"%@-%@.%@", [URL.absoluteString SHA1Digest], [cacheIdentifier SHA1Digest], extension];
+}
+
+- (UIImage *)loadFromDiskURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
+{
+    if (format == MWHTTPImageCachePersistentCacheFormatNone) {
+        return nil;
+    }
+
+    NSString *fileName = [self cacheFilenameForImageURL:URL cacheIdentifier:cacheIdentifier format:format];
+    NSURL *fileURL = [self.cacheDirectory URLByAppendingPathComponent:fileName];
+
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
+        return nil;
+    }
+    
+    return [UIImage imageWithContentsOfFile:fileURL.path];
+}
+
+
+- (void)saveToDiskImage:(UIImage *)image withURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
+{
+    if (format == MWHTTPImageCachePersistentCacheFormatNone) {
+        return;
+    }
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0),
+    ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        if (![fileManager fileExistsAtPath:self.cacheDirectory.path]) {
+            NSError *error;
+            
+            [fileManager createDirectoryAtPath:self.cacheDirectory.path
+                   withIntermediateDirectories:YES
+                                    attributes:nil
+                                         error:&error];
+            
+            if (error) {
+                NSLog(@"Could not create directory: %@", error);
+                return;
+            }
+        }
+        
+        NSString *fileName = [self cacheFilenameForImageURL:URL cacheIdentifier:cacheIdentifier format:format];
+        NSURL *fileURL = [self.cacheDirectory URLByAppendingPathComponent:fileName];
+        
+        if (format == MWHTTPImageCachePersistentCacheFormatJPG) {
+            [UIImageJPEGRepresentation(image, 0.95) writeToURL:fileURL atomically:YES];
+        } else {
+            [UIImagePNGRepresentation(image) writeToURL:fileURL atomically:YES];
+        }
+    });
+}
+
+- (void)loadImage:(NSURL *)imageURL cacheFormat:(MWHTTPImageCachePersistentCacheFormat)cacheFormat completionBlock:(MWHTTPImageCacheImageLoadedCallback)completionBlock;
+{
+    UIImage *image;
+
+    if ([[self cacheForIdentifier:@"image"] objectForKey:imageURL]) {
+        completionBlock(nil, [[self cacheForIdentifier:@"image"] objectForKey:imageURL], nil);
+    } else if((image = [self loadFromDiskURL:imageURL cachedIdentifier:@"image" format:cacheFormat])) {
+        [[self cacheForIdentifier:@"image"] setObject:image forKey:imageURL];
+        completionBlock(nil, image, nil);
     } else {
         NSURLRequest *request = [NSURLRequest requestWithURL:imageURL];
         [NSURLConnection sendAsynchronousRequest:request
@@ -84,7 +168,8 @@ static MWHTTPImageCache *staticDefaultImageLoader;
                                    }
                                    
                                    if (image) {
-                                       [[self cacheForIdentifier:@"loaded"] setObject:image forKey:imageURL];
+                                       [[self cacheForIdentifier:@"image"] setObject:image forKey:imageURL];
+                                       [self saveToDiskImage:image withURL:imageURL cachedIdentifier:@"image" format:cacheFormat];
                                    }
                                    
                                    completionBlock(response, image, error);
@@ -92,21 +177,43 @@ static MWHTTPImageCache *staticDefaultImageLoader;
     }
 }
 
-- (void)loadImage:(NSURL *)imageURL processIdentifier:(NSString *)processIdentifier processingBlock:(MWHTTPImageCacheProcessImageBlock)processingBlock completionBlock:(MWHTTPImageCacheImageProcessedBlock)completionBlock;
+- (void)loadImage:(NSURL *)imageURL cacheFormat:(MWHTTPImageCachePersistentCacheFormat)cacheFormat processIdentifier:(NSString *)processIdentifier processingBlock:(MWHTTPImageCacheProcessImageBlock)processingBlock completionBlock:(MWHTTPImageCacheImageProcessedBlock)completionBlock;
 {
+    UIImage *image;
+    
     if ([[self cacheForIdentifier:processIdentifier] objectForKey:imageURL]) {
         completionBlock([[self cacheForIdentifier:processIdentifier] objectForKey:imageURL]);
+    } else if((image = [self loadFromDiskURL:imageURL cachedIdentifier:processIdentifier format:cacheFormat])) {
+        [[self cacheForIdentifier:processIdentifier] setObject:image forKey:imageURL];
+        completionBlock(image);
     } else {
-        [self loadImage:imageURL completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
+        [self loadImage:imageURL 
+            cacheFormat:MWHTTPImageCachePersistentCacheFormatNone
+        completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
             UIImage *processedImage = processingBlock(image);
             
             if (processedImage) {
                 [[self cacheForIdentifier:processIdentifier] setObject:processedImage forKey:imageURL];
+                [self saveToDiskImage:processedImage withURL:imageURL cachedIdentifier:processIdentifier format:cacheFormat];
             }
             
             completionBlock(processedImage);
         }];
     }
 }
+
+#pragma mark Accessors
+
+- (NSURL *)cacheDirectory;
+{
+    if (!_cacheDirectory) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        if (paths.count == 0) return nil;
+        NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"ImageCache"];
+        _cacheDirectory = [NSURL fileURLWithPath:path];
+    }
+    return _cacheDirectory;
+}
+
 
 @end
