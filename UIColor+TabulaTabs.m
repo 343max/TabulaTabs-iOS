@@ -36,6 +36,22 @@
     return color;
 }
 
+- (NSArray *)arrayOfValues;
+{
+    CGFloat red;
+    CGFloat green;
+    CGFloat blue;
+    CGFloat alpha;
+    
+    [self getRed:&red green:&green blue:&blue alpha:&alpha];
+    
+    return [NSArray arrayWithObjects:
+            [NSNumber numberWithInt:red * 255.0],
+            [NSNumber numberWithInt:green * 255.0],
+            [NSNumber numberWithInt:blue * 255.0],
+            nil];
+}
+
 + (UIColor *)defaultPageColor;
 {
     return [UIColor grayColor];

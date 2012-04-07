@@ -18,6 +18,10 @@
 @property (strong) NSString *browserDescription;
 @property (strong) NSURL *iconURL;
 
+@property (strong, readonly) NSDictionary *dictionary;
+
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
 + (NSURL *)registrationURLForUsername:(NSString *)username claimingPassword:(NSString *)claimingPassword encryptionKey:(NSData *)encryptionKey;
 
 - (void)registerWithPassword:(NSString *)password callback:(void(^)(id response))callback;
