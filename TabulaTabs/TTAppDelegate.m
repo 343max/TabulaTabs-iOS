@@ -96,18 +96,9 @@
     
     if (self.currentURL) {
         [[UIApplication sharedApplication] openURL:self.currentURL];
-    } else if (self.browserController.allBrowsers.count == 0) {
-//#warning debug: claiming an client
-//        [TTDevelopmentHelpers registerFakeClient];
-//        [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/c_276/c13171623aa6770c138eabc7325650a0/f2dbe2e55e777013f49661e809012569e804377afb70b5a5a36300981e486edc"]];
-        [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
     } else {
         [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
     }
-    
-//    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/claim/username/password/key"]];
-//    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/tour/"]];
-//    [[UIApplication sharedApplication] openURL:[NSURL tabulatabsURLWithString:@"client/snapcode/"]];
     
     return YES;
 }
@@ -131,9 +122,17 @@
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tabs"] && url.pathComponents.count == 3) {
             NSString *clientDescriptor = [url.pathComponents objectAtIndex:2];
             if ([clientDescriptor isEqualToString:@"first"]) {
-                self.currentBrowser = [self.browserController.allBrowsers objectAtIndex:0];
+                if (self.browserController.allBrowsers.count == 0) {
+                    [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
+                } else {
+                    self.currentBrowser = [self.browserController.allBrowsers objectAtIndex:0];
+                }
             } else {
                 self.currentBrowser = [self.browserController browserWithClientIdentifier:clientDescriptor];
+                
+                if (self.currentBrowser == nil) {
+                    [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
+                }
             }
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
             TTAddBrowserFlowViewController *addBrowserFlow = [[TTAddBrowserFlowViewController alloc] init];
@@ -178,7 +177,7 @@
 - (void)setCurrentBrowser:(TTBrowserRepresentation *)currentBrowser;
 {
     if (self.currentBrowser == currentBrowser) {
-        NSLog(@"tried to set allready active browser - maybe we should do a little bit more then – well, lets say: nothing.");
+        NSLog(@"tried to set already active browser - maybe we should do a little bit more then – well, lets say: nothing.");
         return;
     }
     
