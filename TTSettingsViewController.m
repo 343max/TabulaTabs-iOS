@@ -8,8 +8,11 @@
 
 NSInteger const TTAppSettingsViewControllerBrowsersSection = 0;
 NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
+NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
 
 #import "NSURL+TabulaTabs.h"
+
+#import "MWHTTPImageCache.h"
 
 #import "TTBrowserRepresentation.h"
 #import "TTBrowserController.h"
@@ -50,7 +53,7 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
@@ -81,13 +84,22 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
         }
         
         return cell;
-    } else {
+    } else if(indexPath.section == TTAppSettingsViewControllerAddBrowserSection) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
 
         cell.textLabel.text = @"Add Browser";
+        
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
+        }
+        
+        cell.textLabel.text = @"Clear Image Cache";
         
         return cell;
     }
@@ -130,6 +142,12 @@ NSInteger const TTAppSettingsViewControllerAddBrowserSection = 1;
         if (indexPath.row == 0) {
             TTWelcomeViewController *welcomeViewController = [[TTWelcomeViewController alloc] init];
             [self.navigationController pushViewController:welcomeViewController animated:YES];
+        }
+    } else {
+        if (indexPath.row == 0) {
+            [[MWHTTPImageCache defaultCache] clearRAMCache];
+            [[MWHTTPImageCache defaultCache] clearDiskCache];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
     }
 }
