@@ -116,6 +116,13 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
         [appDelegate.browserController removeBrowser:[appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row]];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
                               withRowAnimation:UITableViewRowAnimationMiddle];
+        
+        if (appDelegate.browserController.allBrowsers.count == 0) {
+            appDelegate.currentBrowser = nil;
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
+            }];
+        }
     }
 }
 
