@@ -24,4 +24,7 @@ typedef enum {
 
 - (void)loadImage:(NSURL *)imageURL cacheFormat:(MWHTTPImageCachePersistentCacheFormat)cacheFormat completionBlock:(MWHTTPImageCacheImageLoadedCallback)completionBlock;
 - (void)loadImage:(NSURL *)imageURL cacheFormat:(MWHTTPImageCachePersistentCacheFormat)cacheFormat processIdentifier:(NSString *)processIdentifier processingBlock:(MWHTTPImageCacheProcessImageBlock)processingBlock completionBlock:(MWHTTPImageCacheImageProcessedBlock)completionBlock;
+- (void)clearDiskCache;
+- (void)clearRAMCache;
+
 @end

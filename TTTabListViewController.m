@@ -222,12 +222,15 @@
         NSLog(@"imageURL: %@", thumbnailImageURL);
     }
     if (thumbnailImageURL) {
+        CGSize imageSize = cell.imageSize;
         [[MWHTTPImageCache defaultCache] loadImage:thumbnailImageURL
                                        cacheFormat:MWHTTPImageCachePersistentCacheFormatJPG
-                                 processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(cell.imageView.bounds.size)]
+                                 processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(imageSize)]
                                    processingBlock:^UIImage *(UIImage *image) {
-                                       return [image scaledImageOfMinimumSize:cell.imageSize];
-                                   } completionBlock:^(UIImage *image) {
+                                       return [image scaledImageOfMinimumSize:imageSize];
+                                   } 
+                                   completionBlock:^(UIImage *image) {
+                                       NSLog(@"finalImageSize: %@", NSStringFromCGSize(image.size));
                                        cell.imageView.image = image;
                                        [cell setNeedsLayout];
                                    }];
@@ -235,9 +238,14 @@
     
     cell.faviconView.image = nil;
     if (tab.favIconURL) {
+        CGSize imageSize = cell.favIconSize;
         [[MWHTTPImageCache defaultCache] loadImage:tab.favIconURL
                                        cacheFormat:MWHTTPImageCachePersistentCacheFormatPNG
-                                   completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
+                                 processIdentifier:[NSString stringWithFormat:@"min %@", NSStringFromCGSize(imageSize)]
+                                   processingBlock:^UIImage *(UIImage *image) {
+                                       return [image scaledImageOfMinimumSize:imageSize];
+                                   } 
+                                   completionBlock:^(UIImage *image) {
                                        cell.faviconView.image = image;
                                    }];
     }

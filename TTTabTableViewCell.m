@@ -26,6 +26,7 @@
 @synthesize imageView;
 @synthesize pageColor = _pageColor;
 @synthesize imageSize = _imageSize;
+@synthesize favIconSize = _favIconSize;
 
 @synthesize backgroundColorView = _backgroundColorView, textBoxView = _textBoxView;
 
@@ -37,6 +38,7 @@
         [self insertSubview:self.backgroundColorView atIndex:0];
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        imageView.contentMode = UIViewContentModeScaleToFill;
         [self insertSubview:imageView aboveSubview:self.backgroundColorView];
         
         self.textBoxView = [[UIView alloc] init];
@@ -99,6 +101,11 @@
     return CGSizeMake(90, 56);
 }
 
+- (CGSize)favIconSize;
+{
+    return CGSizeMake(8, 8);
+}
+
 - (void)layoutSubviews;
 {
     [super layoutSubviews];
@@ -120,7 +127,10 @@
     imageRect.origin.x = self.bounds.size.width - imageRect.size.width - self.marginRight;
     self.imageView.frame = imageRect;
     
-    CGRect faviconRect = CGRectMake(self.bounds.size.width - 18 - self.marginRight, 3, 8, 8);
+    CGRect faviconRect = CGRectMake(self.bounds.size.width - 18 - self.marginRight, 
+                                    3, 
+                                    self.favIconSize.width, 
+                                    self.favIconSize.height);
     self.faviconView.frame = faviconRect;
     
     CGRect detailLabelRect = CGRectMake(10.0, 0.0, imageRect.origin.x - 30, 14);

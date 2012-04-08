@@ -17,7 +17,7 @@
 
 - (void)didReceiveMemoryWarning:(NSNotification *)notification;
 - (NSMutableDictionary *)cacheForIdentifier:(NSString *)processIdentifier;
-- (NSString *)cacheFilenameForImageURL:(NSURL *)URL cacheIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
+- (NSString *)cacheFilenameForImageURL:(NSURL *)URL cacheIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format scale:(CGFloat)scale;
 - (UIImage *)loadFromDiskURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
 - (void)saveToDiskImage:(UIImage *)image withURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
 
@@ -64,6 +64,17 @@ static MWHTTPImageCache *staticDefaultImageLoader;
 
 - (void)didReceiveMemoryWarning:(NSNotification *)notification;
 {
+    [self clearRAMCache];
+}
+
+- (void)clearDiskCache;
+{
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtURL:self.cacheDirectory error:&error];
+}
+
+- (void)clearRAMCache;
+{
     self.cache = [NSMutableDictionary dictionary];
 }
 
@@ -77,6 +88,15 @@ static MWHTTPImageCache *staticDefaultImageLoader;
 }
 
 - (NSString *)cacheFilenameForImageURL:(NSURL *)URL cacheIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
+{
+    return [self cacheFilenameForImageURL:URL
+                          cacheIdentifier:cacheIdentifier
+                                   format:format 
+                                    scale:1.0];
+}
+
+
+- (NSString *)cacheFilenameForImageURL:(NSURL *)URL cacheIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format scale:(CGFloat)scale;
 {
     NSString *extension;
     
@@ -93,7 +113,9 @@ static MWHTTPImageCache *staticDefaultImageLoader;
             return nil;
     }
     
-    return [NSString stringWithFormat:@"%@-%@.%@", [URL.absoluteString SHA1Digest], [cacheIdentifier SHA1Digest], extension];
+    NSString *scaleString = (scale == 2.0 ? @"@2x" : @"");
+    
+    return [NSString stringWithFormat:@"%@-%@%@.%@", [URL.absoluteString SHA1Digest], [cacheIdentifier SHA1Digest], scaleString, extension];
 }
 
 - (UIImage *)loadFromDiskURL:(NSURL *)URL cachedIdentifier:(NSString *)cacheIdentifier format:(MWHTTPImageCachePersistentCacheFormat)format;
@@ -137,7 +159,10 @@ static MWHTTPImageCache *staticDefaultImageLoader;
             }
         }
         
-        NSString *fileName = [self cacheFilenameForImageURL:URL cacheIdentifier:cacheIdentifier format:format];
+        NSString *fileName = [self cacheFilenameForImageURL:URL 
+                                            cacheIdentifier:cacheIdentifier
+                                                     format:format
+                                                      scale:image.scale];
         NSURL *fileURL = [self.cacheDirectory URLByAppendingPathComponent:fileName];
         
         if (format == MWHTTPImageCachePersistentCacheFormatJPG) {
@@ -187,12 +212,13 @@ static MWHTTPImageCache *staticDefaultImageLoader;
         [[self cacheForIdentifier:processIdentifier] setObject:image forKey:imageURL];
         completionBlock(image);
     } else {
-        [self loadImage:imageURL 
+        [self loadImage:imageURL
             cacheFormat:MWHTTPImageCachePersistentCacheFormatNone
         completionBlock:^(NSURLResponse *response, UIImage *image, NSError *error) {
             UIImage *processedImage = processingBlock(image);
             
             if (processedImage) {
+                NSLog(@"processedImageSize: %@", NSStringFromCGSize(processedImage.size));
                 [[self cacheForIdentifier:processIdentifier] setObject:processedImage forKey:imageURL];
                 [self saveToDiskImage:processedImage withURL:imageURL cachedIdentifier:processIdentifier format:cacheFormat];
             }
