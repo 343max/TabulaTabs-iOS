@@ -12,6 +12,6 @@
 
 @interface TTWebViewActionSheet : UIActionSheet <UIActionSheetDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
-- (id)initWithPageTitle:(NSString *)pageTitle URL:(NSURL *)URL;
+- (id)initWithWebView:(UIWebView *)webView;
 
 @end

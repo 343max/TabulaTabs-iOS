@@ -280,7 +280,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 - (void)showPageActions:(id)sender;
 {
-    self.actionSheet = [[TTWebViewActionSheet alloc] initWithPageTitle:self.pageTitle URL:self.webView.request.URL];
+    self.actionSheet = [[TTWebViewActionSheet alloc] initWithWebView:self.webView];
     [self.actionSheet showInView:self.view];
 }
 

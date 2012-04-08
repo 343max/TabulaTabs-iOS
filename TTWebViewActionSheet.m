@@ -12,6 +12,7 @@
 
 @interface TTWebViewActionSheet ()
 
+@property (weak) UIWebView *webView;
 @property (strong) NSURL *URL;
 @property (strong) NSString *pageTitle;
 
@@ -29,6 +30,7 @@
 
 @implementation TTWebViewActionSheet
 
+@synthesize webView = _webView;
 @synthesize URL = _URL, pageTitle = _pageTitle;
 @synthesize onePasswordButtonIndex = _onePasswordButtonIndex;
 @synthesize icabButtonIndex = _icabButtonIndex;
@@ -39,14 +41,15 @@
 @synthesize messageButtonIndex = _messageButtonIndex; 
 @synthesize openInSafariIndex = _openInSafariIndex;
 
-- (id)initWithPageTitle:(NSString *)pageTitle URL:(NSURL *)URL;
+- (id)initWithWebView:(UIWebView *)webView;
 {
     self = [super init];
     
     if (self) {
         self.delegate = self;
-        self.title = self.pageTitle = pageTitle;
-        self.URL = URL;
+        self.webView = webView;
+        self.title = self.pageTitle = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+        self.URL = webView.request.URL;
         self.delegate = self;
         
         self.onePasswordButtonIndex = self.copyURLButtonIndex = self.icabButtonIndex = -2;
