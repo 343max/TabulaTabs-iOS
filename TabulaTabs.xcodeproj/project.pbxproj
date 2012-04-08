@@ -229,7 +229,7 @@
 		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		50AB685714FAAE100040D328 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		50AE694A14E8606C00788808 /* TabulaTabs Δ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabulaTabs Δ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AE694A14E8606C00788808 /* TabulaTabs δ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabulaTabs δ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AE694E14E8606C00788808 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		50AE695014E8606C00788808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50AE695214E8606C00788808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -505,7 +505,7 @@
 		50AE694B14E8606C00788808 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50AE694A14E8606C00788808 /* TabulaTabs Δ.app */,
+				50AE694A14E8606C00788808 /* TabulaTabs δ.app */,
 				50AE696514E8606C00788808 /* TabulaTabsTests.octest */,
 			);
 			name = Products;
@@ -778,7 +778,7 @@
 			);
 			name = TabulaTabs;
 			productName = TabulaTabs;
-			productReference = 50AE694A14E8606C00788808 /* TabulaTabs Δ.app */;
+			productReference = 50AE694A14E8606C00788808 /* TabulaTabs δ.app */;
 			productType = "com.apple.product-type.application";
 		};
 		50AE696414E8606C00788808 /* TabulaTabsTests */ = {
@@ -1155,7 +1155,7 @@
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME) Δ";
+				PRODUCT_NAME = "$(TARGET_NAME) δ";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.Debug;
 				TT_URL_SCHEME = "tabulatabs-debug";
 				WRAPPER_EXTENSION = app;
