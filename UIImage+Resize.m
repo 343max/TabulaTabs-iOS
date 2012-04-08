@@ -45,8 +45,6 @@
     float width = roundf(self.size.width * scaleFactor);
     float height = roundf(self.size.height * scaleFactor);
     
-    NSLog(@"minSize: %@, width: %f, height: %f", NSStringFromCGSize(minSize), width, height);
-    
     return [self scaledImageOfSize:CGSizeMake(width, height)];
 }
 

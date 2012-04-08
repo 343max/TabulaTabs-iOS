@@ -218,7 +218,6 @@ static MWHTTPImageCache *staticDefaultImageLoader;
             UIImage *processedImage = processingBlock(image);
             
             if (processedImage) {
-                NSLog(@"processedImageSize: %@", NSStringFromCGSize(processedImage.size));
                 [[self cacheForIdentifier:processIdentifier] setObject:processedImage forKey:imageURL];
                 [self saveToDiskImage:processedImage withURL:imageURL cachedIdentifier:processIdentifier format:cacheFormat];
             }

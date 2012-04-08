@@ -219,7 +219,6 @@
     
     if ([tab.URL.host isEqualToString:@"maps.google.com"]) {
         thumbnailImageURL = [tab.URL mapImageURLForSize:cell.imageSize scale:0];
-        NSLog(@"imageURL: %@", thumbnailImageURL);
     }
     if (thumbnailImageURL) {
         CGSize imageSize = cell.imageSize;
@@ -230,7 +229,6 @@
                                        return [image scaledImageOfMinimumSize:imageSize];
                                    } 
                                    completionBlock:^(UIImage *image) {
-                                       NSLog(@"finalImageSize: %@", NSStringFromCGSize(image.size));
                                        cell.imageView.image = image;
                                        [cell setNeedsLayout];
                                    }];
