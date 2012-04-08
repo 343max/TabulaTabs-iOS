@@ -27,6 +27,11 @@
     return [NSURL tabulatabsURLWithString:@"client/tabs/first"];
 }
 
++ (NSURL *)launchTabulatabsURL;
+{
+    return [NSURL tabulatabsURLWithString:@""];
+}
+
 - (NSURL *)buildalizedURL;
 {
     if (![self.scheme isEqualToString:@"tabulatabs"]) {

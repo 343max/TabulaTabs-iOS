@@ -13,6 +13,7 @@
 + (NSURL *)tabulatabsURLWithString:(NSString *)stringURL;
 + (NSURL *)addBrowserRepresentationFlowURL;
 + (NSURL *)firstBrowserURL;
++ (NSURL *)launchTabulatabsURL;
 
 - (NSURL *)buildalizedURL;
 - (NSDictionary *)queryParamters;
