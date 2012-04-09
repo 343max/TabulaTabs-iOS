@@ -48,24 +48,11 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>840</string>
+	<string>886</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MainURLScheme</key>
 	<string>${TT_URL_SCHEME}</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Karla-Bold.ttf</string>
-		<string>Karla-BoldItalic.ttf</string>
-		<string>Karla-Italic.ttf</string>
-		<string>Dosis-Bold.ttf</string>
-		<string>Dosis-ExtraBold.ttf</string>
-		<string>Dosis-ExtraLight.ttf</string>
-		<string>Dosis-Light.ttf</string>
-		<string>Dosis-Medium.ttf</string>
-		<string>Dosis-Regular.ttf</string>
-		<string>Dosis-SemiBold.ttf</string>
-	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -137,7 +137,8 @@
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabListBackground"]];
     self.view.backgroundColor = [UIColor clearColor];
     
-    self.tableView.rowHeight = 70;
+    self.tableView.rowHeight = 72;
+    self.tableView.separatorColor = [UIColor colorWithWhite:0.0 alpha:0.2];
 }
 
 - (void)viewWillAppear:(BOOL)animated

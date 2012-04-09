@@ -14,7 +14,7 @@
 @interface TTTabTableViewCell ()
 
 @property (strong) UIView *backgroundColorView;
-@property (strong) UIView *textBoxView;
+@property (strong) UIView *pageColorStripeView;
 
 @end
 
@@ -28,42 +28,32 @@
 @synthesize imageSize = _imageSize;
 @synthesize favIconSize = _favIconSize;
 
-@synthesize backgroundColorView = _backgroundColorView, textBoxView = _textBoxView;
+@synthesize backgroundColorView = _backgroundColorView, pageColorStripeView = _pageColorStripeView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColorView = [[UIView alloc] init];
+        self.backgroundColorView.backgroundColor = [UIColor whiteColor];
         [self insertSubview:self.backgroundColorView atIndex:0];
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         imageView.contentMode = UIViewContentModeScaleToFill;
         [self insertSubview:imageView aboveSubview:self.backgroundColorView];
         
-        self.textBoxView = [[UIView alloc] init];
-        [self insertSubview:self.textBoxView aboveSubview:imageView];
+        self.pageColorStripeView = [[UIView alloc] init];
+        [self insertSubview:self.pageColorStripeView aboveSubview:imageView];
         
-        _faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        self.faviconView.layer.shadowColor = [UIColor colorWithWhite:1.0 alpha:1.0].CGColor;
-        self.faviconView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        self.faviconView.layer.shadowRadius = 2.0;
-        self.faviconView.layer.shadowOpacity = 1.0;
-        self.faviconView.layer.shouldRasterize = YES;
         self.marginRight = 0.0;
+
+        _faviconView = [[UIImageView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.faviconView];
         
-        self.detailTextLabel.backgroundColor = [UIColor clearColor];
-        self.detailTextLabel.textColor = [UIColor whiteColor];
-        self.detailTextLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.6];
-        self.detailTextLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-        self.detailTextLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:11.0];
+        self.detailTextLabel.font = [UIFont systemFontOfSize:12.0];
         
         self.textLabel.numberOfLines = 3;
-        self.textLabel.font = [UIFont fontWithName:@"Dosis-Regular" size:15.0];
-        self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.6];
-        self.textLabel.shadowOffset = CGSizeMake(0.0, 1.0);
+        self.textLabel.font = [UIFont boldSystemFontOfSize:12.0];
     }
     
     return self;
@@ -83,27 +73,17 @@
         pageColor = [UIColor defaultPageColor];
     }
     
-    CGFloat hue; CGFloat saturation; CGFloat brightness; CGFloat alpha;
-    [pageColor getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
-        
-    if (saturation > 0.01) {
-        self.backgroundColorView.backgroundColor = [UIColor colorWithHue:hue saturation:0.1 brightness:0.95 alpha:1.0];
-    } else {
-        self.backgroundColorView.backgroundColor = [UIColor whiteColor];
-    }
-    
-    self.textBoxView.backgroundColor = pageColor;
-    self.textLabel.textColor = pageColor;
+    self.pageColorStripeView.backgroundColor = pageColor;
 }
 
 - (CGSize)imageSize;
 {
-    return CGSizeMake(90, 56);
+    return CGSizeMake(90, 72);
 }
 
 - (CGSize)favIconSize;
 {
-    return CGSizeMake(8, 8);
+    return CGSizeMake(16, 16);
 }
 
 - (void)layoutSubviews;
@@ -112,10 +92,10 @@
     
     self.backgroundColorView.frame = self.bounds;
         
-    CGRect textboxFrame = self.bounds;
-    textboxFrame.size.height = 14;
-    textboxFrame.origin.x = 0;
-    self.textBoxView.frame = textboxFrame;
+    CGRect pageColorStripeFrame = self.bounds;
+    pageColorStripeFrame.size.width = 6;
+    pageColorStripeFrame.origin.x = 0;
+    self.pageColorStripeView.frame = pageColorStripeFrame;
     
     CGRect imageRect = self.bounds;
     imageRect.size = self.imageSize;
@@ -123,21 +103,19 @@
     if (!self.imageView.image) {
         imageRect.size.width = 0;
     }
-    imageRect.origin.y = CGRectGetMaxY(textboxFrame);
+    imageRect.origin.y = 0;
     imageRect.origin.x = self.bounds.size.width - imageRect.size.width - self.marginRight;
     self.imageView.frame = imageRect;
     
-    CGRect faviconRect = CGRectMake(self.bounds.size.width - 18 - self.marginRight, 
-                                    3, 
-                                    self.favIconSize.width, 
-                                    self.favIconSize.height);
+    CGRect faviconRect = CGRectMake(10, 4, self.favIconSize.width, self.favIconSize.height);
     self.faviconView.frame = faviconRect;
     
-    CGRect detailLabelRect = CGRectMake(10.0, 0.0, imageRect.origin.x - 30, 14);
+    CGRect detailLabelRect = CGRectMake(30.0, 6.0, imageRect.origin.x - 40, 14);
     self.detailTextLabel.frame = detailLabelRect;
+//    self.textLabel.backgroundColor = self.detailTextLabel.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.1];
     
     CGRect textLabelRect = detailLabelRect;
-    textLabelRect.origin.y = 14;
+    textLabelRect.origin.y = 21;
     textLabelRect.size.height = 56;
     textLabelRect.size = [self.textLabel.text sizeWithFont:self.textLabel.font
                                          constrainedToSize:textLabelRect.size
