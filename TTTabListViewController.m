@@ -272,7 +272,7 @@
             [self.slidingViewController resetTopViewWithAnimations:nil 
                                                         onComplete:^{
                                                             if (self.browserOverlap == 0) {
-                                                                self.browserOverlap = 40.0;
+                                                                self.browserOverlap = TTAppDelegateWebBrowserPeekAmount;
                                                                 NSIndexPath *selection = [self.tableView indexPathForSelectedRow];
                                                                 [self.tableView reloadData];
                                                                 [self.tableView selectRowAtIndexPath:selection

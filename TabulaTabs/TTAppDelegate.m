@@ -27,6 +27,8 @@
 
 #import "TTAppDelegate.h"
 
+CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
+
 @interface TTAppDelegate ()
 
 @property (assign, nonatomic) NSInteger networkConnectionsInProgress;
@@ -186,7 +188,7 @@
     TTTabListViewController *tablistViewController = [[TTTabListViewController alloc] init];
     tablistViewController.browserRepresentation = currentBrowser;
     
-    self.slidingViewController.anchorRightPeekAmount = 40.0;
+    self.slidingViewController.anchorRightPeekAmount = TTAppDelegateWebBrowserPeekAmount;
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tablistViewController];
     navigationController.navigationBar.barStyle = UIBarStyleBlack;

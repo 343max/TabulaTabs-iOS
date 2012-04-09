@@ -10,6 +10,8 @@
 
 #define appDelegate ((TTAppDelegate *)[[UIApplication sharedApplication] delegate])
 
+extern CGFloat const TTAppDelegateWebBrowserPeekAmount;
+
 @class TTTabListViewController;
 @class TTBrowserController;
 @class TTBrowserRepresentation;
