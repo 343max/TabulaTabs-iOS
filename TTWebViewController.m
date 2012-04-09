@@ -13,7 +13,7 @@
 
 #import "TTSpinningReloadButton.h"
 #import "TTFlippingButton.h"
-#import "TTWebViewActionSheet.h"
+#import "TTWebViewActionViewController.h"
 
 #import "TTWebViewController.h"
 
@@ -33,7 +33,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @property (strong) UILabel *titleLabel;
 @property (strong, nonatomic) NSString *pageTitle;
 
-@property (strong) TTWebViewActionSheet *actionSheet;
+@property (strong) TTWebViewActionViewController *actionViewController;
 
 - (void)layoutNavBar;
 - (void)didFinishLoading;
@@ -57,7 +57,7 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @synthesize backButton = _backButton, forwardButton = _forwardButton, reloadButton = _reloadButton;
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
 @synthesize pageTitle = _pageTitle;
-@synthesize actionSheet = _actionSheet;
+@synthesize actionViewController = _actionViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {
@@ -236,7 +236,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     CGFloat rightBorder = CGRectGetMinX(((UIView *)[[self.navigationItem.rightBarButtonItems lastObject] valueForKey:@"view"]).frame);
     CGFloat titleHeight = self.navigationController.navigationBar.bounds.size.height - 2.0;
     CGFloat titleWidth = rightBorder - leftBorder;
-    NSLog(@"%f |<- %f ->| %f", leftBorder, titleWidth, rightBorder);    
     self.titleLabel.frame = CGRectMake(0.0, 0.0, titleWidth, titleHeight);
     
     CGRect webViewFrame = self.view.bounds;
@@ -280,8 +279,10 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 - (void)showPageActions:(id)sender;
 {
-    self.actionSheet = [[TTWebViewActionSheet alloc] initWithWebView:self.webView];
-    [self.actionSheet showInView:self.view];
+    self.actionViewController = [[TTWebViewActionViewController alloc] initWithWebView:self.webView];
+    [self.parentViewController addChildViewController:self.actionViewController];
+    self.actionViewController.view.frame = self.parentViewController.view.frame;
+    [self.parentViewController.view addSubview:self.actionViewController.view];
 }
 
 - (void)layoutNavBar;

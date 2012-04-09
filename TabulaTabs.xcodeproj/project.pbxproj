@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		500BBF7B152352DF008D44E0 /* TabCellViewEmptyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */; };
-		500BBF7C152352DF008D44E0 /* TabCellViewEmptyImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */; };
-		500BBF7F152352DF008D44E0 /* TabCellViewTextbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */; };
-		500BBF80152352DF008D44E0 /* TabCellViewTextbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */; };
+		5000E17B15334FE900100FB1 /* Chat-Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17315334FE900100FB1 /* Chat-Bubble.png */; };
+		5000E17C15334FE900100FB1 /* Chat-Bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17415334FE900100FB1 /* Chat-Bubble@2x.png */; };
+		5000E17F15334FE900100FB1 /* Questionmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17715334FE900100FB1 /* Questionmark.png */; };
+		5000E18015334FE900100FB1 /* Questionmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17815334FE900100FB1 /* Questionmark@2x.png */; };
+		5000E18115334FE900100FB1 /* Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17915334FE900100FB1 /* Twitter.png */; };
+		5000E18215334FE900100FB1 /* Twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17A15334FE900100FB1 /* Twitter@2x.png */; };
+		5000E1841533503C00100FB1 /* 71-compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1831533503C00100FB1 /* 71-compass.png */; };
+		5000E1861533520B00100FB1 /* 71-compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1851533520B00100FB1 /* 71-compass@2x.png */; };
+		5000E189153352D700100FB1 /* 245-paperairplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E187153352D700100FB1 /* 245-paperairplane.png */; };
+		5000E18A153352D700100FB1 /* 245-paperairplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E188153352D700100FB1 /* 245-paperairplane@2x.png */; };
+		5000E18D1533531100100FB1 /* 298-circlex.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E18B1533531100100FB1 /* 298-circlex.png */; };
+		5000E18E1533531100100FB1 /* 298-circlex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E18C1533531100100FB1 /* 298-circlex@2x.png */; };
+		5000E1941533559100100FB1 /* Clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1921533559100100FB1 /* Clipboard.png */; };
+		5000E1951533559100100FB1 /* Clipboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1931533559100100FB1 /* Clipboard@2x.png */; };
+		5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000E1971533661200100FB1 /* TTActionSheetButton.m */; };
 		5016BA8D151E05EB00AAA198 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA89151E05EB00AAA198 /* libTestFlight.a */; };
 		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
 		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
@@ -44,6 +55,7 @@
 		504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F724B152789BC008B4F7A /* TTFlippingButton.m */; };
 		50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF215249A160018BBD8 /* ECSlidingViewController.m */; };
 		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
+		50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50672D6F1533477700536821 /* TTWebViewActionViewController.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
 		5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */; };
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
@@ -91,8 +103,6 @@
 		50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */; };
 		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
 		50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579B1521BE0700F2780F /* registrationGuide.html */; };
-		50F3579F1521BE4C00F2780F /* Gears.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579D1521BE4C00F2780F /* Gears.png */; };
-		50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579E1521BE4C00F2780F /* Gears@2x.png */; };
 		50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */; };
 		50F357C71521CD6900F2780F /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C61521CD6900F2780F /* TTSettingsViewController.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
@@ -129,10 +139,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabCellViewEmptyImage.png; sourceTree = "<group>"; };
-		500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabCellViewEmptyImage@2x.png"; sourceTree = "<group>"; };
-		500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabCellViewTextbox.png; sourceTree = "<group>"; };
-		500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabCellViewTextbox@2x.png"; sourceTree = "<group>"; };
+		5000E17315334FE900100FB1 /* Chat-Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat-Bubble.png"; sourceTree = "<group>"; };
+		5000E17415334FE900100FB1 /* Chat-Bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat-Bubble@2x.png"; sourceTree = "<group>"; };
+		5000E17715334FE900100FB1 /* Questionmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Questionmark.png; sourceTree = "<group>"; };
+		5000E17815334FE900100FB1 /* Questionmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Questionmark@2x.png"; sourceTree = "<group>"; };
+		5000E17915334FE900100FB1 /* Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twitter.png; sourceTree = "<group>"; };
+		5000E17A15334FE900100FB1 /* Twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Twitter@2x.png"; sourceTree = "<group>"; };
+		5000E1831533503C00100FB1 /* 71-compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "71-compass.png"; sourceTree = "<group>"; };
+		5000E1851533520B00100FB1 /* 71-compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "71-compass@2x.png"; sourceTree = "<group>"; };
+		5000E187153352D700100FB1 /* 245-paperairplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "245-paperairplane.png"; sourceTree = "<group>"; };
+		5000E188153352D700100FB1 /* 245-paperairplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "245-paperairplane@2x.png"; sourceTree = "<group>"; };
+		5000E18B1533531100100FB1 /* 298-circlex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "298-circlex.png"; sourceTree = "<group>"; };
+		5000E18C1533531100100FB1 /* 298-circlex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "298-circlex@2x.png"; sourceTree = "<group>"; };
+		5000E1921533559100100FB1 /* Clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clipboard.png; sourceTree = "<group>"; };
+		5000E1931533559100100FB1 /* Clipboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clipboard@2x.png"; sourceTree = "<group>"; };
+		5000E1961533661200100FB1 /* TTActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TTActionSheetButton.h; sourceTree = "<group>"; };
+		5000E1971533661200100FB1 /* TTActionSheetButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTActionSheetButton.m; sourceTree = "<group>"; };
 		5016BA89151E05EB00AAA198 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5016BA8A151E05EB00AAA198 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
@@ -176,6 +198,8 @@
 		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageWithUIView.m"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		50672D6E1533477700536821 /* TTWebViewActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionViewController.h; sourceTree = "<group>"; };
+		50672D6F1533477700536821 /* TTWebViewActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionViewController.m; sourceTree = "<group>"; };
 		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
 		5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBrowserFlowViewController.m; sourceTree = "<group>"; };
 		5067AE1815221B2800CF6BFA /* TTSettingsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsNavController.h; sourceTree = "<group>"; };
@@ -248,8 +272,6 @@
 		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
 		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
 		50F3579B1521BE0700F2780F /* registrationGuide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuide.html; sourceTree = "<group>"; };
-		50F3579D1521BE4C00F2780F /* Gears.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gears.png; sourceTree = "<group>"; };
-		50F3579E1521BE4C00F2780F /* Gears@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gears@2x.png"; sourceTree = "<group>"; };
 		50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorOverlay.h"; sourceTree = "<group>"; };
 		50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorOverlay.m"; sourceTree = "<group>"; };
 		50F357C51521CD6900F2780F /* TTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsViewController.h; sourceTree = "<group>"; };
@@ -337,6 +359,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5000E17215334F9F00100FB1 /* WebViewActionIcons */ = {
+			isa = PBXGroup;
+			children = (
+				5000E1831533503C00100FB1 /* 71-compass.png */,
+				5000E1851533520B00100FB1 /* 71-compass@2x.png */,
+				5000E187153352D700100FB1 /* 245-paperairplane.png */,
+				5000E188153352D700100FB1 /* 245-paperairplane@2x.png */,
+				5000E18B1533531100100FB1 /* 298-circlex.png */,
+				5000E18C1533531100100FB1 /* 298-circlex@2x.png */,
+				5000E17315334FE900100FB1 /* Chat-Bubble.png */,
+				5000E17415334FE900100FB1 /* Chat-Bubble@2x.png */,
+				5000E17715334FE900100FB1 /* Questionmark.png */,
+				5000E17815334FE900100FB1 /* Questionmark@2x.png */,
+				5000E17915334FE900100FB1 /* Twitter.png */,
+				5000E17A15334FE900100FB1 /* Twitter@2x.png */,
+				5000E1921533559100100FB1 /* Clipboard.png */,
+				5000E1931533559100100FB1 /* Clipboard@2x.png */,
+			);
+			path = WebViewActionIcons;
+			sourceTree = "<group>";
+		};
 		5016BA88151E05EB00AAA198 /* TestFlightSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,17 +399,6 @@
 			);
 			name = SSKeychain;
 			path = sskeychain;
-			sourceTree = "<group>";
-		};
-		504F71E0152763D4008B4F7A /* TabListCellView */ = {
-			isa = PBXGroup;
-			children = (
-				500BBF75152352DF008D44E0 /* TabCellViewEmptyImage.png */,
-				500BBF76152352DF008D44E0 /* TabCellViewEmptyImage@2x.png */,
-				500BBF79152352DF008D44E0 /* TabCellViewTextbox.png */,
-				500BBF7A152352DF008D44E0 /* TabCellViewTextbox@2x.png */,
-			);
-			name = TabListCellView;
 			sourceTree = "<group>";
 		};
 		504F71E1152763F1008B4F7A /* BrowserToolbar */ = {
@@ -429,6 +461,10 @@
 				5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */,
 				504F724A152789BC008B4F7A /* TTFlippingButton.h */,
 				504F724B152789BC008B4F7A /* TTFlippingButton.m */,
+				5000E1961533661200100FB1 /* TTActionSheetButton.h */,
+				5000E1971533661200100FB1 /* TTActionSheetButton.m */,
+				50672D6E1533477700536821 /* TTWebViewActionViewController.h */,
+				50672D6F1533477700536821 /* TTWebViewActionViewController.m */,
 			);
 			name = WebBrowser;
 			sourceTree = "<group>";
@@ -707,11 +743,9 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5000E17215334F9F00100FB1 /* WebViewActionIcons */,
 				5090704A1528B91A006D9DE4 /* TabListViewController */,
 				504F71E1152763F1008B4F7A /* BrowserToolbar */,
-				504F71E0152763D4008B4F7A /* TabListCellView */,
-				50F3579D1521BE4C00F2780F /* Gears.png */,
-				50F3579E1521BE4C00F2780F /* Gears@2x.png */,
 				504A984D152C81DE00AEF75D /* AppIcon@2x.png */,
 				504A984A152C81D800AEF75D /* AppIcon.png */,
 				50F3579B1521BE0700F2780F /* registrationGuide.html */,
@@ -799,12 +833,6 @@
 				5016BA8E151E05EB00AAA198 /* README.txt in Resources */,
 				5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */,
 				50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */,
-				50F3579F1521BE4C00F2780F /* Gears.png in Resources */,
-				50F357A01521BE4C00F2780F /* Gears@2x.png in Resources */,
-				500BBF7B152352DF008D44E0 /* TabCellViewEmptyImage.png in Resources */,
-				500BBF7C152352DF008D44E0 /* TabCellViewEmptyImage@2x.png in Resources */,
-				500BBF7F152352DF008D44E0 /* TabCellViewTextbox.png in Resources */,
-				500BBF80152352DF008D44E0 /* TabCellViewTextbox@2x.png in Resources */,
 				504F71F21527642D008B4F7A /* BrowserBackToList.png in Resources */,
 				504F71F31527642D008B4F7A /* BrowserBackToList@2x.png in Resources */,
 				504F71F61527642D008B4F7A /* BrowserHistoryBack.png in Resources */,
@@ -831,6 +859,20 @@
 				5090705B1528C326006D9DE4 /* TabListStitches@2x.png in Resources */,
 				504A984B152C81D800AEF75D /* AppIcon.png in Resources */,
 				504A984E152C81DE00AEF75D /* AppIcon@2x.png in Resources */,
+				5000E17B15334FE900100FB1 /* Chat-Bubble.png in Resources */,
+				5000E17C15334FE900100FB1 /* Chat-Bubble@2x.png in Resources */,
+				5000E17F15334FE900100FB1 /* Questionmark.png in Resources */,
+				5000E18015334FE900100FB1 /* Questionmark@2x.png in Resources */,
+				5000E18115334FE900100FB1 /* Twitter.png in Resources */,
+				5000E18215334FE900100FB1 /* Twitter@2x.png in Resources */,
+				5000E1841533503C00100FB1 /* 71-compass.png in Resources */,
+				5000E1861533520B00100FB1 /* 71-compass@2x.png in Resources */,
+				5000E189153352D700100FB1 /* 245-paperairplane.png in Resources */,
+				5000E18A153352D700100FB1 /* 245-paperairplane@2x.png in Resources */,
+				5000E18D1533531100100FB1 /* 298-circlex.png in Resources */,
+				5000E18E1533531100100FB1 /* 298-circlex@2x.png in Resources */,
+				5000E1941533559100100FB1 /* Clipboard.png in Resources */,
+				5000E1951533559100100FB1 /* Clipboard@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +962,8 @@
 				504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */,
 				5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */,
 				5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */,
+				50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */,
+				5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
