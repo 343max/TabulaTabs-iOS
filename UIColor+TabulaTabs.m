@@ -54,7 +54,7 @@
 
 + (UIColor *)defaultPageColor;
 {
-    return [UIColor grayColor];
+    return [UIColor colorWithWhite:0.8 alpha:1.0];
 }
 
 @end
