@@ -127,10 +127,6 @@ static MWHTTPImageCache *staticDefaultImageLoader;
     NSString *fileName = [self cacheFilenameForImageURL:URL cacheIdentifier:cacheIdentifier format:format];
     NSURL *fileURL = [self.cacheDirectory URLByAppendingPathComponent:fileName];
 
-    if (![[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
-        return nil;
-    }
-    
     return [UIImage imageWithContentsOfFile:fileURL.path];
 }
 
