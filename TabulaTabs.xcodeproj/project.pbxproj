@@ -61,7 +61,6 @@
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
-		5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
 		5090704E1528B928006D9DE4 /* TabListNavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090704C1528B928006D9DE4 /* TabListNavbar.png */; };
 		5090704F1528B928006D9DE4 /* TabListNavbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */; };
@@ -153,7 +152,7 @@
 		5000E18C1533531100100FB1 /* 298-circlex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "298-circlex@2x.png"; sourceTree = "<group>"; };
 		5000E1921533559100100FB1 /* Clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clipboard.png; sourceTree = "<group>"; };
 		5000E1931533559100100FB1 /* Clipboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clipboard@2x.png"; sourceTree = "<group>"; };
-		5000E1961533661200100FB1 /* TTActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TTActionSheetButton.h; sourceTree = "<group>"; };
+		5000E1961533661200100FB1 /* TTActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTActionSheetButton.h; sourceTree = "<group>"; };
 		5000E1971533661200100FB1 /* TTActionSheetButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTActionSheetButton.m; sourceTree = "<group>"; };
 		5016BA89151E05EB00AAA198 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5016BA8A151E05EB00AAA198 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -210,8 +209,6 @@
 		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTClient.m; sourceTree = "<group>"; };
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
-		5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionSheet.h; sourceTree = "<group>"; };
-		5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionSheet.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5090704C1528B928006D9DE4 /* TabListNavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListNavbar.png; sourceTree = "<group>"; };
 		5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListNavbar@2x.png"; sourceTree = "<group>"; };
@@ -457,8 +454,6 @@
 				50DB39DD151DEB7300CF421A /* TTWebViewController.m */,
 				5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */,
 				5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */,
-				5071BF8A15209E8F00BFC43B /* TTWebViewActionSheet.h */,
-				5071BF8B15209E8F00BFC43B /* TTWebViewActionSheet.m */,
 				504F724A152789BC008B4F7A /* TTFlippingButton.h */,
 				504F724B152789BC008B4F7A /* TTFlippingButton.m */,
 				5000E1961533661200100FB1 /* TTActionSheetButton.h */,
@@ -948,7 +943,6 @@
 				50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */,
 				50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */,
 				50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */,
-				5071BF8C15209E8F00BFC43B /* TTWebViewActionSheet.m in Sources */,
 				503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */,
 				50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */,
 				50F357C71521CD6900F2780F /* TTSettingsViewController.m in Sources */,
