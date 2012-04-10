@@ -8,6 +8,7 @@
 
 #import "TTWebViewActionViewController.h"
 
+#import <QuartzCore/QuartzCore.h>
 #import "TTActionSheetButton.h"
 #import "NSURL+TabulaTabs.h"
 #import <Twitter/TWTweetComposeViewController.h>
@@ -135,8 +136,8 @@
 
 - (void)viewDidLayoutSubviews;
 {
-    CGSize menuMargin = CGSizeMake(10.0, 10.0);
-    CGSize buttonSize = CGSizeMake(60, 75);
+    CGSize menuMargin = CGSizeMake(6.0, 3.0);
+    CGSize buttonSize = CGSizeMake(55, 75);
     NSInteger buttonsPerRow = 5;
     NSInteger rows = (int)ceilf((float)self.actions.count / buttonsPerRow);
     
@@ -194,8 +195,18 @@
         }
     }
     
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
+    self.backgroundView.layer.transform = CATransform3DIdentity;
+    [UIView animateWithDuration:2
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionLayoutSubviews
+                     animations:^{
+                         self.backgroundView.layer.transform = CATransform3DMakeScale(1.0, 2.0, 1.0);
+                     } 
+                     completion:^(BOOL finished) {
+                         [self.view removeFromSuperview];
+                         [self removeFromParentViewController];
+                     }];
+    
 }
 
 

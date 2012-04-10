@@ -18,7 +18,7 @@
     
     [button setTitle:title forState:UIControlStateNormal];
     
-    button.titleLabel.font = [UIFont systemFontOfSize:12.0];
+    button.titleLabel.font = [UIFont systemFontOfSize:11.0];
     button.titleLabel.textAlignment = UITextAlignmentCenter;
     button.titleLabel.textColor = [UIColor whiteColor];
     button.showsTouchWhenHighlighted = YES;
@@ -45,14 +45,16 @@
     titleLabelFrame.size.height = textSize.height;
     self.titleLabel.frame = titleLabelFrame;
     
-    CGRect imageViewFrame = CGRectMake(0.0, 0.0, 100.0, 100.0);
-    imageViewFrame.origin.x = (self.bounds.size.width - imageViewFrame.size.width) / 2.0;
-    imageViewFrame.origin.y = (self.bounds.size.height - imageViewFrame.size.height - textSize.height) / 2.0;
-    
+    CGRect imageViewFrame = CGRectZero;
+    imageViewFrame.size = self.imageView.image.size;
+    imageViewFrame.origin = CGPointMake((self.bounds.size.width - imageViewFrame.size.width) / 2.0,
+                                        (self.bounds.size.height - imageViewFrame.size.height) / 2.0);
     self.imageView.frame = CGRectIntegral(imageViewFrame);
-    self.imageView.contentMode = UIViewContentModeCenter;
     
-    ((UIImageView *)[self.subviews objectAtIndex:0]).frame = CGRectIntegral(imageViewFrame);
+    CGRect highlightViewFrame = CGRectMake(0.0, 0.0, 100.0, 100.0);
+    highlightViewFrame.origin.x = (self.bounds.size.width - highlightViewFrame.size.width) / 2.0;
+    highlightViewFrame.origin.y = (self.bounds.size.height - highlightViewFrame.size.height - textSize.height) / 2.0;
+    ((UIImageView *)[self.subviews objectAtIndex:0]).frame = CGRectIntegral(highlightViewFrame);
 }
 
 @end
