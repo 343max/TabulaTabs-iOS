@@ -320,7 +320,15 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 - (void)layoutNavBar;
 {
     CGRect navBarFrame = self.navigationBar.frame;
+    CGFloat rightOverlap = 0;
     navBarFrame.origin.y = roundf(0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
+    if (self.webView.scrollView.contentOffset.x < 0) {
+        navBarFrame.origin.x = roundf(0 - self.webView.scrollView.contentOffset.x);
+    } else if((rightOverlap = self.webView.scrollView.contentOffset.x - (self.webView.scrollView.contentSize.width - self.webView.bounds.size.width)) > 0) {
+        navBarFrame.origin.x = -rightOverlap;
+    } else {
+        navBarFrame.origin.x = 0;
+    }
     self.navigationBar.frame = navBarFrame;
     
     UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
