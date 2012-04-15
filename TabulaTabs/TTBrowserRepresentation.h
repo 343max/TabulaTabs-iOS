@@ -20,7 +20,7 @@ extern NSString * const TTBrowserRepresentationBrowserWasUpdatedNotification;
 extern NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification;
 
 
-@interface TTBrowserRepresentation : NSObject
+@interface TTBrowserRepresentation : NSObject <UIAlertViewDelegate>
 
 @property (strong, nonatomic) TTClient *client;
 @property (strong, readonly) TTBrowser *browser;

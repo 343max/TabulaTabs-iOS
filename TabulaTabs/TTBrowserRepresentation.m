@@ -159,7 +159,7 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not add browser"
                                                                 message:@"This browser could not be added because the authentication code is to old or allready in use. Please try again with a fresh code."
-                                                               delegate:nil
+                                                               delegate:self
                                                       cancelButtonTitle:@"Okay"
                                                       otherButtonTitles:nil];
             [alertView show];
@@ -195,6 +195,15 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
         
         [self saveToDisk];
     }];
+}
+
+#pragma mark UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    if (buttonIndex == 0) {
+        [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
+    }
 }
 
 @end

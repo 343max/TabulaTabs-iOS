@@ -102,6 +102,10 @@ const int kPasswordByteLength = 16;
     [params setObject:finalPassword forKey:@"password"];
     [params setObject:self.userAgent forKey:@"useragent"];
     
+    [self setConnectionDidReceiveAuthentificationChallenge:^(NSURLAuthenticationChallenge *challenge) {
+        callback(NO, nil);
+    }];
+    
     [self sendJsonRequest:@"browsers/clients/claim.json" method:@"PUT" jsonParameters:params callback:^(id response) {
         NSLog(@"response: %@", response);
         BOOL success = [[response objectForKey:@"success"] boolValue];
