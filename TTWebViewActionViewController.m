@@ -21,6 +21,7 @@
 @property (strong, nonatomic, readonly) NSString *pageTitle;
 @property (strong, nonatomic, readonly) NSURL *URL;
 @property (strong) NSMutableArray *actions;
+@property (assign) BOOL animating;
 
 - (void)dismiss:(UITapGestureRecognizer *)gestureRecognizer;
 
@@ -42,6 +43,7 @@
 @synthesize pageTitle = _pageTitle;
 @synthesize URL = _URL;
 @synthesize actions = _actions;
+@synthesize animating = _animating;
 
 - (id)initWithWebView:(UIWebView *)webView;
 {
@@ -54,6 +56,11 @@
 
 - (void)viewDidLoad
 {
+    UIViewController* vc = self;
+    while ((vc = vc.parentViewController)) {
+        NSLog(@"parent: %@", vc);
+    }
+    
     [super viewDidLoad];
 
     [TestFlight passCheckpoint:@"open action menu"];
@@ -134,8 +141,36 @@
     return YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated;
+{
+    [super viewWillAppear:animated];
+    
+    self.backgroundView.alpha = 0.0;
+}
+
+- (void)viewDidAppear:(BOOL)animated;
+{
+    [super viewDidAppear:animated];
+    
+    self.animating = YES;
+    self.backgroundView.layer.transform = CATransform3DMakeTranslation(0.0, self.backgroundView.bounds.size.height, 0.0);
+    self.backgroundView.alpha = 0.0;
+    [UIView animateWithDuration:0.3
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         self.backgroundView.layer.transform = CATransform3DIdentity;
+                         self.backgroundView.alpha = 1.0;
+                     } 
+                     completion:nil];
+}
+
 - (void)viewDidLayoutSubviews;
 {
+    if (self.animating) {
+        return;
+    }
+    
     CGSize menuMargin = CGSizeMake(6.0, 3.0);
     CGSize buttonSize = CGSizeMake(55, 75);
     NSInteger buttonsPerRow = 5;
@@ -195,16 +230,18 @@
         }
     }
     
-    self.backgroundView.layer.transform = CATransform3DIdentity;
-    [UIView animateWithDuration:2
+    self.animating = YES;
+    [UIView animateWithDuration:0.3
                           delay:0.0
-                        options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionLayoutSubviews
+                        options:UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                         self.backgroundView.layer.transform = CATransform3DMakeScale(1.0, 2.0, 1.0);
+                         self.backgroundView.layer.transform = CATransform3DMakeTranslation(0.0, self.backgroundView.bounds.size.height, 0.0);
+                         self.backgroundView.alpha = 0.0;
                      } 
                      completion:^(BOOL finished) {
                          [self.view removeFromSuperview];
                          [self removeFromParentViewController];
+                         self.animating = NO;
                      }];
     
 }

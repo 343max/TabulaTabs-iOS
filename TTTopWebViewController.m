@@ -38,4 +38,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (BOOL)automaticallyForwardAppearanceAndRotationMethodsToChildViewControllers;
+{
+    return YES;
+}
+
 @end
