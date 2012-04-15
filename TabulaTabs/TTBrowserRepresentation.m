@@ -18,13 +18,13 @@
 
 #import "TTBrowserRepresentation.h"
 
-NSString * const TTBrowserReprensentationClientWasUpdatedNotification = @"TTBrowserReprensentationClientWasUpdatedNotification";
-NSString * const TTBrowserReprensentationClaimingClientNotification = @"TTBrowserReprensentationClaimingClientNotification";
-NSString * const TTBrowserReprensentationClientAccessWasRevokedNotification = @"TTBrowserReprensentationClientAccessWasRevokedNotification";
+NSString * const TTBrowserRepresentationClientWasUpdatedNotification = @"TTBrowserRepresentationClientWasUpdatedNotification";
+NSString * const TTBrowserRepresentationClaimingClientNotification = @"TTBrowserRepresentationClaimingClientNotification";
+NSString * const TTBrowserRepresentationClientAccessWasRevokedNotification = @"TTBrowserRepresentationClientAccessWasRevokedNotification";
 
-NSString * const TTBrowserReprensentationBrowserWasUpdatedNotification = @"TTBrowserReprensentationBrowserWasUpdatedNotification";
+NSString * const TTBrowserRepresentationBrowserWasUpdatedNotification = @"TTBrowserRepresentationBrowserWasUpdatedNotification";
 
-NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrowserReprensentationTabsWhereUpdatedNotification";
+NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrowserRepresentationTabsWhereUpdatedNotification";
 
 
 @interface TTBrowserRepresentation ()
@@ -55,7 +55,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     
     __block TTBrowserRepresentation *weakSelf = self; 
     [_client setConnectionDidReceiveAuthentificationChallenge:^(NSURLAuthenticationChallenge *authenticationChallange) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientAccessWasRevokedNotification 
+        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationClientAccessWasRevokedNotification 
                                                             object:weakSelf];
     }];
     
@@ -73,7 +73,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
             self.tabs = tabs;
             
             self.browser = [[TTBrowser alloc] initWithDictionary:[archivedData objectForKey:@"browser"]];
-            [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationBrowserWasUpdatedNotification
+            [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationBrowserWasUpdatedNotification
                                                                 object:self
                                                               userInfo:nil];
         }
@@ -86,7 +86,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 - (void)setTabs:(NSArray *)tabs;
 {
     _tabs = tabs;
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationTabsWhereUpdatedNotification
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationTabsWhereUpdatedNotification
                                                         object:self
                                                       userInfo:nil];
 }
@@ -136,7 +136,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
 {
     self.client = client;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClaimingClientNotification object:self];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationClaimingClientNotification object:self];
     
     _client.userAgent = [NSString stringWithFormat:@"TabulaTabs iOS (%@ %@ %@)", [UIDevice currentDevice].model, [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
     _client.label = [UIDevice currentDevice].name;
@@ -154,7 +154,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
             }];
             [self loadTabs];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationClientWasUpdatedNotification object:self];
+            [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationClientWasUpdatedNotification object:self];
             [TestFlight passCheckpoint:@"registered a client"];
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not add browser"
@@ -179,7 +179,7 @@ NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification = @"TTBrow
     [self.browser load:self.client.username password:self.client.password callback:^(id response) {
         [self saveToDisk];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserReprensentationBrowserWasUpdatedNotification
+        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationBrowserWasUpdatedNotification
                                                             object:self
                                                           userInfo:nil];
         if (callback) {

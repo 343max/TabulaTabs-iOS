@@ -89,11 +89,12 @@
 - (void)setBrowserRepresentation:(TTBrowserRepresentation *)browserRepresentation;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self 
-                                                    name:TTBrowserReprensentationBrowserWasUpdatedNotification 
+                                                    name:TTBrowserRepresentationBrowserWasUpdatedNotification 
                                                   object:_browserRepresentation];
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:TTBrowserReprensentationTabsWhereUpdatedNotification
+                                                    name:TTBrowserRepresentationTabsWhereUpdatedNotification
                                                   object:_browserRepresentation];
+    
     _browserRepresentation = browserRepresentation;
     self.tabs = _browserRepresentation.tabs;
 
@@ -101,12 +102,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(browserWasUpdated:)
-                                                 name:TTBrowserReprensentationBrowserWasUpdatedNotification
+                                                 name:TTBrowserRepresentationBrowserWasUpdatedNotification
                                                object:_browserRepresentation];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(tabsWhereUpdated:)
-                                                 name:TTBrowserReprensentationTabsWhereUpdatedNotification
+                                                 name:TTBrowserRepresentationTabsWhereUpdatedNotification
                                                object:_browserRepresentation];
 }
 
@@ -138,26 +138,6 @@
     
     self.tableView.rowHeight = 72;
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0 alpha:0.2];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -298,7 +278,7 @@
     NSLog(@"loaded Browser Info: %@  /  %@", self.browserRepresentation.browser.label, self.browserRepresentation.browser.userAgent);
     self.title = self.browserRepresentation.browser.label;
 }
-
+     
 - (void)tabsWhereUpdated:(NSNotification *)notification;
 {
     NSArray *oldTabs = self.tabs;

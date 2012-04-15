@@ -10,9 +10,10 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSString * const TTBrowserControllerBrowserWillBeRemovedNotification;
+
 @interface TTBrowserController : NSObject <UIAlertViewDelegate>
 
-@property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
 @property (strong, nonatomic, readonly) NSArray *allBrowsers;
 
 - (id)initWithClientDictionaries:(NSArray *)clientDictionaries;

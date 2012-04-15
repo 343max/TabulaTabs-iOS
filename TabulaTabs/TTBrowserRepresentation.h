@@ -11,13 +11,13 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const TTBrowserReprensentationClientWasUpdatedNotification;
-extern NSString * const TTBrowserReprensentationClaimingClientNotification;
-extern NSString * const TTBrowserReprensentationClientAccessWasRevokedNotification;
+extern NSString * const TTBrowserRepresentationClientWasUpdatedNotification;
+extern NSString * const TTBrowserRepresentationClaimingClientNotification;
+extern NSString * const TTBrowserRepresentationClientAccessWasRevokedNotification;
 
-extern NSString * const TTBrowserReprensentationBrowserWasUpdatedNotification;
+extern NSString * const TTBrowserRepresentationBrowserWasUpdatedNotification;
 
-extern NSString * const TTBrowserReprensentationTabsWhereUpdatedNotification;
+extern NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification;
 
 
 @interface TTBrowserRepresentation : NSObject

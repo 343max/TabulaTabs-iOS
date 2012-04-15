@@ -18,6 +18,8 @@
 NSString * const TTBrowserControllerPasswordKey = @"ClientPassword";
 NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
+NSString * const TTBrowserControllerBrowserWillBeRemovedNotification = @"TTBrowserControllerBrowserWillBeRemovedNotification";
+
 
 @interface TTBrowserController ()
 
@@ -30,7 +32,6 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
 @implementation TTBrowserController
 
-@synthesize currentBrowser = _currentBrowser;
 @synthesize allBrowsers = _allBrowsers;
 
 - (id)initWithClientDictionaries:(NSArray *)clientDictionaries;
@@ -51,7 +52,7 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
             browserRepresentation.client = client;
             [[NSNotificationCenter defaultCenter] addObserver:self
                                                      selector:@selector(clientHasInvalidCredentials:)
-                                                         name:TTBrowserReprensentationClientAccessWasRevokedNotification
+                                                         name:TTBrowserRepresentationClientAccessWasRevokedNotification
                                                        object:browserRepresentation];
             [restoredBrowsers addObject:browserRepresentation];
         }];
@@ -111,6 +112,9 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
         return NO;
     }
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserControllerBrowserWillBeRemovedNotification
+                                                        object:browserRepresentation];
+    
     NSMutableArray *mutableBrowsers = [[NSMutableArray alloc] initWithArray:self.allBrowsers];
     [mutableBrowsers removeObject:browserRepresentation];
     self.allBrowsers = [mutableBrowsers copy];
@@ -122,7 +126,7 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
 - (void)setAllBrowsers:(NSArray *)allBrowsers;
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:TTBrowserReprensentationClientAccessWasRevokedNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:TTBrowserRepresentationClientAccessWasRevokedNotification];
     
     _allBrowsers = allBrowsers;
     
@@ -138,21 +142,13 @@ NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(clientHasInvalidCredentials:)
-                                                     name:TTBrowserReprensentationClientAccessWasRevokedNotification
+                                                     name:TTBrowserRepresentationClientAccessWasRevokedNotification
                                                    object:browser];
     }];
     
     [[NSUserDefaults standardUserDefaults] setObject:[clientDictionaries copy] forKey:@"clients"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
-- (void)setCurrentBrowser:(TTBrowserRepresentation *)currentBrowser;
-{
-    _currentBrowser = currentBrowser;
-    
-    appDelegate.currentURL = currentBrowser.tabulatabsURL;
-}
-
 
 #pragma mark Helpers
 
