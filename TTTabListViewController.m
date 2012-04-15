@@ -20,7 +20,6 @@
 #import "TTBrowserRepresentation.h"
 
 #import "TTWebViewController.h"
-#import "TTTopWebViewController.h"
 
 #import "TTTabTableViewCell.h"
 #import "TTTabListViewController.h"
@@ -262,10 +261,9 @@
         [self.slidingViewController resetTopView];
     } else {
         self.webViewController = [[TTWebViewController alloc] initWithNibName:nil bundle:nil];
-        TTTopWebViewController *navigationController = [[TTTopWebViewController alloc] initWithRootViewController:self.webViewController];
         
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-            self.slidingViewController.topViewController = navigationController;
+            self.slidingViewController.topViewController = self.webViewController;
             CGRect topViewFrame = self.slidingViewController.underLeftViewController.view.frame;
             topViewFrame.origin.x += topViewFrame.size.width;
             self.slidingViewController.topViewController.view.frame = topViewFrame;

@@ -35,7 +35,6 @@
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
 		504A984B152C81D800AEF75D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 504A984A152C81D800AEF75D /* AppIcon.png */; };
 		504A984E152C81DE00AEF75D /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504A984D152C81DE00AEF75D /* AppIcon@2x.png */; };
-		504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */; };
 		504F71F21527642D008B4F7A /* BrowserBackToList.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E21527642D008B4F7A /* BrowserBackToList.png */; };
 		504F71F31527642D008B4F7A /* BrowserBackToList@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E31527642D008B4F7A /* BrowserBackToList@2x.png */; };
 		504F71F61527642D008B4F7A /* BrowserHistoryBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E61527642D008B4F7A /* BrowserHistoryBack.png */; };
@@ -173,8 +172,6 @@
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		504A984A152C81D800AEF75D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = ../AppIcon.png; sourceTree = "<group>"; };
 		504A984D152C81DE00AEF75D /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon@2x.png"; path = "../AppIcon@2x.png"; sourceTree = "<group>"; };
-		504F713A1524B9E2008B4F7A /* TTTopWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTopWebViewController.h; sourceTree = "<group>"; };
-		504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTopWebViewController.m; sourceTree = "<group>"; };
 		504F71E21527642D008B4F7A /* BrowserBackToList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserBackToList.png; sourceTree = "<group>"; };
 		504F71E31527642D008B4F7A /* BrowserBackToList@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserBackToList@2x.png"; sourceTree = "<group>"; };
 		504F71E61527642D008B4F7A /* BrowserHistoryBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserHistoryBack.png; sourceTree = "<group>"; };
@@ -729,8 +726,6 @@
 				5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */,
 				50F357C51521CD6900F2780F /* TTSettingsViewController.h */,
 				50F357C61521CD6900F2780F /* TTSettingsViewController.m */,
-				504F713A1524B9E2008B4F7A /* TTTopWebViewController.h */,
-				504F713B1524B9E2008B4F7A /* TTTopWebViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -952,7 +947,6 @@
 				509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */,
 				50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */,
 				50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */,
-				504F713C1524B9E2008B4F7A /* TTTopWebViewController.m in Sources */,
 				504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */,
 				5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */,
 				5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */,

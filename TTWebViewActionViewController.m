@@ -56,11 +56,6 @@
 
 - (void)viewDidLoad
 {
-    UIViewController* vc = self;
-    while ((vc = vc.parentViewController)) {
-        NSLog(@"parent: %@", vc);
-    }
-    
     [super viewDidLoad];
 
     [TestFlight passCheckpoint:@"open action menu"];

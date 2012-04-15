@@ -19,6 +19,7 @@
 
 NSString * const TTWebViewControllerStartedLoadingNotification = @"TTWebViewControllerStartedLoadingNotification";
 NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewControllerFinishedLoadingNotification";
+CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 
 @interface TTWebViewController ()
 
@@ -32,6 +33,8 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @property (strong) UIButton *actionButton;
 @property (strong) UILabel *titleLabel;
 @property (strong, nonatomic) NSString *pageTitle;
+@property (strong) UINavigationBar *navigationBar;
+@property (strong) UIToolbar *toolbar;
 
 @property (strong) TTWebViewActionViewController *actionViewController;
 
@@ -58,6 +61,8 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 @synthesize titleLabel = _titleLabel, actionButton = _actionButton;
 @synthesize pageTitle = _pageTitle;
 @synthesize actionViewController = _actionViewController;
+@synthesize toolbar = _toolbar;
+@synthesize navigationBar = _navigationBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {
@@ -77,28 +82,6 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
                                                  selector:@selector(viewDidBecomeActive:)
                                                      name:ECSlidingViewTopDidReset
                                                    object:self.slidingViewController];
-        
-        self.navigationItem.leftItemsSupplementBackButton = YES;
-        
-        self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"BrowserReload"] 
-                                                              shadowImage:[UIImage imageNamed:@"BrowserReloadShadow"]];
-        self.reloadButton.frame = CGRectMake(0.0, 0.0, 24.0, 24.0);
-        self.reloadButton.showsTouchWhenHighlighted = YES;
-        [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton];
-
-        UIView *emptyLeftView = [[UIView alloc] initWithFrame:self.reloadButton.frame];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:emptyLeftView];
-
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.titleLabel.backgroundColor = [UIColor clearColor];
-        self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.titleLabel.textColor = [UIColor whiteColor];
-        self.titleLabel.textAlignment = UITextAlignmentCenter;
-        self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.3];
-        self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-        self.titleLabel.numberOfLines = 0;
-        self.navigationItem.titleView = self.titleLabel;
     }
     
     return self;
@@ -128,6 +111,20 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 
 #pragma mark Lifecycle
 
+- (void)viewWillAppear:(BOOL)animated;
+{
+    [super viewWillAppear:animated];
+    
+    self.view.layer.shadowOffset = CGSizeZero;
+    self.view.layer.shadowOpacity = 0.75f;
+    self.view.layer.shadowRadius = 10.0f;
+    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.view.layer.bounds].CGPath;
+    self.view.clipsToBounds = NO;
+    
+    [self.navigationBar addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.toolbar addGestureRecognizer:self.slidingViewController.panGesture];
+}
 
 - (void)viewDidLoad
 {
@@ -137,24 +134,24 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     
     self.toggleTabListButton = [[TTFlippingButton alloc] initWithImage:[UIImage imageNamed:@"BrowserBackToList"]
                                                            shadowImage:[UIImage imageNamed:@"BrowserBackToListShadow"]];
-    self.toggleTabListButton.frame = CGRectMake(0.0, 0.0, 24.0, 20.0);
+    self.toggleTabListButton.frame = CGRectMake(0.0, 0.0, TTWebViewControllerNavbarItemWidth, 20.0);
     self.toggleTabListButton.showsTouchWhenHighlighted = YES;
     [self.toggleTabListButton addTarget:self 
                                  action:@selector(toggleListVisibility:)
                        forControlEvents:UIControlEventTouchUpInside];
     
-    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
+    self.backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, TTWebViewControllerNavbarItemWidth, 20.0)];
     self.backButton.showsTouchWhenHighlighted = YES;
     self.backButton.imageView.contentMode = UIViewContentModeCenter;
     [self.backButton addTarget:self action:@selector(goBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.backButton setImage:[UIImage imageNamed:@"BrowserHistoryBack"] forState:UIControlStateNormal];
     
-    self.forwardButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
+    self.forwardButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, TTWebViewControllerNavbarItemWidth, 20.0)];
     self.forwardButton.showsTouchWhenHighlighted = YES;
     [self.forwardButton addTarget:self action:@selector(goForward:) forControlEvents:UIControlEventTouchUpInside];
     [self.forwardButton setImage:[UIImage imageNamed:@"BrowserHistoryFwd"] forState:UIControlStateNormal];
 
-    self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 24.0, 20.0)];
+    self.actionButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, TTWebViewControllerNavbarItemWidth, 20.0)];
     self.actionButton.showsTouchWhenHighlighted = YES;
     [self.actionButton setImage:[UIImage imageNamed:@"BrowserShare"] forState:UIControlStateNormal];
     [self.actionButton addTarget:self action:@selector(showPageActions:) forControlEvents:UIControlEventTouchUpInside];
@@ -177,20 +174,48 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
     [self.gestureView addGestureRecognizer:tapGestureRecognizer];
     [self.view addSubview:self.gestureView];
     
-    [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"BrowserToolbar"]
-                                       forToolbarPosition:UIToolbarPositionAny
-                                               barMetrics:UIBarMetricsDefault];
+    self.toolbar = [[UIToolbar alloc] init];
+    [self.toolbar setBackgroundImage:[UIImage imageNamed:@"BrowserToolbar"]
+                  forToolbarPosition:UIToolbarPositionAny
+                          barMetrics:UIBarMetricsDefault];
+    [self.view addSubview:self.toolbar];
 
-    self.toolbarItems = [NSArray arrayWithObjects:
-                         [[UIBarButtonItem alloc] initWithCustomView:self.toggleTabListButton],
-                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                         [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
-                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                         [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
-                         [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                         [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
-                         nil];
-    self.navigationController.toolbarHidden = NO;
+    self.toolbar.items = [NSArray arrayWithObjects:
+                          [[UIBarButtonItem alloc] initWithCustomView:self.toggleTabListButton],
+                          [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                          [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
+                          [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                          [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
+                          [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                          [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
+                          nil];
+    
+    
+    UINavigationItem *navigationItem = [[UINavigationItem alloc] init];
+    
+    self.reloadButton = [[TTSpinningReloadButton alloc] initWithImage:[UIImage imageNamed:@"BrowserReload"] 
+                                                          shadowImage:[UIImage imageNamed:@"BrowserReloadShadow"]];
+    self.reloadButton.frame = CGRectMake(0.0, 0.0, TTWebViewControllerNavbarItemWidth, 24.0);
+    self.reloadButton.showsTouchWhenHighlighted = YES;
+    [self.reloadButton addTarget:self action:@selector(reload:) forControlEvents:UIControlEventTouchUpInside];
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.reloadButton];
+    
+    UIView *emptyLeftView = [[UIView alloc] initWithFrame:self.reloadButton.frame];
+    navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:emptyLeftView];
+    
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.textAlignment = UITextAlignmentCenter;
+    self.titleLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+    self.titleLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+    self.titleLabel.numberOfLines = 0;
+    navigationItem.titleView = self.titleLabel;
+    
+    self.navigationBar = [[UINavigationBar alloc] init];
+    self.navigationBar.items = [NSArray arrayWithObject:navigationItem];
+    [self.view addSubview:self.navigationBar];
 }
 
 - (void)viewDidBecomeActive:(NSNotification *)notification;
@@ -232,28 +257,35 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
         self.titleLabel.font = [UIFont boldSystemFontOfSize:13.0];
     }
     
-    CGFloat leftBorder = CGRectGetMaxX(((UIView *)[[self.navigationItem.leftBarButtonItems lastObject] valueForKey:@"view"]).frame);
-    CGFloat rightBorder = CGRectGetMinX(((UIView *)[[self.navigationItem.rightBarButtonItems lastObject] valueForKey:@"view"]).frame);
-    CGFloat titleHeight = self.navigationController.navigationBar.bounds.size.height - 2.0;
-    CGFloat titleWidth = rightBorder - leftBorder;
+    CGRect navigationBarFrame = self.view.bounds;
+    navigationBarFrame.size = [self.navigationBar sizeThatFits:navigationBarFrame.size];
+    self.navigationBar.frame = navigationBarFrame;
+    
+    CGRect toolbarFrame = self.view.bounds;
+    toolbarFrame.size = [self.toolbar sizeThatFits:toolbarFrame.size];
+    toolbarFrame.origin.y = CGRectGetMaxY(self.view.bounds) - toolbarFrame.size.height;
+    self.toolbar.frame = toolbarFrame;
+    
+    CGFloat titleHeight = self.navigationBar.bounds.size.height - 2.0;
+    CGFloat titleWidth = self.navigationBar.bounds.size.width - 2 * TTWebViewControllerNavbarItemWidth;
     self.titleLabel.frame = CGRectMake(0.0, 0.0, titleWidth, titleHeight);
     
     CGRect webViewFrame = self.view.bounds;
-    webViewFrame.origin.y -= self.navigationController.navigationBar.frame.size.height;
-    webViewFrame.size.height += self.navigationController.navigationBar.frame.size.height;
+    webViewFrame.size.height -= toolbarFrame.size.height;
     self.webView.frame = webViewFrame;
+    
     UIEdgeInsets oldContentInset = self.webView.scrollView.contentInset;
-    UIEdgeInsets newContentInset = UIEdgeInsetsMake(self.navigationController.navigationBar.frame.size.height, 0.0, 0.0, 0.0);
+    UIEdgeInsets newContentInset = UIEdgeInsetsMake(self.navigationBar.frame.size.height, 0.0, 0.0, 0.0);
     self.webView.scrollView.contentInset = newContentInset;
+    
+    CGPoint contentOffset = self.webView.scrollView.contentOffset;
+    contentOffset.y += fminf(0, oldContentInset.top - newContentInset.top);
+    self.webView.scrollView.contentOffset = contentOffset;
     
     if (!self.slidingViewController.underLeftShowing) {
         webViewFrame.size.width = 10.0;
     }
     self.gestureView.frame = webViewFrame;
-    
-    CGPoint contentOffset = self.webView.scrollView.contentOffset;
-    contentOffset.y += fminf(0, oldContentInset.top - newContentInset.top);
-    self.webView.scrollView.contentOffset = contentOffset;
     
     [self layoutNavBar];
 }
@@ -280,16 +312,16 @@ NSString * const TTWebViewControllerFinishedLoadingNotification = @"TTWebViewCon
 - (void)showPageActions:(id)sender;
 {
     self.actionViewController = [[TTWebViewActionViewController alloc] initWithWebView:self.webView];
-    [self.parentViewController addChildViewController:self.actionViewController];
-    self.actionViewController.view.frame = self.parentViewController.view.frame;
-    [self.parentViewController.view addSubview:self.actionViewController.view];
+    [self addChildViewController:self.actionViewController];
+    self.actionViewController.view.frame = self.view.frame;
+    [self.view addSubview:self.actionViewController.view];
 }
 
 - (void)layoutNavBar;
 {
-    CGRect navBarFrame = self.navigationController.navigationBar.frame;
+    CGRect navBarFrame = self.navigationBar.frame;
     navBarFrame.origin.y = roundf(0 - self.webView.scrollView.contentOffset.y - self.webView.scrollView.contentInset.top);
-    self.navigationController.navigationBar.frame = navBarFrame;
+    self.navigationBar.frame = navBarFrame;
     
     UIEdgeInsets scrollIndicatorInsets = UIEdgeInsetsZero;
     scrollIndicatorInsets.top = fmaxf(0.0, -self.webView.scrollView.contentOffset.y);
