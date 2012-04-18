@@ -43,7 +43,17 @@
         self.URL = [NSURL URLWithString:[dictionary objectForKey:@"URL"]];
         self.selected = [[dictionary objectForKey:@"selected"] boolValue];
         self.favIconURL = [NSURL URLWithString:[dictionary objectForKey:@"favIconURL"]];
-        self.windowId = [dictionary objectForKey:@"windowId"];
+        
+        id windowId = [dictionary objectForKey:@"windowId"];
+        if ([windowId isKindOfClass:[NSString class]]) {
+            self.windowId = [dictionary objectForKey:@"windowId"];
+        } else if ([windowId respondsToSelector:@selector(stringValue)]) {
+            self.windowId = [windowId stringValue];
+        } else if (windowId == nil) {
+            self.windowId = nil;
+        } else {
+            NSAssert(NO, @"Dont know how to handle this windowId");
+        }
         self.index = [[dictionary objectForKey:@"index"] integerValue];
         self.pageTitle = [dictionary objectForKey:@"pageTitle"];
         self.shortDomain = [dictionary objectForKey:@"shortDomain"];
@@ -82,7 +92,7 @@
     if (![otherTab isKindOfClass:[TTTab class]]) {
         return NO;
     } else {
-        return self.identifier == otherTab.identifier &&
+        return [self.identifier isEqualToString:otherTab.identifier] &&
                [self.title isEqualToString:otherTab.title] &&
                [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString] &&
                [self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString] &&

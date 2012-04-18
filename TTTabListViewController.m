@@ -308,6 +308,7 @@
                 [insertedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
             }];
             [self.tableView insertRowsAtIndexPaths:[insertedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
+            NSLog(@"updates: tabsDeleted: %i, tabsInserted: %i", removedTabs.count, insertedTabs.count);
         } [self.tableView endUpdates];
     }
     
