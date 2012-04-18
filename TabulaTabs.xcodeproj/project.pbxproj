@@ -28,6 +28,7 @@
 		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
 		5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */; };
 		5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B4CC15307A32002EAE15 /* NSString+SHA1.m */; };
+		50317196153F25C500570E33 /* TTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50317195153F25C500570E33 /* TTWindow.m */; };
 		503288501520A41A000CC58D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5032884F1520A41A000CC58D /* Twitter.framework */; };
 		503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503288521520B1C2000CC58D /* MessageUI.framework */; };
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
@@ -162,6 +163,8 @@
 		5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWSlidingViewController.m; sourceTree = "<group>"; };
 		5030B4CB15307A32002EAE15 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		5030B4CC15307A32002EAE15 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
+		50317194153F25C500570E33 /* TTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWindow.h; sourceTree = "<group>"; };
+		50317195153F25C500570E33 /* TTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWindow.m; sourceTree = "<group>"; };
 		5032884F1520A41A000CC58D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		503288521520B1C2000CC58D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		503288541520B745000CC58D /* NSURL+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+TabulaTabs.h"; sourceTree = "<group>"; };
@@ -574,6 +577,8 @@
 				5069085114EAEAA300D39759 /* TTClient.m */,
 				5069084C14EAB50200D39759 /* TTTab.h */,
 				5069084D14EAB50200D39759 /* TTTab.m */,
+				50317194153F25C500570E33 /* TTWindow.h */,
+				50317195153F25C500570E33 /* TTWindow.m */,
 				50AE698D14E860C700788808 /* TTEncryption.h */,
 				50AE698E14E860C700788808 /* TTEncryption.m */,
 				50AE698F14E860C700788808 /* TTRestfulClient.h */,
@@ -952,6 +957,7 @@
 				5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */,
 				50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */,
 				5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */,
+				50317196153F25C500570E33 /* TTWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

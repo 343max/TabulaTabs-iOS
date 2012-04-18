@@ -7,6 +7,7 @@
 //
 
 #import "TTTab.h"
+#import "TTWindow.h"
 #import "TTEncryption.h"
 #import "TTRestfulClient.h"
 #import "TTBrowser.h"
@@ -80,7 +81,8 @@
                     NSAssert([[response objectForKey:@"success"] boolValue], @"could not save tabs");
                     
                     NSLog(@"trying to load tabs");
-                    [client loadTabs:^(NSArray *tabs, id response) {
+                    [client loadWindowsAndTabs:^(NSArray *windows, id response) {
+                        NSArray *tabs = ((TTWindow *)[windows objectAtIndex:0]).tabs;
                         NSAssert(tabs.count == 2, @"Wrong tab count loaded");
                         
                         TTTab* loadedTab1 = [tabs objectAtIndex:0];
@@ -121,9 +123,10 @@
                             NSAssert(success, @"Lots of tabs could not be saved");
                             
                             NSLog(@"trying to restore lots of tabs");
-                            [client loadTabs:^(NSArray *tabs, id response) {
+                            [client loadWindowsAndTabs:^(NSArray *windows, id response) {
+                                NSArray *tabs = ((TTWindow *)[windows objectAtIndex:0]).tabs;
                                 NSAssert(tabs.count == lotsOfTabs.count, @"Invalid number of tabs returned");
-                                
+                                    
                                 for (NSInteger i = 0; i < tabs.count; i++) {
                                     TTTab *loadedTab = [tabs objectAtIndex:i];
                                     TTTab *originalTab = [lotsOfTabs objectAtIndex:i];

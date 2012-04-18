@@ -16,6 +16,6 @@
 
 @property (strong, nonatomic) TTBrowserRepresentation* browserRepresentation;
 
-- (void)loadTabs;
+- (void)load;
 
 @end

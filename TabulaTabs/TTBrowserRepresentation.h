@@ -17,14 +17,14 @@ extern NSString * const TTBrowserRepresentationClientAccessWasRevokedNotificatio
 
 extern NSString * const TTBrowserRepresentationBrowserWasUpdatedNotification;
 
-extern NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification;
+extern NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification;
 
 
 @interface TTBrowserRepresentation : NSObject <UIAlertViewDelegate>
 
 @property (strong, nonatomic) TTClient *client;
 @property (strong, readonly) TTBrowser *browser;
-@property (strong, readonly, nonatomic) NSArray *tabs;
+@property (strong, readonly, nonatomic) NSArray *windows;
 @property (strong, nonatomic, readonly) NSURL *tabulatabsURL;
 
 - (TTClient *)claimURL:(NSURL *)url;
@@ -32,6 +32,6 @@ extern NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification;
 
 - (void)loadBrowser;
 - (void)loadBrowserCompletion:(void (^)(id))callback;
-- (void)loadTabs;
+- (void)loadWindowsAndTabs;
 
 @end

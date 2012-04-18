@@ -7,6 +7,7 @@
 //
 
 #import "NSData-hex.h"
+#import "TTWindow.h"
 #import "TTTab.h"
 
 #import "TTClient.h"
@@ -120,18 +121,26 @@ const int kPasswordByteLength = 16;
     }];
 }
 
-- (void)loadTabs:(void (^)(NSArray *, id))callback;
+- (void)loadWindowsAndTabs:(void (^)(NSArray *, id))callback;
 {
     [self sendJsonGetRequest:@"browsers/tabs.json" callback:^(id response) {
-        NSMutableArray *tabs = [[NSMutableArray alloc] initWithCapacity:[response count]];
+        NSMutableDictionary *windows = [[NSMutableDictionary alloc] init];
         
         [response enumerateObjectsUsingBlock:^(NSDictionary *encryptedTab, NSUInteger idx, BOOL *stop) {
             TTTab *tab = [[TTTab alloc] initWithDictionary:[self.encryption decrypt:encryptedTab]];
             tab.identifier = [encryptedTab objectForKey:@"identifier"];
-            [tabs addObject:tab];
+            
+            TTWindow *window = [windows objectForKey:tab.windowId];
+            if (!window) {
+                window = [[TTWindow alloc] init];
+                window.identifier = tab.windowId;
+                window.focused = tab.windowFocused;
+                [windows setObject:window forKey:window.identifier];
+            }
+            window.tabs = [window.tabs arrayByAddingObject:tab];
         }];
         
-        callback([tabs copy], response);
+        callback([windows allValues], response);
     }];
 }
 

@@ -14,6 +14,7 @@
 #import "MWHTTPImageCache.h"
 
 #import "TTBrowser.h"
+#import "TTWindow.h"
 #import "TTTab.h"
 
 #import "TTAppDelegate.h"
@@ -30,7 +31,7 @@
 @property (assign) CGFloat browserOverlap;
 
 - (void)browserWasUpdated:(NSNotification *)notification;
-- (void)tabsWhereUpdated:(NSNotification *)notification;
+- (void)windowsAndTabsWhereUpdated:(NSNotification *)notification;
 
 - (void)viewDidBecomeInactive:(NSNotification *)notification;
 - (void)viewWillBecomeActive:(NSNotification *)notification;
@@ -39,7 +40,7 @@
 
 @interface TTTabListViewController ()
 
-@property (strong) NSArray *tabs;
+@property (strong, nonatomic) NSArray *windows;
 
 @end
 
@@ -48,7 +49,7 @@
 
 @synthesize webViewController = _webViewController;
 @synthesize browserRepresentation = _browserRepresentation;
-@synthesize tabs = _tabs;
+@synthesize windows = _windows;
 @synthesize browserOverlap = _browserOverlap;
 
 - (id)init;
@@ -76,11 +77,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)loadTabs;
+- (void)load;
 {
     [self startLoadingAnimation];
     
-    [self.browserRepresentation loadTabs];
+    [self.browserRepresentation loadWindowsAndTabs];
     [self.browserRepresentation loadBrowser];
 }
 
@@ -92,11 +93,11 @@
                                                     name:TTBrowserRepresentationBrowserWasUpdatedNotification 
                                                   object:_browserRepresentation];
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:TTBrowserRepresentationTabsWhereUpdatedNotification
+                                                    name:TTBrowserRepresentationWindowsWhereUpdatedNotification
                                                   object:_browserRepresentation];
     
     _browserRepresentation = browserRepresentation;
-    self.tabs = _browserRepresentation.tabs;
+    self.windows = _browserRepresentation.windows;
 
     [self browserWasUpdated:nil];
     
@@ -105,11 +106,35 @@
                                                  name:TTBrowserRepresentationBrowserWasUpdatedNotification
                                                object:_browserRepresentation];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(tabsWhereUpdated:)
-                                                 name:TTBrowserRepresentationTabsWhereUpdatedNotification
+                                             selector:@selector(windowsAndTabsWhereUpdated:)
+                                                 name:TTBrowserRepresentationWindowsWhereUpdatedNotification
                                                object:_browserRepresentation];
 }
 
+- (void)setWindows:(NSArray *)windows;
+{
+    windows = [windows sortedArrayUsingComparator:^NSComparisonResult(TTWindow *window1, TTWindow *window2) {
+        if (window1.focused != window2.focused) {
+            return (window1.focused ? NSOrderedAscending : NSOrderedDescending);
+        } else {
+            return [window1.identifier compare:window2.identifier]; 
+        }
+    }];
+    
+    [windows enumerateObjectsUsingBlock:^(TTWindow *window, NSUInteger idx, BOOL *stop) {
+        window.tabs = [window.tabs sortedArrayUsingComparator:^NSComparisonResult(TTTab *tab1, TTTab *tab2) {
+            if (tab1.index == tab2.index) {
+                return NSOrderedSame;
+            } else if (tab1.index < tab2.index) {
+                return NSOrderedDescending;
+            } else {
+                return NSOrderedAscending;
+            }
+        }];
+    }];
+
+    _windows = windows;
+}
 
 #pragma mark - View lifecycle
 
@@ -159,15 +184,37 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.windows.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.tabs.count;
+    return ((TTWindow *)[self.windows objectAtIndex:section]).tabs.count;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
+{
+    if (section == 0) {
+        return @"Front Window";
+    } else if (section == 1) {
+        return @"Second Window";
+    } else if (section == 2) {
+        return @"Third Window";
+    } else if (section == 3) {
+        return @"Fourth Window";
+    } else {
+        return [NSString stringWithFormat:@"%ith Window", section + 1];
+    }
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+{
+    if (self.windows.count == 1) {
+        return 0;
+    } else {
+        return 22;
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -180,7 +227,7 @@
     
     cell.marginRight = self.browserOverlap;
     
-    TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
+    TTTab *tab = [self tabForIndexPath:indexPath];
     
     cell.textLabel.text = tab.pageTitle;
     cell.detailTextLabel.text = (tab.siteTitle ? tab.siteTitle : tab.shortDomain);
@@ -234,7 +281,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TTTab *tab = [self.tabs objectAtIndex:indexPath.row];
+    TTTab *tab = [self tabForIndexPath:indexPath];
 
     if ([tab.URL.absoluteString isEqualToString:self.webViewController.URL.absoluteString]) {
         [self.slidingViewController resetTopView];
@@ -268,10 +315,16 @@
 
 - (void)refresh;
 {
-    [self loadTabs];
+    [self load];
 }
 
 #pragma mark Helper
+
+- (TTTab *)tabForIndexPath:(NSIndexPath *)indexPath;
+{
+    TTWindow *window = [self.windows objectAtIndex:indexPath.section];
+    return [window.tabs objectAtIndex:indexPath.row];
+}
 
 - (void)browserWasUpdated:(NSNotification *)notification;
 {
@@ -279,65 +332,53 @@
     self.title = self.browserRepresentation.browser.label;
 }
      
-- (void)tabsWhereUpdated:(NSNotification *)notification;
+- (void)windowsAndTabsWhereUpdated:(NSNotification *)notification;
 {
-    NSArray *oldTabs = self.tabs;
-    NSArray *newTabs = [self.browserRepresentation.tabs sortedArrayUsingComparator:^NSComparisonResult(TTTab *tab1, TTTab *tab2) {
-        if (tab1.windowFocused != tab2.windowFocused) {
-            return (tab1.windowFocused ? NSOrderedAscending : NSOrderedDescending);
-        } else if (![tab1.windowId isEqualToString:tab2.windowId]) {
-            return [tab1.windowId compare:tab2.windowId]; 
-        } else {
-            if (tab1.index == tab2.index) {
-                return NSOrderedSame;
-            } else if (tab1.index < tab2.index) {
-                return NSOrderedDescending;
-            } else {
-                return NSOrderedAscending;
-            }
-        }
-    }];
-    
+    NSArray *oldWindows = self.windows;
+    self.windows = self.browserRepresentation.windows;
+    NSArray *newWindows = self.windows;
+
     [self stopLoadingAnimation];
     
-    self.tabs = newTabs;
-    if (!oldTabs) {
-        [self.tableView reloadData];
-    } else {
-        [self.tableView beginUpdates]; {
-            NSIndexSet *removedIndexes = [oldTabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
-                return ![newTabs containsObject:tab];
-            }];
-            NSMutableArray *removedTabs = [[NSMutableArray alloc] initWithCapacity:removedIndexes.count];
-            [removedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-                [removedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
-            }];
-            [self.tableView deleteRowsAtIndexPaths:[removedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
-            
-            NSIndexSet *insertedIndexes = [newTabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
-                return ![oldTabs containsObject:tab];
-            }];
-            NSMutableArray *insertedTabs = [[NSMutableArray alloc] initWithCapacity:insertedIndexes.count];
-            [insertedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
-                [insertedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
-            }];
-            [self.tableView insertRowsAtIndexPaths:[insertedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
-            NSLog(@"updates: tabsDeleted: %i, tabsInserted: %i", removedTabs.count, insertedTabs.count);
-        } [self.tableView endUpdates];
-    }
-    
-    __block NSIndexPath *selectedRow = nil;
-    
-    [self.tabs enumerateObjectsUsingBlock:^(TTTab *tab, NSUInteger idx, BOOL *stop) {
-        if (tab.selected) {
-            selectedRow = [NSIndexPath indexPathForRow:idx inSection:0];
-            *stop = YES;
-        }
-    }];
-    
-    if (selectedRow) {
-        [self.tableView selectRowAtIndexPath:selectedRow animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-    }
+    [self.tableView reloadData];
+//    
+//    if (!oldTabs) {
+//        [self.tableView reloadData];
+//    } else {
+//        [self.tableView beginUpdates]; {
+//            NSIndexSet *removedIndexes = [oldTabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+//                return ![newTabs containsObject:tab];
+//            }];
+//            NSMutableArray *removedTabs = [[NSMutableArray alloc] initWithCapacity:removedIndexes.count];
+//            [removedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//                [removedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+//            }];
+//            [self.tableView deleteRowsAtIndexPaths:[removedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
+//            
+//            NSIndexSet *insertedIndexes = [newTabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+//                return ![oldTabs containsObject:tab];
+//            }];
+//            NSMutableArray *insertedTabs = [[NSMutableArray alloc] initWithCapacity:insertedIndexes.count];
+//            [insertedIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+//                [insertedTabs addObject:[NSIndexPath indexPathForRow:idx inSection:0]];
+//            }];
+//            [self.tableView insertRowsAtIndexPaths:[insertedTabs copy] withRowAnimation:UITableViewRowAnimationMiddle];
+//            NSLog(@"updates: tabsDeleted: %i, tabsInserted: %i", removedTabs.count, insertedTabs.count);
+//        } [self.tableView endUpdates];
+//    }
+//    
+//    __block NSIndexPath *selectedRow = nil;
+//    
+//    [self.tabs enumerateObjectsUsingBlock:^(TTTab *tab, NSUInteger idx, BOOL *stop) {
+//        if (tab.selected) {
+//            selectedRow = [NSIndexPath indexPathForRow:idx inSection:0];
+//            *stop = YES;
+//        }
+//    }];
+//    
+//    if (selectedRow) {
+//        [self.tableView selectRowAtIndexPath:selectedRow animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//    }
 }
      
 @end

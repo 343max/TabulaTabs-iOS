@@ -24,6 +24,6 @@
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)claimClient:(NSString *)claimingPassword finalPassword:(NSString *)finalPassword callback:(void (^)(BOOL success, id response))callback;
-- (void)loadTabs:(void(^)(NSArray* tabs, id response))callback;
+- (void)loadWindowsAndTabs:(void(^)(NSArray *windows, id response))callback;
 
 @end

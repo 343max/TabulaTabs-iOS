@@ -13,6 +13,7 @@
 
 #import "TTClient.h"
 #import "TTTab.h"
+#import "TTWindow.h"
 #import "TTBrowser.h"
 #import "TTBrowserController.h"
 
@@ -24,13 +25,13 @@ NSString * const TTBrowserRepresentationClientAccessWasRevokedNotification = @"T
 
 NSString * const TTBrowserRepresentationBrowserWasUpdatedNotification = @"TTBrowserRepresentationBrowserWasUpdatedNotification";
 
-NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrowserRepresentationTabsWhereUpdatedNotification";
+NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBrowserRepresentationWindowsWhereUpdatedNotification";
 
 
 @interface TTBrowserRepresentation ()
 
 @property (strong) TTBrowser *browser;
-@property (strong, nonatomic) NSArray *tabs;
+@property (strong, nonatomic) NSArray *windows;
 @property (strong, nonatomic, readonly) NSString *archiveFilePath;
 
 - (void)saveToDisk;
@@ -40,13 +41,13 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
 
 @implementation TTBrowserRepresentation
 
-@synthesize client = _client, browser = _browser, tabs = _tabs;
+@synthesize client = _client, browser = _browser, windows = _windows;
 @synthesize tabulatabsURL = _tabulatabsURL;
 @synthesize archiveFilePath = _archiveFilePath;
 
 - (void)setClient:(TTClient *)client;
 {
-    self.tabs = nil;
+    self.windows = nil;
     self.browser = nil;
     
     _client.connectionDidReceiveAuthentificationChallenge = nil;
@@ -63,14 +64,14 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
         NSDictionary *archivedData = [NSDictionary dictionaryWithContentsOfFile:self.archiveFilePath];
         
         if (archivedData) {
-            NSArray *archivedTabs = [archivedData objectForKey:@"tabs"];
-            NSMutableArray *tabs = [NSMutableArray arrayWithCapacity:archivedTabs.count];
+            NSArray *archivedWindows = [archivedData objectForKey:@"windows"];
+            NSMutableArray *windows = [NSMutableArray arrayWithCapacity:archivedWindows.count];
             
-            [archivedTabs enumerateObjectsUsingBlock:^(NSDictionary *tabDict, NSUInteger idx, BOOL *stop) {
-                TTTab *tab = [[TTTab alloc] initWithDictionary:tabDict];
-                [tabs addObject:tab];
+            [archivedWindows enumerateObjectsUsingBlock:^(NSDictionary *windowDict, NSUInteger idx, BOOL *stop) {
+                TTWindow *window = [[TTWindow alloc] initWithDictionary:windowDict];
+                [windows addObject:window];
             }];
-            self.tabs = tabs;
+            self.windows = [windows copy];
             
             self.browser = [[TTBrowser alloc] initWithDictionary:[archivedData objectForKey:@"browser"]];
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationBrowserWasUpdatedNotification
@@ -79,14 +80,14 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
         }
         
         [self loadBrowser];
-        [self loadTabs];
+        [self loadWindowsAndTabs];
     }
 }
 
-- (void)setTabs:(NSArray *)tabs;
+- (void)setWindows:(NSArray *)windows;
 {
-    _tabs = tabs;
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationTabsWhereUpdatedNotification
+    _windows = windows;
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationWindowsWhereUpdatedNotification
                                                         object:self
                                                       userInfo:nil];
 }
@@ -105,15 +106,15 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
 
 - (void)saveToDisk;
 {
-    NSMutableArray *encodedTabs = [NSMutableArray arrayWithCapacity:self.tabs.count];
+    NSMutableArray *encodedWindows = [NSMutableArray arrayWithCapacity:self.windows.count];
     
-    [self.tabs enumerateObjectsUsingBlock:^(TTTab *tab, NSUInteger idx, BOOL *stop) {
-        [encodedTabs addObject:tab.dictionary];
+    [self.windows enumerateObjectsUsingBlock:^(TTWindow *window, NSUInteger idx, BOOL *stop) {
+        [encodedWindows addObject:window.dictionary];
     }];
     
     NSDictionary *dataForArchive = [NSDictionary dictionaryWithObjectsAndKeys:
                                     self.browser.dictionary, @"browser",
-                                    encodedTabs, @"tabs", nil];
+                                    encodedWindows, @"window", nil];
     [dataForArchive writeToFile:self.archiveFilePath atomically:YES];
 }
 
@@ -152,7 +153,7 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
             [self loadBrowserCompletion:^(id response) {
                  [appDelegate.browserController addBrowser:self];
             }];
-            [self loadTabs];
+            [self loadWindowsAndTabs];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationClientWasUpdatedNotification object:self];
             [TestFlight passCheckpoint:@"registered a client"];
@@ -188,10 +189,10 @@ NSString * const TTBrowserRepresentationTabsWhereUpdatedNotification = @"TTBrows
     }];    
 }
 
-- (void)loadTabs;
+- (void)loadWindowsAndTabs;
 {
-    [self.client loadTabs:^(NSArray *loadedTabs, id response) {
-        self.tabs = loadedTabs;
+    [self.client loadWindowsAndTabs:^(NSArray *loadedWindows, id response) {
+        self.windows = loadedWindows;
         
         [self saveToDisk];
     }];
