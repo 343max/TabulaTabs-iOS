@@ -282,7 +282,21 @@
 - (void)tabsWhereUpdated:(NSNotification *)notification;
 {
     NSArray *oldTabs = self.tabs;
-    NSArray *newTabs = self.browserRepresentation.tabs;
+    NSArray *newTabs = [self.browserRepresentation.tabs sortedArrayUsingComparator:^NSComparisonResult(TTTab *tab1, TTTab *tab2) {
+        if (tab1.windowFocused != tab2.windowFocused) {
+            return (tab1.windowFocused ? NSOrderedAscending : NSOrderedDescending);
+        } else if (![tab1.windowId isEqualToString:tab2.windowId]) {
+            return [tab1.windowId compare:tab2.windowId]; 
+        } else {
+            if (tab1.index == tab2.index) {
+                return NSOrderedSame;
+            } else if (tab1.index < tab2.index) {
+                return NSOrderedDescending;
+            } else {
+                return NSOrderedAscending;
+            }
+        }
+    }];
     
     [self stopLoadingAnimation];
     
