@@ -16,6 +16,7 @@
 @property (assign) BOOL selected;
 @property (strong) NSURL *favIconURL;
 @property (strong) NSString *windowId;
+@property (assign) BOOL windowFocused;
 @property (assign) NSInteger index;
 @property (strong) NSArray *colorPalette;
 @property (strong) NSString *pageTitle;

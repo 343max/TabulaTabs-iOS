@@ -25,6 +25,7 @@
 @synthesize selected = _selected;
 @synthesize favIconURL = _favIconURL;
 @synthesize windowId = _windowId;
+@synthesize windowFocused = _windowFocused;
 @synthesize index = _index;
 @synthesize colorPalette = _colorPalette;
 @synthesize pageTitle = _pageTitle;
@@ -54,6 +55,13 @@
         } else {
             NSAssert(NO, @"Dont know how to handle this windowId");
         }
+        
+        if ([[dictionary objectForKey:@"windowFocused"] respondsToSelector:@selector(boolValue)]) {
+            self.windowFocused = [[dictionary objectForKey:@"windowFocused"] boolValue];
+        } else {
+            self.windowFocused = NO;
+        }
+        
         self.index = [[dictionary objectForKey:@"index"] integerValue];
         self.pageTitle = [dictionary objectForKey:@"pageTitle"];
         self.shortDomain = [dictionary objectForKey:@"shortDomain"];
@@ -97,6 +105,7 @@
                [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString] &&
                [self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString] &&
                [self.windowId isEqualToString:otherTab.windowId] &&
+               self.windowFocused == otherTab.windowFocused &&
                self.index == otherTab.index &&
                [self.pageTitle isEqualToString:otherTab.pageTitle] &&
                [self.shortDomain isEqualToString:otherTab.shortDomain] &&
@@ -121,6 +130,7 @@
             [NSNumber numberWithBool:self.selected], @"selected",
             self.favIconURL.absoluteString, @"favIconURL",
             self.windowId, @"windowId",
+            [NSNumber numberWithBool:self.windowFocused], @"windowFocused",
             [NSNumber numberWithInteger:self.index], @"index",
             colorPalette, @"colorPalette",
             self.pageTitle, @"pageTitle",
