@@ -28,6 +28,9 @@
 @synthesize imageSize = _imageSize;
 @synthesize favIconSize = _favIconSize;
 
+@synthesize thumbnailImageURL;
+@synthesize favIconURL;
+
 @synthesize backgroundColorView = _backgroundColorView, pageColorStripeView = _pageColorStripeView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

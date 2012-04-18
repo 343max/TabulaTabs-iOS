@@ -16,4 +16,7 @@
 @property (assign, nonatomic, readwrite) CGSize favIconSize;
 @property (assign) CGFloat marginRight;
 
+@property (strong) NSURL *thumbnailImageURL;
+@property (strong) NSURL *favIconURL;
+
 @end

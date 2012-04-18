@@ -246,6 +246,8 @@
     if ([tab.URL.host isEqualToString:@"maps.google.com"]) {
         thumbnailImageURL = [tab.URL mapImageURLForSize:cell.imageSize scale:0];
     }
+    cell.thumbnailImageURL = thumbnailImageURL;
+    
     if (thumbnailImageURL) {
         CGSize imageSize = cell.imageSize;
         [[MWHTTPImageCache defaultCache] loadImage:thumbnailImageURL
@@ -255,10 +257,17 @@
                                        return [image scaledImageOfMinimumSize:imageSize];
                                    } 
                                    completionBlock:^(UIImage *image) {
-                                       cell.imageView.image = image;
-                                       [cell setNeedsLayout];
+                                       
+                                       if ([cell.thumbnailImageURL isEqual:thumbnailImageURL]) {
+                                           cell.imageView.image = image;
+                                           [cell setNeedsLayout];
+                                       }
+
                                    }];
     }
+    
+    NSURL *favIconURL = tab.favIconURL;
+    cell.favIconURL = favIconURL;
     
     cell.faviconView.image = nil;
     if (tab.favIconURL) {
@@ -270,9 +279,13 @@
                                        return [image scaledImageOfMinimumSize:imageSize];
                                    } 
                                    completionBlock:^(UIImage *image) {
-                                       cell.faviconView.image = image;
+                                       if ([cell.favIconURL isEqual:favIconURL]) {
+                                           cell.faviconView.image = image;
+                                       }
                                    }];
     }
+    
+    [cell setNeedsLayout];
     
     return cell;
 }
