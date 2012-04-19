@@ -13,6 +13,7 @@
 
 @interface TTTabTableViewCell ()
 
+@property (strong) UIImageView *imageView;
 @property (strong) UIView *backgroundColorView;
 @property (strong) UIView *pageColorStripeView;
 
@@ -23,7 +24,7 @@
 
 @synthesize marginRight = _marginRight;
 @synthesize faviconView = _faviconView;
-@synthesize imageView;
+@synthesize imageView = __imageView;
 @synthesize pageColor = _pageColor;
 @synthesize imageSize = _imageSize;
 @synthesize favIconSize = _favIconSize;
@@ -41,12 +42,12 @@
         self.backgroundColorView.backgroundColor = [UIColor whiteColor];
         [self insertSubview:self.backgroundColorView atIndex:0];
         
-        imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        imageView.contentMode = UIViewContentModeScaleToFill;
-        [self insertSubview:imageView aboveSubview:self.backgroundColorView];
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
+        [self insertSubview:self.imageView aboveSubview:self.backgroundColorView];
         
         self.pageColorStripeView = [[UIView alloc] init];
-        [self insertSubview:self.pageColorStripeView aboveSubview:imageView];
+        [self insertSubview:self.pageColorStripeView aboveSubview:self.imageView];
         
         self.marginRight = 0.0;
 
@@ -66,7 +67,14 @@
 {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    self.imageView.alpha = (selected ? 0.7 : 1.0);
+}
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated;
+{
+    [super setHighlighted:highlighted animated:animated];
+    
+    self.imageView.alpha = (highlighted ? 0.7 : 1.0);
 }
 
 - (void)setPageColor:(UIColor *)pageColor;
