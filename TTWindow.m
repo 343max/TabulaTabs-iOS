@@ -40,6 +40,15 @@
     return self;
 }
 
+- (BOOL)isEqual:(TTWindow *)object;
+{
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    } else {
+        return [self.identifier isEqualToString:object.identifier];
+    }
+}
+
 - (NSDictionary *)dictionary;
 {
     NSMutableArray *tabs = [[NSMutableArray alloc] initWithCapacity:self.tabs.count];

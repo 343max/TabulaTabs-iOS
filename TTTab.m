@@ -100,16 +100,15 @@
     if (![otherTab isKindOfClass:[TTTab class]]) {
         return NO;
     } else {
-        return [self.identifier isEqualToString:otherTab.identifier] &&
-               [self.title isEqualToString:otherTab.title] &&
+        return self.index == otherTab.index &&
+               [self.identifier isEqualToString:otherTab.identifier] &&
                [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString] &&
                [self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString] &&
                [self.windowId isEqualToString:otherTab.windowId] &&
-               self.windowFocused == otherTab.windowFocused &&
-               self.index == otherTab.index &&
-               [self.pageTitle isEqualToString:otherTab.pageTitle] &&
-               [self.shortDomain isEqualToString:otherTab.shortDomain] &&
-               [self.siteTitle isEqualToString:otherTab.siteTitle] &&
+               [self.title compare:otherTab.title] == NSOrderedSame &&
+               [self.pageTitle compare:otherTab.pageTitle] == NSOrderedSame &&
+               [self.shortDomain compare:otherTab.shortDomain] == NSOrderedSame &&
+               [self.siteTitle compare:otherTab.siteTitle] == NSOrderedSame &&
                [self.pageThumbnailURL.absoluteString isEqualToString:otherTab.pageThumbnailURL.absoluteString];
     }
 }
