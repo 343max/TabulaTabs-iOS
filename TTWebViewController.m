@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
 #import <QuartzCore/QuartzCore.h>
 
 #import "MWSlidingViewController.h"
@@ -130,7 +132,9 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 {
     [super viewDidLoad];
     
+#if CONFIGURATION_AdHoc
     [TestFlight passCheckpoint:@"opened a tab"];
+#endif
     
     self.toggleTabListButton = [[TTFlippingButton alloc] initWithImage:[UIImage imageNamed:@"BrowserBackToList"]
                                                            shadowImage:[UIImage imageNamed:@"BrowserBackToListShadow"]];

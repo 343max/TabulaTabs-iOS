@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
 
 #import "TTSettingsViewController.h"
 
@@ -26,7 +28,9 @@
     self = [super init];
     
     if (self) {
+#if CONFIGURATION_AdHoc
         [TestFlight passCheckpoint:@"Open Settings"];
+#endif
         self.delegate = self;
         
         TTSettingsViewController *settingsViewController = [[TTSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];

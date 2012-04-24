@@ -12,7 +12,9 @@
 #import "TTActionSheetButton.h"
 #import "NSURL+TabulaTabs.h"
 #import <Twitter/TWTweetComposeViewController.h>
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
 
 @interface TTWebViewActionViewController ()
 
@@ -58,7 +60,9 @@
 {
     [super viewDidLoad];
 
+#if CONFIGURATION_AdHoc
     [TestFlight passCheckpoint:@"open action menu"];
+#endif
     
     self.view.backgroundColor = [UIColor clearColor];
     

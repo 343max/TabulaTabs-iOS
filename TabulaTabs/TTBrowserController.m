@@ -8,7 +8,11 @@
 
 #import "NSData-hex.h"
 #import "SSKeychain.h"
+
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
+
 #import "NSURL+TabulaTabs.h"
 
 #import "TTAppDelegate.h"
@@ -95,7 +99,9 @@ NSString * const TTBrowserControllerBrowserWillBeRemovedNotification = @"TTBrows
 {
     TTBrowserRepresentation *existingBrowser = [self browserWithBrowserIdentifier:browserReprensentation.browser.identifier];
     if (existingBrowser != nil) {
+#if CONFIGURATION_AdHoc
         [TestFlight passCheckpoint:@"Tried to register a browser twice"];
+#endif
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Browser is allready there"
                                                         message:@"This browser is allready in your browser list, you don't need to add it twice."
                                                        delegate:nil cancelButtonTitle:@"OK"

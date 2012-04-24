@@ -6,7 +6,9 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
 
 #import "NSURL+TabulaTabs.h"
 #import "TTAppDelegate.h"
@@ -156,7 +158,9 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
             [self loadWindowsAndTabs];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationClientWasUpdatedNotification object:self];
+#if CONFIGURATION_AdHoc
             [TestFlight passCheckpoint:@"registered a client"];
+#endif
         } else {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not add browser"
                                                                 message:@"This browser could not be added because the authentication code is to old or allready in use. Please try again with a fresh code."

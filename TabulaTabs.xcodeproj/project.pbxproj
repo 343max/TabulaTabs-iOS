@@ -22,7 +22,6 @@
 		5000E1941533559100100FB1 /* Clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1921533559100100FB1 /* Clipboard.png */; };
 		5000E1951533559100100FB1 /* Clipboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1931533559100100FB1 /* Clipboard@2x.png */; };
 		5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000E1971533661200100FB1 /* TTActionSheetButton.m */; };
-		5016BA8D151E05EB00AAA198 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA89151E05EB00AAA198 /* libTestFlight.a */; };
 		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
 		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
 		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
@@ -333,7 +332,6 @@
 				50AE695114E8606C00788808 /* Foundation.framework in Frameworks */,
 				50AE695314E8606C00788808 /* CoreGraphics.framework in Frameworks */,
 				50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */,
-				5016BA8D151E05EB00AAA198 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1036,6 +1034,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Max Winde (MR4S8XBL42)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"CONFIGURATION_AdHoc=1",
+				);
 				HEADER_SEARCH_PATHS = ./sskeychain/;
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1045,9 +1047,10 @@
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
+				OTHER_LDFLAGS = "-lTestFlight";
 				PRODUCT_NAME = "$(TARGET_NAME) α";
-				PROVISIONING_PROFILE = "4DCCF405-93CD-474A-BCAC-6BC8337982A5";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4DCCF405-93CD-474A-BCAC-6BC8337982A5";
+				PROVISIONING_PROFILE = "7B5686A6-8CA2-481D-8EE6-F1DC3B9C1E07";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B5686A6-8CA2-481D-8EE6-F1DC3B9C1E07";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
 				TT_URL_SCHEME = "tabulatabs-adhoc";
 				WRAPPER_EXTENSION = app;
@@ -1132,6 +1135,10 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"CONFIGURATION_Debug=1",
+				);
 				HEADER_SEARCH_PATHS = ./sskeychain/;
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1153,6 +1160,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "CONFIGURATION_Release=1";
 				HEADER_SEARCH_PATHS = ./sskeychain/;
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;

@@ -8,7 +8,9 @@
 
 #import "TTDevelopmentHelpers.h"
 
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
 #import "SSKeychain.h"
 #import "MWSlidingViewController.h"
 
@@ -59,8 +61,10 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     
     _URLScheme =  [[[NSBundle mainBundle] infoDictionary] valueForKey:@"MainURLScheme"];
     
+#if CONFIGURATION_AdHoc
     [TestFlight takeOff:@"08b2e6be43c442789736edf1fecb1592_MTEwMjYyMDEyLTAzLTI0IDA5OjM1OjM0LjgxMDc5Ng"];
-
+#endif
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

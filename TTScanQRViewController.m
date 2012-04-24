@@ -8,7 +8,9 @@
 
 #import "NSURL+TabulaTabs.h"
 #import "MTStatusBarOverlay.h"
+#if CONFIGURATION_AdHoc
 #import "TestFlight.h"
+#endif
 
 #import "TTScanQRViewController.h"
 
@@ -60,7 +62,9 @@
     
     [self.view addSubview:self.readerView];
     
+    #if CONFIGURATION_AdHoc
     [TestFlight passCheckpoint:@"opened QR Code scanner"];
+    #endif
 }
 
 - (void)viewDidAppear:(BOOL)animated;
@@ -98,13 +102,17 @@
     if ([url.scheme isEqualToString:@"tabulatabs"]) {
         NSLog(@"scanned URL: %@", url.absoluteString);
         
+#if CONFIGURATION_AdHoc
         [TestFlight passCheckpoint:@"scanned an QR code"];
+#endif
         [self dismissViewControllerAnimated:YES completion:^{
             [[UIApplication sharedApplication] openURL:[url buildalizedURL]];
         }];
     } else {
         [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"Invalid QR Code" duration:3.0 animated:YES];
+#if CONFIGURATION_AdHoc
         [TestFlight passCheckpoint:@"scanned an invalid QR code"];
+#endif
     }
 }
 
