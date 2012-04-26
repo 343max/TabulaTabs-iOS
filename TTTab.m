@@ -103,13 +103,15 @@
         return self.index == otherTab.index &&
                [self.identifier isEqualToString:otherTab.identifier] &&
                [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString] &&
-               [self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString] &&
+               ([self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString]
+                || (self.favIconURL == nil && otherTab.favIconURL == nil)) &&
                [self.windowId isEqualToString:otherTab.windowId] &&
                [self.title compare:otherTab.title] == NSOrderedSame &&
                [self.pageTitle compare:otherTab.pageTitle] == NSOrderedSame &&
                [self.shortDomain compare:otherTab.shortDomain] == NSOrderedSame &&
                [self.siteTitle compare:otherTab.siteTitle] == NSOrderedSame &&
-               [self.pageThumbnailURL.absoluteString isEqualToString:otherTab.pageThumbnailURL.absoluteString];
+               ([self.pageThumbnailURL.absoluteString isEqualToString:otherTab.pageThumbnailURL.absoluteString]
+                || (self.pageThumbnailURL == nil && otherTab.pageThumbnailURL == nil));
     }
 }
 
