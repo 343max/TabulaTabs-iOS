@@ -179,9 +179,6 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     [self.view addSubview:self.gestureView];
     
     self.toolbar = [[UIToolbar alloc] init];
-    [self.toolbar setBackgroundImage:[UIImage imageNamed:@"BrowserToolbar"]
-                  forToolbarPosition:UIToolbarPositionAny
-                          barMetrics:UIBarMetricsDefault];
     [self.view addSubview:self.toolbar];
 
     self.toolbar.items = [NSArray arrayWithObjects:

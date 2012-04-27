@@ -47,8 +47,6 @@
 		504F71FD1527642D008B4F7A /* BrowserReloadShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71ED1527642D008B4F7A /* BrowserReloadShadow@2x.png */; };
 		504F71FE1527642D008B4F7A /* BrowserShare.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EE1527642D008B4F7A /* BrowserShare.png */; };
 		504F71FF1527642D008B4F7A /* BrowserShare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71EF1527642D008B4F7A /* BrowserShare@2x.png */; };
-		504F72001527642D008B4F7A /* BrowserToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71F01527642D008B4F7A /* BrowserToolbar.png */; };
-		504F72011527642D008B4F7A /* BrowserToolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71F11527642D008B4F7A /* BrowserToolbar@2x.png */; };
 		504F72041527646B008B4F7A /* BrowserBackToListShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F72021527646B008B4F7A /* BrowserBackToListShadow.png */; };
 		504F72051527646B008B4F7A /* BrowserBackToListShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */; };
 		504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F724B152789BC008B4F7A /* TTFlippingButton.m */; };
@@ -61,8 +59,6 @@
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
-		5090704E1528B928006D9DE4 /* TabListNavbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090704C1528B928006D9DE4 /* TabListNavbar.png */; };
-		5090704F1528B928006D9DE4 /* TabListNavbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */; };
 		509070521528B969006D9DE4 /* TabListSettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070501528B969006D9DE4 /* TabListSettingsButton.png */; };
 		509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */; };
 		509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070541528BAF8006D9DE4 /* TabListBackground.png */; };
@@ -188,8 +184,6 @@
 		504F71ED1527642D008B4F7A /* BrowserReloadShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserReloadShadow@2x.png"; sourceTree = "<group>"; };
 		504F71EE1527642D008B4F7A /* BrowserShare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserShare.png; sourceTree = "<group>"; };
 		504F71EF1527642D008B4F7A /* BrowserShare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserShare@2x.png"; sourceTree = "<group>"; };
-		504F71F01527642D008B4F7A /* BrowserToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserToolbar.png; sourceTree = "<group>"; };
-		504F71F11527642D008B4F7A /* BrowserToolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserToolbar@2x.png"; sourceTree = "<group>"; };
 		504F72021527646B008B4F7A /* BrowserBackToListShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserBackToListShadow.png; sourceTree = "<group>"; };
 		504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserBackToListShadow@2x.png"; sourceTree = "<group>"; };
 		504F724A152789BC008B4F7A /* TTFlippingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFlippingButton.h; sourceTree = "<group>"; };
@@ -211,8 +205,6 @@
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5090704C1528B928006D9DE4 /* TabListNavbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListNavbar.png; sourceTree = "<group>"; };
-		5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListNavbar@2x.png"; sourceTree = "<group>"; };
 		509070501528B969006D9DE4 /* TabListSettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListSettingsButton.png; sourceTree = "<group>"; };
 		509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListSettingsButton@2x.png"; sourceTree = "<group>"; };
 		509070541528BAF8006D9DE4 /* TabListBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBackground.png; sourceTree = "<group>"; };
@@ -417,8 +409,6 @@
 				504F71ED1527642D008B4F7A /* BrowserReloadShadow@2x.png */,
 				504F71EE1527642D008B4F7A /* BrowserShare.png */,
 				504F71EF1527642D008B4F7A /* BrowserShare@2x.png */,
-				504F71F01527642D008B4F7A /* BrowserToolbar.png */,
-				504F71F11527642D008B4F7A /* BrowserToolbar@2x.png */,
 			);
 			name = BrowserToolbar;
 			sourceTree = "<group>";
@@ -441,8 +431,6 @@
 				50ECD791154A9B6F00CCC302 /* TableBottomShadow@2x.png */,
 				509070501528B969006D9DE4 /* TabListSettingsButton.png */,
 				509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */,
-				5090704C1528B928006D9DE4 /* TabListNavbar.png */,
-				5090704D1528B928006D9DE4 /* TabListNavbar@2x.png */,
 				509070541528BAF8006D9DE4 /* TabListBackground.png */,
 				509070551528BAF8006D9DE4 /* TabListBackground@2x.png */,
 				509070581528C326006D9DE4 /* TabListStitches.png */,
@@ -844,12 +832,8 @@
 				504F71FD1527642D008B4F7A /* BrowserReloadShadow@2x.png in Resources */,
 				504F71FE1527642D008B4F7A /* BrowserShare.png in Resources */,
 				504F71FF1527642D008B4F7A /* BrowserShare@2x.png in Resources */,
-				504F72001527642D008B4F7A /* BrowserToolbar.png in Resources */,
-				504F72011527642D008B4F7A /* BrowserToolbar@2x.png in Resources */,
 				504F72041527646B008B4F7A /* BrowserBackToListShadow.png in Resources */,
 				504F72051527646B008B4F7A /* BrowserBackToListShadow@2x.png in Resources */,
-				5090704E1528B928006D9DE4 /* TabListNavbar.png in Resources */,
-				5090704F1528B928006D9DE4 /* TabListNavbar@2x.png in Resources */,
 				509070521528B969006D9DE4 /* TabListSettingsButton.png in Resources */,
 				509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */,
 				509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */,

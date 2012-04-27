@@ -65,6 +65,10 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     [TestFlight takeOff:@"08b2e6be43c442789736edf1fecb1592_MTEwMjYyMDEyLTAzLTI0IDA5OjM1OjM0LjgxMDc5Ng"];
 #endif
     
+    UIColor *tintColor = [UIColor colorWithRed:0.238 green:0.319 blue:0.414 alpha:1.000];
+    [[UINavigationBar appearance] setTintColor:tintColor];
+    [[UIToolbar appearance] setTintColor:tintColor];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -203,7 +207,6 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     self.slidingViewController.anchorRightPeekAmount = TTAppDelegateWebBrowserPeekAmount;
 
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tablistViewController];
-    navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.slidingViewController.underLeftViewController = navigationController;
     self.slidingViewController.topViewController = nil;
 }

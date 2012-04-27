@@ -153,13 +153,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"TabListNavbar"] 
-                                                  forBarMetrics:UIBarMetricsDefault];
-    
-    UIView *stichesView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 44.0, 320, 5)];
-    stichesView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabListStitches"]];
-    [self.navigationController.view insertSubview:stichesView atIndex:0];
     
     UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     [settingsButton setImage:[UIImage imageNamed:@"TabListSettingsButton"]
