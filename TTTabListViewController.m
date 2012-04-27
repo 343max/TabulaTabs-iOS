@@ -154,6 +154,11 @@
 {
     [super viewDidLoad];
     
+    self.refreshLabel.textColor = [UIColor whiteColor];
+    [self.refreshArrow removeFromSuperview];
+    self.refreshArrow = nil;
+    self.refreshSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+    
     UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     [settingsButton setImage:[UIImage imageNamed:@"TabListSettingsButton"]
                     forState:UIControlStateNormal];
@@ -169,7 +174,8 @@
     self.tableView.rowHeight = 72;
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0 alpha:0.2];
     
-    UIImageView *tableFooterImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableBottomShadow"]];
+    
+    UIImageView *tableFooterImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabListBottomShadow"]];
     tableFooterImageView.frame = CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, 37.0);
     tableFooterImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
@@ -178,6 +184,17 @@
     [tableFooterView addSubview:tableFooterImageView];
     
     self.tableView.tableFooterView = tableFooterView;
+    
+    
+    UIImageView *tableHeaderImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabListTopShadow"]];
+    tableHeaderImageView.frame = CGRectMake(0.0, -37.0, self.tableView.bounds.size.width, 37.0);
+    tableHeaderImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, 0.0)];
+    tableHeaderView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [tableHeaderView addSubview:tableHeaderImageView];
+    
+    self.tableView.tableHeaderView = tableHeaderView;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -368,56 +385,51 @@
     [self stopLoadingAnimation];
     
     if (!oldWindows) {
-        [self.tableView reloadData];
-    } else {
-        [self.tableView beginUpdates]; {
-            
-            NSIndexSet *deletedSectionIndexes = [oldWindows indexesOfObjectsPassingTest:^BOOL(TTWindow *window, NSUInteger idx, BOOL *stop) {
-                return ![newWindows containsObject:window];
-            }];
-            [self.tableView deleteSections:deletedSectionIndexes withRowAnimation:UITableViewRowAnimationTop];
-            
-            NSIndexSet *insertedSectionIndexes = [newWindows indexesOfObjectsPassingTest:^BOOL(TTWindow *window, NSUInteger idx, BOOL *stop) {
-                return ![oldWindows containsObject:window];
-            }];
-            [self.tableView insertSections:insertedSectionIndexes withRowAnimation:UITableViewRowAnimationTop];
-            
-            NSLog(@"sections: before: %i, after: %i, inserted: %i, deleted: %i", oldWindows.count, newWindows.count, insertedSectionIndexes.count, deletedSectionIndexes.count);
-            
-            
-            NSMutableArray *deletedRows = [[NSMutableArray alloc] init];
-            NSMutableArray *insertedRows = [[NSMutableArray alloc] init];
-            
-            [newWindows enumerateObjectsUsingBlock:^(TTWindow *newWindow, NSUInteger newSectionIndex, BOOL *stop) {
-                if (![oldWindows containsObject:newWindow]) {
-                    return;
-                }
-                
-                NSUInteger oldSectionIndex = [oldWindows indexOfObject:newWindow];
-                TTWindow *oldWindow = [oldWindows objectAtIndex:oldSectionIndex];
-                
-                NSIndexSet *deletedRowIndexes = [oldWindow.tabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
-                    return ![newWindow.tabs containsObject:tab];
-                }];
-                [deletedRowIndexes enumerateIndexesUsingBlock:^(NSUInteger rowIndex, BOOL *stop) {
-                    [deletedRows addObject:[NSIndexPath indexPathForRow:rowIndex inSection:oldSectionIndex]];
-                }];
-                
-                NSIndexSet *insertedRowIndexes = [newWindow.tabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
-                    return ![oldWindow.tabs containsObject:tab];
-                }];
-                [insertedRowIndexes enumerateIndexesUsingBlock:^(NSUInteger rowIndex, BOOL *stop) {
-                    [insertedRows addObject:[NSIndexPath indexPathForRow:rowIndex inSection:newSectionIndex]];
-                }];
-
-                NSLog(@"rows in section %i: before: %i, after: %i, inserted: %i, deleted: %i", newSectionIndex, oldWindow.tabs.count, newWindow.tabs.count, insertedRowIndexes.count, deletedRowIndexes.count);
-            }];
-            
-            [self.tableView deleteRowsAtIndexPaths:deletedRows withRowAnimation:UITableViewRowAnimationMiddle];
-            [self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationMiddle];
-            
-        } [self.tableView endUpdates];
+        oldWindows = [NSArray array];
     }
+    
+    [self.tableView beginUpdates]; {
+        
+        NSIndexSet *deletedSectionIndexes = [oldWindows indexesOfObjectsPassingTest:^BOOL(TTWindow *window, NSUInteger idx, BOOL *stop) {
+            return ![newWindows containsObject:window];
+        }];
+        [self.tableView deleteSections:deletedSectionIndexes withRowAnimation:UITableViewRowAnimationTop];
+        
+        NSIndexSet *insertedSectionIndexes = [newWindows indexesOfObjectsPassingTest:^BOOL(TTWindow *window, NSUInteger idx, BOOL *stop) {
+            return ![oldWindows containsObject:window];
+        }];
+        [self.tableView insertSections:insertedSectionIndexes withRowAnimation:UITableViewRowAnimationTop];
+                
+        NSMutableArray *deletedRows = [[NSMutableArray alloc] init];
+        NSMutableArray *insertedRows = [[NSMutableArray alloc] init];
+        
+        [newWindows enumerateObjectsUsingBlock:^(TTWindow *newWindow, NSUInteger newSectionIndex, BOOL *stop) {
+            if (![oldWindows containsObject:newWindow]) {
+                return;
+            }
+            
+            NSUInteger oldSectionIndex = [oldWindows indexOfObject:newWindow];
+            TTWindow *oldWindow = [oldWindows objectAtIndex:oldSectionIndex];
+            
+            NSIndexSet *deletedRowIndexes = [oldWindow.tabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+                return ![newWindow.tabs containsObject:tab];
+            }];
+            [deletedRowIndexes enumerateIndexesUsingBlock:^(NSUInteger rowIndex, BOOL *stop) {
+                [deletedRows addObject:[NSIndexPath indexPathForRow:rowIndex inSection:oldSectionIndex]];
+            }];
+            
+            NSIndexSet *insertedRowIndexes = [newWindow.tabs indexesOfObjectsPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+                return ![oldWindow.tabs containsObject:tab];
+            }];
+            [insertedRowIndexes enumerateIndexesUsingBlock:^(NSUInteger rowIndex, BOOL *stop) {
+                [insertedRows addObject:[NSIndexPath indexPathForRow:rowIndex inSection:newSectionIndex]];
+            }];
+        }];
+        
+        [self.tableView deleteRowsAtIndexPaths:deletedRows withRowAnimation:UITableViewRowAnimationMiddle];
+        [self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationMiddle];
+        
+    } [self.tableView endUpdates];
 }
      
 @end
