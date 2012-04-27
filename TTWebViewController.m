@@ -375,7 +375,6 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     
     self.backButton.enabled = self.webView.canGoBack;
     self.forwardButton.enabled = self.webView.canGoForward;
-    self.actionButton.enabled = YES;
     self.reloadButton.spinning = NO;
 }
 
@@ -386,7 +385,6 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerStartedLoadingNotification object:self];
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
-    self.actionButton.enabled = NO;
     self.reloadButton.spinning = YES;
 }
 
