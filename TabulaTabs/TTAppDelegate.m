@@ -157,6 +157,12 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     }
 }
 
+- (void)applicationWillEnterForeground:(UIApplication *)application;
+{
+    [self.currentBrowser loadBrowser];
+    [self.currentBrowser loadWindowsAndTabs];
+}
+
 
 #pragma mark Accessors
 
