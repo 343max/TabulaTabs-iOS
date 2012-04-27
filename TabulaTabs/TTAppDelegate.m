@@ -70,7 +70,6 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     [[UIToolbar appearance] setTintColor:tintColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     self.networkConnectionsInProgress = 0;
