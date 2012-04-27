@@ -167,17 +167,7 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:self.webView];
     [self.webView loadRequest:[NSURLRequest requestWithURL:_URL]];
-    
-    self.gestureView = [[UIView alloc] initWithFrame:CGRectZero];
-    self.gestureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.gestureView.userInteractionEnabled = YES;
-    [self.gestureView addGestureRecognizer:self.slidingViewController.panGesture];
-    
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.slidingViewController
-                                                                                           action:@selector(resetTopView)];
-    [self.gestureView addGestureRecognizer:tapGestureRecognizer];
-    [self.view addSubview:self.gestureView];
-    
+        
     self.toolbar = [[UIToolbar alloc] init];
     [self.view addSubview:self.toolbar];
 
@@ -217,6 +207,16 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.navigationBar = [[UINavigationBar alloc] init];
     self.navigationBar.items = [NSArray arrayWithObject:navigationItem];
     [self.view addSubview:self.navigationBar];
+
+    self.gestureView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.gestureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.gestureView.userInteractionEnabled = YES;
+    [self.gestureView addGestureRecognizer:self.slidingViewController.panGesture];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.slidingViewController
+                                                                                           action:@selector(resetTopView)];
+    [self.gestureView addGestureRecognizer:tapGestureRecognizer];
+    [self.view addSubview:self.gestureView];
 }
 
 - (void)viewDidBecomeActive:(NSNotification *)notification;
@@ -283,10 +283,15 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     contentOffset.y += fminf(0, oldContentInset.top - newContentInset.top);
     self.webView.scrollView.contentOffset = contentOffset;
     
+    CGRect gestureViewFrame;
+    
     if (!self.slidingViewController.underLeftShowing) {
-        webViewFrame.size.width = 10.0;
+        gestureViewFrame = webViewFrame;
+        gestureViewFrame.size.width = 10.0;
+    } else {
+        gestureViewFrame = self.view.bounds;
     }
-    self.gestureView.frame = webViewFrame;
+    self.gestureView.frame = gestureViewFrame;
     
     [self layoutNavBar];
 }
