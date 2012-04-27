@@ -179,9 +179,10 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 
 - (void)loadBrowserCompletion:(void (^)(id))callback;
 {
-    self.browser = [[TTBrowser alloc] initWithEncryption:self.client.encryption];
+    TTBrowser *browser = [[TTBrowser alloc] initWithEncryption:self.client.encryption];
     
-    [self.browser load:self.client.username password:self.client.password callback:^(id response) {
+    [browser load:self.client.username password:self.client.password callback:^(id response) {
+        self.browser = browser;
         [self saveToDisk];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationBrowserWasUpdatedNotification
