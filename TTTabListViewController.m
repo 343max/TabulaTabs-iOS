@@ -156,12 +156,7 @@
     
     self.navigationController.view.layer.cornerRadius = 8.0;
     self.navigationController.view.clipsToBounds = YES;
-    
-    self.refreshLabel.textColor = [UIColor whiteColor];
-    [self.refreshArrow removeFromSuperview];
-    self.refreshArrow = nil;
-    self.refreshSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-    
+        
     UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     [settingsButton setImage:[UIImage imageNamed:@"TabListSettingsButton"]
                     forState:UIControlStateNormal];
@@ -201,6 +196,21 @@
     UIView *tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, 0.0)];
     tableHeaderView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [tableHeaderView addSubview:tableHeaderImageView];
+
+    self.refreshLabel.textColor = [UIColor whiteColor];
+    self.refreshLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+    CGRect refreshLabelFrame = self.refreshLabel.frame;
+    refreshLabelFrame.origin.y -= 50;
+    self.refreshLabel.frame = refreshLabelFrame;
+    
+    [tableHeaderView addSubview:self.refreshLabel];
+    [self.refreshArrow removeFromSuperview];
+    self.refreshArrow = nil;
+    self.refreshSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+    CGRect refreshSpinnerFrame = self.refreshSpinner.frame;
+    refreshSpinnerFrame.origin.y -= 50;
+    self.refreshSpinner.frame = refreshSpinnerFrame;
+    [tableHeaderView addSubview:self.refreshSpinner];
     
     self.tableView.tableHeaderView = tableHeaderView;
     
