@@ -154,6 +154,9 @@
 {
     [super viewDidLoad];
     
+    self.navigationController.view.layer.cornerRadius = 8.0;
+    self.navigationController.view.clipsToBounds = YES;
+    
     self.refreshLabel.textColor = [UIColor whiteColor];
     [self.refreshArrow removeFromSuperview];
     self.refreshArrow = nil;
@@ -379,7 +382,6 @@
 
 - (void)browserWasUpdated:(NSNotification *)notification;
 {
-    NSLog(@"loaded Browser Info: %@  /  %@", self.browserRepresentation.browser.label, self.browserRepresentation.browser.userAgent);
     self.title = self.browserRepresentation.browser.label;
 }
      
