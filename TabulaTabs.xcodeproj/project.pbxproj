@@ -100,6 +100,8 @@
 		50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */; };
 		50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */; };
 		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
+		50ECD792154A9B6F00CCC302 /* TableBottomShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ECD790154A9B6F00CCC302 /* TableBottomShadow.png */; };
+		50ECD793154A9B6F00CCC302 /* TableBottomShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ECD791154A9B6F00CCC302 /* TableBottomShadow@2x.png */; };
 		50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579B1521BE0700F2780F /* registrationGuide.html */; };
 		50F357C21521CBD500F2780F /* UIImage+ColorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */; };
 		50F357C71521CD6900F2780F /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C61521CD6900F2780F /* TTSettingsViewController.m */; };
@@ -267,6 +269,8 @@
 		50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
 		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
+		50ECD790154A9B6F00CCC302 /* TableBottomShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TableBottomShadow.png; sourceTree = "<group>"; };
+		50ECD791154A9B6F00CCC302 /* TableBottomShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TableBottomShadow@2x.png"; sourceTree = "<group>"; };
 		50F3579B1521BE0700F2780F /* registrationGuide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuide.html; sourceTree = "<group>"; };
 		50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorOverlay.h"; sourceTree = "<group>"; };
 		50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorOverlay.m"; sourceTree = "<group>"; };
@@ -433,6 +437,8 @@
 		5090704A1528B91A006D9DE4 /* TabListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				50ECD790154A9B6F00CCC302 /* TableBottomShadow.png */,
+				50ECD791154A9B6F00CCC302 /* TableBottomShadow@2x.png */,
 				509070501528B969006D9DE4 /* TabListSettingsButton.png */,
 				509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */,
 				5090704C1528B928006D9DE4 /* TabListNavbar.png */,
@@ -866,6 +872,8 @@
 				5000E18E1533531100100FB1 /* 298-circlex@2x.png in Resources */,
 				5000E1941533559100100FB1 /* Clipboard.png in Resources */,
 				5000E1951533559100100FB1 /* Clipboard@2x.png in Resources */,
+				50ECD792154A9B6F00CCC302 /* TableBottomShadow.png in Resources */,
+				50ECD793154A9B6F00CCC302 /* TableBottomShadow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

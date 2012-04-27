@@ -175,6 +175,16 @@
     
     self.tableView.rowHeight = 72;
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0 alpha:0.2];
+    
+    UIImageView *tableFooterImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TableBottomShadow"]];
+    tableFooterImageView.frame = CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, 37.0);
+    tableFooterImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    
+    UIView *tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.tableView.bounds.size.width, 0.0)];
+    tableFooterView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [tableFooterView addSubview:tableFooterImageView];
+    
+    self.tableView.tableFooterView = tableFooterView;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -334,7 +344,6 @@
         self.webViewController.URL = tab.URL;
     }
 }
-
 
 #pragma mark PullRefreshTableViewController
 
