@@ -200,6 +200,8 @@
     [tableHeaderView addSubview:tableHeaderImageView];
     
     self.tableView.tableHeaderView = tableHeaderView;
+    
+    [self.tableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

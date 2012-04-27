@@ -35,6 +35,13 @@
     if (self) {
         self.identifier = [dictionary objectForKey:@"identifier"];
         self.focused = [[dictionary objectForKey:@"focused"] boolValue];
+        _tabs = [[NSArray alloc] init];
+        
+        NSArray *tabDicts = [dictionary objectForKey:@"tabs"];
+        
+        [tabDicts enumerateObjectsUsingBlock:^(NSDictionary *dictionary, NSUInteger idx, BOOL *stop) {
+            _tabs = [_tabs arrayByAddingObject:[[TTTab alloc] initWithDictionary:dictionary]];
+        }];
     }
     
     return self;

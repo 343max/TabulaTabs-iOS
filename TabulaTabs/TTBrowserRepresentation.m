@@ -116,7 +116,7 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
     
     NSDictionary *dataForArchive = [NSDictionary dictionaryWithObjectsAndKeys:
                                     self.browser.dictionary, @"browser",
-                                    encodedWindows, @"window", nil];
+                                    encodedWindows, @"windows", nil];
     [dataForArchive writeToFile:self.archiveFilePath atomically:YES];
 }
 

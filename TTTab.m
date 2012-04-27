@@ -40,6 +40,7 @@
     self = [super init];
     
     if (self) {
+        self.identifier = [dictionary objectForKey:@"identifier"];
         self.title = [dictionary objectForKey:@"title"];
         self.URL = [NSURL URLWithString:[dictionary objectForKey:@"URL"]];
         self.selected = [[dictionary objectForKey:@"selected"] boolValue];
@@ -100,18 +101,49 @@
     if (![otherTab isKindOfClass:[TTTab class]]) {
         return NO;
     } else {
-        return self.index == otherTab.index &&
-               [self.identifier isEqualToString:otherTab.identifier] &&
-               [self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString] &&
-               ([self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString]
-                || (self.favIconURL == nil && otherTab.favIconURL == nil)) &&
-               [self.windowId isEqualToString:otherTab.windowId] &&
-               [self.title compare:otherTab.title] == NSOrderedSame &&
-               [self.pageTitle compare:otherTab.pageTitle] == NSOrderedSame &&
-               [self.shortDomain compare:otherTab.shortDomain] == NSOrderedSame &&
-               [self.siteTitle compare:otherTab.siteTitle] == NSOrderedSame &&
-               ([self.pageThumbnailURL.absoluteString isEqualToString:otherTab.pageThumbnailURL.absoluteString]
-                || (self.pageThumbnailURL == nil && otherTab.pageThumbnailURL == nil));
+        if (self.index != otherTab.index) {
+            return NO;
+        }
+        
+        if (![self.identifier isEqualToString:otherTab.identifier]) {
+            return NO;
+        }
+        
+        if (![self.URL.absoluteString isEqualToString:otherTab.URL.absoluteString]) {
+            return NO;
+        }
+        
+        if (!([self.favIconURL.absoluteString isEqualToString:otherTab.favIconURL.absoluteString]
+              || (self.favIconURL == nil && otherTab.favIconURL == nil))) {
+            return NO;
+        }
+        
+        if (![self.windowId isEqualToString:otherTab.windowId]) {
+            return NO;
+        }
+        
+        if ([self.title compare:otherTab.title] != NSOrderedSame) {
+            return NO;
+        }
+        
+        if ([self.pageTitle compare:otherTab.pageTitle] != NSOrderedSame) {
+            return NO;
+        }
+        
+        if ([self.shortDomain compare:otherTab.shortDomain] != NSOrderedSame) {
+            return NO;
+        }
+        
+        if ([self.siteTitle compare:otherTab.siteTitle] != NSOrderedSame) {
+            return NO;
+        }
+        
+        if (!([self.pageThumbnailURL.absoluteString isEqualToString:otherTab.pageThumbnailURL.absoluteString]
+              || (self.pageThumbnailURL == nil && otherTab.pageThumbnailURL == nil))) {
+            return NO;
+        }
+
+        return YES;
     }
 }
 
@@ -124,21 +156,31 @@
     [self.colorPalette enumerateObjectsUsingBlock:^(UIColor *color, NSUInteger idx, BOOL *stop) {
         [colorPalette addObject:[color arrayOfValues]];
     }];
-
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            self.title, @"title",
-            self.URL.absoluteString, @"URL",
-            [NSNumber numberWithBool:self.selected], @"selected",
-            self.favIconURL.absoluteString, @"favIconURL",
-            self.windowId, @"windowId",
-            [NSNumber numberWithBool:self.windowFocused], @"windowFocused",
-            [NSNumber numberWithInteger:self.index], @"index",
-            colorPalette, @"colorPalette",
-            self.pageTitle, @"pageTitle",
-            self.shortDomain, @"shortDomain",
-            self.siteTitle, @"siteTitle",
-            self.pageThumbnailURL.absoluteString, @"pageThumbnailURL",
-            nil];
+    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    if (self.identifier)
+        [dict setObject:self.identifier forKey:@"identifier"];
+    if (self.title)
+        [dict setObject:self.title forKey:@"title"];
+    [dict setObject:self.URL.absoluteString forKey:@"URL"];
+    [dict setObject:[NSNumber numberWithBool:self.selected] forKey:@"selected"];
+    if (self.favIconURL)
+        [dict setObject:self.favIconURL.absoluteString forKey:@"favIconURL"];
+    if (self.windowId)
+        [dict setObject:self.windowId forKey:@"windowId"];
+    [dict setObject:[NSNumber numberWithBool:self.windowFocused] forKey:@"windowFocused"];
+    [dict setObject:[NSNumber numberWithInteger:self.index] forKey:@"index"];
+    [dict setObject:colorPalette forKey:@"colorPalette"];
+    if (self.pageTitle)
+        [dict setObject:self.pageTitle forKey:@"pageTitle"];
+    if (self.shortDomain)
+        [dict setObject:self.shortDomain forKey:@"shortDomain"];
+    if (self.siteTitle)
+        [dict setObject:self.siteTitle forKey:@"siteTitle"];
+    if (self.pageThumbnailURL)
+        [dict setObject:self.pageThumbnailURL.absoluteString forKey:@"pageThumbnail"];
+     
+    return [dict copy];
 }
 
 @end
