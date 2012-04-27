@@ -171,6 +171,11 @@
     self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabListBackground"]];
     self.view.backgroundColor = [UIColor clearColor];
     
+    UIImageView *navBarShadowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabListBottomShadow"]];
+    navBarShadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    navBarShadowView.frame = CGRectMake(0.0, 30.0, self.tableView.bounds.size.width, 37.0);
+    [self.navigationController.view insertSubview:navBarShadowView atIndex:0];
+    
     self.tableView.rowHeight = 72;
     self.tableView.separatorColor = [UIColor colorWithWhite:0.0 alpha:0.2];
     
