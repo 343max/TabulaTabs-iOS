@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-NSString const * TTRestfulControllerAPIDomain = @"https://tabulatabs.heroku.com/";
+NSString const * TTRestfulControllerAPIDomain = @"http://apiv0.tabulatabs.com/";
 
 #import "NSData+Base64.h"
 #import "MWURLConnection.h"

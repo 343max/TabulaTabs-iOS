@@ -145,9 +145,9 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
     _client.label = [UIDevice currentDevice].name;
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        _client.iconURL = [NSURL URLWithString:@"https://tabulatabs.heroku.com/icons/iPad.png"];
+        _client.iconURL = [NSURL URLWithString:@"http://apiv0.tabulatabs.com/icons/iPad.png"];
     } else {
-        _client.iconURL = [NSURL URLWithString:@"https://tabulatabs.heroku.com/icons/iPhone.png"];
+        _client.iconURL = [NSURL URLWithString:@"http://apiv0.tabulatabs.com/icons/iPhone.png"];
     }
     
     [_client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
