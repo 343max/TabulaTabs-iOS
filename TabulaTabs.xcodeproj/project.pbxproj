@@ -25,6 +25,8 @@
 		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
 		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
 		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
+		5023E53E1559CDF100BCA578 /* iCab.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023E53C1559CDF100BCA578 /* iCab.png */; };
+		5023E53F1559CDF100BCA578 /* iCab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023E53D1559CDF100BCA578 /* iCab@2x.png */; };
 		5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */; };
 		5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B4CC15307A32002EAE15 /* NSString+SHA1.m */; };
 		50317196153F25C500570E33 /* TTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50317195153F25C500570E33 /* TTWindow.m */; };
@@ -159,6 +161,8 @@
 		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
 		5016BA8C151E05EB00AAA198 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5023E53C1559CDF100BCA578 /* iCab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iCab.png; sourceTree = "<group>"; };
+		5023E53D1559CDF100BCA578 /* iCab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iCab@2x.png"; sourceTree = "<group>"; };
 		5030B475152DFFEC002EAE15 /* MWSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWSlidingViewController.h; sourceTree = "<group>"; };
 		5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWSlidingViewController.m; sourceTree = "<group>"; };
 		5030B4CB15307A32002EAE15 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
@@ -359,6 +363,8 @@
 		5000E17215334F9F00100FB1 /* WebViewActionIcons */ = {
 			isa = PBXGroup;
 			children = (
+				5023E53C1559CDF100BCA578 /* iCab.png */,
+				5023E53D1559CDF100BCA578 /* iCab@2x.png */,
 				5000E1831533503C00100FB1 /* 71-compass.png */,
 				5000E1851533520B00100FB1 /* 71-compass@2x.png */,
 				5000E187153352D700100FB1 /* 245-paperairplane.png */,
@@ -878,6 +884,8 @@
 				504C8383154AAE310049778C /* TabListTopShadow.png in Resources */,
 				504C8384154AAE310049778C /* TabListTopShadow@2x.png in Resources */,
 				507297631559AF3200B61EB8 /* denim-texture-07-600x600.jpg in Resources */,
+				5023E53E1559CDF100BCA578 /* iCab.png in Resources */,
+				5023E53F1559CDF100BCA578 /* iCab@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -116,7 +116,7 @@
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"icabmobile://"]]) {
         [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"iCab"
-                                                                          image:nil 
+                                                                          image:[UIImage imageNamed:@"iCab"] 
                                                                          target:self
                                                                          action:@selector(openWithIcab:)]];
     }
