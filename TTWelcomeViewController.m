@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "TTScanQRViewController.h"
 #import "TTAppDelegate.h"
 
@@ -34,9 +36,10 @@
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    webView.scrollView.bounces = NO;
     
-    NSData *htmlData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"registrationGuide" ofType:@"html"]];
-    [webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:nil];
+    NSURL *registrationGuideURL = [[NSBundle mainBundle] URLForResource:@"registrationGuide" withExtension:@"html"];
+    [webView loadRequest:[NSURLRequest requestWithURL:registrationGuideURL]];
     
     webView.delegate = self;
     webView.alpha = 0;
@@ -61,6 +64,8 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
+    NSLog(@"URL: %@", request.URL.absoluteString);
+    
     if ([request.URL.absoluteString isEqualToString:@"tabulatabs://client/snapcode/"]) {
         TTScanQRViewController *scanQRViewController = [[TTScanQRViewController alloc] init];
         [self.navigationController pushViewController:scanQRViewController animated:YES];

@@ -67,7 +67,7 @@
     self.view.backgroundColor = [UIColor clearColor];
     
     self.backgroundView = [[UIView alloc] init];
-    self.backgroundView.backgroundColor = [UIColor colorWithRed:0.243 green:0.314 blue:0.376 alpha:1.000];
+    self.backgroundView.backgroundColor = [UIColor colorWithRed:0.238 green:0.319 blue:0.414 alpha:1.000];
     [self.view addSubview:self.backgroundView];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss:)];

@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 
 #import "TTBrowserController.h"
 #import "TTAppDelegate.h"
@@ -35,6 +36,14 @@
     }
     
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated;
+{
+    [super viewWillAppear:animated];
+    
+    self.view.layer.cornerRadius = 8.0;
+    self.view.clipsToBounds = YES;
 }
 
 - (void)dismiss:(id)sender;

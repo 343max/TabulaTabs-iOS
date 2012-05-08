@@ -60,6 +60,7 @@
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
+		507297631559AF3200B61EB8 /* denim-texture-07-600x600.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
 		509070521528B969006D9DE4 /* TabListSettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070501528B969006D9DE4 /* TabListSettingsButton.png */; };
 		509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */; };
@@ -208,6 +209,7 @@
 		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTClient.m; sourceTree = "<group>"; };
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
+		507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "denim-texture-07-600x600.jpg"; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		509070501528B969006D9DE4 /* TabListSettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListSettingsButton.png; sourceTree = "<group>"; };
 		509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListSettingsButton@2x.png"; sourceTree = "<group>"; };
@@ -615,6 +617,15 @@
 			name = MTStatusBarOverlay;
 			sourceTree = "<group>";
 		};
+		50DAD83015557B49007B9AAD /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */,
+				50F3579B1521BE0700F2780F /* registrationGuide.html */,
+			);
+			name = Setup;
+			sourceTree = "<group>";
+		};
 		50F3639D14E925C900AB104C /* AsyncTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,7 +752,7 @@
 				504F71E1152763F1008B4F7A /* BrowserToolbar */,
 				504A984D152C81DE00AEF75D /* AppIcon@2x.png */,
 				504A984A152C81D800AEF75D /* AppIcon.png */,
-				50F3579B1521BE0700F2780F /* registrationGuide.html */,
+				50DAD83015557B49007B9AAD /* Setup */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -866,6 +877,7 @@
 				50ECD793154A9B6F00CCC302 /* TabListBottomShadow@2x.png in Resources */,
 				504C8383154AAE310049778C /* TabListTopShadow.png in Resources */,
 				504C8384154AAE310049778C /* TabListTopShadow@2x.png in Resources */,
+				507297631559AF3200B61EB8 /* denim-texture-07-600x600.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,7 +1052,7 @@
 				);
 				HEADER_SEARCH_PATHS = ./sskeychain/;
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
@@ -1049,8 +1061,8 @@
 				);
 				OTHER_LDFLAGS = "-lTestFlight";
 				PRODUCT_NAME = "$(TARGET_NAME) α";
-				PROVISIONING_PROFILE = "2FAD9C61-398B-4C71-AB33-57ABABA2F7D0";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2FAD9C61-398B-4C71-AB33-57ABABA2F7D0";
+				PROVISIONING_PROFILE = "6C1DB92F-A953-4904-96DA-055C5EEE04F3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6C1DB92F-A953-4904-96DA-055C5EEE04F3";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
 				TT_URL_SCHEME = "tabulatabs-adhoc";
 				WRAPPER_EXTENSION = app;
@@ -1141,7 +1153,7 @@
 				);
 				HEADER_SEARCH_PATHS = ./sskeychain/;
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
@@ -1163,7 +1175,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "CONFIGURATION_Release=1";
 				HEADER_SEARCH_PATHS = ./sskeychain/;
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
