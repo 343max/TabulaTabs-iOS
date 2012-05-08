@@ -123,7 +123,7 @@
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"x-callback-instapaper://x-callback-url"]]) {
         [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"Instapaper"
-                                                                          image:nil
+                                                                          image:[UIImage imageNamed:@"Instapaper"]
                                                                          target:self
                                                                          action:@selector(openWithInstapaper:)]];
     }
