@@ -103,6 +103,8 @@
 		50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */; };
 		50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */; };
 		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
+		50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */; };
+		50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */; };
 		50ECD792154A9B6F00CCC302 /* TabListBottomShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ECD790154A9B6F00CCC302 /* TabListBottomShadow.png */; };
 		50ECD793154A9B6F00CCC302 /* TabListBottomShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ECD791154A9B6F00CCC302 /* TabListBottomShadow@2x.png */; };
 		50F3579C1521BE0700F2780F /* registrationGuide.html in Resources */ = {isa = PBXBuildFile; fileRef = 50F3579B1521BE0700F2780F /* registrationGuide.html */; };
@@ -275,6 +277,10 @@
 		50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
 		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
+		50ECB319155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GenerousURLConvertion.h"; sourceTree = "<group>"; };
+		50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GenerousURLConvertion.m"; sourceTree = "<group>"; };
+		50ECB31D155AC5DC00B8D5F4 /* NSString+MatchesPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MatchesPattern.h"; sourceTree = "<group>"; };
+		50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MatchesPattern.m"; sourceTree = "<group>"; };
 		50ECD790154A9B6F00CCC302 /* TabListBottomShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBottomShadow.png; sourceTree = "<group>"; };
 		50ECD791154A9B6F00CCC302 /* TabListBottomShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListBottomShadow@2x.png"; sourceTree = "<group>"; };
 		50F3579B1521BE0700F2780F /* registrationGuide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuide.html; sourceTree = "<group>"; };
@@ -665,6 +671,10 @@
 				503288551520B745000CC58D /* NSURL+TabulaTabs.m */,
 				5030B4CB15307A32002EAE15 /* NSString+SHA1.h */,
 				5030B4CC15307A32002EAE15 /* NSString+SHA1.m */,
+				50ECB31D155AC5DC00B8D5F4 /* NSString+MatchesPattern.h */,
+				50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */,
+				50ECB319155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.h */,
+				50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -984,6 +994,8 @@
 				50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */,
 				5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */,
 				50317196153F25C500570E33 /* TTWindow.m in Sources */,
+				50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */,
+				50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

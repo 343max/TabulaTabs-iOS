@@ -7,6 +7,7 @@
 //
 
 #import "UIColor+TabulaTabs.h"
+#import "NSURL+GenerousURLConvertion.h"
 
 #import "TTTab.h"
 
@@ -43,7 +44,7 @@
         self.identifier = [dictionary objectForKey:@"identifier"];
         self.title = [dictionary objectForKey:@"title"];
         
-        self.URL = [NSURL URLWithString:[dictionary objectForKey:@"URL"]];
+        self.URL = [NSURL URLWithFaultyString:[dictionary objectForKey:@"URL"]];
         
         if (!self.URL) {
             NSLog(@"could not parse URL: %@", [dictionary objectForKey:@"URL"]);
