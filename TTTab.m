@@ -42,7 +42,14 @@
     if (self) {
         self.identifier = [dictionary objectForKey:@"identifier"];
         self.title = [dictionary objectForKey:@"title"];
+        
         self.URL = [NSURL URLWithString:[dictionary objectForKey:@"URL"]];
+        
+        if (!self.URL) {
+            NSLog(@"could not parse URL: %@", [dictionary objectForKey:@"URL"]);
+            return nil;
+        }
+
         self.selected = [[dictionary objectForKey:@"selected"] boolValue];
         self.favIconURL = [NSURL URLWithString:[dictionary objectForKey:@"favIconURL"]];
         

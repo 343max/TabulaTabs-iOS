@@ -128,6 +128,11 @@ const int kPasswordByteLength = 16;
         
         [response enumerateObjectsUsingBlock:^(NSDictionary *encryptedTab, NSUInteger idx, BOOL *stop) {
             TTTab *tab = [[TTTab alloc] initWithDictionary:[self.encryption decrypt:encryptedTab]];
+            
+            if (!tab) {
+                return;
+            }
+            
             tab.identifier = [encryptedTab objectForKey:@"identifier"];
             
             TTWindow *window = [windows objectForKey:tab.windowId];
