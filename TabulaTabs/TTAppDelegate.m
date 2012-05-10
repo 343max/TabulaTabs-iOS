@@ -8,6 +8,8 @@
 
 #import "TTDevelopmentHelpers.h"
 
+#import <Crashlytics/Crashlytics.h>
+
 #if CONFIGURATION_AdHoc
 #import "TestFlight.h"
 #endif
@@ -64,6 +66,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 #if CONFIGURATION_AdHoc
     [TestFlight takeOff:@"08b2e6be43c442789736edf1fecb1592_MTEwMjYyMDEyLTAzLTI0IDA5OjM1OjM0LjgxMDc5Ng"];
 #endif
+    [Crashlytics startWithAPIKey:@"f5afdb7ddba6518ecbf5c81e44e46bf5aae78272"];
     
     UIColor *tintColor = [UIColor colorWithRed:0.238 green:0.319 blue:0.414 alpha:1.000];
     [[UINavigationBar appearance] setTintColor:tintColor];

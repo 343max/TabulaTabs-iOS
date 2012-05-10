@@ -74,6 +74,7 @@
 		5090705B1528C326006D9DE4 /* TabListStitches@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070591528C326006D9DE4 /* TabListStitches@2x.png */; };
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
+		50947FF4155BF1CF003AAF99 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50947FF3155BF1CF003AAF99 /* Crashlytics.framework */; };
 		509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */; };
 		50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A833BB1521FB3F007F97A8 /* TTBrowserController.m */; };
 		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
@@ -229,6 +230,7 @@
 		509070591528C326006D9DE4 /* TabListStitches@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListStitches@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
+		50947FF3155BF1CF003AAF99 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
 		509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TabulaTabs.m"; sourceTree = "<group>"; };
 		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				50AE695114E8606C00788808 /* Foundation.framework in Frameworks */,
 				50AE695314E8606C00788808 /* CoreGraphics.framework in Frameworks */,
 				50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */,
+				50947FF4155BF1CF003AAF99 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +526,7 @@
 		50AE694D14E8606C00788808 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50947FF3155BF1CF003AAF99 /* Crashlytics.framework */,
 				503288521520B1C2000CC58D /* MessageUI.framework */,
 				5032884F1520A41A000CC58D /* Twitter.framework */,
 				50FE0AC714EB316E00823CE6 /* libiconv.dylib */,
@@ -790,6 +794,7 @@
 				50AE694714E8606C00788808 /* Frameworks */,
 				50AE694814E8606C00788808 /* Resources */,
 				5092F6BA151EA0EE00E2EC52 /* ShellScript */,
+				50947FF1155BF187003AAF99 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -933,6 +938,19 @@
 			shellPath = /bin/bash;
 			shellScript = "bundleVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" TabulaTabs/TabulaTabs-Info.plist)\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" TabulaTabs/TabulaTabs-Info.plist)\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" TabulaTabs/TabulaTabs-Info.plist\n";
 		};
+		50947FF1155BF187003AAF99 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run f5afdb7ddba6518ecbf5c81e44e46bf5aae78272";
+		};
 		50AE696314E8606C00788808 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1072,6 +1090,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Max Winde (MR4S8XBL42)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Max Winde (MR4S8XBL42)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1173,6 +1195,10 @@
 		50AE697814E8606C00788808 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1198,6 +1224,10 @@
 		50AE697914E8606C00788808 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "CONFIGURATION_Release=1";
