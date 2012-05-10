@@ -75,6 +75,8 @@
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		50947FF4155BF1CF003AAF99 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50947FF3155BF1CF003AAF99 /* Crashlytics.framework */; };
+		50947FF7155BF509003AAF99 /* 1Password.png in Resources */ = {isa = PBXBuildFile; fileRef = 50947FF5155BF509003AAF99 /* 1Password.png */; };
+		50947FF8155BF509003AAF99 /* 1Password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50947FF6155BF509003AAF99 /* 1Password@2x.png */; };
 		509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */; };
 		50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A833BB1521FB3F007F97A8 /* TTBrowserController.m */; };
 		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
@@ -231,6 +233,8 @@
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
 		50947FF3155BF1CF003AAF99 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		50947FF5155BF509003AAF99 /* 1Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Password.png; sourceTree = "<group>"; };
+		50947FF6155BF509003AAF99 /* 1Password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Password@2x.png"; sourceTree = "<group>"; };
 		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
 		509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TabulaTabs.m"; sourceTree = "<group>"; };
 		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
@@ -376,6 +380,8 @@
 		5000E17215334F9F00100FB1 /* WebViewActionIcons */ = {
 			isa = PBXGroup;
 			children = (
+				50947FF5155BF509003AAF99 /* 1Password.png */,
+				50947FF6155BF509003AAF99 /* 1Password@2x.png */,
 				5023E5411559CF1500BCA578 /* Instapaper.png */,
 				5023E5421559CF1500BCA578 /* Instapaper@2x.png */,
 				5023E53C1559CDF100BCA578 /* iCab.png */,
@@ -909,6 +915,8 @@
 				5023E53F1559CDF100BCA578 /* iCab@2x.png in Resources */,
 				5023E5431559CF1500BCA578 /* Instapaper.png in Resources */,
 				5023E5441559CF1500BCA578 /* Instapaper@2x.png in Resources */,
+				50947FF7155BF509003AAF99 /* 1Password.png in Resources */,
+				50947FF8155BF509003AAF99 /* 1Password@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

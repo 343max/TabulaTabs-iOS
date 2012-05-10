@@ -109,7 +109,7 @@
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"1password://"]]) {
         [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"1Password"
-                                                                          image:nil
+                                                                          image:[UIImage imageNamed:@"1Password"]
                                                                          target:self
                                                                          action:@selector(openWithOnePassword:)]];
     }
