@@ -36,9 +36,9 @@
 		503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503288521520B1C2000CC58D /* MessageUI.framework */; };
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
+		503E52E81564502900B2ACAF /* iPhoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 503E52E71564502900B2ACAF /* iPhoneIcon.png */; };
+		503E52EA1564502E00B2ACAF /* iPhoneIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 503E52E91564502E00B2ACAF /* iPhoneIcon@2x.png */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
-		504A984B152C81D800AEF75D /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 504A984A152C81D800AEF75D /* AppIcon.png */; };
-		504A984E152C81DE00AEF75D /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504A984D152C81DE00AEF75D /* AppIcon@2x.png */; };
 		504C8383154AAE310049778C /* TabListTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 504C8381154AAE310049778C /* TabListTopShadow.png */; };
 		504C8384154AAE310049778C /* TabListTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504C8382154AAE310049778C /* TabListTopShadow@2x.png */; };
 		504F71F21527642D008B4F7A /* BrowserBackToList.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F71E21527642D008B4F7A /* BrowserBackToList.png */; };
@@ -184,10 +184,10 @@
 		503288551520B745000CC58D /* NSURL+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+TabulaTabs.m"; sourceTree = "<group>"; };
 		503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserRepresentation.h; sourceTree = "<group>"; };
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
+		503E52E71564502900B2ACAF /* iPhoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon.png; sourceTree = "<group>"; };
+		503E52E91564502E00B2ACAF /* iPhoneIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneIcon@2x.png"; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
-		504A984A152C81D800AEF75D /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon.png; path = ../AppIcon.png; sourceTree = "<group>"; };
-		504A984D152C81DE00AEF75D /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon@2x.png"; path = "../AppIcon@2x.png"; sourceTree = "<group>"; };
 		504C8381154AAE310049778C /* TabListTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListTopShadow.png; sourceTree = "<group>"; };
 		504C8382154AAE310049778C /* TabListTopShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListTopShadow@2x.png"; sourceTree = "<group>"; };
 		504F71E21527642D008B4F7A /* BrowserBackToList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserBackToList.png; sourceTree = "<group>"; };
@@ -505,6 +505,8 @@
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
+				503E52E91564502E00B2ACAF /* iPhoneIcon@2x.png */,
+				503E52E71564502900B2ACAF /* iPhoneIcon.png */,
 				5016BA91151E063200AAA198 /* libz.dylib */,
 				50F363A914E9402000AB104C /* Classes */,
 				50AE699414E860D000788808 /* External */,
@@ -782,8 +784,6 @@
 				5000E17215334F9F00100FB1 /* WebViewActionIcons */,
 				5090704A1528B91A006D9DE4 /* TabListViewController */,
 				504F71E1152763F1008B4F7A /* BrowserToolbar */,
-				504A984D152C81DE00AEF75D /* AppIcon@2x.png */,
-				504A984A152C81D800AEF75D /* AppIcon.png */,
 				50DAD83015557B49007B9AAD /* Setup */,
 			);
 			path = Resources;
@@ -890,8 +890,6 @@
 				509070571528BAF8006D9DE4 /* TabListBackground@2x.png in Resources */,
 				5090705A1528C326006D9DE4 /* TabListStitches.png in Resources */,
 				5090705B1528C326006D9DE4 /* TabListStitches@2x.png in Resources */,
-				504A984B152C81D800AEF75D /* AppIcon.png in Resources */,
-				504A984E152C81DE00AEF75D /* AppIcon@2x.png in Resources */,
 				5000E17B15334FE900100FB1 /* Chat-Bubble.png in Resources */,
 				5000E17C15334FE900100FB1 /* Chat-Bubble@2x.png in Resources */,
 				5000E17F15334FE900100FB1 /* Questionmark.png in Resources */,
@@ -917,6 +915,8 @@
 				5023E5441559CF1500BCA578 /* Instapaper@2x.png in Resources */,
 				50947FF7155BF509003AAF99 /* 1Password.png in Resources */,
 				50947FF8155BF509003AAF99 /* 1Password@2x.png in Resources */,
+				503E52E81564502900B2ACAF /* iPhoneIcon.png in Resources */,
+				503E52EA1564502E00B2ACAF /* iPhoneIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
