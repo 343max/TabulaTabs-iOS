@@ -26,5 +26,6 @@
 
 - (void)claimClient:(NSString *)claimingPassword finalPassword:(NSString *)finalPassword callback:(void (^)(BOOL success, id response))callback;
 - (void)loadWindowsAndTabs:(void(^)(NSArray *windows, id response))callback;
+- (void)destroy:(void(^)(BOOL success, id response))callback;
 
 @end

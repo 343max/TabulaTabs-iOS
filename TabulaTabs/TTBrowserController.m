@@ -112,19 +112,25 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
     }
 }
 
-- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation;
+- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation callback:(void (^)(BOOL success, id response))callback;
 {
     if (![self.allBrowsers containsObject:browserRepresentation]) {
         return NO;
     }
+    
+    [browserRepresentation.client destroy:^(BOOL success, id response) {
+        NSMutableArray *mutableBrowsers = [[NSMutableArray alloc] initWithArray:self.allBrowsers];
+        [mutableBrowsers removeObject:browserRepresentation];
+        self.allBrowsers = [mutableBrowsers copy];
         
-    NSMutableArray *mutableBrowsers = [[NSMutableArray alloc] initWithArray:self.allBrowsers];
-    [mutableBrowsers removeObject:browserRepresentation];
-    self.allBrowsers = [mutableBrowsers copy];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserControllerBrowserHasBeenRemovedNotification
-                                                        object:browserRepresentation];
-    
+        if (callback) {
+            callback(success, response);
+        }
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserControllerBrowserHasBeenRemovedNotification
+                                                            object:browserRepresentation];
+    }];
+
     return YES;
 }
 
@@ -166,7 +172,7 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
         return;
     }
     
-    [self removeBrowser:browser];
+    [self removeBrowser:browser callback:nil];
         
     NSString *message = [NSString stringWithFormat:@"The synchronization of the browser \"%@\" to this client was canceled. The browser will be removed from this device. If you want to see the tabs of this browser here again you have to reestablish a connection in the settings.", browser.browser.label];
     

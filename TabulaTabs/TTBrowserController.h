@@ -21,7 +21,7 @@ extern NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification;
 - (TTBrowserRepresentation *)browserWithClientIdentifier:(NSString *)clientIdentifier;
 - (TTBrowserRepresentation *)browserWithBrowserIdentifier:(NSInteger)identifier;
 - (void)addBrowser:(TTBrowserRepresentation *)browserReprensentation;
-- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation;
+- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation callback:(void (^)(BOOL success, id response))callback;
 
 
 @end

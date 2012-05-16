@@ -7,6 +7,7 @@
 //
 
 #import "NSData-hex.h"
+#import "MWURLConnection.h"
 #import "TTWindow.h"
 #import "TTTab.h"
 
@@ -159,4 +160,48 @@ const int kPasswordByteLength = 16;
     }];
 }
 
+- (void)destroy:(void (^)(BOOL, id))callback;
+{
+    NSString *identifier = self.identifier;
+    if (!identifier) {
+        identifier = @"0";
+    }
+    
+    MWURLConnection *connection = [self prepareJsonConnection:[NSString stringWithFormat:@"browsers/clients/%@.json", identifier]
+                                                                        method:@"DELETE"
+                                                                jsonParameters:nil callback:^(id response) {
+                                                                    NSLog(@"response: %@", response);
+                                                                    BOOL success = [[response objectForKey:@"success"] boolValue];
+                                                                    callback(success, response);
+                                                                }];
+    
+    [connection setConnectionDidReceiveAuthentificationChallenge:^(NSURLAuthenticationChallenge *challenge) {
+        callback(NO, nil);
+    }];
+    
+    [connection setConnectionDidFailWithErrorBlock:^(NSError *error) {
+        callback(NO, error);
+    }];
+    
+    [connection start];
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
