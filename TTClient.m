@@ -19,6 +19,7 @@
 @synthesize clientDescription = _clientDescription;
 @synthesize iconURL = _iconURL;
 @synthesize keychainIdentifier = _keychainIdentifier;
+@synthesize identifier = _identifier;
 
 @synthesize unclaimed = _unclaimed;
 @synthesize dictionary = _dictionary;
@@ -79,7 +80,8 @@ const int kPasswordByteLength = 16;
     self.label = [aDictionary objectForKey:@"label"];
     self.clientDescription = [aDictionary objectForKey:@"description"];
     self.iconURL = [NSURL URLWithString:[aDictionary objectForKey:@"iconURL"]];
-    self.username = [aDictionary objectForKey:@"username"];    
+    self.username = [aDictionary objectForKey:@"username"];
+    self.identifier = [aDictionary objectForKey:@"identifier"];
 }
 
 - (NSDictionary *)dictionary;
@@ -91,6 +93,7 @@ const int kPasswordByteLength = 16;
     if (self.clientDescription) [dict setObject:self.clientDescription forKey:@"description"];
     if (self.iconURL) [dict setObject:self.iconURL.absoluteString forKey:@"iconURL"];
     if (self.username) [dict setObject:self.username forKey:@"username"];
+    if (self.identifier) [dict setObject:self.identifier forKey:@"identifier"];
     
     return [dict copy];
 }
@@ -113,6 +116,13 @@ const int kPasswordByteLength = 16;
         if (success) {
             _unclaimed = NO;
             self.password = finalPassword;
+            
+            id identifier = [response objectForKey:@"id"];
+            if ([identifier isKindOfClass:[NSString class]]) {
+                self.identifier = identifier;
+            } else if([identifier respondsToSelector:@selector(stringValue)]) {
+                self.identifier = [identifier stringValue];
+            }
         } else {
             self.password = nil;
         }

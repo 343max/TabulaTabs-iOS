@@ -16,6 +16,7 @@
 @property (strong) NSString *clientDescription;
 @property (strong) NSURL *iconURL;
 @property (strong) NSString *keychainIdentifier;
+@property (strong) NSString *identifier;
 
 @property (strong, nonatomic) NSDictionary *dictionary;
 

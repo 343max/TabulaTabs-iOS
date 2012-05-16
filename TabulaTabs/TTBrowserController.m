@@ -22,7 +22,7 @@
 NSString * const TTBrowserControllerPasswordKey = @"ClientPassword";
 NSString * const TTBrowserControllerEncryptionKeyKey = @"ClientEncryptionKey";
 
-NSString * const TTBrowserControllerBrowserWillBeRemovedNotification = @"TTBrowserControllerBrowserWillBeRemovedNotification";
+NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrowserControllerBrowserHasBeenRemovedNotification";
 
 
 @interface TTBrowserController ()
@@ -117,13 +117,13 @@ NSString * const TTBrowserControllerBrowserWillBeRemovedNotification = @"TTBrows
     if (![self.allBrowsers containsObject:browserRepresentation]) {
         return NO;
     }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserControllerBrowserWillBeRemovedNotification
-                                                        object:browserRepresentation];
-    
+        
     NSMutableArray *mutableBrowsers = [[NSMutableArray alloc] initWithArray:self.allBrowsers];
     [mutableBrowsers removeObject:browserRepresentation];
     self.allBrowsers = [mutableBrowsers copy];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserControllerBrowserHasBeenRemovedNotification
+                                                        object:browserRepresentation];
     
     return YES;
 }

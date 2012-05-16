@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString * const TTBrowserControllerBrowserWillBeRemovedNotification;
+extern NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification;
 
 @interface TTBrowserController : NSObject <UIAlertViewDelegate>
 

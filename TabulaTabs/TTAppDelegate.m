@@ -198,7 +198,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self 
-                                                    name:TTBrowserControllerBrowserWillBeRemovedNotification
+                                                    name:TTBrowserControllerBrowserHasBeenRemovedNotification
                                                   object:_currentBrowser];
 
     _currentBrowser = currentBrowser;
@@ -206,7 +206,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(browserWillBeRemoved:)
-                                                 name:TTBrowserControllerBrowserWillBeRemovedNotification
+                                                 name:TTBrowserControllerBrowserHasBeenRemovedNotification
                                                object:_currentBrowser];
     
     TTTabListViewController *tablistViewController = [[TTTabListViewController alloc] init];
