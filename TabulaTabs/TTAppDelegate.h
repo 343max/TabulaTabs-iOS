@@ -30,5 +30,6 @@ extern CGFloat const TTAppDelegateWebBrowserPeekAmount;
 @property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
 
 - (IBAction)showSettings:(id)sender;
+- (void)loadTablistViewController;
 
 @end

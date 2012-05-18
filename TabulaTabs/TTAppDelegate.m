@@ -209,14 +209,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
                                                  name:TTBrowserControllerBrowserHasBeenRemovedNotification
                                                object:_currentBrowser];
     
-    TTTabListViewController *tablistViewController = [[TTTabListViewController alloc] init];
-    tablistViewController.browserRepresentation = currentBrowser;
-    
-    self.slidingViewController.anchorRightPeekAmount = TTAppDelegateWebBrowserPeekAmount;
-
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tablistViewController];
-    self.slidingViewController.underLeftViewController = navigationController;
-    self.slidingViewController.topViewController = nil;
+    [self loadTablistViewController];
 }
 
 
@@ -270,6 +263,18 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     TTSettingsNavController *settingsNavController = [[TTSettingsNavController alloc] init];
     [self.window.rootViewController presentModalViewController:settingsNavController
                                                       animated:YES];
+}
+
+- (void)loadTablistViewController;
+{
+    TTTabListViewController *tablistViewController = [[TTTabListViewController alloc] init];
+    tablistViewController.browserRepresentation = self.currentBrowser;
+    
+    self.slidingViewController.anchorRightPeekAmount = TTAppDelegateWebBrowserPeekAmount;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tablistViewController];
+    self.slidingViewController.underLeftViewController = navigationController;
+    self.slidingViewController.topViewController = nil;
 }
 
 @end

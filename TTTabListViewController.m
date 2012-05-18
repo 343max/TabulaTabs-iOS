@@ -448,7 +448,12 @@
         [self.tableView deleteRowsAtIndexPaths:deletedRows withRowAnimation:UITableViewRowAnimationMiddle];
         [self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationMiddle];
         
-    } [self.tableView endUpdates];
-}
+    } @try {
+        [self.tableView endUpdates];
+    }
+    @catch (id Exception) {
+        [appDelegate loadTablistViewController];
+    }
+ }
      
 @end
