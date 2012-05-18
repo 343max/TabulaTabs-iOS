@@ -36,8 +36,6 @@
 		503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503288521520B1C2000CC58D /* MessageUI.framework */; };
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
 		503893DF150BF10800CF22B6 /* TTBrowserRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */; };
-		503E52E81564502900B2ACAF /* iPhoneIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 503E52E71564502900B2ACAF /* iPhoneIcon.png */; };
-		503E52EA1564502E00B2ACAF /* iPhoneIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 503E52E91564502E00B2ACAF /* iPhoneIcon@2x.png */; };
 		504167DA150AB323007A3431 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 504167D8150AB2B9007A3431 /* SSKeychain.m */; };
 		504C8383154AAE310049778C /* TabListTopShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 504C8381154AAE310049778C /* TabListTopShadow.png */; };
 		504C8384154AAE310049778C /* TabListTopShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504C8382154AAE310049778C /* TabListTopShadow@2x.png */; };
@@ -58,6 +56,8 @@
 		504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F724B152789BC008B4F7A /* TTFlippingButton.m */; };
 		50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF215249A160018BBD8 /* ECSlidingViewController.m */; };
 		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
+		506430C9156697B60020B0C3 /* iphone_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 506430C8156697B60020B0C3 /* iphone_114.png */; };
+		506430CB156697BA0020B0C3 /* iphone_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 506430CA156697BA0020B0C3 /* iphone_57.png */; };
 		50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50672D6F1533477700536821 /* TTWebViewActionViewController.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
 		5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */; };
@@ -184,8 +184,6 @@
 		503288551520B745000CC58D /* NSURL+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+TabulaTabs.m"; sourceTree = "<group>"; };
 		503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserRepresentation.h; sourceTree = "<group>"; };
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
-		503E52E71564502900B2ACAF /* iPhoneIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon.png; sourceTree = "<group>"; };
-		503E52E91564502E00B2ACAF /* iPhoneIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhoneIcon@2x.png"; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		504167D8150AB2B9007A3431 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		504C8381154AAE310049778C /* TabListTopShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListTopShadow.png; sourceTree = "<group>"; };
@@ -210,6 +208,8 @@
 		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageWithUIView.m"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		506430C8156697B60020B0C3 /* iphone_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_114.png; path = ../iphone_114.png; sourceTree = "<group>"; };
+		506430CA156697BA0020B0C3 /* iphone_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_57.png; path = ../iphone_57.png; sourceTree = "<group>"; };
 		50672D6E1533477700536821 /* TTWebViewActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionViewController.h; sourceTree = "<group>"; };
 		50672D6F1533477700536821 /* TTWebViewActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionViewController.m; sourceTree = "<group>"; };
 		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
@@ -505,8 +505,6 @@
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
-				503E52E91564502E00B2ACAF /* iPhoneIcon@2x.png */,
-				503E52E71564502900B2ACAF /* iPhoneIcon.png */,
 				5016BA91151E063200AAA198 /* libz.dylib */,
 				50F363A914E9402000AB104C /* Classes */,
 				50AE699414E860D000788808 /* External */,
@@ -781,6 +779,8 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				506430CA156697BA0020B0C3 /* iphone_57.png */,
+				506430C8156697B60020B0C3 /* iphone_114.png */,
 				5000E17215334F9F00100FB1 /* WebViewActionIcons */,
 				5090704A1528B91A006D9DE4 /* TabListViewController */,
 				504F71E1152763F1008B4F7A /* BrowserToolbar */,
@@ -915,8 +915,8 @@
 				5023E5441559CF1500BCA578 /* Instapaper@2x.png in Resources */,
 				50947FF7155BF509003AAF99 /* 1Password.png in Resources */,
 				50947FF8155BF509003AAF99 /* 1Password@2x.png in Resources */,
-				503E52E81564502900B2ACAF /* iPhoneIcon.png in Resources */,
-				503E52EA1564502E00B2ACAF /* iPhoneIcon@2x.png in Resources */,
+				506430C9156697B60020B0C3 /* iphone_114.png in Resources */,
+				506430CB156697BA0020B0C3 /* iphone_57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
