@@ -32,6 +32,7 @@
     
     [button setImage:image forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
     return button;
 }
 
@@ -41,14 +42,14 @@
     
     CGRect titleLabelFrame = self.bounds;
     CGSize textSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font];
-    titleLabelFrame.origin.y = self.bounds.size.height - textSize.height - 5.0;
+    titleLabelFrame.origin.y = self.bounds.size.height - textSize.height;
     titleLabelFrame.size.height = textSize.height;
     self.titleLabel.frame = titleLabelFrame;
     
     CGRect imageViewFrame = CGRectZero;
     imageViewFrame.size = self.imageView.image.size;
     imageViewFrame.origin = CGPointMake((self.bounds.size.width - imageViewFrame.size.width) / 2.0,
-                                        (self.bounds.size.height - imageViewFrame.size.height) / 2.0);
+                                        (self.bounds.size.height - imageViewFrame.size.height - textSize.height) / 2.0);
     self.imageView.frame = CGRectIntegral(imageViewFrame);
     
     CGRect highlightViewFrame = CGRectMake(0.0, 0.0, 100.0, 100.0);

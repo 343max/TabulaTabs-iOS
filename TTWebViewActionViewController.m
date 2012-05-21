@@ -159,7 +159,7 @@
     self.animating = YES;
     self.backgroundView.layer.transform = CATransform3DMakeTranslation(0.0, self.backgroundView.bounds.size.height, 0.0);
     self.backgroundView.alpha = 0.0;
-    [UIView animateWithDuration:0.2
+    [UIView animateWithDuration:0.15
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
@@ -176,8 +176,11 @@
     }
     
     CGSize menuMargin = CGSizeMake(6.0, 3.0);
-    CGSize buttonSize = CGSizeMake(55, 75);
-    NSInteger buttonsPerRow = 5;
+    CGSize buttonSize = CGSizeMake(55, 55);
+    NSInteger buttonsPerRow = 4;
+    if (self.actions.count % 3 == 0) buttonsPerRow = 3;
+    if (self.actions.count % 5 == 0) buttonsPerRow = 5;
+    
     NSInteger rows = (int)ceilf((float)self.actions.count / buttonsPerRow);
     
     CGSize viewSize = CGSizeMake(buttonsPerRow * buttonSize.width + 2 * menuMargin.width,
@@ -186,7 +189,7 @@
     CGRect backgroundViewFrame = CGRectMake((self.view.bounds.size.width - viewSize.width) / 2.0, 
                                             self.view.bounds.size.height - viewSize.height - 15,
                                             viewSize.width,
-                                            viewSize.height);
+                                            viewSize.height + menuMargin.height);
     
     self.backgroundView.frame = CGRectIntegral(backgroundViewFrame);
     
@@ -200,7 +203,7 @@
                                                 buttonSize.height * row + menuMargin.height,
                                                 buttonSize.width,
                                                 buttonSize.height);
-                button.frame = buttonFrame;
+                button.frame = CGRectIntegral(buttonFrame);
             }
         }
     }
@@ -235,7 +238,7 @@
     }
     
     self.animating = YES;
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.2
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseIn
                      animations:^{

@@ -72,7 +72,7 @@
     UIBezierPath* glossBoxPath = [UIBezierPath bezierPathWithRoundedRect: glossBoxFrame cornerRadius: 4];
     CGContextSaveGState(context);
     [glossBoxPath addClip];
-    CGContextDrawLinearGradient(context, gloss, CGPointMake(size.width * 0.5, size.width), CGPointMake(size.width * 1.5, 0), 0);
+    CGContextDrawLinearGradient(context, gloss, CGPointMake(size.width * 0.25, size.width), CGPointMake(size.width * 1.25, 0), 0);
     CGContextRestoreGState(context);
     
     [white60 setStroke];
