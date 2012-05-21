@@ -91,6 +91,9 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 
 - (void)dealloc;
 {
+    self.webView.delegate = nil;
+    self.webView.scrollView.delegate = nil;
+
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -233,16 +236,6 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.webView.scrollView.scrollsToTop = NO;
     self.gestureView.frame = self.webView.frame;
     [self.toggleTabListButton setDirection:TTFlippingButtonDirectionRight animated:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated;
-{
-    [super viewDidDisappear:animated];
-        
-    [self.webView stopLoading];
-
-    self.webView.delegate = nil;
-    self.webView.scrollView.delegate = nil;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
