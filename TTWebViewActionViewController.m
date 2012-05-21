@@ -166,7 +166,9 @@
                          self.backgroundView.layer.transform = CATransform3DIdentity;
                          self.backgroundView.alpha = 1.0;
                      } 
-                     completion:nil];
+                     completion:^(BOOL finished) {
+                         self.animating = NO;
+                     }];
 }
 
 - (void)viewDidLayoutSubviews;
