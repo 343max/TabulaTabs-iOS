@@ -58,6 +58,7 @@
 		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
 		506430C9156697B60020B0C3 /* iphone_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 506430C8156697B60020B0C3 /* iphone_114.png */; };
 		506430CB156697BA0020B0C3 /* iphone_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 506430CA156697BA0020B0C3 /* iphone_57.png */; };
+		506430CE156A61080020B0C3 /* TTGlossyBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 506430CD156A61080020B0C3 /* TTGlossyBox.m */; };
 		50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50672D6F1533477700536821 /* TTWebViewActionViewController.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
 		5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */; };
@@ -210,6 +211,8 @@
 		50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageWithUIView.m"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		506430C8156697B60020B0C3 /* iphone_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_114.png; path = ../iphone_114.png; sourceTree = "<group>"; };
 		506430CA156697BA0020B0C3 /* iphone_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_57.png; path = ../iphone_57.png; sourceTree = "<group>"; };
+		506430CC156A61080020B0C3 /* TTGlossyBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlossyBox.h; sourceTree = "<group>"; };
+		506430CD156A61080020B0C3 /* TTGlossyBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlossyBox.m; sourceTree = "<group>"; };
 		50672D6E1533477700536821 /* TTWebViewActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionViewController.h; sourceTree = "<group>"; };
 		50672D6F1533477700536821 /* TTWebViewActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionViewController.m; sourceTree = "<group>"; };
 		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
@@ -487,6 +490,8 @@
 				5000E1971533661200100FB1 /* TTActionSheetButton.m */,
 				50672D6E1533477700536821 /* TTWebViewActionViewController.h */,
 				50672D6F1533477700536821 /* TTWebViewActionViewController.m */,
+				506430CC156A61080020B0C3 /* TTGlossyBox.h */,
+				506430CD156A61080020B0C3 /* TTGlossyBox.m */,
 			);
 			name = WebBrowser;
 			sourceTree = "<group>";
@@ -1022,6 +1027,7 @@
 				50317196153F25C500570E33 /* TTWindow.m in Sources */,
 				50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */,
 				50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */,
+				506430CE156A61080020B0C3 /* TTGlossyBox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

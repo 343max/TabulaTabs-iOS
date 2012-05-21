@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "TTActionSheetButton.h"
 #import "NSURL+TabulaTabs.h"
+#import "TTGlossyBox.h"
 #import <Twitter/TWTweetComposeViewController.h>
 #if CONFIGURATION_AdHoc
 #import "TestFlight.h"
@@ -19,7 +20,7 @@
 @interface TTWebViewActionViewController ()
 
 @property (strong) UIWebView *webView;
-@property (strong) UIView *backgroundView;
+@property (strong) TTGlossyBox *backgroundView;
 @property (strong, nonatomic, readonly) NSString *pageTitle;
 @property (strong, nonatomic, readonly) NSURL *URL;
 @property (strong) NSMutableArray *actions;
@@ -66,8 +67,12 @@
     
     self.view.backgroundColor = [UIColor clearColor];
     
-    self.backgroundView = [[UIView alloc] init];
-    self.backgroundView.backgroundColor = [UIColor colorWithRed:0.238 green:0.319 blue:0.414 alpha:1.000];
+    self.backgroundView = [[TTGlossyBox alloc] init];
+    self.backgroundView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.backgroundView.layer.shadowOpacity = 1.0;
+    self.backgroundView.layer.shadowRadius = 5.0;
+    self.backgroundView.layer.shadowOffset = CGSizeMake(0.0, 2.0);
+    
     [self.view addSubview:self.backgroundView];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismiss:)];
@@ -154,9 +159,9 @@
     self.animating = YES;
     self.backgroundView.layer.transform = CATransform3DMakeTranslation(0.0, self.backgroundView.bounds.size.height, 0.0);
     self.backgroundView.alpha = 0.0;
-    [UIView animateWithDuration:0.3
+    [UIView animateWithDuration:0.2
                           delay:0.0
-                        options:UIViewAnimationOptionCurveEaseIn
+                        options:UIViewAnimationOptionCurveEaseOut
                      animations:^{
                          self.backgroundView.layer.transform = CATransform3DIdentity;
                          self.backgroundView.alpha = 1.0;
@@ -179,7 +184,7 @@
                                  rows * buttonSize.height + 2 * menuMargin.height);
     
     CGRect backgroundViewFrame = CGRectMake((self.view.bounds.size.width - viewSize.width) / 2.0, 
-                                            self.view.bounds.size.height - viewSize.height,
+                                            self.view.bounds.size.height - viewSize.height - 15,
                                             viewSize.width,
                                             viewSize.height);
     
