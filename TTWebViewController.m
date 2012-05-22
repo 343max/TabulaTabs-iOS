@@ -11,11 +11,15 @@
 #endif
 #import <QuartzCore/QuartzCore.h>
 
+#import "NSString+MatchesPattern.h"
 #import "MWSlidingViewController.h"
 
+#import "TTReadabilityDomainsController.h"
 #import "TTSpinningReloadButton.h"
 #import "TTFlippingButton.h"
 #import "TTWebViewActionViewController.h"
+
+#import "TTAppDelegate.h"
 
 #import "TTWebViewController.h"
 
@@ -37,6 +41,8 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 @property (strong, nonatomic) NSString *pageTitle;
 @property (strong) UINavigationBar *navigationBar;
 @property (strong) UIToolbar *toolbar;
+@property (strong) UIBarButtonItem *readabilityButton;
+@property (assign, nonatomic) BOOL readabilityMode;
 
 @property (strong) TTWebViewActionViewController *actionViewController;
 
@@ -48,8 +54,10 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 - (void)reload:(id)sender;
 - (void)showPageActions:(id)sender;
 - (void)toggleListVisibility:(id)sender;
+- (void)toggleReadabilityMode:(id)sender;
 - (void)viewWillBecomeInactive:(NSNotification *)notification;
 - (void)viewDidBecomeActive:(NSNotification *)notification;
+- (NSURL *)readbilityURLForURL:(NSURL *)URL;
 
 @end
 
@@ -65,6 +73,8 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 @synthesize actionViewController = _actionViewController;
 @synthesize toolbar = _toolbar;
 @synthesize navigationBar = _navigationBar;
+@synthesize readabilityButton = _readabilityButton;
+@synthesize readabilityMode = _readabilityMode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {
@@ -110,8 +120,38 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 
 - (void)setURL:(NSURL *)URL;
 {
+    if ([appDelegate.readabilityDomains isInReadabilityMode:URL]) {
+        URL = [self readbilityURLForURL:URL];
+    }
+    
     _URL = URL;
     [self.webView loadRequest:[NSURLRequest requestWithURL:URL]];
+}
+
+- (BOOL)readabilityMode;
+{
+    return [self.URL.host isEqualToString:@"www.readability.com"]
+        && [self.URL.path numberOfMatchesWithPattern:@"^/mobile/articles/" options:NSRegularExpressionCaseInsensitive];
+}
+
+- (void)setReadabilityMode:(BOOL)readabilityMode;
+{
+    if (self.readabilityMode == readabilityMode) {
+        return;
+    }
+    
+    NSURL *articleURL = nil;
+    
+    if (!readabilityMode) {
+        NSString *originalArticleURLString = [self.webView stringByEvaluatingJavaScriptFromString:@"document.querySelector('#rdb-article-original-url a').getAttribute('href');"];
+        articleURL = [NSURL URLWithString:originalArticleURLString];
+        [self.webView loadRequest:[NSURLRequest requestWithURL:articleURL]];
+    } else {
+        articleURL = self.URL;
+        [self.webView loadRequest:[NSURLRequest requestWithURL:[self readbilityURLForURL:articleURL]]];
+    }
+    
+    [appDelegate.readabilityDomains setReadabilityMode:readabilityMode forURL:articleURL];
 }
 
 #pragma mark Lifecycle
@@ -162,7 +202,12 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.actionButton.showsTouchWhenHighlighted = YES;
     [self.actionButton setImage:[UIImage imageNamed:@"BrowserShare"] forState:UIControlStateNormal];
     [self.actionButton addTarget:self action:@selector(showPageActions:) forControlEvents:UIControlEventTouchUpInside];
-
+    
+    self.readabilityButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Readability"]
+                                                              style:UIBarButtonItemStylePlain
+                                                             target:self
+                                                             action:@selector(toggleReadabilityMode:)];
+    
     self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
@@ -178,6 +223,8 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
                           [[UIBarButtonItem alloc] initWithCustomView:self.toggleTabListButton],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
+                          [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                          self.readabilityButton,
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
@@ -365,6 +412,11 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     }
 }
 
+- (void)toggleReadabilityMode:(id)sender;
+{
+    self.readabilityMode = !self.readabilityMode;
+}
+
 - (void)didFinishLoading;
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:TTWebViewControllerFinishedLoadingNotification object:self];
@@ -374,6 +426,19 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.backButton.enabled = self.webView.canGoBack;
     self.forwardButton.enabled = self.webView.canGoForward;
     self.reloadButton.spinning = NO;
+    
+    if (self.readabilityMode) {
+        self.readabilityButton.image = [UIImage imageNamed:@"ReadabilityEnabled"];
+    } else {
+        self.readabilityButton.image = [UIImage imageNamed:@"Readability"];
+    }
+}
+
+- (NSURL *)readbilityURLForURL:(NSURL *)URL;
+{
+    NSString *readabilityURLString = [NSString stringWithFormat:@"http://www.readability.com/read?url=%@",
+                                      [URL.absoluteString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    return [NSURL URLWithString:readabilityURLString];
 }
 
 #pragma mark UIWebViewDelegate

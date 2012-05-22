@@ -16,6 +16,7 @@ extern CGFloat const TTAppDelegateWebBrowserPeekAmount;
 @class TTBrowserController;
 @class TTBrowserRepresentation;
 @class MWSlidingViewController;
+@class TTReadabilityDomainsController;
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -26,8 +27,8 @@ extern CGFloat const TTAppDelegateWebBrowserPeekAmount;
 @property (strong) MWSlidingViewController *slidingViewController;
 
 @property (strong, readonly) TTBrowserController *browserController;
-
 @property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
+@property (strong, readonly) TTReadabilityDomainsController *readabilityDomains;
 
 - (IBAction)showSettings:(id)sender;
 - (void)loadTablistViewController;

@@ -29,6 +29,8 @@
 #import "TTWebViewController.h"
 #import "TTSettingsNavController.h"
 
+#import "TTReadabilityDomainsController.h"
+
 #import "TTAppDelegate.h"
 
 CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
@@ -56,6 +58,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 @synthesize browserController = _browserController;
 @synthesize networkConnectionsInProgress = _networkConnectionsInProgress;
 @synthesize currentBrowser = _currentBrowser;
+@synthesize readabilityDomains = _readabilityDomains;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -81,6 +84,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 
     self.slidingViewController = [[MWSlidingViewController alloc] init];
     self.window.rootViewController = self.slidingViewController;
+    _readabilityDomains = [[TTReadabilityDomainsController alloc] init];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(registeringClient:)
