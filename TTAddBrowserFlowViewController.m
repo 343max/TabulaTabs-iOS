@@ -8,6 +8,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "UIImage+ColorOverlay.h"
+
 #import "TTBrowserController.h"
 #import "TTAppDelegate.h"
 #import "TTWelcomeViewController.h"
@@ -61,7 +63,13 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
 {
-    viewController.title = @"Welcome!";
+    UIImage *titleImage = [[UIImage imageNamed:@"ToolbarTitle"] imageWithColorOverlay:[UIColor whiteColor]];
+    UIImageView *titleView = [[UIImageView alloc] initWithImage:titleImage];
+    CGRect titleViewFrame = CGRectZero;
+    titleViewFrame.size = titleImage.size;
+    titleView.frame = titleViewFrame;
+    
+    navigationController.navigationBar.topItem.titleView = titleView;
 }
 
 @end
