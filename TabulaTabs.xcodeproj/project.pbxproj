@@ -111,6 +111,8 @@
 		50C12A3D150EA0AA00A3E3DA /* TTTabTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */; };
 		50C12A40150EA4B100A3E3DA /* MWHTTPImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */; };
 		50C12A5D150EACB500A3E3DA /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */; };
+		50D5C3661570D4B200844241 /* ToolbarTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 50D5C3641570D4B200844241 /* ToolbarTitle.png */; };
+		50D5C3671570D4B200844241 /* ToolbarTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */; };
 		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
 		50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */; };
 		50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */; };
@@ -295,6 +297,8 @@
 		50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWHTTPImageCache.m; sourceTree = "<group>"; };
 		50C12A5B150EACB500A3E3DA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		50D5C3641570D4B200844241 /* ToolbarTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarTitle.png; sourceTree = "<group>"; };
+		50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarTitle@2x.png"; sourceTree = "<group>"; };
 		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
 		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
 		50ECB319155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GenerousURLConvertion.h"; sourceTree = "<group>"; };
@@ -801,6 +805,8 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				50D5C3641570D4B200844241 /* ToolbarTitle.png */,
+				50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */,
 				506430CA156697BA0020B0C3 /* iphone_57.png */,
 				506430C8156697B60020B0C3 /* iphone_114.png */,
 				5000E17215334F9F00100FB1 /* WebViewActionIcons */,
@@ -943,6 +949,8 @@
 				505391A7156AB414005930C9 /* Readability@2x.png in Resources */,
 				501A29E1156BFF4300454ECE /* ReadabilityEnabled.png in Resources */,
 				501A29E2156BFF4300454ECE /* ReadabilityEnabled@2x.png in Resources */,
+				50D5C3661570D4B200844241 /* ToolbarTitle.png in Resources */,
+				50D5C3671570D4B200844241 /* ToolbarTitle@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1147,8 +1155,8 @@
 				);
 				OTHER_LDFLAGS = "-lTestFlight";
 				PRODUCT_NAME = "$(TARGET_NAME) α";
-				PROVISIONING_PROFILE = "A925AA87-4635-4E3E-A8AD-8CA37C3FDBE9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A925AA87-4635-4E3E-A8AD-8CA37C3FDBE9";
+				PROVISIONING_PROFILE = "9ACE66E6-3D76-4A9D-BBFC-34C4D044CAC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9ACE66E6-3D76-4A9D-BBFC-34C4D044CAC4";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
 				TT_URL_SCHEME = "tabulatabs-adhoc";
 				WRAPPER_EXTENSION = app;

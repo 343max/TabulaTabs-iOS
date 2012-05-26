@@ -18,6 +18,7 @@
 #import "TTTab.h"
 
 #import "TTAppDelegate.h"
+#import "TTBrowserController.h"
 #import "TTBrowserRepresentation.h"
 
 #import "TTWebViewController.h"
@@ -215,6 +216,23 @@
     self.tableView.tableHeaderView = tableHeaderView;
     
     [self.tableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated;
+{
+    [super viewWillAppear:animated];
+    
+    if (appDelegate.browserController.allBrowsers.count > 1) {
+        self.navigationController.navigationBar.topItem.titleView = nil;
+    } else {
+        UIImage *titleImage = [[UIImage imageNamed:@"ToolbarTitle"] imageWithColorOverlay:[UIColor whiteColor]];
+        UIImageView *titleView = [[UIImageView alloc] initWithImage:titleImage];
+        CGRect titleViewFrame = CGRectZero;
+        titleViewFrame.size = titleImage.size;
+        titleView.frame = titleViewFrame;
+        
+        self.navigationController.navigationBar.topItem.titleView = titleView;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
