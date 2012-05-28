@@ -219,11 +219,12 @@
     
     self.tableView.tableHeaderView = tableHeaderView;
 
-// Default.png preparations
+    [self.tableView reloadData];
+
+    // Default.png preparations
 //    self.title = @"";
 //    self.tableView.alpha = 0;
-
-    [self.tableView reloadData];
+//    self.navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated;

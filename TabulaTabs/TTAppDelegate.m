@@ -76,6 +76,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     [[UIToolbar appearance] setTintColor:tintColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]];
     [self.window makeKeyAndVisible];
     
     self.networkConnectionsInProgress = 0;
@@ -159,6 +160,8 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
         } else {
             NSLog(@"could not handle my URL: %@", url);
         }
+        
+        self.window.backgroundColor = [UIColor blackColor];
         
         return YES;
     }

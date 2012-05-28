@@ -14,6 +14,8 @@
 		<string>AppIcon@2x.png</string>
 		<string>iphone_57.png</string>
 		<string>iphone_114.png</string>
+		<string>Default@2x.png</string>
+		<string>Default.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -25,6 +27,8 @@
 				<string>AppIcon@2x.png</string>
 				<string>iphone_57.png</string>
 				<string>iphone_114.png</string>
+				<string>Default@2x.png</string>
+				<string>Default.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -54,7 +58,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1634</string>
+	<string>1654</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MainURLScheme</key>

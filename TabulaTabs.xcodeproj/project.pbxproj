@@ -121,6 +121,8 @@
 		50F357C71521CD6900F2780F /* TTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F357C61521CD6900F2780F /* TTSettingsViewController.m */; };
 		50F363A014E925ED00AB104C /* AsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F3639F14E925ED00AB104C /* AsyncTests.m */; };
 		50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F363AB14E9496600AB104C /* MWURLConnection.m */; };
+		50F64743157396C700B111C1 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F64742157396C700B111C1 /* Default@2x.png */; };
+		50F64745157396CB00B111C1 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 50F64744157396CB00B111C1 /* Default.png */; };
 		50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FE0A8B14EB154100823CE6 /* libzbar.a */; };
 		50FE0A9214EB154100823CE6 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 50FE0A8D14EB154100823CE6 /* zbar-back.png */; };
 		50FE0A9314EB154100823CE6 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 50FE0A8E14EB154100823CE6 /* zbar-help.html */; };
@@ -312,6 +314,8 @@
 		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
 		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
 		50F363AB14E9496600AB104C /* MWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWURLConnection.m; sourceTree = "<group>"; };
+		50F64742157396C700B111C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		50F64744157396CB00B111C1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		50FE0A7714EB154100823CE6 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		50FE0A7814EB154100823CE6 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		50FE0A7914EB154100823CE6 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -525,6 +529,8 @@
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
+				50F64744157396CB00B111C1 /* Default.png */,
+				50F64742157396C700B111C1 /* Default@2x.png */,
 				5016BA91151E063200AAA198 /* libz.dylib */,
 				50F363A914E9402000AB104C /* Classes */,
 				50AE699414E860D000788808 /* External */,
@@ -943,6 +949,8 @@
 				501A29E2156BFF4300454ECE /* ReadabilityEnabled@2x.png in Resources */,
 				50D5C3661570D4B200844241 /* ToolbarTitle.png in Resources */,
 				50D5C3671570D4B200844241 /* ToolbarTitle@2x.png in Resources */,
+				50F64743157396C700B111C1 /* Default@2x.png in Resources */,
+				50F64745157396CB00B111C1 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
