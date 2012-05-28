@@ -76,8 +76,6 @@
 		509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */; };
 		509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070541528BAF8006D9DE4 /* TabListBackground.png */; };
 		509070571528BAF8006D9DE4 /* TabListBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070551528BAF8006D9DE4 /* TabListBackground@2x.png */; };
-		5090705A1528C326006D9DE4 /* TabListStitches.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070581528C326006D9DE4 /* TabListStitches.png */; };
-		5090705B1528C326006D9DE4 /* TabListStitches@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070591528C326006D9DE4 /* TabListStitches@2x.png */; };
 		5092F6A2151E9E0300E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */; };
 		50947FF4155BF1CF003AAF99 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50947FF3155BF1CF003AAF99 /* Crashlytics.framework */; };
@@ -244,8 +242,6 @@
 		509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListSettingsButton@2x.png"; sourceTree = "<group>"; };
 		509070541528BAF8006D9DE4 /* TabListBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBackground.png; sourceTree = "<group>"; };
 		509070551528BAF8006D9DE4 /* TabListBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListBackground@2x.png"; sourceTree = "<group>"; };
-		509070581528C326006D9DE4 /* TabListStitches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListStitches.png; sourceTree = "<group>"; };
-		509070591528C326006D9DE4 /* TabListStitches@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListStitches@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
 		50947FF3155BF1CF003AAF99 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -490,8 +486,6 @@
 				509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */,
 				509070541528BAF8006D9DE4 /* TabListBackground.png */,
 				509070551528BAF8006D9DE4 /* TabListBackground@2x.png */,
-				509070581528C326006D9DE4 /* TabListStitches.png */,
-				509070591528C326006D9DE4 /* TabListStitches@2x.png */,
 			);
 			name = TabListViewController;
 			sourceTree = "<group>";
@@ -916,8 +910,6 @@
 				509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */,
 				509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */,
 				509070571528BAF8006D9DE4 /* TabListBackground@2x.png in Resources */,
-				5090705A1528C326006D9DE4 /* TabListStitches.png in Resources */,
-				5090705B1528C326006D9DE4 /* TabListStitches@2x.png in Resources */,
 				5000E17B15334FE900100FB1 /* Chat-Bubble.png in Resources */,
 				5000E17C15334FE900100FB1 /* Chat-Bubble@2x.png in Resources */,
 				5000E17F15334FE900100FB1 /* Questionmark.png in Resources */,
