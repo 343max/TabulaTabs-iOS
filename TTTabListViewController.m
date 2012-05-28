@@ -214,7 +214,11 @@
     [tableHeaderView addSubview:self.refreshSpinner];
     
     self.tableView.tableHeaderView = tableHeaderView;
-    
+
+// Default.png preparations
+//    self.title = @"";
+//    self.tableView.alpha = 0;
+
     [self.tableView reloadData];
 }
 
