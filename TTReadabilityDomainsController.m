@@ -43,6 +43,10 @@
 
 - (void)setReadabilityMode:(BOOL)readabilityMode forURL:(NSURL *)URL;
 {
+    if (!URL) {
+        return;
+    }
+    
     if ([self isInReadabilityMode:URL] == readabilityMode) {
         return;
     }
