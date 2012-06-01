@@ -160,8 +160,8 @@
         
     UIButton *settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 30.0, 30.0)];
     settingsButton.layer.shadowColor = [UIColor blackColor].CGColor;
-    settingsButton.layer.shadowOpacity = 0.6;
-    settingsButton.layer.shadowRadius = 4.0;
+    settingsButton.layer.shadowOpacity = 0.4;
+    settingsButton.layer.shadowRadius = 3.0;
     
     [settingsButton setImage:[UIImage imageNamed:@"TabListSettingsButton"]
                     forState:UIControlStateNormal];
