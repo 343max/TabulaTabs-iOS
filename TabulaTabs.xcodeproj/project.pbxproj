@@ -72,6 +72,8 @@
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507297631559AF3200B61EB8 /* denim-texture-07-600x600.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
+		508A7026157C0AE800C6C1AA /* TTCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */; };
+		508A7028157C0BF700C6C1AA /* credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 508A7027157C0BF700C6C1AA /* credits.html */; };
 		509070521528B969006D9DE4 /* TabListSettingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070501528B969006D9DE4 /* TabListSettingsButton.png */; };
 		509070531528B969006D9DE4 /* TabListSettingsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */; };
 		509070561528BAF8006D9DE4 /* TabListBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 509070541528BAF8006D9DE4 /* TabListBackground.png */; };
@@ -240,6 +242,9 @@
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "denim-texture-07-600x600.jpg"; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		508A7024157C0AE800C6C1AA /* TTCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCreditsViewController.h; sourceTree = "<group>"; };
+		508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCreditsViewController.m; sourceTree = "<group>"; };
+		508A7027157C0BF700C6C1AA /* credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = credits.html; sourceTree = "<group>"; };
 		509070501528B969006D9DE4 /* TabListSettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListSettingsButton.png; sourceTree = "<group>"; };
 		509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListSettingsButton@2x.png"; sourceTree = "<group>"; };
 		509070541528BAF8006D9DE4 /* TabListBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBackground.png; sourceTree = "<group>"; };
@@ -647,10 +652,10 @@
 			isa = PBXGroup;
 			children = (
 				50623EF715249A1D0018BBD8 /* ECSlidingViewController */,
-				5016BA88151E05EB00AAA198 /* TestFlightSDK */,
 				50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */,
-				504167D6150AB2A0007A3431 /* SSKeychain */,
 				50AB685214FAADEE0040D328 /* PullToRefresh */,
+				5016BA88151E05EB00AAA198 /* TestFlightSDK */,
+				504167D6150AB2A0007A3431 /* SSKeychain */,
 				50FE0A7314EB154100823CE6 /* ZBarSDK */,
 				50AE699514E860DD00788808 /* NSData-AES.h */,
 				50AE699614E860DD00788808 /* NSData-AES.m */,
@@ -798,6 +803,8 @@
 				5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */,
 				50F357C51521CD6900F2780F /* TTSettingsViewController.h */,
 				50F357C61521CD6900F2780F /* TTSettingsViewController.m */,
+				508A7024157C0AE800C6C1AA /* TTCreditsViewController.h */,
+				508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -805,6 +812,7 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				508A7027157C0BF700C6C1AA /* credits.html */,
 				50D5C3641570D4B200844241 /* ToolbarTitle.png */,
 				50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */,
 				506430CA156697BA0020B0C3 /* iphone_57.png */,
@@ -951,6 +959,7 @@
 				50D5C3671570D4B200844241 /* ToolbarTitle@2x.png in Resources */,
 				50F64743157396C700B111C1 /* Default@2x.png in Resources */,
 				50F64745157396CB00B111C1 /* Default.png in Resources */,
+				508A7028157C0BF700C6C1AA /* credits.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,6 +1067,7 @@
 				50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */,
 				506430CE156A61080020B0C3 /* TTGlossyBox.m in Sources */,
 				505391AE156AE6C7005930C9 /* TTReadabilityDomainsController.m in Sources */,
+				508A7026157C0AE800C6C1AA /* TTCreditsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1155,8 +1165,8 @@
 				);
 				OTHER_LDFLAGS = "-lTestFlight";
 				PRODUCT_NAME = "$(TARGET_NAME) α";
-				PROVISIONING_PROFILE = "9ACE66E6-3D76-4A9D-BBFC-34C4D044CAC4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9ACE66E6-3D76-4A9D-BBFC-34C4D044CAC4";
+				PROVISIONING_PROFILE = "60358CC4-A855-4307-A1F8-31D56F007224";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60358CC4-A855-4307-A1F8-31D56F007224";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
 				TT_URL_SCHEME = "tabulatabs-adhoc";
 				WRAPPER_EXTENSION = app;

@@ -12,12 +12,11 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
 
 #import "NSURL+TabulaTabs.h"
 
-#import "MWHTTPImageCache.h"
-
 #import "TTBrowserRepresentation.h"
 #import "TTBrowserController.h"
 
 #import "TTWelcomeViewController.h"
+#import "TTCreditsViewController.h"
 #import "TTAppDelegate.h"
 
 #import "TTSettingsViewController.h"
@@ -99,7 +98,8 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
         
-        cell.textLabel.text = @"Clear Image Cache";
+        cell.textLabel.text = @"Credits";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         return cell;
     }
@@ -157,9 +157,8 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
         }
     } else {
         if (indexPath.row == 0) {
-            [[MWHTTPImageCache defaultCache] clearRAMCache];
-            [[MWHTTPImageCache defaultCache] clearDiskCache];
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            TTCreditsViewController *viewController = [[TTCreditsViewController alloc] initWithNibName:nil bundle:nil];
+            [self.navigationController pushViewController:viewController animated:YES];
         }
     }
 }
