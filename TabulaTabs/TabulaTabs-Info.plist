@@ -10,12 +10,8 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>AppIcon.png</string>
-		<string>AppIcon@2x.png</string>
 		<string>iphone_57.png</string>
 		<string>iphone_114.png</string>
-		<string>Default@2x.png</string>
-		<string>Default.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -23,12 +19,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>AppIcon.png</string>
-				<string>AppIcon@2x.png</string>
 				<string>iphone_57.png</string>
 				<string>iphone_114.png</string>
-				<string>Default@2x.png</string>
-				<string>Default.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<true/>
@@ -43,7 +35,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0a5</string>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -58,7 +50,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1681</string>
+	<string>1700</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MainURLScheme</key>
