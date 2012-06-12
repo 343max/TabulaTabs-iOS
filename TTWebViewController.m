@@ -207,6 +207,7 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
                                                               style:UIBarButtonItemStylePlain
                                                              target:self
                                                              action:@selector(toggleReadabilityMode:)];
+    self.readabilityButton.enabled = NO;
     
     self.webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     self.webView.delegate = self;
@@ -436,12 +437,23 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 
 - (NSURL *)readbilityURLForURL:(NSURL *)URL;
 {
+    if (!URL) {
+        return nil;
+    }
+    
     NSString *readabilityURLString = [NSString stringWithFormat:@"http://www.readability.com/read?url=%@",
                                       [URL.absoluteString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     return [NSURL URLWithString:readabilityURLString];
 }
 
 #pragma mark UIWebViewDelegate
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+{
+    self.readabilityButton.enabled = (request.URL != nil);
+    
+    return YES;
+}
 
 - (void)webViewDidStartLoad:(UIWebView *)webView;
 {
