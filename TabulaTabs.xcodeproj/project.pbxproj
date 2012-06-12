@@ -25,8 +25,6 @@
 		5016BA8E151E05EB00AAA198 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8A151E05EB00AAA198 /* README.txt */; };
 		5016BA8F151E05EB00AAA198 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5016BA8B151E05EB00AAA198 /* release_notes.txt */; };
 		5016BA92151E063200AAA198 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5016BA91151E063200AAA198 /* libz.dylib */; };
-		501A29E1156BFF4300454ECE /* ReadabilityEnabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 501A29DF156BFF4300454ECE /* ReadabilityEnabled.png */; };
-		501A29E2156BFF4300454ECE /* ReadabilityEnabled@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 501A29E0156BFF4300454ECE /* ReadabilityEnabled@2x.png */; };
 		5023E53E1559CDF100BCA578 /* iCab.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023E53C1559CDF100BCA578 /* iCab.png */; };
 		5023E53F1559CDF100BCA578 /* iCab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023E53D1559CDF100BCA578 /* iCab@2x.png */; };
 		5023E5431559CF1500BCA578 /* Instapaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023E5411559CF1500BCA578 /* Instapaper.png */; };
@@ -56,9 +54,6 @@
 		504F72041527646B008B4F7A /* BrowserBackToListShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F72021527646B008B4F7A /* BrowserBackToListShadow.png */; };
 		504F72051527646B008B4F7A /* BrowserBackToListShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */; };
 		504F724C152789BC008B4F7A /* TTFlippingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 504F724B152789BC008B4F7A /* TTFlippingButton.m */; };
-		505391A6156AB414005930C9 /* Readability.png in Resources */ = {isa = PBXBuildFile; fileRef = 505391A4156AB414005930C9 /* Readability.png */; };
-		505391A7156AB414005930C9 /* Readability@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 505391A5156AB414005930C9 /* Readability@2x.png */; };
-		505391AE156AE6C7005930C9 /* TTReadabilityDomainsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 505391AD156AE6C7005930C9 /* TTReadabilityDomainsController.m */; };
 		50623EF515249A160018BBD8 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF215249A160018BBD8 /* ECSlidingViewController.m */; };
 		50623EF615249A160018BBD8 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */; };
 		506430C9156697B60020B0C3 /* iphone_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 506430C8156697B60020B0C3 /* iphone_114.png */; };
@@ -178,8 +173,6 @@
 		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
 		5016BA8C151E05EB00AAA198 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		501A29DF156BFF4300454ECE /* ReadabilityEnabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ReadabilityEnabled.png; sourceTree = "<group>"; };
-		501A29E0156BFF4300454ECE /* ReadabilityEnabled@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ReadabilityEnabled@2x.png"; sourceTree = "<group>"; };
 		5023E53C1559CDF100BCA578 /* iCab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iCab.png; sourceTree = "<group>"; };
 		5023E53D1559CDF100BCA578 /* iCab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iCab@2x.png"; sourceTree = "<group>"; };
 		5023E5411559CF1500BCA578 /* Instapaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instapaper.png; sourceTree = "<group>"; };
@@ -216,10 +209,6 @@
 		504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserBackToListShadow@2x.png"; sourceTree = "<group>"; };
 		504F724A152789BC008B4F7A /* TTFlippingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFlippingButton.h; sourceTree = "<group>"; };
 		504F724B152789BC008B4F7A /* TTFlippingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFlippingButton.m; sourceTree = "<group>"; };
-		505391A4156AB414005930C9 /* Readability.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Readability.png; sourceTree = "<group>"; };
-		505391A5156AB414005930C9 /* Readability@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Readability@2x.png"; sourceTree = "<group>"; };
-		505391AC156AE6C7005930C9 /* TTReadabilityDomainsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTReadabilityDomainsController.h; sourceTree = "<group>"; };
-		505391AD156AE6C7005930C9 /* TTReadabilityDomainsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTReadabilityDomainsController.m; sourceTree = "<group>"; };
 		50623EF115249A160018BBD8 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECSlidingViewController.h; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.h; sourceTree = "<group>"; };
 		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
@@ -451,10 +440,6 @@
 		504F71E1152763F1008B4F7A /* BrowserToolbar */ = {
 			isa = PBXGroup;
 			children = (
-				501A29DF156BFF4300454ECE /* ReadabilityEnabled.png */,
-				501A29E0156BFF4300454ECE /* ReadabilityEnabled@2x.png */,
-				505391A4156AB414005930C9 /* Readability.png */,
-				505391A5156AB414005930C9 /* Readability@2x.png */,
 				504F71E21527642D008B4F7A /* BrowserBackToList.png */,
 				504F71E31527642D008B4F7A /* BrowserBackToList@2x.png */,
 				504F72021527646B008B4F7A /* BrowserBackToListShadow.png */,
@@ -514,8 +499,6 @@
 				50672D6F1533477700536821 /* TTWebViewActionViewController.m */,
 				506430CC156A61080020B0C3 /* TTGlossyBox.h */,
 				506430CD156A61080020B0C3 /* TTGlossyBox.m */,
-				505391AC156AE6C7005930C9 /* TTReadabilityDomainsController.h */,
-				505391AD156AE6C7005930C9 /* TTReadabilityDomainsController.m */,
 			);
 			name = WebBrowser;
 			sourceTree = "<group>";
@@ -951,10 +934,6 @@
 				50947FF8155BF509003AAF99 /* 1Password@2x.png in Resources */,
 				506430C9156697B60020B0C3 /* iphone_114.png in Resources */,
 				506430CB156697BA0020B0C3 /* iphone_57.png in Resources */,
-				505391A6156AB414005930C9 /* Readability.png in Resources */,
-				505391A7156AB414005930C9 /* Readability@2x.png in Resources */,
-				501A29E1156BFF4300454ECE /* ReadabilityEnabled.png in Resources */,
-				501A29E2156BFF4300454ECE /* ReadabilityEnabled@2x.png in Resources */,
 				50D5C3661570D4B200844241 /* ToolbarTitle.png in Resources */,
 				50D5C3671570D4B200844241 /* ToolbarTitle@2x.png in Resources */,
 				50F64743157396C700B111C1 /* Default@2x.png in Resources */,
@@ -1066,7 +1045,6 @@
 				50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */,
 				50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */,
 				506430CE156A61080020B0C3 /* TTGlossyBox.m in Sources */,
-				505391AE156AE6C7005930C9 /* TTReadabilityDomainsController.m in Sources */,
 				508A7026157C0AE800C6C1AA /* TTCreditsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1278,6 +1256,8 @@
 		50AE697914E8606C00788808 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Max Winde";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Max Winde";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1295,6 +1275,8 @@
 					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "773360C9-96EB-4026-8474-A9F01210F525";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "773360C9-96EB-4026-8474-A9F01210F525";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs;
 				TT_URL_SCHEME = tabulatabs;
 				WRAPPER_EXTENSION = app;
