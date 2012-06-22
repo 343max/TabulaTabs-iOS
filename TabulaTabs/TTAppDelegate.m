@@ -152,7 +152,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
             }
         } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
             TTAddBrowserFlowViewController *addBrowserFlow = [[TTAddBrowserFlowViewController alloc] init];
-            [self.window.rootViewController presentModalViewController:addBrowserFlow animated:YES];
+            [self.window.rootViewController presentModalViewController:addBrowserFlow animated:NO];
         } else {
             NSLog(@"could not handle my URL: %@", url);
         }
