@@ -34,7 +34,7 @@
 
 - (NSURL *)buildalizedURL;
 {
-    if (![self.scheme isEqualToString:@"tabulatabs"]) {
+    if ([self.scheme isEqualToString:appDelegate.URLScheme]) {
         return [self copy];
     } else {
         NSURL *newURL = [[NSURL alloc] initWithScheme:appDelegate.URLScheme host:self.host path:self.path];
