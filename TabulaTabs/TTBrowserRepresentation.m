@@ -32,11 +32,12 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 
 @interface TTBrowserRepresentation ()
 
-@property (strong) TTBrowser *browser;
+@property (strong, nonatomic) TTBrowser *browser;
 @property (strong, nonatomic) NSArray *windows;
 @property (strong, nonatomic, readonly) NSString *archiveFilePath;
 
 - (void)saveToDisk;
+- (void)browserDataIsCorrupt:(NSNotification *)notifcation;
 
 @end
 
@@ -84,6 +85,11 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
         [self loadBrowser];
         [self loadWindowsAndTabs];
     }
+}
+
+- (TTBrowser *)browser;
+{
+    return _browser;
 }
 
 - (void)setWindows:(NSArray *)windows;
@@ -181,7 +187,16 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 {
     TTBrowser *browser = [[TTBrowser alloc] initWithEncryption:self.client.encryption];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(browserDataIsCorrupt:)
+                                                 name:TTBrowserCorruptDataNotification
+                                               object:browser];
+
     [browser load:self.client.username password:self.client.password callback:^(id response) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                        name:TTBrowserCorruptDataNotification
+                                                      object:browser];
+        
         self.browser = browser;
         [self saveToDisk];
         
@@ -210,6 +225,23 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
     if (buttonIndex == 0) {
         [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
     }
+}
+
+#pragma mark Helpers
+
+- (void)browserDataIsCorrupt:(NSNotification *)notifcation;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self 
+                                                    name:TTBrowserCorruptDataNotification 
+                                                  object:notifcation.object];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Browser_data_corrput_title", nil)
+                                                        message:NSLocalizedString(@"Browser_data_corrupt_message", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+    
+    [alertView show];
 }
 
 @end

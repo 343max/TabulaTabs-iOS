@@ -23,7 +23,7 @@ extern NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification;
 @interface TTBrowserRepresentation : NSObject <UIAlertViewDelegate>
 
 @property (strong, nonatomic) TTClient *client;
-@property (strong, readonly) TTBrowser *browser;
+@property (strong, readonly, nonatomic) TTBrowser *browser;
 @property (strong, readonly, nonatomic) NSArray *windows;
 @property (strong, nonatomic, readonly) NSURL *tabulatabsURL;
 

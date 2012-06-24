@@ -62,9 +62,6 @@ NSString * const TTEncryptionDecryptionErrorNotification = @"TTEncryptionDecrypt
     
     NSData *decryptedData = [ic AES256DecryptWithKey:self.encryptionKey iv:iv];
     
-#warning don't commit!
-//    decryptedData = nil;
-    
     if (decryptedData == nil) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TTEncryptionDecryptionErrorNotification object:self];
         return nil;

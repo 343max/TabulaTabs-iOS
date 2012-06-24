@@ -146,6 +146,7 @@ const int kPasswordByteLength = 16;
             
             if (!decryptedTabData) {
                 corruptData = YES;
+                return;
             }
             
             TTTab *tab = [[TTTab alloc] initWithDictionary:decryptedTabData];
