@@ -3,4 +3,4 @@
 	url = https://github.com/Abizern/sskeychain.git
 [submodule "ECSlidingViewController"]
 	path = ECSlidingViewController
-	url = https://github.com/edgecase/ECSlidingViewController.git
+	url = https://github.com/343max/ECSlidingViewController.git
