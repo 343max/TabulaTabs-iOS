@@ -20,11 +20,11 @@
     self = [super init];
     
     if (self) {
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Instructions"
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Instructions", @"back button title for scanning QR code instructions")
                                                                                  style:UIBarButtonItemStyleBordered
                                                                                 target:nil
                                                                                 action:nil];
-        self.title = @"Add Browser";
+        self.title = NSLocalizedString(@"Add Browser", @"navbar button title");
     }
     
     return self;

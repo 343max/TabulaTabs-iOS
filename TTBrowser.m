@@ -12,6 +12,8 @@
 #import "TTBrowser.h"
 #import "TTTab.h"
 
+NSString * const TTBrowserCorruptDataNotification = @"TTBrowserCorruptDataNotification";
+
 @implementation TTBrowser
 
 @synthesize identifier = _identifier;
@@ -87,16 +89,20 @@
     [self sendJsonGetRequest:@"browsers.json" callback:^(NSDictionary *response) {
         NSDictionary *payload = [self.encryption decrypt:response];
         
-        NSNumber *identifier = [response objectForKey:@"id"];
-        self.identifier = [identifier integerValue];
-        self.browserDescription = [payload objectForKey:@"description"];
-        self.iconURL = [NSURL URLWithString:[payload objectForKey:@"iconURL"]];
-        self.label = [payload objectForKey:@"label"];
-        self.userAgent = [response objectForKey:@"useragent"];
-        
-        NSMutableDictionary *mutableResponse = [response mutableCopy];
-        [mutableResponse setObject:payload forKey:@"payload"];
-        callback([mutableResponse copy]);
+        if (!payload) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserCorruptDataNotification object:self];
+        } else {
+            NSNumber *identifier = [response objectForKey:@"id"];
+            self.identifier = [identifier integerValue];
+            self.browserDescription = [payload objectForKey:@"description"];
+            self.iconURL = [NSURL URLWithString:[payload objectForKey:@"iconURL"]];
+            self.label = [payload objectForKey:@"label"];
+            self.userAgent = [response objectForKey:@"useragent"];
+            
+            NSMutableDictionary *mutableResponse = [response mutableCopy];
+            [mutableResponse setObject:payload forKey:@"payload"];
+            callback([mutableResponse copy]);
+        }
     }];
 }
 

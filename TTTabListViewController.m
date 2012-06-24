@@ -274,15 +274,15 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;
 {
     if (section == 0) {
-        return @"Front Window";
+        return NSLocalizedString(@"Front Window", @"window section in tab list");
     } else if (section == 1) {
-        return @"Second Window";
+        return NSLocalizedString(@"Second Window", @"window section in tab list");
     } else if (section == 2) {
-        return @"Third Window";
+        return NSLocalizedString(@"Third Window", @"window section in tab list");
     } else if (section == 3) {
-        return @"Fourth Window";
+        return NSLocalizedString(@"Fourth Window", @"window section in tab list");
     } else {
-        return [NSString stringWithFormat:@"%ith Window", section + 1];
+        return [NSString stringWithFormat:NSLocalizedString(@"%ith Window", @"window section in tab list - allways bigger then 4"), section + 1];
     }
 }
 

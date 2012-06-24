@@ -89,7 +89,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
 
-        cell.textLabel.text = @"Add Browser";
+        cell.textLabel.text = NSLocalizedString(@"Add Browser", @"Settings Button");
         
         return cell;
     } else {
@@ -98,7 +98,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
         
-        cell.textLabel.text = @"Credits";
+        cell.textLabel.text = NSLocalizedString(@"Credits", @"Settings Button");
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         return cell;

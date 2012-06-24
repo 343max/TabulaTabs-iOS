@@ -162,10 +162,10 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
             [TestFlight passCheckpoint:@"registered a client"];
 #endif
         } else {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Could not add browser"
-                                                                message:@"This browser could not be added because the authentication code is to old or allready in use. Please try again with a fresh code."
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Could not add browser", @"Alert View Title")
+                                                                message:NSLocalizedString(@"browser_could_not_be_added", @"Alert view message")
                                                                delegate:self
-                                                      cancelButtonTitle:@"Okay"
+                                                      cancelButtonTitle:NSLocalizedString(@"OK", @"Alert view - okay")
                                                       otherButtonTitles:nil];
             [alertView show];
         }

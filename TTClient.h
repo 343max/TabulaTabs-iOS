@@ -8,6 +8,8 @@
 
 #import "TTRestfulEncryptedClient.h"
 
+extern NSString * const TTClientCorruptDataNotification;
+
 @interface TTClient : TTRestfulEncryptedClient
 
 @property (assign, readonly) BOOL unclaimed;

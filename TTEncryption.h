@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const TTEncryptionDecryptionErrorNotification;
+
 @interface TTEncryption : NSObject
 
 @property (strong) NSData *encryptionKey;

@@ -13,6 +13,8 @@
 
 #import "TTClient.h"
 
+NSString * const TTClientCorruptDataNotification = @"TTClientCorruptDataNotification";
+
 @implementation TTClient
 
 @synthesize userAgent = _userAgent;
@@ -135,10 +137,18 @@ const int kPasswordByteLength = 16;
 - (void)loadWindowsAndTabs:(void (^)(NSArray *, id))callback;
 {
     [self sendJsonGetRequest:@"browsers/tabs.json" callback:^(id response) {
+        __block BOOL corruptData = NO;
+        
         NSMutableDictionary *windows = [[NSMutableDictionary alloc] init];
         
         [response enumerateObjectsUsingBlock:^(NSDictionary *encryptedTab, NSUInteger idx, BOOL *stop) {
-            TTTab *tab = [[TTTab alloc] initWithDictionary:[self.encryption decrypt:encryptedTab]];
+            NSDictionary *decryptedTabData = [self.encryption decrypt:encryptedTab];
+            
+            if (!decryptedTabData) {
+                corruptData = YES;
+            }
+            
+            TTTab *tab = [[TTTab alloc] initWithDictionary:decryptedTabData];
             
             if (!tab) {
                 return;
@@ -156,7 +166,11 @@ const int kPasswordByteLength = 16;
             window.tabs = [window.tabs arrayByAddingObject:tab];
         }];
         
-        callback([windows allValues], response);
+        if (corruptData) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:TTClientCorruptDataNotification object:self];
+        } else {
+            callback([windows allValues], response);            
+        }
     }];
 }
 

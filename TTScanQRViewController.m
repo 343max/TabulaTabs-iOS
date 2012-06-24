@@ -109,7 +109,9 @@
             [[UIApplication sharedApplication] openURL:[url buildalizedURL]];
         }];
     } else {
-        [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:@"Invalid QR Code" duration:3.0 animated:YES];
+        [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:NSLocalizedString(@"Invalid QR Code", @"Status Bar Message")
+                                                             duration:3.0
+                                                             animated:YES];
 #if CONFIGURATION_AdHoc
         [TestFlight passCheckpoint:@"scanned an invalid QR code"];
 #endif

@@ -8,6 +8,8 @@
 
 #import "TTRestfulEncryptedClient.h"
 
+extern NSString * const TTBrowserCorruptDataNotification;
+
 @class TTEncryption;
 
 @interface TTBrowser : TTRestfulEncryptedClient

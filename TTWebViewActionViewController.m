@@ -81,53 +81,53 @@
     
     self.actions = [NSMutableArray array];
     
-    [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"Copy"
+    [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"Copy", @"WebPage Action Sheet action label - copy to clipboard")
                                                                       image:[UIImage imageNamed:@"Clipboard"]
                                                                      target:self
                                                                      action:@selector(copyURL:)]];
     
     if ([MFMessageComposeViewController canSendText]) {
-        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"Message"
+        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"Message", @"WebPage Action Sheet action label - send as SMS or iMessage")
                                                                           image:[UIImage imageNamed:@"Chat-Bubble"]
                                                                          target:self
                                                                          action:@selector(textMessageURL:)]];
     }
     
     if ([TWTweetComposeViewController canSendTweet]) {
-        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"Twitter"
+        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"Twitter", @"WebPage Action Sheet action label")
                                                                           image:[UIImage imageNamed:@"Twitter"]
                                                                          target:self
                                                                          action:@selector(tweetURL:)]];
     }
     
     if ([MFMailComposeViewController canSendMail]) {
-        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"E-Mail"
+        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"E-Mail", @"WebPage Action Sheet action label")
                                                                           image:[UIImage imageNamed:@"245-paperairplane"]
                                                                          target:self
                                                                          action:@selector(emailURL:)]];
     }
     
-    [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"Safari"
+    [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"Safari", @"WebPage Action Sheet action label")
                                                                       image:[UIImage imageNamed:@"71-compass"]
                                                                      target:self
                                                                      action:@selector(openWithSafari:)]];
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"1password://"]]) {
-        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"1Password"
+        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"1Password", @"WebPage Action Sheet action label")
                                                                           image:[UIImage imageNamed:@"1Password"]
                                                                          target:self
                                                                          action:@selector(openWithOnePassword:)]];
     }
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"icabmobile://"]]) {
-        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"iCab"
+        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"iCab", @"WebPage Action Sheet action label")
                                                                           image:[UIImage imageNamed:@"iCab"] 
                                                                          target:self
                                                                          action:@selector(openWithIcab:)]];
     }
     
     if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"x-callback-instapaper://x-callback-url"]]) {
-        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:@"Instapaper"
+        [self.actions addObject:[TTActionSheetButton actionSheetButtonWithTitle:NSLocalizedString(@"Instapaper", @"WebPage Action Sheet action label")
                                                                           image:[UIImage imageNamed:@"Instapaper"]
                                                                          target:self
                                                                          action:@selector(openWithInstapaper:)]];

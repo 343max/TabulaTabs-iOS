@@ -51,7 +51,6 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 - (void)reload:(id)sender;
 - (void)showPageActions:(id)sender;
 - (void)toggleListVisibility:(id)sender;
-- (void)toggleReadabilityMode:(id)sender;
 - (void)viewWillBecomeInactive:(NSNotification *)notification;
 - (void)viewDidBecomeActive:(NSNotification *)notification;
 - (NSURL *)readbilityURLForURL:(NSURL *)URL;

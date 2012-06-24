@@ -109,6 +109,7 @@
 		50D5C3661570D4B200844241 /* ToolbarTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 50D5C3641570D4B200844241 /* ToolbarTitle.png */; };
 		50D5C3671570D4B200844241 /* ToolbarTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */; };
 		50DB39DE151DEB7300CF421A /* TTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DB39DD151DEB7300CF421A /* TTWebViewController.m */; };
+		50EB6A8215973DB800022859 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50EB6A8115973DB800022859 /* Localizable.strings */; };
 		50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */; };
 		50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */; };
 		50ECD792154A9B6F00CCC302 /* TabListBottomShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50ECD790154A9B6F00CCC302 /* TabListBottomShadow.png */; };
@@ -293,6 +294,7 @@
 		50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarTitle@2x.png"; sourceTree = "<group>"; };
 		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
 		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
+		50EB6A8115973DB800022859 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		50ECB319155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GenerousURLConvertion.h"; sourceTree = "<group>"; };
 		50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GenerousURLConvertion.m"; sourceTree = "<group>"; };
 		50ECB31D155AC5DC00B8D5F4 /* NSString+MatchesPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MatchesPattern.h"; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 		50FE0AA314EB2A4800823CE6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				50EB6A8115973DB800022859 /* Localizable.strings */,
 				508A7027157C0BF700C6C1AA /* credits.html */,
 				50D5C3641570D4B200844241 /* ToolbarTitle.png */,
 				50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */,
@@ -939,6 +942,7 @@
 				50F64743157396C700B111C1 /* Default@2x.png in Resources */,
 				50F64745157396CB00B111C1 /* Default.png in Resources */,
 				508A7028157C0BF700C6C1AA /* credits.html in Resources */,
+				50EB6A8215973DB800022859 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

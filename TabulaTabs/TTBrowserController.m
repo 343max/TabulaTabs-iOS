@@ -102,9 +102,9 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
 #if CONFIGURATION_AdHoc
         [TestFlight passCheckpoint:@"Tried to register a browser twice"];
 #endif
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Browser is allready there"
-                                                        message:@"This browser is allready in your browser list, you don't need to add it twice."
-                                                       delegate:nil cancelButtonTitle:@"OK"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Browser is allready there", @"Browser allready registered Alert View Title")
+                                                        message:NSLocalizedString(@"browser_allready_there", @"Browser allready registered Alert View Title")
+                                                       delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", @"Alert View - okay")
                                               otherButtonTitles:nil];
         [alert show];
     } else {
@@ -174,12 +174,12 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
     
     [self removeBrowser:browser callback:nil];
         
-    NSString *message = [NSString stringWithFormat:@"The synchronization of the browser \"%@\" to this client was canceled. The browser will be removed from this device. If you want to see the tabs of this browser here again you have to reestablish a connection in the settings.", browser.browser.label];
+    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"sync_canceled_alert", nil), browser.browser.label];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Synchronization canceled"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Synchronization canceled", @"Alert view title")
                                                         message:message
                                                        delegate:self
-                                              cancelButtonTitle:@"Okay"
+                                              cancelButtonTitle:NSLocalizedString(@"OK", @"Alert view - okay")
                                               otherButtonTitles:nil];
 
     [alert show];

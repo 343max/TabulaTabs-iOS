@@ -50,7 +50,7 @@
                                                                                           action:@selector(dismiss:)];
     
     if (!viewController.title) {
-        viewController.title = @"Settings";
+        viewController.title = NSLocalizedString(@"Settings", @"Navbar Title");
     }
 }
 

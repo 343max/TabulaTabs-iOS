@@ -12,6 +12,8 @@
 
 #import "TTEncryption.h"
 
+NSString * const TTEncryptionDecryptionErrorNotification = @"TTEncryptionDecryptionErrorNotification";
+
 @implementation TTEncryption
 
 @synthesize encryptionKey = _encryptionKey;
@@ -59,6 +61,15 @@
     NSData *ic = [NSData dataFromBase64String:[encryptedDictionary objectForKey:@"ic"]];
     
     NSData *decryptedData = [ic AES256DecryptWithKey:self.encryptionKey iv:iv];
+    
+#warning don't commit!
+//    decryptedData = nil;
+    
+    if (decryptedData == nil) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:TTEncryptionDecryptionErrorNotification object:self];
+        return nil;
+    }
+    
     NSError *error = nil;
     id payload = [NSJSONSerialization JSONObjectWithData:decryptedData options:0 error:&error];
     
