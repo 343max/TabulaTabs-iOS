@@ -13,6 +13,7 @@
 
 #import "AsyncTests.h"
 
+#import "TTAppDelegate.h"
 #import "TTDevelopmentHelpers.h"
 
 @implementation TTDevelopmentHelpers
@@ -35,7 +36,7 @@
     [browser createClientWitClaimingPassword:claimingPassword callback:^(NSString *clientUsername, id response) {
         NSLog(@"starting claiming…");
         NSURL *registrationURL = [TTBrowser registrationURLForUsername:clientUsername claimingPassword:claimingPassword encryptionKey:encryption.encryptionKey];
-        [[UIApplication sharedApplication] openURL:registrationURL];
+        [appDelegate handleInternalURL:registrationURL];
     }];
 }
 

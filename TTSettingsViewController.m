@@ -124,7 +124,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
                 appDelegate.currentBrowser = nil;
                 [self dismissViewControllerAnimated:YES completion:^
                 {
-                    [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
+                    [appDelegate handleInternalURL:[NSURL addBrowserRepresentationFlowURL]];
                 }];
             }
         }];
@@ -143,7 +143,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
         oldCell.accessoryType = UITableViewCellAccessoryNone;
         
         TTBrowserRepresentation *browser = [appDelegate.browserController.allBrowsers objectAtIndex:indexPath.row];
-        [[UIApplication sharedApplication] openURL:browser.tabulatabsURL];
+        [appDelegate handleInternalURL:browser.tabulatabsURL];
 
         double delayInSeconds = 0.2;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);

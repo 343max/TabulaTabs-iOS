@@ -8,6 +8,7 @@
 
 #import "NSURL+TabulaTabs.h"
 #import "MTStatusBarOverlay.h"
+#import "TTAppDelegate.h"
 #if CONFIGURATION_AdHoc
 #import "TestFlight.h"
 #endif
@@ -106,7 +107,7 @@
         [TestFlight passCheckpoint:@"scanned an QR code"];
 #endif
         [self dismissViewControllerAnimated:YES completion:^{
-            [[UIApplication sharedApplication] openURL:[url buildalizedURL]];
+            [appDelegate handleInternalURL:[url buildalizedURL]];
         }];
     } else {
         [[MTStatusBarOverlay sharedOverlay] postImmediateErrorMessage:NSLocalizedString(@"Invalid QR Code", @"Status Bar Message")

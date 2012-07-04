@@ -190,9 +190,9 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 {
     if (self.allBrowsers.count == 0) {
-        [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
+        [appDelegate handleInternalURL:[NSURL addBrowserRepresentationFlowURL]];
     } else {
-        [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
+        [appDelegate handleInternalURL:[NSURL firstBrowserURL]];
     }
 
 }

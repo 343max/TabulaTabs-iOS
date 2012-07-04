@@ -111,56 +111,60 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
                                                object:nil];
     
     if (self.currentURL) {
-        [[UIApplication sharedApplication] openURL:self.currentURL];
+        [self handleInternalURL:self.currentURL];
     } else {
-        [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
+        [self handleInternalURL:[NSURL firstBrowserURL]];
     }
     
     return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url;
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)URL sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
 {
-    url = [url buildalizedURL];
+    URL = [URL buildalizedURL];
     
-    if (![url.scheme isEqualToString:self.URLScheme]) {
+    if (![URL.scheme isEqualToString:self.URLScheme]) {
         return NO;
     } else {
-        NSLog(@"handleOpenURL: %@", url);
-        
-        NSString *module = url.host;
-        NSString *action = [url.pathComponents objectAtIndex:1];
-        
-        if ([module isEqualToString:@"client"] && [action isEqualToString:@"claim"] && url.pathComponents.count == 5) {
-            TTBrowserRepresentation *browserRepresentation = [[TTBrowserRepresentation alloc] init];
-            [browserRepresentation claimURL:url];
-            self.currentBrowser = browserRepresentation;
-        } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tabs"] && url.pathComponents.count == 3) {
-            NSString *clientDescriptor = [url.pathComponents objectAtIndex:2];
-            if ([clientDescriptor isEqualToString:@"first"]) {
-                if (self.browserController.allBrowsers.count == 0) {
-                    [[UIApplication sharedApplication] openURL:[NSURL addBrowserRepresentationFlowURL]];
-                } else {
-                    self.currentBrowser = [self.browserController.allBrowsers objectAtIndex:0];
-                }
-            } else {
-                self.currentBrowser = [self.browserController browserWithClientIdentifier:clientDescriptor];
-                
-                if (self.currentBrowser == nil) {
-                    [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
-                }
-            }
-        } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
-            TTAddBrowserFlowViewController *addBrowserFlow = [[TTAddBrowserFlowViewController alloc] init];
-            [self.window.rootViewController presentModalViewController:addBrowserFlow animated:NO];
-        } else {
-            NSLog(@"could not handle my URL: %@", url);
-        }
-        
-        self.window.backgroundColor = [UIColor blackColor];
-        
+        [self handleInternalURL:URL];
         return YES;
     }
+}
+
+- (void)handleInternalURL:(NSURL *)URL;
+{
+    NSLog(@"handleOpenURL: %@", URL);
+    
+    NSString *module = URL.host;
+    NSString *action = [URL.pathComponents objectAtIndex:1];
+    
+    if ([module isEqualToString:@"client"] && [action isEqualToString:@"claim"] && URL.pathComponents.count == 5) {
+        TTBrowserRepresentation *browserRepresentation = [[TTBrowserRepresentation alloc] init];
+        [browserRepresentation claimURL:URL];
+        self.currentBrowser = browserRepresentation;
+    } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tabs"] && URL.pathComponents.count == 3) {
+        NSString *clientDescriptor = [URL.pathComponents objectAtIndex:2];
+        if ([clientDescriptor isEqualToString:@"first"]) {
+            if (self.browserController.allBrowsers.count == 0) {
+                [self handleInternalURL:[NSURL addBrowserRepresentationFlowURL]];
+            } else {
+                self.currentBrowser = [self.browserController.allBrowsers objectAtIndex:0];
+            }
+        } else {
+            self.currentBrowser = [self.browserController browserWithClientIdentifier:clientDescriptor];
+            
+            if (self.currentBrowser == nil) {
+                [self handleInternalURL:[NSURL firstBrowserURL]];
+            }
+        }
+    } else if([module isEqualToString:@"client"] && [action isEqualToString:@"tour"]) {
+        TTAddBrowserFlowViewController *addBrowserFlow = [[TTAddBrowserFlowViewController alloc] init];
+        [self.window.rootViewController presentModalViewController:addBrowserFlow animated:NO];
+    } else {
+        NSLog(@"could not handle my URL: %@", URL);
+    }
+    
+    self.window.backgroundColor = [UIColor blackColor];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application;

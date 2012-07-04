@@ -223,7 +223,7 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 {
     if (buttonIndex == 0) {
-        [[UIApplication sharedApplication] openURL:[NSURL firstBrowserURL]];
+        [appDelegate handleInternalURL:[NSURL firstBrowserURL]];
     }
 }
 
