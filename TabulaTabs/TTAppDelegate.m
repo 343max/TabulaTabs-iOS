@@ -13,6 +13,7 @@
 #if CONFIGURATION_AdHoc
 #import "TestFlight.h"
 #endif
+#import "UAirship.h"
 #import "SSKeychain.h"
 #import "MWSlidingViewController.h"
 
@@ -62,12 +63,22 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 //    [TTDevelopmentHelpers runAsynchronTests]; return YES;
     
     _URLScheme =  [[[NSBundle mainBundle] infoDictionary] valueForKey:@"MainURLScheme"];
-    
+        
 #if CONFIGURATION_AdHoc
     [TestFlight takeOff:@"08b2e6be43c442789736edf1fecb1592_MTEwMjYyMDEyLTAzLTI0IDA5OjM1OjM0LjgxMDc5Ng"];
 #endif
     [Crashlytics startWithAPIKey:@"f5afdb7ddba6518ecbf5c81e44e46bf5aae78272"];
     
+    NSMutableDictionary *takeOffOptions = [[NSMutableDictionary alloc] init];
+    if (launchOptions != nil) {
+        [takeOffOptions setObject:launchOptions forKey:UAirshipTakeOffOptionsLaunchOptionsKey];
+    }
+    [UAirship takeOff:takeOffOptions];
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge |
+                                                                           UIRemoteNotificationTypeSound |
+                                                                           UIRemoteNotificationTypeAlert)];
+
     UIColor *tintColor = [UIColor colorWithRed:0.238 green:0.319 blue:0.414 alpha:1.000];
     [[UINavigationBar appearance] setTintColor:tintColor];
     [[UIToolbar appearance] setTintColor:tintColor];
@@ -117,6 +128,16 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     }
     
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application;
+{
+    [UAirship land];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
+{
+    [[UAirship shared] registerDeviceToken:deviceToken];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)URL sourceApplication:(NSString *)sourceApplication annotation:(id)annotation;
