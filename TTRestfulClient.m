@@ -50,6 +50,10 @@ NSString const * TTRestfulControllerAPIDomain = @"http://apiv0.tabulatabs.com/";
        forHTTPHeaderField:@"Authorization"];
     }
     
+    if ([request.HTTPMethod isEqualToString:@"PUT"] || [request.HTTPMethod isEqualToString:@"POST"]) {
+        [request addValue:@"application/json; charset=UTF-8" forHTTPHeaderField:@"Content-Type"];
+    }
+    
     if (jsonParameters) {
         NSError *error;
         request.HTTPBody = [NSJSONSerialization dataWithJSONObject:jsonParameters options:0 error:&error];
@@ -71,7 +75,7 @@ NSString const * TTRestfulControllerAPIDomain = @"http://apiv0.tabulatabs.com/";
         if (error) {
             NSLog(@"error in %@ request %@", connection.request.HTTPMethod, connection.request.URL.absoluteString);
             NSString *responseString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"%@\n\n\n", responseString);
+            NSLog(@"responseString: %@\n\n\n", responseString);
         }
         
         NSAssert(!error, @"JSON deserialization error: %@", error);
