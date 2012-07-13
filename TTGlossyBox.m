@@ -37,17 +37,15 @@
     UIColor* boxColorDarker = [UIColor colorWithRed: (boxColorRGBA[0] * 0.5) green: (boxColorRGBA[1] * 0.5) blue: (boxColorRGBA[2] * 0.5) alpha: (boxColorRGBA[3] * 0.5 + 0.5)];
     
     //// Gradient Declarations
-    NSArray* glossColors = [NSArray arrayWithObjects: 
-                            (id)white0.CGColor, 
+    NSArray* glossColors = @[(id)white0.CGColor, 
                             (id)white0.CGColor, 
                             (id)white60.CGColor, 
-                            (id)white20.CGColor, nil];
+                            (id)white20.CGColor];
     CGFloat glossLocations[] = {0, 0.5, 0.5, 1};
     CGGradientRef gloss = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)glossColors, glossLocations);
-    NSArray* maskColors = [NSArray arrayWithObjects: 
-                           (id)boxColor.CGColor, 
+    NSArray* maskColors = @[(id)boxColor.CGColor, 
                            (id)[UIColor colorWithRed: 0.24 green: 0.32 blue: 0.42 alpha: 0.5].CGColor, 
-                           (id)boxColor0.CGColor, nil];
+                           (id)boxColor0.CGColor];
     CGFloat maskLocations[] = {0, 0.75, 1};
     CGGradientRef mask = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)maskColors, maskLocations);
     

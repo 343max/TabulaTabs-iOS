@@ -178,15 +178,13 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.toolbar = [[UIToolbar alloc] init];
     [self.view addSubview:self.toolbar];
 
-    self.toolbar.items = [NSArray arrayWithObjects:
-                          [[UIBarButtonItem alloc] initWithCustomView:self.toggleTabListButton],
+    self.toolbar.items = @[[[UIBarButtonItem alloc] initWithCustomView:self.toggleTabListButton],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithCustomView:self.backButton],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
                           [[UIBarButtonItem alloc] initWithCustomView:self.forwardButton],
                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
-                          [[UIBarButtonItem alloc] initWithCustomView:self.actionButton],
-                          nil];
+                          [[UIBarButtonItem alloc] initWithCustomView:self.actionButton]];
     
     
     UINavigationItem *navigationItem = [[UINavigationItem alloc] init];
@@ -212,7 +210,7 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     navigationItem.titleView = self.titleLabel;
     
     self.navigationBar = [[UINavigationBar alloc] init];
-    self.navigationBar.items = [NSArray arrayWithObject:navigationItem];
+    self.navigationBar.items = @[navigationItem];
     [self.view addSubview:self.navigationBar];
 
     self.gestureView = [[UIView alloc] initWithFrame:CGRectZero];

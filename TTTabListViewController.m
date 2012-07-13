@@ -431,7 +431,7 @@
     [self stopLoadingAnimation];
     
     if (!oldWindows) {
-        oldWindows = [NSArray array];
+        oldWindows = @[];
     }
     
     [self.tableView beginUpdates]; {

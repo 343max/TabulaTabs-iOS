@@ -858,7 +858,7 @@
 		50AE694114E8606C00788808 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 			};
 			buildConfigurationList = 50AE694414E8606C00788808 /* Build configuration list for PBXProject "TabulaTabs" */;
 			compatibilityVersion = "Xcode 3.2";

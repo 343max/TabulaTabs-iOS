@@ -48,10 +48,10 @@
 {
     NSString *keyString = @"secretsecretsecretsecretsecretAA";
     TTEncryption *encryption = [[TTEncryption alloc] initWithEncryptionKey:[keyString dataUsingEncoding:NSUTF8StringEncoding]];
-    NSDictionary *encryptedDict = [encryption encrypt:[NSDictionary dictionaryWithObject:@"world!" forKey:@"hello"]];
+    NSDictionary *encryptedDict = [encryption encrypt:@{@"hello": @"world!"}];
     
     NSDictionary *decryptedPayload = [encryption decrypt:encryptedDict];
-    STAssertTrue([[NSString stringWithString:@"world!"] isEqualToString:[decryptedPayload objectForKey:@"hello"]], @"encryption & decryption works");
+    STAssertTrue([@"world!" isEqualToString:[decryptedPayload objectForKey:@"hello"]], @"encryption & decryption works");
 }
 
 - (void)testGeneratePassword;

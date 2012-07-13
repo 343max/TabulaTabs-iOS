@@ -45,11 +45,9 @@
     
     [self getRed:&red green:&green blue:&blue alpha:&alpha];
     
-    return [NSArray arrayWithObjects:
-            [NSNumber numberWithInt:red * 255.0],
+    return @[[NSNumber numberWithInt:red * 255.0],
             [NSNumber numberWithInt:green * 255.0],
-            [NSNumber numberWithInt:blue * 255.0],
-            nil];
+            [NSNumber numberWithInt:blue * 255.0]];
 }
 
 + (UIColor *)defaultPageColor;

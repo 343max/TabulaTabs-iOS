@@ -72,7 +72,7 @@
         tab3.index = 1;
 
         NSLog(@"trying to save tabs");
-        [browser saveTabs:[NSArray arrayWithObjects:tab1, tab2, tab3, nil] callback:^(BOOL success, id response) {
+        [browser saveTabs:@[tab1, tab2, tab3] callback:^(BOOL success, id response) {
             NSAssert(success, @"could not save tabs");
             NSString *claimingPassword = [TTEncryption generatePassword];
             

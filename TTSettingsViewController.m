@@ -117,7 +117,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
         [appDelegate.browserController removeBrowser:browser
                                             callback:^(BOOL success, id response)
          {
-            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath]
                                   withRowAnimation:UITableViewRowAnimationMiddle];
             
             if (appDelegate.browserController.allBrowsers.count == 0) {

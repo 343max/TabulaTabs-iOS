@@ -40,13 +40,11 @@ NSString * const TTBrowserCorruptDataNotification = @"TTBrowserCorruptDataNotifi
 
 - (NSDictionary *)dictionary;
 {
-    return [NSDictionary dictionaryWithObjectsAndKeys:
-            [NSNumber numberWithInteger:self.identifier], @"identifier",
-            self.userAgent, @"userAgent",
-            self.label, @"label",
-            self.browserDescription, @"browserDescription",
-            self.iconURL.absoluteString, @"iconURL",
-            nil];
+    return @{@"identifier": @(self.identifier),
+            @"userAgent": self.userAgent,
+            @"label": self.label,
+            @"browserDescription": self.browserDescription,
+            @"iconURL": self.iconURL.absoluteString};
 }
 
 + (NSURL *)registrationURLForUsername:(NSString *)username claimingPassword:(NSString *)claimingPassword encryptionKey:(NSData *)encryptionKey;
@@ -57,10 +55,9 @@ NSString * const TTBrowserCorruptDataNotification = @"TTBrowserCorruptDataNotifi
 
 - (void)registerWithPassword:(NSString *)password callback:(void (^)(id response))callback;
 {
-    NSDictionary *payload = [NSDictionary dictionaryWithObjectsAndKeys:
-                                           self.label, @"label",
-                                           self.browserDescription, @"description",
-                                           self.iconURL.absoluteString, @"iconURL", nil];
+    NSDictionary *payload = @{@"label": self.label,
+                                           @"description": self.browserDescription,
+                                           @"iconURL": self.iconURL.absoluteString};
     NSMutableDictionary *jsonParams = [[self.encryption encrypt:payload] mutableCopy];
     
     [jsonParams setObject:password forKey:@"password"];
@@ -124,7 +121,7 @@ NSString * const TTBrowserCorruptDataNotification = @"TTBrowserCorruptDataNotifi
 
 - (void)createClientWitClaimingPassword:(NSString *)claimingPassword callback:(void (^)(NSString *, id))callback;
 {
-    NSDictionary *params = [NSDictionary dictionaryWithObject:claimingPassword forKey:@"password"];
+    NSDictionary *params = @{@"password": claimingPassword};
     
     [self sendJsonRequest:@"browsers/clients.json" method:@"POST" jsonParameters:params callback:^(id response) {
         callback([response objectForKey:@"username"], response);

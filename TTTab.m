@@ -89,7 +89,7 @@
         }
         
         NSArray *rawColorPalette = [dictionary objectForKey:@"colorPalette"];
-        self.colorPalette = [NSArray array];
+        self.colorPalette = @[];
 
         if ([rawColorPalette isKindOfClass:[NSArray class]]) {
             [rawColorPalette enumerateObjectsUsingBlock:^(NSArray *rawColor, NSUInteger idx, BOOL *stop) {
@@ -171,13 +171,13 @@
     if (self.title)
         [dict setObject:self.title forKey:@"title"];
     [dict setObject:self.URL.absoluteString forKey:@"URL"];
-    [dict setObject:[NSNumber numberWithBool:self.selected] forKey:@"selected"];
+    [dict setObject:@(self.selected) forKey:@"selected"];
     if (self.favIconURL)
         [dict setObject:self.favIconURL.absoluteString forKey:@"favIconURL"];
     if (self.windowId)
         [dict setObject:self.windowId forKey:@"windowId"];
-    [dict setObject:[NSNumber numberWithBool:self.windowFocused] forKey:@"windowFocused"];
-    [dict setObject:[NSNumber numberWithInteger:self.index] forKey:@"index"];
+    [dict setObject:@(self.windowFocused) forKey:@"windowFocused"];
+    [dict setObject:@(self.index) forKey:@"index"];
     [dict setObject:colorPalette forKey:@"colorPalette"];
     if (self.pageTitle)
         [dict setObject:self.pageTitle forKey:@"pageTitle"];

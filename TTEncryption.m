@@ -52,7 +52,7 @@ NSString * const TTEncryptionDecryptionErrorNotification = @"TTEncryptionDecrypt
     NSData *jsonPayload = [NSJSONSerialization dataWithJSONObject:payload options:0 error:&error];
     NSData *ic = [jsonPayload AES256EncryptWithKey:self.encryptionKey iv:iv];
     
-    return [NSDictionary dictionaryWithObjectsAndKeys: [ic base64EncodedString], @"ic", [iv hexString], @"iv", nil];
+    return @{@"ic": [ic base64EncodedString], @"iv": [iv hexString]};
 }
 
 - (id)decrypt:(NSDictionary *)encryptedDictionary;

@@ -22,7 +22,7 @@
     self = [super init];
     
     if (self) {
-        self.tabs = [NSArray array];
+        self.tabs = @[];
     }
     
     return self;
@@ -64,10 +64,9 @@
         [tabs addObject:tab.dictionary];
     }];
     
-    return [NSDictionary dictionaryWithObjectsAndKeys:self.identifier, @"identifier",
-                                                      [NSNumber numberWithBool:self.focused], @"focused",
-                                                      tabs, @"tabs",
-                                                      nil];
+    return @{@"identifier": self.identifier,
+                                                      @"focused": @(self.focused),
+                                                      @"tabs": tabs};
 }
 
 @end

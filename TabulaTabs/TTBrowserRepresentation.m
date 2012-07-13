@@ -120,9 +120,8 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
         [encodedWindows addObject:window.dictionary];
     }];
     
-    NSDictionary *dataForArchive = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    self.browser.dictionary, @"browser",
-                                    encodedWindows, @"windows", nil];
+    NSDictionary *dataForArchive = @{@"browser": self.browser.dictionary,
+                                    @"windows": encodedWindows};
     [dataForArchive writeToFile:self.archiveFilePath atomically:YES];
 }
 

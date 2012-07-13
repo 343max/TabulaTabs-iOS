@@ -378,7 +378,7 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
         
         // iOS 5 doesn't correctly resize the activityIndicator. Bug?
         if ([activityIndicator_ respondsToSelector:@selector(setColor:)]) {
-            [activityIndicator_.layer setValue:[NSNumber numberWithFloat:0.75f] forKeyPath:@"transform.scale"];
+            [activityIndicator_.layer setValue:@0.75f forKeyPath:@"transform.scale"];
         }
         
 		[self addSubviewToBackgroundView:activityIndicator_];
@@ -564,11 +564,11 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
             return;
         }
         
-        NSDictionary *messageDictionaryRepresentation = [NSDictionary dictionaryWithObjectsAndKeys:message, kMTStatusBarOverlayMessageKey,
-                                                         [NSNumber numberWithInt:messageType], kMTStatusBarOverlayMessageTypeKey,
-                                                         [NSNumber numberWithDouble:duration], kMTStatusBarOverlayDurationKey,
-                                                         [NSNumber numberWithBool:animated],  kMTStatusBarOverlayAnimationKey,
-                                                         [NSNumber numberWithBool:immediate], kMTStatusBarOverlayImmediateKey, nil];
+        NSDictionary *messageDictionaryRepresentation = @{kMTStatusBarOverlayMessageKey: message,
+                                                         kMTStatusBarOverlayMessageTypeKey: [NSNumber numberWithInt:messageType],
+                                                         kMTStatusBarOverlayDurationKey: @(duration),
+                                                         kMTStatusBarOverlayAnimationKey: @(animated),
+                                                         kMTStatusBarOverlayImmediateKey: @(immediate)};
         
         @synchronized (self.messageQueue) {
             [self.messageQueue insertObject:messageDictionaryRepresentation atIndex:0];
@@ -1373,7 +1373,7 @@ kDetailViewWidth, kHistoryTableRowHeight*kMaxHistoryTableRowCount + kStatusBarHe
             [self setDetailViewHidden:self.detailViewHidden animated:YES];
             
             // update history table-view
-            [self.historyTableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newHistoryMessageIndexPath]
+            [self.historyTableView insertRowsAtIndexPaths:@[newHistoryMessageIndexPath]
                                          withRowAnimation:UITableViewRowAnimationFade];
             [self.historyTableView scrollToRowAtIndexPath:newHistoryMessageIndexPath
                                          atScrollPosition:UITableViewScrollPositionTop animated:YES];
