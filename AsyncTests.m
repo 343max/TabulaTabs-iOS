@@ -59,11 +59,20 @@
         tab2.favIconURL = [NSURL URLWithString:@"http://tab2.de/favicon.ico"];
         tab2.selected = NO;
         tab2.identifier = @"2";
-        tab2.windowId = @"2";
+        tab2.windowId = @"1";
         tab2.index = 1;
 
+        TTTab* tab3 = [[TTTab alloc] init];
+        tab3.title = @"Tab3";
+        tab3.URL = [NSURL URLWithString:@"http://tab3.de/"];
+        tab3.favIconURL = [NSURL URLWithString:@"http://tab3.de/favicon.ico"];
+        tab3.selected = NO;
+        tab3.identifier = @"2";
+        tab3.windowId = @"2";
+        tab3.index = 1;
+
         NSLog(@"trying to save tabs");
-        [browser saveTabs:[NSArray arrayWithObjects:tab1, tab2, nil] callback:^(BOOL success, id response) {
+        [browser saveTabs:[NSArray arrayWithObjects:tab1, tab2, tab3, nil] callback:^(BOOL success, id response) {
             NSAssert(success, @"could not save tabs");
             NSString *claimingPassword = [TTEncryption generatePassword];
             
