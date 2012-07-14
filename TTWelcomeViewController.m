@@ -36,7 +36,7 @@
     [super loadView];
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"denim-texture-07-600x600.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"TabListBackground"]];
     webView.backgroundColor = [UIColor clearColor];
     webView.opaque = NO;
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
