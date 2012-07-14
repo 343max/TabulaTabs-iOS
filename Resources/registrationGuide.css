@@ -1,0 +1,50 @@
+body {
+    background-color: transparent;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.6) 0 -1px 1px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica;
+    font-size: 17px;
+    -webkit-touch-callout: none;
+}
+
+a, span.pseudolink {
+    color: rgb(58, 138, 250);
+    text-decoration: underline;
+}
+        
+strong {
+    text-decoration: underline;
+}
+
+a.snapbutton {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    width: 200px;
+    line-height: 36px;
+    text-align: center;
+    text-shadow: #7db9e8 0 0 6px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#758193), color-stop(50%,#3a4962), color-stop(51%,#2d3e58), color-stop(100%,#243144));
+    box-shadow: 0 0 10px #7db9e8;
+}
+
+p {
+    padding: 6px 20px 6px 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+ul {
+    padding-left: 28px;
+    margin-top: 0;
+}
+
+ul li {
+    padding: 6px 20px 6px 0;
+}

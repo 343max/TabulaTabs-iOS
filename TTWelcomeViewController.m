@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 
 #import "TTScanQRViewController.h"
@@ -35,10 +36,18 @@
     [super loadView];
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"denim-texture-07-600x600.jpg"]];
+    webView.backgroundColor = [UIColor clearColor];
+    webView.opaque = NO;
     webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     webView.scrollView.bounces = NO;
     
-    NSURL *registrationGuideURL = [[NSBundle mainBundle] URLForResource:@"registrationGuide" withExtension:@"html"];
+    NSURL *registrationGuideURL;
+    if ([AVCaptureDevice devices].count > 0) {
+        registrationGuideURL = [[NSBundle mainBundle] URLForResource:@"registrationGuide" withExtension:@"html"];
+    } else {
+        registrationGuideURL = [[NSBundle mainBundle] URLForResource:@"registrationGuideNoCam" withExtension:@"html"];
+    }
     [webView loadRequest:[NSURLRequest requestWithURL:registrationGuideURL]];
     
     webView.delegate = self;
