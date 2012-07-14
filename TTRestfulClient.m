@@ -48,7 +48,7 @@ NSString const * TTRestfulControllerAPIDomain = @"http://maxbook-air.local:4242/
     
     if (self.username && self.password) {
         NSData *userCredentials = [[NSString stringWithFormat:@"%@:%@", self.username, self.password] dataUsingEncoding:NSUTF8StringEncoding];
-        [request addValue:[NSString stringWithFormat:@"Basic %@==", [userCredentials base64EncodedString]]
+        [request addValue:[NSString stringWithFormat:@"Basic %@", [userCredentials base64EncodedString]]
        forHTTPHeaderField:@"Authorization"];
     }
     
