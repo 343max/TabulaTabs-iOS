@@ -1,0 +1,1617 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>DCIntrospect Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<meta name="viewport" content="width=550" />
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.0.5 (build 789)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">DCIntrospect 0.0.1 </a></h1>
+				<a id="developerHome" href="../index.html">Patrick Richards</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">DCIntrospect Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/currentView">&nbsp;&nbsp;&nbsp;&nbsp;currentView</option>
+	
+	<option value="//api/name/currentViewHistory">&nbsp;&nbsp;&nbsp;&nbsp;currentViewHistory</option>
+	
+	<option value="//api/name/flashOnRedraw">&nbsp;&nbsp;&nbsp;&nbsp;flashOnRedraw</option>
+	
+	<option value="//api/name/frameView">&nbsp;&nbsp;&nbsp;&nbsp;frameView</option>
+	
+	<option value="//api/name/handleArrowKeys">&nbsp;&nbsp;&nbsp;&nbsp;handleArrowKeys</option>
+	
+	<option value="//api/name/highlightNonOpaqueViews">&nbsp;&nbsp;&nbsp;&nbsp;highlightNonOpaqueViews</option>
+	
+	<option value="//api/name/inputTextView">&nbsp;&nbsp;&nbsp;&nbsp;inputTextView</option>
+	
+	<option value="//api/name/invokeGestureRecognizer">&nbsp;&nbsp;&nbsp;&nbsp;invokeGestureRecognizer</option>
+	
+	<option value="//api/name/keyboardBindingsOn">&nbsp;&nbsp;&nbsp;&nbsp;keyboardBindingsOn</option>
+	
+	<option value="//api/name/objectNames">&nbsp;&nbsp;&nbsp;&nbsp;objectNames</option>
+	
+	<option value="//api/name/on">&nbsp;&nbsp;&nbsp;&nbsp;on</option>
+	
+	<option value="//api/name/originalAlpha">&nbsp;&nbsp;&nbsp;&nbsp;originalAlpha</option>
+	
+	<option value="//api/name/originalFrame">&nbsp;&nbsp;&nbsp;&nbsp;originalFrame</option>
+	
+	<option value="//api/name/showStatusBarOverlay">&nbsp;&nbsp;&nbsp;&nbsp;showStatusBarOverlay</option>
+	
+	<option value="//api/name/showingHelp">&nbsp;&nbsp;&nbsp;&nbsp;showingHelp</option>
+	
+	<option value="//api/name/statusBarOverlay">&nbsp;&nbsp;&nbsp;&nbsp;statusBarOverlay</option>
+	
+	<option value="//api/name/viewOutlines">&nbsp;&nbsp;&nbsp;&nbsp;viewOutlines</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/sharedIntrospector">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedIntrospector</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addOutlinesToFrameViewFromSubview:">&nbsp;&nbsp;&nbsp;&nbsp;- addOutlinesToFrameViewFromSubview:</option>
+	
+	<option value="//api/name/callDrawRectOnViewsInSubview:">&nbsp;&nbsp;&nbsp;&nbsp;- callDrawRectOnViewsInSubview:</option>
+	
+	<option value="//api/name/describeColor:">&nbsp;&nbsp;&nbsp;&nbsp;- describeColor:</option>
+	
+	<option value="//api/name/describeProperty:value:">&nbsp;&nbsp;&nbsp;&nbsp;- describeProperty:value:</option>
+	
+	<option value="//api/name/fadeView:toAlpha:">&nbsp;&nbsp;&nbsp;&nbsp;- fadeView:toAlpha:</option>
+	
+	<option value="//api/name/flashRect:inView:">&nbsp;&nbsp;&nbsp;&nbsp;- flashRect:inView:</option>
+	
+	<option value="//api/name/forceReloadOfView">&nbsp;&nbsp;&nbsp;&nbsp;- forceReloadOfView</option>
+	
+	<option value="//api/name/forceSetNeedsDisplay">&nbsp;&nbsp;&nbsp;&nbsp;- forceSetNeedsDisplay</option>
+	
+	<option value="//api/name/forceSetNeedsLayout">&nbsp;&nbsp;&nbsp;&nbsp;- forceSetNeedsLayout</option>
+	
+	<option value="//api/name/invokeIntrospector">&nbsp;&nbsp;&nbsp;&nbsp;- invokeIntrospector</option>
+	
+	<option value="//api/name/logAccessabilityPropertiesForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- logAccessabilityPropertiesForObject:</option>
+	
+	<option value="//api/name/logCodeForCurrentViewChanges">&nbsp;&nbsp;&nbsp;&nbsp;- logCodeForCurrentViewChanges</option>
+	
+	<option value="//api/name/logPropertiesForCurrentView">&nbsp;&nbsp;&nbsp;&nbsp;- logPropertiesForCurrentView</option>
+	
+	<option value="//api/name/logPropertiesForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- logPropertiesForObject:</option>
+	
+	<option value="//api/name/logRecursiveDescriptionForCurrentView">&nbsp;&nbsp;&nbsp;&nbsp;- logRecursiveDescriptionForCurrentView</option>
+	
+	<option value="//api/name/logRecursiveDescriptionForView:">&nbsp;&nbsp;&nbsp;&nbsp;- logRecursiveDescriptionForView:</option>
+	
+	<option value="//api/name/mainWindow">&nbsp;&nbsp;&nbsp;&nbsp;- mainWindow</option>
+	
+	<option value="//api/name/nameForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- nameForObject:</option>
+	
+	<option value="//api/name/removeNameForObject:">&nbsp;&nbsp;&nbsp;&nbsp;- removeNameForObject:</option>
+	
+	<option value="//api/name/removeNamesForViewsInView:">&nbsp;&nbsp;&nbsp;&nbsp;- removeNamesForViewsInView:</option>
+	
+	<option value="//api/name/selectView:">&nbsp;&nbsp;&nbsp;&nbsp;- selectView:</option>
+	
+	<option value="//api/name/setBackgroundColor:ofNonOpaqueViewsInSubview:">&nbsp;&nbsp;&nbsp;&nbsp;- setBackgroundColor:ofNonOpaqueViewsInSubview:</option>
+	
+	<option value="//api/name/setInvokeGestureRecognizer:">&nbsp;&nbsp;&nbsp;&nbsp;- setInvokeGestureRecognizer:</option>
+	
+	<option value="//api/name/setKeyboardBindingsOn:">&nbsp;&nbsp;&nbsp;&nbsp;- setKeyboardBindingsOn:</option>
+	
+	<option value="//api/name/setName:forObject:accessedWithSelf:">&nbsp;&nbsp;&nbsp;&nbsp;- setName:forObject:accessedWithSelf:</option>
+	
+	<option value="//api/name/shouldIgnoreView:">&nbsp;&nbsp;&nbsp;&nbsp;- shouldIgnoreView:</option>
+	
+	<option value="//api/name/showTemporaryStringInStatusBar:">&nbsp;&nbsp;&nbsp;&nbsp;- showTemporaryStringInStatusBar:</option>
+	
+	<option value="//api/name/start">&nbsp;&nbsp;&nbsp;&nbsp;- start</option>
+	
+	<option value="//api/name/statusBarTapped">&nbsp;&nbsp;&nbsp;&nbsp;- statusBarTapped</option>
+	
+	<option value="//api/name/subclassesOfClass:">&nbsp;&nbsp;&nbsp;&nbsp;- subclassesOfClass:</option>
+	
+	<option value="//api/name/textView:shouldChangeTextInRange:replacementText:">&nbsp;&nbsp;&nbsp;&nbsp;- textView:shouldChangeTextInRange:replacementText:</option>
+	
+	<option value="//api/name/textViewDidChangeSelection:">&nbsp;&nbsp;&nbsp;&nbsp;- textViewDidChangeSelection:</option>
+	
+	<option value="//api/name/toggleHelp">&nbsp;&nbsp;&nbsp;&nbsp;- toggleHelp</option>
+	
+	<option value="//api/name/toggleNonOpaqueViews">&nbsp;&nbsp;&nbsp;&nbsp;- toggleNonOpaqueViews</option>
+	
+	<option value="//api/name/toggleOutlines">&nbsp;&nbsp;&nbsp;&nbsp;- toggleOutlines</option>
+	
+	<option value="//api/name/toggleRedrawFlashing">&nbsp;&nbsp;&nbsp;&nbsp;- toggleRedrawFlashing</option>
+	
+	<option value="//api/name/touchAtPoint:">&nbsp;&nbsp;&nbsp;&nbsp;- touchAtPoint:</option>
+	
+	<option value="//api/name/updateFrameView">&nbsp;&nbsp;&nbsp;&nbsp;- updateFrameView</option>
+	
+	<option value="//api/name/updateStatusBar">&nbsp;&nbsp;&nbsp;&nbsp;- updateStatusBar</option>
+	
+	<option value="//api/name/updateViews">&nbsp;&nbsp;&nbsp;&nbsp;- updateViews</option>
+	
+	<option value="//api/name/view:containsSubview:">&nbsp;&nbsp;&nbsp;&nbsp;- view:containsSubview:</option>
+	
+	<option value="//api/name/viewsAtPoint:inView:">&nbsp;&nbsp;&nbsp;&nbsp;- viewsAtPoint:inView:</option>
+	
+	<option value="//api/name/webView:shouldStartLoadWithRequest:navigationType:">&nbsp;&nbsp;&nbsp;&nbsp;- webView:shouldStartLoadWithRequest:navigationType:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentView">currentView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/currentViewHistory">currentViewHistory</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/flashOnRedraw">flashOnRedraw</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/frameView">frameView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/handleArrowKeys">handleArrowKeys</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/highlightNonOpaqueViews">highlightNonOpaqueViews</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/inputTextView">inputTextView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/invokeGestureRecognizer">invokeGestureRecognizer</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/keyboardBindingsOn">keyboardBindingsOn</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/objectNames">objectNames</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/on">on</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/originalAlpha">originalAlpha</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/originalFrame">originalFrame</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showStatusBarOverlay">showStatusBarOverlay</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showingHelp">showingHelp</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statusBarOverlay">statusBarOverlay</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewOutlines">viewOutlines</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedIntrospector">sharedIntrospector</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addOutlinesToFrameViewFromSubview:">addOutlinesToFrameViewFromSubview:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/callDrawRectOnViewsInSubview:">callDrawRectOnViewsInSubview:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/describeColor:">describeColor:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/describeProperty:value:">describeProperty:value:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fadeView:toAlpha:">fadeView:toAlpha:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/flashRect:inView:">flashRect:inView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/forceReloadOfView">forceReloadOfView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/forceSetNeedsDisplay">forceSetNeedsDisplay</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/forceSetNeedsLayout">forceSetNeedsLayout</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/invokeIntrospector">invokeIntrospector</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logAccessabilityPropertiesForObject:">logAccessabilityPropertiesForObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logCodeForCurrentViewChanges">logCodeForCurrentViewChanges</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logPropertiesForCurrentView">logPropertiesForCurrentView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logPropertiesForObject:">logPropertiesForObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logRecursiveDescriptionForCurrentView">logRecursiveDescriptionForCurrentView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/logRecursiveDescriptionForView:">logRecursiveDescriptionForView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mainWindow">mainWindow</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/nameForObject:">nameForObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeNameForObject:">removeNameForObject:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeNamesForViewsInView:">removeNamesForViewsInView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/selectView:">selectView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setBackgroundColor:ofNonOpaqueViewsInSubview:">setBackgroundColor:ofNonOpaqueViewsInSubview:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setInvokeGestureRecognizer:">setInvokeGestureRecognizer:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setKeyboardBindingsOn:">setKeyboardBindingsOn:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setName:forObject:accessedWithSelf:">setName:forObject:accessedWithSelf:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shouldIgnoreView:">shouldIgnoreView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/showTemporaryStringInStatusBar:">showTemporaryStringInStatusBar:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/start">start</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/statusBarTapped">statusBarTapped</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/subclassesOfClass:">subclassesOfClass:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textView:shouldChangeTextInRange:replacementText:">textView:shouldChangeTextInRange:replacementText:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textViewDidChangeSelection:">textViewDidChangeSelection:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleHelp">toggleHelp</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleNonOpaqueViews">toggleNonOpaqueViews</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleOutlines">toggleOutlines</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/toggleRedrawFlashing">toggleRedrawFlashing</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/touchAtPoint:">touchAtPoint:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateFrameView">updateFrameView</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateStatusBar">updateStatusBar</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateViews">updateViews</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/view:containsSubview:">view:containsSubview:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewsAtPoint:inView:">viewsAtPoint:inView:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/webView:shouldStartLoadWithRequest:navigationType:">webView:shouldStartLoadWithRequest:navigationType:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="DCIntrospect Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">DCIntrospect Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value"><a href="../Protocols/DCFrameViewDelegate.html">DCFrameViewDelegate</a><br />UITextViewDelegate<br />UIWebViewDelegate</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">DCIntrospect.h</td>
+</tr>
+						</tbody></table></div>
+					
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/keyboardBindingsOn">&nbsp;&nbsp;keyboardBindingsOn</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showStatusBarOverlay">&nbsp;&nbsp;showStatusBarOverlay</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/invokeGestureRecognizer">&nbsp;&nbsp;invokeGestureRecognizer</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/on">&nbsp;&nbsp;on</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/handleArrowKeys">&nbsp;&nbsp;handleArrowKeys</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewOutlines">&nbsp;&nbsp;viewOutlines</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/highlightNonOpaqueViews">&nbsp;&nbsp;highlightNonOpaqueViews</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/flashOnRedraw">&nbsp;&nbsp;flashOnRedraw</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/frameView">&nbsp;&nbsp;frameView</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/inputTextView">&nbsp;&nbsp;inputTextView</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/statusBarOverlay">&nbsp;&nbsp;statusBarOverlay</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/objectNames">&nbsp;&nbsp;objectNames</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentView">&nbsp;&nbsp;currentView</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/originalFrame">&nbsp;&nbsp;originalFrame</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/originalAlpha">&nbsp;&nbsp;originalAlpha</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/currentViewHistory">&nbsp;&nbsp;currentViewHistory</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showingHelp">&nbsp;&nbsp;showingHelp</a></code>
+		
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedIntrospector">+&nbsp;sharedIntrospector</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/start">&ndash;&nbsp;start</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setInvokeGestureRecognizer:">&ndash;&nbsp;setInvokeGestureRecognizer:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setKeyboardBindingsOn:">&ndash;&nbsp;setKeyboardBindingsOn:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/invokeIntrospector">&ndash;&nbsp;invokeIntrospector</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/touchAtPoint:">&ndash;&nbsp;touchAtPoint:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/selectView:">&ndash;&nbsp;selectView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/statusBarTapped">&ndash;&nbsp;statusBarTapped</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/textViewDidChangeSelection:">&ndash;&nbsp;textViewDidChangeSelection:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/textView:shouldChangeTextInRange:replacementText:">&ndash;&nbsp;textView:shouldChangeTextInRange:replacementText:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logCodeForCurrentViewChanges">&ndash;&nbsp;logCodeForCurrentViewChanges</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setName:forObject:accessedWithSelf:">&ndash;&nbsp;setName:forObject:accessedWithSelf:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/nameForObject:">&ndash;&nbsp;nameForObject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeNamesForViewsInView:">&ndash;&nbsp;removeNamesForViewsInView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeNameForObject:">&ndash;&nbsp;removeNameForObject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateFrameView">&ndash;&nbsp;updateFrameView</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateStatusBar">&ndash;&nbsp;updateStatusBar</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateViews">&ndash;&nbsp;updateViews</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/showTemporaryStringInStatusBar:">&ndash;&nbsp;showTemporaryStringInStatusBar:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logRecursiveDescriptionForCurrentView">&ndash;&nbsp;logRecursiveDescriptionForCurrentView</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logRecursiveDescriptionForView:">&ndash;&nbsp;logRecursiveDescriptionForView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/forceSetNeedsDisplay">&ndash;&nbsp;forceSetNeedsDisplay</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/forceSetNeedsLayout">&ndash;&nbsp;forceSetNeedsLayout</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/forceReloadOfView">&ndash;&nbsp;forceReloadOfView</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toggleOutlines">&ndash;&nbsp;toggleOutlines</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addOutlinesToFrameViewFromSubview:">&ndash;&nbsp;addOutlinesToFrameViewFromSubview:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toggleNonOpaqueViews">&ndash;&nbsp;toggleNonOpaqueViews</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/setBackgroundColor:ofNonOpaqueViewsInSubview:">&ndash;&nbsp;setBackgroundColor:ofNonOpaqueViewsInSubview:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toggleRedrawFlashing">&ndash;&nbsp;toggleRedrawFlashing</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/callDrawRectOnViewsInSubview:">&ndash;&nbsp;callDrawRectOnViewsInSubview:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/flashRect:inView:">&ndash;&nbsp;flashRect:inView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logPropertiesForCurrentView">&ndash;&nbsp;logPropertiesForCurrentView</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logPropertiesForObject:">&ndash;&nbsp;logPropertiesForObject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/logAccessabilityPropertiesForObject:">&ndash;&nbsp;logAccessabilityPropertiesForObject:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/subclassesOfClass:">&ndash;&nbsp;subclassesOfClass:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/describeProperty:value:">&ndash;&nbsp;describeProperty:value:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/describeColor:">&ndash;&nbsp;describeColor:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/toggleHelp">&ndash;&nbsp;toggleHelp</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/webView:shouldStartLoadWithRequest:navigationType:">&ndash;&nbsp;webView:shouldStartLoadWithRequest:navigationType:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mainWindow">&ndash;&nbsp;mainWindow</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/viewsAtPoint:inView:">&ndash;&nbsp;viewsAtPoint:inView:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fadeView:toAlpha:">&ndash;&nbsp;fadeView:toAlpha:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/view:containsSubview:">&ndash;&nbsp;view:containsSubview:</a></code>
+		
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shouldIgnoreView:">&ndash;&nbsp;shouldIgnoreView:</a></code>
+		
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/currentView" title="currentView"></a>
+	<h3 class="subsubtitle method-title">currentView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) UIView *currentView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/currentViewHistory" title="currentViewHistory"></a>
+	<h3 class="subsubtitle method-title">currentViewHistory</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSMutableArray *currentViewHistory</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/flashOnRedraw" title="flashOnRedraw"></a>
+	<h3 class="subsubtitle method-title">flashOnRedraw</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL flashOnRedraw</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/frameView" title="frameView"></a>
+	<h3 class="subsubtitle method-title">frameView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) DCFrameView *frameView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/handleArrowKeys" title="handleArrowKeys"></a>
+	<h3 class="subsubtitle method-title">handleArrowKeys</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL handleArrowKeys</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/highlightNonOpaqueViews" title="highlightNonOpaqueViews"></a>
+	<h3 class="subsubtitle method-title">highlightNonOpaqueViews</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL highlightNonOpaqueViews</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/inputTextView" title="inputTextView"></a>
+	<h3 class="subsubtitle method-title">inputTextView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) UITextView *inputTextView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/invokeGestureRecognizer" title="invokeGestureRecognizer"></a>
+	<h3 class="subsubtitle method-title">invokeGestureRecognizer</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) UIGestureRecognizer *invokeGestureRecognizer</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/keyboardBindingsOn" title="keyboardBindingsOn"></a>
+	<h3 class="subsubtitle method-title">keyboardBindingsOn</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL keyboardBindingsOn</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/objectNames" title="objectNames"></a>
+	<h3 class="subsubtitle method-title">objectNames</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) NSMutableDictionary *objectNames</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/on" title="on"></a>
+	<h3 class="subsubtitle method-title">on</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL on</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/originalAlpha" title="originalAlpha"></a>
+	<h3 class="subsubtitle method-title">originalAlpha</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGFloat originalAlpha</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/originalFrame" title="originalFrame"></a>
+	<h3 class="subsubtitle method-title">originalFrame</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) CGRect originalFrame</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showStatusBarOverlay" title="showStatusBarOverlay"></a>
+	<h3 class="subsubtitle method-title">showStatusBarOverlay</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL showStatusBarOverlay</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showingHelp" title="showingHelp"></a>
+	<h3 class="subsubtitle method-title">showingHelp</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL showingHelp</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/statusBarOverlay" title="statusBarOverlay"></a>
+	<h3 class="subsubtitle method-title">statusBarOverlay</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, retain) DCStatusBarOverlay *statusBarOverlay</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewOutlines" title="viewOutlines"></a>
+	<h3 class="subsubtitle method-title">viewOutlines</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic) BOOL viewOutlines</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedIntrospector" title="sharedIntrospector"></a>
+	<h3 class="subsubtitle method-title">sharedIntrospector</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>+ (DCIntrospect *)sharedIntrospector</code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addOutlinesToFrameViewFromSubview:" title="addOutlinesToFrameViewFromSubview:"></a>
+	<h3 class="subsubtitle method-title">addOutlinesToFrameViewFromSubview:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)addOutlinesToFrameViewFromSubview:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/callDrawRectOnViewsInSubview:" title="callDrawRectOnViewsInSubview:"></a>
+	<h3 class="subsubtitle method-title">callDrawRectOnViewsInSubview:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)callDrawRectOnViewsInSubview:(UIView *)<em>subview</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/describeColor:" title="describeColor:"></a>
+	<h3 class="subsubtitle method-title">describeColor:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)describeColor:(UIColor *)<em>color</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/describeProperty:value:" title="describeProperty:value:"></a>
+	<h3 class="subsubtitle method-title">describeProperty:value:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)describeProperty:(NSString *)<em>propertyName</em> value:(id)<em>value</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fadeView:toAlpha:" title="fadeView:toAlpha:"></a>
+	<h3 class="subsubtitle method-title">fadeView:toAlpha:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)fadeView:(UIView *)<em>view</em> toAlpha:(CGFloat)<em>alpha</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/flashRect:inView:" title="flashRect:inView:"></a>
+	<h3 class="subsubtitle method-title">flashRect:inView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)flashRect:(CGRect)<em>rect</em> inView:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/forceReloadOfView" title="forceReloadOfView"></a>
+	<h3 class="subsubtitle method-title">forceReloadOfView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)forceReloadOfView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/forceSetNeedsDisplay" title="forceSetNeedsDisplay"></a>
+	<h3 class="subsubtitle method-title">forceSetNeedsDisplay</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)forceSetNeedsDisplay</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/forceSetNeedsLayout" title="forceSetNeedsLayout"></a>
+	<h3 class="subsubtitle method-title">forceSetNeedsLayout</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)forceSetNeedsLayout</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/invokeIntrospector" title="invokeIntrospector"></a>
+	<h3 class="subsubtitle method-title">invokeIntrospector</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)invokeIntrospector</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logAccessabilityPropertiesForObject:" title="logAccessabilityPropertiesForObject:"></a>
+	<h3 class="subsubtitle method-title">logAccessabilityPropertiesForObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)logAccessabilityPropertiesForObject:(id)<em>object</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logCodeForCurrentViewChanges" title="logCodeForCurrentViewChanges"></a>
+	<h3 class="subsubtitle method-title">logCodeForCurrentViewChanges</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)logCodeForCurrentViewChanges</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logPropertiesForCurrentView" title="logPropertiesForCurrentView"></a>
+	<h3 class="subsubtitle method-title">logPropertiesForCurrentView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)logPropertiesForCurrentView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logPropertiesForObject:" title="logPropertiesForObject:"></a>
+	<h3 class="subsubtitle method-title">logPropertiesForObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)logPropertiesForObject:(id)<em>object</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logRecursiveDescriptionForCurrentView" title="logRecursiveDescriptionForCurrentView"></a>
+	<h3 class="subsubtitle method-title">logRecursiveDescriptionForCurrentView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)logRecursiveDescriptionForCurrentView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/logRecursiveDescriptionForView:" title="logRecursiveDescriptionForView:"></a>
+	<h3 class="subsubtitle method-title">logRecursiveDescriptionForView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)logRecursiveDescriptionForView:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mainWindow" title="mainWindow"></a>
+	<h3 class="subsubtitle method-title">mainWindow</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (UIWindow *)mainWindow</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/nameForObject:" title="nameForObject:"></a>
+	<h3 class="subsubtitle method-title">nameForObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSString *)nameForObject:(id)<em>object</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeNameForObject:" title="removeNameForObject:"></a>
+	<h3 class="subsubtitle method-title">removeNameForObject:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)removeNameForObject:(id)<em>object</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeNamesForViewsInView:" title="removeNamesForViewsInView:"></a>
+	<h3 class="subsubtitle method-title">removeNamesForViewsInView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)removeNamesForViewsInView:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/selectView:" title="selectView:"></a>
+	<h3 class="subsubtitle method-title">selectView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)selectView:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setBackgroundColor:ofNonOpaqueViewsInSubview:" title="setBackgroundColor:ofNonOpaqueViewsInSubview:"></a>
+	<h3 class="subsubtitle method-title">setBackgroundColor:ofNonOpaqueViewsInSubview:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)setBackgroundColor:(UIColor *)<em>color</em> ofNonOpaqueViewsInSubview:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setInvokeGestureRecognizer:" title="setInvokeGestureRecognizer:"></a>
+	<h3 class="subsubtitle method-title">setInvokeGestureRecognizer:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)setInvokeGestureRecognizer:(UIGestureRecognizer *)<em>newGestureRecognizer</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setKeyboardBindingsOn:" title="setKeyboardBindingsOn:"></a>
+	<h3 class="subsubtitle method-title">setKeyboardBindingsOn:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)setKeyboardBindingsOn:(BOOL)<em>keyboardBindingsOn</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/setName:forObject:accessedWithSelf:" title="setName:forObject:accessedWithSelf:"></a>
+	<h3 class="subsubtitle method-title">setName:forObject:accessedWithSelf:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)setName:(NSString *)<em>name</em> forObject:(id)<em>object</em> accessedWithSelf:(BOOL)<em>accessedWithSelf</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shouldIgnoreView:" title="shouldIgnoreView:"></a>
+	<h3 class="subsubtitle method-title">shouldIgnoreView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)shouldIgnoreView:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/showTemporaryStringInStatusBar:" title="showTemporaryStringInStatusBar:"></a>
+	<h3 class="subsubtitle method-title">showTemporaryStringInStatusBar:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)showTemporaryStringInStatusBar:(NSString *)<em>string</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/start" title="start"></a>
+	<h3 class="subsubtitle method-title">start</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)start</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/statusBarTapped" title="statusBarTapped"></a>
+	<h3 class="subsubtitle method-title">statusBarTapped</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)statusBarTapped</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/subclassesOfClass:" title="subclassesOfClass:"></a>
+	<h3 class="subsubtitle method-title">subclassesOfClass:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSArray *)subclassesOfClass:(Class)<em>parentClass</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/textView:shouldChangeTextInRange:replacementText:" title="textView:shouldChangeTextInRange:replacementText:"></a>
+	<h3 class="subsubtitle method-title">textView:shouldChangeTextInRange:replacementText:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)textView:(UITextView *)<em>textView</em> shouldChangeTextInRange:(NSRange)<em>range</em> replacementText:(NSString *)<em>string</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/textViewDidChangeSelection:" title="textViewDidChangeSelection:"></a>
+	<h3 class="subsubtitle method-title">textViewDidChangeSelection:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)textViewDidChangeSelection:(UITextView *)<em>textView</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toggleHelp" title="toggleHelp"></a>
+	<h3 class="subsubtitle method-title">toggleHelp</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)toggleHelp</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toggleNonOpaqueViews" title="toggleNonOpaqueViews"></a>
+	<h3 class="subsubtitle method-title">toggleNonOpaqueViews</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)toggleNonOpaqueViews</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toggleOutlines" title="toggleOutlines"></a>
+	<h3 class="subsubtitle method-title">toggleOutlines</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)toggleOutlines</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/toggleRedrawFlashing" title="toggleRedrawFlashing"></a>
+	<h3 class="subsubtitle method-title">toggleRedrawFlashing</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)toggleRedrawFlashing</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/touchAtPoint:" title="touchAtPoint:"></a>
+	<h3 class="subsubtitle method-title">touchAtPoint:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)touchAtPoint:(CGPoint)<em>point</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateFrameView" title="updateFrameView"></a>
+	<h3 class="subsubtitle method-title">updateFrameView</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)updateFrameView</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateStatusBar" title="updateStatusBar"></a>
+	<h3 class="subsubtitle method-title">updateStatusBar</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)updateStatusBar</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateViews" title="updateViews"></a>
+	<h3 class="subsubtitle method-title">updateViews</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (void)updateViews</code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/view:containsSubview:" title="view:containsSubview:"></a>
+	<h3 class="subsubtitle method-title">view:containsSubview:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)view:(UIView *)<em>view</em> containsSubview:(UIView *)<em>subview</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/viewsAtPoint:inView:" title="viewsAtPoint:inView:"></a>
+	<h3 class="subsubtitle method-title">viewsAtPoint:inView:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (NSMutableArray *)viewsAtPoint:(CGPoint)<em>touchPoint</em> inView:(UIView *)<em>view</em></code></div>
+
+    
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/webView:shouldStartLoadWithRequest:navigationType:" title="webView:shouldStartLoadWithRequest:navigationType:"></a>
+	<h3 class="subsubtitle method-title">webView:shouldStartLoadWithRequest:navigationType:</h3>
+	
+	
+
+	<div class="method-subsection method-declaration"><code>- (BOOL)webView:(UIWebView *)<em>webView</em> shouldStartLoadWithRequest:(NSURLRequest *)<em>request</em> navigationType:(UIWebViewNavigationType)<em>navigationType</em></code></div>
+
+    
+</div>
+						
+					</div>
+					
+					
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2012 Patrick Richards. All rights reserved. (Last updated: 2012-07-14)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.0.5 (build 789)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

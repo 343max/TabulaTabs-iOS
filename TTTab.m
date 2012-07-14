@@ -11,13 +11,6 @@
 
 #import "TTTab.h"
 
-@interface TTTab ()
-
-@property (strong) NSDictionary *dictionary;
-
-@end
-
-
 @implementation TTTab
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
@@ -30,7 +23,7 @@
         
         self.URL = [NSURL URLWithFaultyString:[dictionary objectForKey:@"URL"]];
         
-        if (!self.URL) {
+        if (self.URL == nil) {
             NSLog(@"could not parse URL: %@", [dictionary objectForKey:@"URL"]);
             return nil;
         }

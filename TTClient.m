@@ -126,7 +126,7 @@ const int kPasswordByteLength = 16;
 
 - (void)loadWindowsAndTabs:(void (^)(NSArray *, id))callback;
 {
-    [self sendJsonGetRequest:@"browsers/tabs.json" callback:^(id response) {
+    [self sendJsonGetRequest:@"browsers/tabs.json?client_version=2" callback:^(id response) {
         __block BOOL corruptData = NO;
         
         NSMutableDictionary *windows = [[NSMutableDictionary alloc] init];
@@ -134,21 +134,21 @@ const int kPasswordByteLength = 16;
         [response enumerateObjectsUsingBlock:^(NSDictionary *encryptedTab, NSUInteger idx, BOOL *stop) {
             NSDictionary *decryptedTabData = [self.encryption decrypt:encryptedTab];
             
-            if (!decryptedTabData) {
+            if (decryptedTabData == nil) {
                 corruptData = YES;
                 return;
             }
             
             TTTab *tab = [[TTTab alloc] initWithDictionary:decryptedTabData];
             
-            if (!tab) {
+            if (tab == nil) {
                 return;
             }
             
             tab.identifier = [encryptedTab objectForKey:@"identifier"];
             
             TTWindow *window = [windows objectForKey:tab.windowId];
-            if (!window) {
+            if (window == nil) {
                 window = [[TTWindow alloc] init];
                 window.identifier = tab.windowId;
                 window.focused = tab.windowFocused;
@@ -168,7 +168,7 @@ const int kPasswordByteLength = 16;
 - (void)destroy:(void (^)(BOOL, id))callback;
 {
     NSString *identifier = self.identifier;
-    if (!identifier) {
+    if (identifier == nil) {
         identifier = @"0";
     }
     

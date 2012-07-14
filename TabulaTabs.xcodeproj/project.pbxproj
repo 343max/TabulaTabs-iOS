@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A79E71A213C4003A35F5535 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7316452E0FB145CE8FFA9A32 /* libPods.a */; };
 		5000E17B15334FE900100FB1 /* Chat-Bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17315334FE900100FB1 /* Chat-Bubble.png */; };
 		5000E17C15334FE900100FB1 /* Chat-Bubble@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17415334FE900100FB1 /* Chat-Bubble@2x.png */; };
 		5000E17F15334FE900100FB1 /* Questionmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E17715334FE900100FB1 /* Questionmark.png */; };
@@ -67,7 +68,6 @@
 		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
 		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
 		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
-		507297631559AF3200B61EB8 /* denim-texture-07-600x600.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
 		508A7026157C0AE800C6C1AA /* TTCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */; };
 		508A7028157C0BF700C6C1AA /* credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 508A7027157C0BF700C6C1AA /* credits.html */; };
@@ -155,6 +155,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3428410102914FFCB22DEB17 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		5000E17315334FE900100FB1 /* Chat-Bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat-Bubble.png"; sourceTree = "<group>"; };
 		5000E17415334FE900100FB1 /* Chat-Bubble@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chat-Bubble@2x.png"; sourceTree = "<group>"; };
 		5000E17715334FE900100FB1 /* Questionmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Questionmark.png; sourceTree = "<group>"; };
@@ -177,7 +178,7 @@
 		5016BA8A151E05EB00AAA198 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		5016BA8B151E05EB00AAA198 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
 		5016BA8C151E05EB00AAA198 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
-		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5016BA91151E063200AAA198 /* libz.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5023E53C1559CDF100BCA578 /* iCab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iCab.png; sourceTree = "<group>"; };
 		5023E53D1559CDF100BCA578 /* iCab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iCab@2x.png"; sourceTree = "<group>"; };
 		5023E5411559CF1500BCA578 /* Instapaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instapaper.png; sourceTree = "<group>"; };
@@ -188,8 +189,8 @@
 		5030B4CC15307A32002EAE15 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		50317194153F25C500570E33 /* TTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWindow.h; sourceTree = "<group>"; };
 		50317195153F25C500570E33 /* TTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWindow.m; sourceTree = "<group>"; };
-		5032884F1520A41A000CC58D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
-		503288521520B1C2000CC58D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5032884F1520A41A000CC58D /* Twitter.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		503288521520B1C2000CC58D /* MessageUI.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		503288541520B745000CC58D /* NSURL+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+TabulaTabs.h"; sourceTree = "<group>"; };
 		503288551520B745000CC58D /* NSURL+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+TabulaTabs.m"; sourceTree = "<group>"; };
 		503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserRepresentation.h; sourceTree = "<group>"; };
@@ -234,8 +235,7 @@
 		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTClient.m; sourceTree = "<group>"; };
 		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
 		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
-		507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "denim-texture-07-600x600.jpg"; sourceTree = "<group>"; };
-		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		508A7024157C0AE800C6C1AA /* TTCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCreditsViewController.h; sourceTree = "<group>"; };
 		508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCreditsViewController.m; sourceTree = "<group>"; };
 		508A7027157C0BF700C6C1AA /* credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = credits.html; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 		509070551528BAF8006D9DE4 /* TabListBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListBackground@2x.png"; sourceTree = "<group>"; };
 		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
 		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
-		50947FF3155BF1CF003AAF99 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		50947FF3155BF1CF003AAF99 /* Crashlytics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		50947FF5155BF509003AAF99 /* 1Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Password.png; sourceTree = "<group>"; };
 		50947FF6155BF509003AAF99 /* 1Password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Password@2x.png"; sourceTree = "<group>"; };
 		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
@@ -256,10 +256,10 @@
 		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		50AB685714FAAE100040D328 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
-		50AE694A14E8606C00788808 /* TabulaTabs δ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabulaTabs δ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50AE694E14E8606C00788808 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		50AE695014E8606C00788808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		50AE695214E8606C00788808 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		50AE694A14E8606C00788808 /* TabulaTabs Œ¥.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabulaTabs Œ¥.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AE694E14E8606C00788808 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		50AE695014E8606C00788808 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		50AE695214E8606C00788808 /* CoreGraphics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		50AE695614E8606C00788808 /* TabulaTabs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TabulaTabs-Info.plist"; sourceTree = "<group>"; };
 		50AE695814E8606C00788808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50AE695A14E8606C00788808 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -336,7 +336,7 @@
 		50FE0A8814EB154100823CE6 /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		50FE0A8914EB154100823CE6 /* ZBarSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSDK.h; sourceTree = "<group>"; };
 		50FE0A8A14EB154100823CE6 /* ZBarSymbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarSymbol.h; sourceTree = "<group>"; };
-		50FE0A8B14EB154100823CE6 /* libzbar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
+		50FE0A8B14EB154100823CE6 /* libzbar.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libzbar.a; sourceTree = "<group>"; };
 		50FE0A8D14EB154100823CE6 /* zbar-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-back.png"; sourceTree = "<group>"; };
 		50FE0A8E14EB154100823CE6 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		50FE0A8F14EB154100823CE6 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
@@ -347,11 +347,12 @@
 		50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWelcomeViewController.m; sourceTree = "<group>"; };
 		50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScanQRViewController.h; sourceTree = "<group>"; };
 		50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTScanQRViewController.m; sourceTree = "<group>"; };
-		50FE0ABF14EB315000823CE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		50FE0AC114EB315600823CE6 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		50FE0AC314EB315F00823CE6 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		50FE0AC514EB316400823CE6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		50FE0AC714EB316E00823CE6 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		50FE0ABF14EB315000823CE6 /* AVFoundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		50FE0AC114EB315600823CE6 /* CoreMedia.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		50FE0AC314EB315F00823CE6 /* CoreVideo.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		50FE0AC514EB316400823CE6 /* QuartzCore.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		50FE0AC714EB316E00823CE6 /* libiconv.dylib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		7316452E0FB145CE8FFA9A32 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +374,7 @@
 				50AE695314E8606C00788808 /* CoreGraphics.framework in Frameworks */,
 				50FE0A9114EB154100823CE6 /* libzbar.a in Frameworks */,
 				50947FF4155BF1CF003AAF99 /* Crashlytics.framework in Frameworks */,
+				3A79E71A213C4003A35F5535 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,13 +539,14 @@
 				50AE696C14E8606C00788808 /* TabulaTabsTests */,
 				50AE694D14E8606C00788808 /* Frameworks */,
 				50AE694B14E8606C00788808 /* Products */,
+				3428410102914FFCB22DEB17 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		50AE694B14E8606C00788808 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50AE694A14E8606C00788808 /* TabulaTabs δ.app */,
+				50AE694A14E8606C00788808 /* TabulaTabs Œ¥.app */,
 				50AE696514E8606C00788808 /* TabulaTabsTests.octest */,
 			);
 			name = Products;
@@ -565,6 +568,7 @@
 				50AE695014E8606C00788808 /* Foundation.framework */,
 				50AE695214E8606C00788808 /* CoreGraphics.framework */,
 				50AE696614E8606C00788808 /* SenTestingKit.framework */,
+				7316452E0FB145CE8FFA9A32 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -668,7 +672,6 @@
 		50DAD83015557B49007B9AAD /* Setup */ = {
 			isa = PBXGroup;
 			children = (
-				507297621559AF3200B61EB8 /* denim-texture-07-600x600.jpg */,
 				500A2AF915B17D63003D4BA6 /* registrationGuideNoCam.html */,
 				50F3579B1521BE0700F2780F /* registrationGuide.html */,
 				500A2AFC15B17DC3003D4BA6 /* registrationGuide.css */,
@@ -829,6 +832,7 @@
 				50AE694814E8606C00788808 /* Resources */,
 				5092F6BA151EA0EE00E2EC52 /* ShellScript */,
 				50947FF1155BF187003AAF99 /* ShellScript */,
+				E912BFFB7F894F36ABE5F48A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -836,7 +840,7 @@
 			);
 			name = TabulaTabs;
 			productName = TabulaTabs;
-			productReference = 50AE694A14E8606C00788808 /* TabulaTabs δ.app */;
+			productReference = 50AE694A14E8606C00788808 /* TabulaTabs Œ¥.app */;
 			productType = "com.apple.product-type.application";
 		};
 		50AE696414E8606C00788808 /* TabulaTabsTests */ = {
@@ -934,7 +938,6 @@
 				50ECD793154A9B6F00CCC302 /* TabListBottomShadow@2x.png in Resources */,
 				504C8383154AAE310049778C /* TabListTopShadow.png in Resources */,
 				504C8384154AAE310049778C /* TabListTopShadow@2x.png in Resources */,
-				507297631559AF3200B61EB8 /* denim-texture-07-600x600.jpg in Resources */,
 				5023E53E1559CDF100BCA578 /* iCab.png in Resources */,
 				5023E53F1559CDF100BCA578 /* iCab@2x.png in Resources */,
 				5023E5431559CF1500BCA578 /* Instapaper.png in Resources */,
@@ -1005,6 +1008,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		E912BFFB7F894F36ABE5F48A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1131,6 +1148,7 @@
 		};
 		5016BA94151E0BF900AAA198 /* AdHoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3428410102914FFCB22DEB17 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Max Winde (MR4S8XBL42)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Max Winde (MR4S8XBL42)";
@@ -1144,7 +1162,10 @@
 					"$(inherited)",
 					"CONFIGURATION_AdHoc=1",
 				);
-				HEADER_SEARCH_PATHS = ./sskeychain/;
+				HEADER_SEARCH_PATHS = (
+					./sskeychain/,
+					"./Pods/Headers/**",
+				);
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -1154,7 +1175,7 @@
 					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
 				OTHER_LDFLAGS = "-lTestFlight";
-				PRODUCT_NAME = "$(TARGET_NAME) α";
+				PRODUCT_NAME = "$(TARGET_NAME) Œ±";
 				PROVISIONING_PROFILE = "60358CC4-A855-4307-A1F8-31D56F007224";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "60358CC4-A855-4307-A1F8-31D56F007224";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.AdHoc;
@@ -1238,6 +1259,7 @@
 		};
 		50AE697814E8606C00788808 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3428410102914FFCB22DEB17 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1249,7 +1271,10 @@
 					"$(inherited)",
 					"CONFIGURATION_Debug=1",
 				);
-				HEADER_SEARCH_PATHS = ./sskeychain/;
+				HEADER_SEARCH_PATHS = (
+					./sskeychain/,
+					"./Pods/Headers/**",
+				);
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (
@@ -1258,7 +1283,7 @@
 					"\"$(SRCROOT)/ZBarSDK\"",
 					"\"$(SRCROOT)/TestFlightSDK\"",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME) δ";
+				PRODUCT_NAME = "$(TARGET_NAME) Œ¥";
 				TT_BUNDLE_IDENTIFIER = de.343max.TabulaTabs.Debug;
 				TT_URL_SCHEME = "tabulatabs-debug";
 				WRAPPER_EXTENSION = app;
@@ -1267,6 +1292,7 @@
 		};
 		50AE697914E8606C00788808 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3428410102914FFCB22DEB17 /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Max Winde";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Max Winde";
@@ -1277,7 +1303,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabulaTabs/TabulaTabs-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "CONFIGURATION_Release=1";
-				HEADER_SEARCH_PATHS = ./sskeychain/;
+				HEADER_SEARCH_PATHS = (
+					./sskeychain/,
+					"./Pods/Headers/**",
+				);
 				INFOPLIST_FILE = "TabulaTabs/TabulaTabs-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				LIBRARY_SEARCH_PATHS = (

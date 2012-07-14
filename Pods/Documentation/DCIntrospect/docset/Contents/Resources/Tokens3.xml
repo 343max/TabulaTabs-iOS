@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DCIntrospect.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DCIntrospect</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setKeyboardBindingsOn:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL keyboardBindingsOn</Declaration>
+			
+			
+			<Anchor>//api/name/keyboardBindingsOn</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/keyboardBindingsOn</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL keyboardBindingsOn</Declaration>
+			
+			
+			<Anchor>//api/name/keyboardBindingsOn</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setShowStatusBarOverlay:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL showStatusBarOverlay</Declaration>
+			
+			
+			<Anchor>//api/name/showStatusBarOverlay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/showStatusBarOverlay</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL showStatusBarOverlay</Declaration>
+			
+			
+			<Anchor>//api/name/showStatusBarOverlay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setInvokeGestureRecognizer:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIGestureRecognizer *invokeGestureRecognizer</Declaration>
+			
+			
+			<Anchor>//api/name/invokeGestureRecognizer</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/invokeGestureRecognizer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIGestureRecognizer *invokeGestureRecognizer</Declaration>
+			
+			
+			<Anchor>//api/name/invokeGestureRecognizer</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setOn:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL on</Declaration>
+			
+			
+			<Anchor>//api/name/on</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/on</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL on</Declaration>
+			
+			
+			<Anchor>//api/name/on</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setHandleArrowKeys:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL handleArrowKeys</Declaration>
+			
+			
+			<Anchor>//api/name/handleArrowKeys</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/handleArrowKeys</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL handleArrowKeys</Declaration>
+			
+			
+			<Anchor>//api/name/handleArrowKeys</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setViewOutlines:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL viewOutlines</Declaration>
+			
+			
+			<Anchor>//api/name/viewOutlines</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/viewOutlines</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL viewOutlines</Declaration>
+			
+			
+			<Anchor>//api/name/viewOutlines</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setHighlightNonOpaqueViews:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL highlightNonOpaqueViews</Declaration>
+			
+			
+			<Anchor>//api/name/highlightNonOpaqueViews</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/highlightNonOpaqueViews</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL highlightNonOpaqueViews</Declaration>
+			
+			
+			<Anchor>//api/name/highlightNonOpaqueViews</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setFlashOnRedraw:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL flashOnRedraw</Declaration>
+			
+			
+			<Anchor>//api/name/flashOnRedraw</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/flashOnRedraw</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL flashOnRedraw</Declaration>
+			
+			
+			<Anchor>//api/name/flashOnRedraw</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setFrameView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) DCFrameView *frameView</Declaration>
+			
+			
+			<Anchor>//api/name/frameView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/frameView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) DCFrameView *frameView</Declaration>
+			
+			
+			<Anchor>//api/name/frameView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setInputTextView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UITextView *inputTextView</Declaration>
+			
+			
+			<Anchor>//api/name/inputTextView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/inputTextView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UITextView *inputTextView</Declaration>
+			
+			
+			<Anchor>//api/name/inputTextView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setStatusBarOverlay:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) DCStatusBarOverlay *statusBarOverlay</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarOverlay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/statusBarOverlay</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) DCStatusBarOverlay *statusBarOverlay</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarOverlay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setObjectNames:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSMutableDictionary *objectNames</Declaration>
+			
+			
+			<Anchor>//api/name/objectNames</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/objectNames</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSMutableDictionary *objectNames</Declaration>
+			
+			
+			<Anchor>//api/name/objectNames</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setCurrentView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) UIView *currentView</Declaration>
+			
+			
+			<Anchor>//api/name/currentView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/currentView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) UIView *currentView</Declaration>
+			
+			
+			<Anchor>//api/name/currentView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setOriginalFrame:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGRect originalFrame</Declaration>
+			
+			
+			<Anchor>//api/name/originalFrame</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/originalFrame</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGRect originalFrame</Declaration>
+			
+			
+			<Anchor>//api/name/originalFrame</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setOriginalAlpha:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat originalAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/originalAlpha</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/originalAlpha</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGFloat originalAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/originalAlpha</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setCurrentViewHistory:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSMutableArray *currentViewHistory</Declaration>
+			
+			
+			<Anchor>//api/name/currentViewHistory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/currentViewHistory</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSMutableArray *currentViewHistory</Declaration>
+			
+			
+			<Anchor>//api/name/currentViewHistory</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setShowingHelp:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL showingHelp</Declaration>
+			
+			
+			<Anchor>//api/name/showingHelp</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCIntrospect/showingHelp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) BOOL showingHelp</Declaration>
+			
+			
+			<Anchor>//api/name/showingHelp</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/DCIntrospect/sharedIntrospector</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>+ (DCIntrospect *)sharedIntrospector</Declaration>
+			
+			
+			<Anchor>//api/name/sharedIntrospector</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/start</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)start</Declaration>
+			
+			
+			<Anchor>//api/name/start</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setInvokeGestureRecognizer:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)setInvokeGestureRecognizer:(UIGestureRecognizer *)newGestureRecognizer</Declaration>
+			
+			
+			<Anchor>//api/name/setInvokeGestureRecognizer:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setKeyboardBindingsOn:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)setKeyboardBindingsOn:(BOOL)keyboardBindingsOn</Declaration>
+			
+			
+			<Anchor>//api/name/setKeyboardBindingsOn:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/invokeIntrospector</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)invokeIntrospector</Declaration>
+			
+			
+			<Anchor>//api/name/invokeIntrospector</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/touchAtPoint:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)touchAtPoint:(CGPoint)point</Declaration>
+			
+			
+			<Anchor>//api/name/touchAtPoint:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/selectView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)selectView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/selectView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/statusBarTapped</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)statusBarTapped</Declaration>
+			
+			
+			<Anchor>//api/name/statusBarTapped</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/textViewDidChangeSelection:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)textViewDidChangeSelection:(UITextView *)textView</Declaration>
+			
+			
+			<Anchor>//api/name/textViewDidChangeSelection:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/textView:shouldChangeTextInRange:replacementText:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/textView:shouldChangeTextInRange:replacementText:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/logCodeForCurrentViewChanges</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)logCodeForCurrentViewChanges</Declaration>
+			
+			
+			<Anchor>//api/name/logCodeForCurrentViewChanges</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setName:forObject:accessedWithSelf:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)setName:(NSString *)name forObject:(id)object accessedWithSelf:(BOOL)accessedWithSelf</Declaration>
+			
+			
+			<Anchor>//api/name/setName:forObject:accessedWithSelf:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/nameForObject:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)nameForObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/nameForObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/removeNamesForViewsInView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeNamesForViewsInView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/removeNamesForViewsInView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/removeNameForObject:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeNameForObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/removeNameForObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/updateFrameView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateFrameView</Declaration>
+			
+			
+			<Anchor>//api/name/updateFrameView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/updateStatusBar</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateStatusBar</Declaration>
+			
+			
+			<Anchor>//api/name/updateStatusBar</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/updateViews</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateViews</Declaration>
+			
+			
+			<Anchor>//api/name/updateViews</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/showTemporaryStringInStatusBar:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)showTemporaryStringInStatusBar:(NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/showTemporaryStringInStatusBar:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/logRecursiveDescriptionForCurrentView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)logRecursiveDescriptionForCurrentView</Declaration>
+			
+			
+			<Anchor>//api/name/logRecursiveDescriptionForCurrentView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/logRecursiveDescriptionForView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)logRecursiveDescriptionForView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/logRecursiveDescriptionForView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/forceSetNeedsDisplay</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)forceSetNeedsDisplay</Declaration>
+			
+			
+			<Anchor>//api/name/forceSetNeedsDisplay</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/forceSetNeedsLayout</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)forceSetNeedsLayout</Declaration>
+			
+			
+			<Anchor>//api/name/forceSetNeedsLayout</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/forceReloadOfView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)forceReloadOfView</Declaration>
+			
+			
+			<Anchor>//api/name/forceReloadOfView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/toggleOutlines</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)toggleOutlines</Declaration>
+			
+			
+			<Anchor>//api/name/toggleOutlines</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/addOutlinesToFrameViewFromSubview:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)addOutlinesToFrameViewFromSubview:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/addOutlinesToFrameViewFromSubview:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/toggleNonOpaqueViews</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)toggleNonOpaqueViews</Declaration>
+			
+			
+			<Anchor>//api/name/toggleNonOpaqueViews</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/setBackgroundColor:ofNonOpaqueViewsInSubview:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)setBackgroundColor:(UIColor *)color ofNonOpaqueViewsInSubview:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/setBackgroundColor:ofNonOpaqueViewsInSubview:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/toggleRedrawFlashing</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)toggleRedrawFlashing</Declaration>
+			
+			
+			<Anchor>//api/name/toggleRedrawFlashing</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/callDrawRectOnViewsInSubview:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)callDrawRectOnViewsInSubview:(UIView *)subview</Declaration>
+			
+			
+			<Anchor>//api/name/callDrawRectOnViewsInSubview:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/flashRect:inView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)flashRect:(CGRect)rect inView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/flashRect:inView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/logPropertiesForCurrentView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)logPropertiesForCurrentView</Declaration>
+			
+			
+			<Anchor>//api/name/logPropertiesForCurrentView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/logPropertiesForObject:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)logPropertiesForObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/logPropertiesForObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/logAccessabilityPropertiesForObject:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)logAccessabilityPropertiesForObject:(id)object</Declaration>
+			
+			
+			<Anchor>//api/name/logAccessabilityPropertiesForObject:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/subclassesOfClass:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (NSArray *)subclassesOfClass:(Class)parentClass</Declaration>
+			
+			
+			<Anchor>//api/name/subclassesOfClass:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/describeProperty:value:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)describeProperty:(NSString *)propertyName value:(id)value</Declaration>
+			
+			
+			<Anchor>//api/name/describeProperty:value:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/describeColor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)describeColor:(UIColor *)color</Declaration>
+			
+			
+			<Anchor>//api/name/describeColor:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/toggleHelp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)toggleHelp</Declaration>
+			
+			
+			<Anchor>//api/name/toggleHelp</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/webView:shouldStartLoadWithRequest:navigationType:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType</Declaration>
+			
+			
+			<Anchor>//api/name/webView:shouldStartLoadWithRequest:navigationType:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/mainWindow</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (UIWindow *)mainWindow</Declaration>
+			
+			
+			<Anchor>//api/name/mainWindow</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/viewsAtPoint:inView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (NSMutableArray *)viewsAtPoint:(CGPoint)touchPoint inView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/viewsAtPoint:inView:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/fadeView:toAlpha:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (void)fadeView:(UIView *)view toAlpha:(CGFloat)alpha</Declaration>
+			
+			
+			<Anchor>//api/name/fadeView:toAlpha:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/view:containsSubview:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)view:(UIView *)view containsSubview:(UIView *)subview</Declaration>
+			
+			
+			<Anchor>//api/name/view:containsSubview:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCIntrospect/shouldIgnoreView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCIntrospect.h</DeclaredIn>			
+			
+			<Declaration>- (BOOL)shouldIgnoreView:(UIView *)view</Declaration>
+			
+			
+			<Anchor>//api/name/shouldIgnoreView:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

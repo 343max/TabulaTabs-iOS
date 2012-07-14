@@ -31,7 +31,7 @@ static MWHTTPImageCache *staticDefaultImageLoader;
 
 + (MWHTTPImageCache *)defaultCache;
 {
-    if (!staticDefaultImageLoader) {
+    if (staticDefaultImageLoader == nil) {
         staticDefaultImageLoader = [[MWHTTPImageCache alloc] init];
     }
     
@@ -77,7 +77,7 @@ static MWHTTPImageCache *staticDefaultImageLoader;
 
 - (NSMutableDictionary *)cacheForIdentifier:(NSString *)processIdentifier;
 {
-    if (![self.cache objectForKey:processIdentifier]) {
+    if ([self.cache objectForKey:processIdentifier] == nil) {
         [self.cache setObject:[NSMutableDictionary dictionary] forKey:processIdentifier];
     }
     
@@ -224,7 +224,7 @@ static MWHTTPImageCache *staticDefaultImageLoader;
 
 - (NSURL *)cacheDirectory;
 {
-    if (!_cacheDirectory) {
+    if (_cacheDirectory == nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
         if (paths.count == 0) return nil;
         NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"ImageCache"];

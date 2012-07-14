@@ -67,7 +67,7 @@
 - (void)setPageColor:(UIColor *)pageColor;
 {
     _pageColor = pageColor;
-    if (!pageColor) {
+    if (pageColor == nil) {
         pageColor = [UIColor defaultPageColor];
     }
     
@@ -98,7 +98,7 @@
     CGRect imageRect = self.bounds;
     imageRect.size = self.imageSize;
     
-    if (!self.imageView.image) {
+    if (self.imageView.image == nil) {
         imageRect.size.width = 0;
     }
     imageRect.origin.y = 0;

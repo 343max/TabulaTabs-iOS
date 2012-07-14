@@ -10,6 +10,10 @@
 
 #import <Crashlytics/Crashlytics.h>
 
+#if TARGET_IPHONE_SIMULATOR
+#import "DCIntrospect.h"
+#endif
+
 #if CONFIGURATION_AdHoc
 #import "TestFlight.h"
 #endif
@@ -69,6 +73,10 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default"]];
     [self.window makeKeyAndVisible];
+    
+#if TARGET_IPHONE_SIMULATOR
+    [[DCIntrospect sharedIntrospector] start];
+#endif
     
     self.networkConnectionsInProgress = 0;
         
@@ -172,7 +180,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 
 - (NSURL *)currentURL;
 {
-    if (!_currentURL) {
+    if (_currentURL == nil) {
         NSString *URLString = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentURL"];
         if (URLString) {
             _currentURL = [NSURL URLWithString:URLString];

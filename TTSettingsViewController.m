@@ -68,7 +68,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
 {
     if (indexPath.section == TTAppSettingsViewControllerBrowsersSection) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
-        if (!cell) {
+        if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
         
@@ -85,7 +85,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
         return cell;
     } else if(indexPath.section == TTAppSettingsViewControllerAddBrowserSection) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
-        if (!cell) {
+        if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
 
@@ -94,7 +94,7 @@ NSInteger const TTAppSettingsViewControllerDebugSettingsSection = 2;
         return cell;
     } else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BrowserCell"];
-        if (!cell) {
+        if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"BrowserCell"];
         }
         

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString const * TTRestfulControllerAPIDomain;
+
 @class MWURLConnection;
 
 @interface TTRestfulClient : NSObject

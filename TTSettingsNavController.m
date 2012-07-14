@@ -49,7 +49,7 @@
                                                                                           target:self
                                                                                           action:@selector(dismiss:)];
     
-    if (!viewController.title) {
+    if (viewController.title == nil) {
         viewController.title = NSLocalizedString(@"Settings", @"Navbar Title");
     }
 }

@@ -209,7 +209,7 @@
 
 - (NSString *)pageTitle;
 {
-    if (!_pageTitle) {
+    if (_pageTitle == nil) {
         _pageTitle = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     }
     

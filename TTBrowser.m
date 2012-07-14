@@ -79,7 +79,7 @@ NSString * const TTBrowserCorruptDataNotification = @"TTBrowserCorruptDataNotifi
     [self sendJsonGetRequest:@"browsers.json" callback:^(NSDictionary *response) {
         NSDictionary *payload = [self.encryption decrypt:response];
         
-        if (!payload) {
+        if (payload == nil) {
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserCorruptDataNotification object:self];
         } else {
             NSNumber *identifier = [response objectForKey:@"id"];

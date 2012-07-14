@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DCStatusBarOverlay.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DCStatusBarOverlay</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>
+			
+			<NodeRef refid="4"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCStatusBarOverlay/setLeftLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UILabel *leftLabel</Declaration>
+			
+			
+			<Anchor>//api/name/leftLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCStatusBarOverlay/leftLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UILabel *leftLabel</Declaration>
+			
+			
+			<Anchor>//api/name/leftLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCStatusBarOverlay/setRightLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UILabel *rightLabel</Declaration>
+			
+			
+			<Anchor>//api/name/rightLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCStatusBarOverlay/rightLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UILabel *rightLabel</Declaration>
+			
+			
+			<Anchor>//api/name/rightLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCStatusBarOverlay/init</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (id)init</Declaration>
+			
+			
+			<Anchor>//api/name/init</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCStatusBarOverlay/updateBarFrame</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)updateBarFrame</Declaration>
+			
+			
+			<Anchor>//api/name/updateBarFrame</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCStatusBarOverlay/tapped</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCStatusBarOverlay.h</DeclaredIn>			
+			
+			<Declaration>- (void)tapped</Declaration>
+			
+			
+			<Anchor>//api/name/tapped</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

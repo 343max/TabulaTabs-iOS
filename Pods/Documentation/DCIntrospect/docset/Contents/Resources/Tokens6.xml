@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/DCFrameViewDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/DCFrameViewDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/DCFrameViewDelegate/touchAtPoint:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>- (void)touchAtPoint:(CGPoint)point</Declaration>
+			
+			
+			<Anchor>//api/name/touchAtPoint:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

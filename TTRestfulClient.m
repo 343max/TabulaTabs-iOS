@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#warning don't commit!
+#warning don't release!
 //NSString const * TTRestfulControllerAPIDomain = @"http://apiv1.tabulatabs.com/";
 NSString const * TTRestfulControllerAPIDomain = @"http://maxbook-air.local:4242/";
 

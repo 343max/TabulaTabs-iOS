@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DCFrameView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DCFrameView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setDelegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCFrameView/delegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, assign) id&lt;&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setMainRect:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGRect mainRect</Declaration>
+			
+			
+			<Anchor>//api/name/mainRect</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCFrameView/mainRect</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGRect mainRect</Declaration>
+			
+			
+			<Anchor>//api/name/mainRect</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setSuperRect:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGRect superRect</Declaration>
+			
+			
+			<Anchor>//api/name/superRect</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCFrameView/superRect</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic) CGRect superRect</Declaration>
+			
+			
+			<Anchor>//api/name/superRect</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setTouchPointLabel:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UILabel *touchPointLabel</Declaration>
+			
+			
+			<Anchor>//api/name/touchPointLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCFrameView/touchPointLabel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UILabel *touchPointLabel</Declaration>
+			
+			
+			<Anchor>//api/name/touchPointLabel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setRectsToOutline:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSMutableArray *rectsToOutline</Declaration>
+			
+			
+			<Anchor>//api/name/rectsToOutline</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCFrameView/rectsToOutline</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) NSMutableArray *rectsToOutline</Declaration>
+			
+			
+			<Anchor>//api/name/rectsToOutline</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setTouchPointView:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) DCCrossHairView *touchPointView</Declaration>
+			
+			
+			<Anchor>//api/name/touchPointView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCFrameView/touchPointView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) DCCrossHairView *touchPointView</Declaration>
+			
+			
+			<Anchor>//api/name/touchPointView</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/initWithFrame:delegate:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithFrame:(CGRect)frame delegate:(id)aDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/initWithFrame:delegate:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setMainRect:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>- (void)setMainRect:(CGRect)newMainRect</Declaration>
+			
+			
+			<Anchor>//api/name/setMainRect:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/setSuperRect:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>- (void)setSuperRect:(CGRect)newSuperRect</Declaration>
+			
+			
+			<Anchor>//api/name/setSuperRect:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/drawRect:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>- (void)drawRect:(CGRect)rect</Declaration>
+			
+			
+			<Anchor>//api/name/drawRect:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCFrameView/touchesBegan:withEvent:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCFrameView.h</DeclaredIn>			
+			
+			<Declaration>- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event</Declaration>
+			
+			
+			<Anchor>//api/name/touchesBegan:withEvent:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DCCrossHairView.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DCCrossHairView</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCCrossHairView.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCCrossHairView/setColor:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCCrossHairView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIColor *color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DCCrossHairView/color</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCCrossHairView.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, retain) UIColor *color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DCCrossHairView/initWithFrame:color:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DCCrossHairView.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithFrame:(CGRect)frame color:(UIColor *)aColor</Declaration>
+			
+			
+			<Anchor>//api/name/initWithFrame:color:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>
