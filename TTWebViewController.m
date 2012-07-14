@@ -53,7 +53,7 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 - (void)toggleListVisibility:(id)sender;
 - (void)viewWillBecomeInactive:(NSNotification *)notification;
 - (void)viewDidBecomeActive:(NSNotification *)notification;
-- (NSURL *)readbilityURLForURL:(NSURL *)URL;
+- (UIPanGestureRecognizer *)panGestureRecognizer;
 
 @end
 
@@ -123,8 +123,8 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.view.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.view.layer.bounds].CGPath;
     self.view.clipsToBounds = NO;
     
-    [self.navigationBar addGestureRecognizer:self.slidingViewController.panGesture];
-    [self.toolbar addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.navigationBar addGestureRecognizer:[self panGestureRecognizer]];
+    [self.toolbar addGestureRecognizer:[self panGestureRecognizer]];
 }
 
 - (void)viewDidLoad
@@ -208,7 +208,7 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.gestureView = [[UIView alloc] initWithFrame:CGRectZero];
     self.gestureView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.gestureView.userInteractionEnabled = YES;
-    [self.gestureView addGestureRecognizer:self.slidingViewController.panGesture];
+    [self.gestureView addGestureRecognizer:[self panGestureRecognizer]];
     
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.slidingViewController
                                                                                            action:@selector(resetTopView)];
@@ -230,6 +230,12 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.webView.scrollView.scrollsToTop = NO;
     self.gestureView.frame = self.webView.frame;
     [self.toggleTabListButton setDirection:TTFlippingButtonDirectionRight animated:YES];
+}
+
+- (UIPanGestureRecognizer *)panGestureRecognizer;
+{
+    return [[UIPanGestureRecognizer alloc] initWithTarget:self.slidingViewController
+                                                   action:@selector(updateTopViewHorizontalCenterWithRecognizer:)];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
@@ -368,17 +374,6 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
     self.backButton.enabled = self.webView.canGoBack;
     self.forwardButton.enabled = self.webView.canGoForward;
     self.reloadButton.spinning = NO;
-}
-
-- (NSURL *)readbilityURLForURL:(NSURL *)URL;
-{
-    if (!URL) {
-        return nil;
-    }
-    
-    NSString *readabilityURLString = [NSString stringWithFormat:@"http://www.readability.com/read?url=%@",
-                                      [URL.absoluteString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    return [NSURL URLWithString:readabilityURLString];
 }
 
 #pragma mark UIWebViewDelegate
