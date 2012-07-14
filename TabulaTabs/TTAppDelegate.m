@@ -37,7 +37,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 
 @property (assign, nonatomic) NSInteger networkConnectionsInProgress;
 
-- (void)browserWillBeRemoved:(NSNotification *)notification;
+- (void)browserWasRemoved:(NSNotification *)notification;
 - (void)restoreBrowserRepresentations;
 
 - (void)registeringClient:(NSNotification *)notification;
@@ -206,13 +206,13 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self 
                                                     name:TTBrowserControllerBrowserHasBeenRemovedNotification
-                                                  object:_currentBrowser];
+                                                  object:nil];
 
     _currentBrowser = currentBrowser;
     self.currentURL = currentBrowser.tabulatabsURL;
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(browserWillBeRemoved:)
+                                             selector:@selector(browserWasRemoved:)
                                                  name:TTBrowserControllerBrowserHasBeenRemovedNotification
                                                object:_currentBrowser];
     
@@ -222,10 +222,12 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 
 #pragma mark Browser Representations
 
-- (void)browserWillBeRemoved:(NSNotification *)notification;
+- (void)browserWasRemoved:(NSNotification *)notification;
 {
     if (self.browserController.allBrowsers.count > 0) {
         self.currentBrowser = [self.browserController.allBrowsers objectAtIndex:0];
+    } else {
+        self.currentBrowser = nil;
     }
 }
 

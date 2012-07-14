@@ -48,6 +48,11 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 @synthesize tabulatabsURL = _tabulatabsURL;
 @synthesize archiveFilePath = _archiveFilePath;
 
+- (void)dealloc;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setClient:(TTClient *)client;
 {
     self.windows = nil;
@@ -129,6 +134,7 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 {
     if ([url.host isEqualToString:@"client"] && url.pathComponents.count == 5 && [[url.pathComponents objectAtIndex:1] isEqualToString:@"claim"]) {
         TTEncryption *encryption = [TTEncryption encryptionWithHexKey:[url.pathComponents objectAtIndex:4]];
+        NSLog(@"TTEncryption: %@, TTEncryption.key: %@, %p", encryption, encryption.encryptionKey, encryption.encryptionKey);
         self.client = [[TTClient alloc] initWithEncryption:encryption];
         self.client.username = [url.pathComponents objectAtIndex:2];
         

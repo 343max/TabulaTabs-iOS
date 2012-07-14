@@ -92,10 +92,10 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self 
                                                     name:TTBrowserRepresentationBrowserWasUpdatedNotification 
-                                                  object:_browserRepresentation];
+                                                  object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:TTBrowserRepresentationWindowsWhereUpdatedNotification
-                                                  object:_browserRepresentation];
+                                                  object:nil];
     
     _browserRepresentation = browserRepresentation;
     self.windows = _browserRepresentation.windows;
@@ -430,8 +430,12 @@
 
     [self stopLoadingAnimation];
     
-    if (!oldWindows) {
+    if (oldWindows == nil) {
         oldWindows = @[];
+    }
+    
+    if (newWindows == nil) {
+        newWindows = @[];
     }
     
     [self.tableView beginUpdates]; {

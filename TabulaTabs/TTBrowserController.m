@@ -112,10 +112,10 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
     }
 }
 
-- (BOOL)removeBrowser:(TTBrowserRepresentation *)browserRepresentation callback:(void (^)(BOOL success, id response))callback;
+- (void)removeBrowser:(TTBrowserRepresentation *)browserRepresentation callback:(void (^)(BOOL success, id response))callback;
 {
     if (![self.allBrowsers containsObject:browserRepresentation]) {
-        return NO;
+        callback(NO, nil);
     }
     
     [browserRepresentation.client destroy:^(BOOL success, id response) {
@@ -130,8 +130,6 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
         [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserControllerBrowserHasBeenRemovedNotification
                                                             object:browserRepresentation];
     }];
-
-    return YES;
 }
 
 #pragma mark Accessors
