@@ -1,5 +1,11 @@
 PODS:
+  - AFNetworking (1.0RC1)
+  - AZSocketIO (0.0.1):
+    - AFNetworking
+    - SocketRocket
   - DCIntrospect (0.0.1)
+  - SocketRocket (0.1)
 
 DEPENDENCIES:
+  - AZSocketIO (~> 0.0.1)
   - DCIntrospect (~> 0.0.1)
