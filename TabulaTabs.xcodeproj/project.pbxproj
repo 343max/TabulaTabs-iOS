@@ -86,10 +86,6 @@
 		50947FF8155BF509003AAF99 /* 1Password@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 50947FF6155BF509003AAF99 /* 1Password@2x.png */; };
 		509EB49D1523387F009F7A2B /* UIColor+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */; };
 		50A833BC1521FB3F007F97A8 /* TTBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A833BB1521FB3F007F97A8 /* TTBrowserController.m */; };
-		50AB685814FAAE100040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
-		50AB685914FAAE100040D328 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685714FAAE100040D328 /* README.markdown */; };
-		50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */; };
-		50AB685B14FAAE7D0040D328 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 50AB685614FAAE100040D328 /* arrow.png */; };
 		50AE694F14E8606C00788808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE694E14E8606C00788808 /* UIKit.framework */; };
 		50AE695114E8606C00788808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695014E8606C00788808 /* Foundation.framework */; };
 		50AE695314E8606C00788808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695214E8606C00788808 /* CoreGraphics.framework */; };
@@ -255,10 +251,6 @@
 		509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+TabulaTabs.m"; path = "TabulaTabs/UIColor+TabulaTabs.m"; sourceTree = "<group>"; };
 		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
 		50A833BB1521FB3F007F97A8 /* TTBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserController.m; sourceTree = "<group>"; };
-		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = TabulaTabs/PullRefreshTableViewController.h; sourceTree = "<group>"; };
-		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = TabulaTabs/PullRefreshTableViewController.m; sourceTree = "<group>"; };
-		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		50AB685714FAAE100040D328 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		50AE694A14E8606C00788808 /* TabulaTabs δ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabulaTabs δ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50AE694E14E8606C00788808 /* UIKit.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		50AE695014E8606C00788808 /* Foundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -514,17 +506,6 @@
 			name = WebBrowser;
 			sourceTree = "<group>";
 		};
-		50AB685214FAADEE0040D328 /* PullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */,
-				50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */,
-				50AB685614FAAE100040D328 /* arrow.png */,
-				50AB685714FAAE100040D328 /* README.markdown */,
-			);
-			name = PullToRefresh;
-			sourceTree = "<group>";
-		};
 		50AE693F14E8606C00788808 = {
 			isa = PBXGroup;
 			children = (
@@ -651,7 +632,6 @@
 			children = (
 				50623EF715249A1D0018BBD8 /* ECSlidingViewController */,
 				50C129E7150D4F0400A3E3DA /* MTStatusBarOverlay */,
-				50AB685214FAADEE0040D328 /* PullToRefresh */,
 				5016BA88151E05EB00AAA198 /* TestFlightSDK */,
 				504167D6150AB2A0007A3431 /* SSKeychain */,
 				50FE0A7314EB154100823CE6 /* ZBarSDK */,
@@ -898,7 +878,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50AB685B14FAAE7D0040D328 /* arrow.png in Resources */,
 				50AE695914E8606C00788808 /* InfoPlist.strings in Resources */,
 				50FE0A9214EB154100823CE6 /* zbar-back.png in Resources */,
 				50FE0A9314EB154100823CE6 /* zbar-help.html in Resources */,
@@ -967,8 +946,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AE697114E8606C00788808 /* InfoPlist.strings in Resources */,
-				50AB685814FAAE100040D328 /* arrow.png in Resources */,
-				50AB685914FAAE100040D328 /* README.markdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,7 +1022,6 @@
 				5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */,
 				50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */,
 				504167DA150AB323007A3431 /* SSKeychain.m in Sources */,
-				50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */,
 				50AE695B14E8606C00788808 /* main.m in Sources */,
 				50AE695F14E8606C00788808 /* TTAppDelegate.m in Sources */,
 				50AE699B14E860DD00788808 /* NSData-AES.m in Sources */,

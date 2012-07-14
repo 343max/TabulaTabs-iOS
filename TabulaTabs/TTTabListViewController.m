@@ -75,8 +75,6 @@
 
 - (void)load;
 {
-    [self startLoadingAnimation];
-    
     [self.browserRepresentation loadWindowsAndTabs];
     [self.browserRepresentation loadBrowser];
 }
@@ -197,21 +195,6 @@
     tableHeaderView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [tableHeaderView addSubview:tableHeaderImageView];
 
-    self.refreshLabel.textColor = [UIColor whiteColor];
-    self.refreshLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-    CGRect refreshLabelFrame = self.refreshLabel.frame;
-    refreshLabelFrame.origin.y -= 50;
-    self.refreshLabel.frame = refreshLabelFrame;
-    
-    [tableHeaderView addSubview:self.refreshLabel];
-    [self.refreshArrow removeFromSuperview];
-    self.refreshArrow = nil;
-    self.refreshSpinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-    CGRect refreshSpinnerFrame = self.refreshSpinner.frame;
-    refreshSpinnerFrame.origin.y -= 50;
-    self.refreshSpinner.frame = refreshSpinnerFrame;
-    [tableHeaderView addSubview:self.refreshSpinner];
-    
     self.tableView.tableHeaderView = tableHeaderView;
 
     [self.tableView reloadData];
@@ -397,12 +380,6 @@
     }
 }
 
-#pragma mark PullRefreshTableViewController
-
-- (void)refresh;
-{
-    [self load];
-}
 
 #pragma mark Helper
 
@@ -423,8 +400,6 @@
     self.windows = self.browserRepresentation.windows;
     NSArray *newWindows = self.windows;
 
-    [self stopLoadingAnimation];
-    
     if (oldWindows == nil) {
         oldWindows = @[];
     }

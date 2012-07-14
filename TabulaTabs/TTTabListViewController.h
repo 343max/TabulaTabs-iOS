@@ -6,13 +6,11 @@
 //  Copyright (c) 2012 projekt Brot. All rights reserved.
 //
 
-#import "PullRefreshTableViewController.h"
-
 #import <UIKit/UIKit.h>
 
 @class TTBrowserRepresentation;
 
-@interface TTTabListViewController : PullRefreshTableViewController
+@interface TTTabListViewController : UITableViewController
 
 @property (strong, nonatomic) TTBrowserRepresentation* browserRepresentation;
 
