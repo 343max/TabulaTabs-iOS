@@ -23,6 +23,13 @@
 		5000E1941533559100100FB1 /* Clipboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1921533559100100FB1 /* Clipboard.png */; };
 		5000E1951533559100100FB1 /* Clipboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5000E1931533559100100FB1 /* Clipboard@2x.png */; };
 		5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5000E1971533661200100FB1 /* TTActionSheetButton.m */; };
+		5006937C15B1F08F008D662C /* TTBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE698C14E860C700788808 /* TTBrowser.m */; };
+		5006937D15B1F08F008D662C /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
+		5006937E15B1F08F008D662C /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
+		5006937F15B1F08F008D662C /* TTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50317195153F25C500570E33 /* TTWindow.m */; };
+		5006938015B1F08F008D662C /* TTEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE698E14E860C700788808 /* TTEncryption.m */; };
+		5006938115B1F08F008D662C /* TTRestfulClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699014E860C700788808 /* TTRestfulClient.m */; };
+		5006938215B1F08F008D662C /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		500A2AFA15B17D63003D4BA6 /* registrationGuideNoCam.html in Resources */ = {isa = PBXBuildFile; fileRef = 500A2AF915B17D63003D4BA6 /* registrationGuideNoCam.html */; };
 		500A2AFD15B17DC3003D4BA6 /* registrationGuide.css in Resources */ = {isa = PBXBuildFile; fileRef = 500A2AFC15B17DC3003D4BA6 /* registrationGuide.css */; };
 		500A2B2015B1D18B003D4BA6 /* TTSocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 500A2B1F15B1D18B003D4BA6 /* TTSocketController.m */; };
@@ -35,7 +42,6 @@
 		5023E5441559CF1500BCA578 /* Instapaper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5023E5421559CF1500BCA578 /* Instapaper@2x.png */; };
 		5030B477152DFFEC002EAE15 /* MWSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */; };
 		5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030B4CC15307A32002EAE15 /* NSString+SHA1.m */; };
-		50317196153F25C500570E33 /* TTWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 50317195153F25C500570E33 /* TTWindow.m */; };
 		503288501520A41A000CC58D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5032884F1520A41A000CC58D /* Twitter.framework */; };
 		503288531520B1C2000CC58D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503288521520B1C2000CC58D /* MessageUI.framework */; };
 		503288561520B745000CC58D /* NSURL+TabulaTabs.m in Sources */ = {isa = PBXBuildFile; fileRef = 503288551520B745000CC58D /* NSURL+TabulaTabs.m */; };
@@ -66,9 +72,6 @@
 		50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50672D6F1533477700536821 /* TTWebViewActionViewController.m */; };
 		5067AE161522126E00CF6BFA /* TTAddBrowserFlowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */; };
 		5067AE1A15221B2800CF6BFA /* TTSettingsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */; };
-		5069084E14EAB50200D39759 /* TTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069084D14EAB50200D39759 /* TTTab.m */; };
-		5069085214EAEAA300D39759 /* TTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085114EAEAA300D39759 /* TTClient.m */; };
-		5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */; };
 		507C1F0414E8671F003085ED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 507C1F0314E8671F003085ED /* Security.framework */; };
 		508A7026157C0AE800C6C1AA /* TTCreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */; };
 		508A7028157C0BF700C6C1AA /* credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 508A7027157C0BF700C6C1AA /* credits.html */; };
@@ -98,9 +101,6 @@
 		50AE696914E8606C00788808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE695014E8606C00788808 /* Foundation.framework */; };
 		50AE697114E8606C00788808 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AE696F14E8606C00788808 /* InfoPlist.strings */; };
 		50AE697414E8606C00788808 /* TabulaTabsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE697314E8606C00788808 /* TabulaTabsTests.m */; };
-		50AE699114E860C700788808 /* TTBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE698C14E860C700788808 /* TTBrowser.m */; };
-		50AE699214E860C700788808 /* TTEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE698E14E860C700788808 /* TTEncryption.m */; };
-		50AE699314E860C700788808 /* TTRestfulClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699014E860C700788808 /* TTRestfulClient.m */; };
 		50AE699B14E860DD00788808 /* NSData-AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699614E860DD00788808 /* NSData-AES.m */; };
 		50AE699C14E860DD00788808 /* NSData-hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699814E860DD00788808 /* NSData-hex.m */; };
 		50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE699A14E860DD00788808 /* NSData+Base64.m */; };
@@ -171,8 +171,8 @@
 		5000E18C1533531100100FB1 /* 298-circlex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "298-circlex@2x.png"; sourceTree = "<group>"; };
 		5000E1921533559100100FB1 /* Clipboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clipboard.png; sourceTree = "<group>"; };
 		5000E1931533559100100FB1 /* Clipboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clipboard@2x.png"; sourceTree = "<group>"; };
-		5000E1961533661200100FB1 /* TTActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTActionSheetButton.h; sourceTree = "<group>"; };
-		5000E1971533661200100FB1 /* TTActionSheetButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTActionSheetButton.m; sourceTree = "<group>"; };
+		5000E1961533661200100FB1 /* TTActionSheetButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTActionSheetButton.h; path = TabulaTabs/TTActionSheetButton.h; sourceTree = "<group>"; };
+		5000E1971533661200100FB1 /* TTActionSheetButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTActionSheetButton.m; path = TabulaTabs/TTActionSheetButton.m; sourceTree = "<group>"; };
 		500A2AF915B17D63003D4BA6 /* registrationGuideNoCam.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuideNoCam.html; sourceTree = "<group>"; };
 		500A2AFC15B17DC3003D4BA6 /* registrationGuide.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = registrationGuide.css; sourceTree = "<group>"; };
 		500A2B1E15B1D18B003D4BA6 /* TTSocketController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSocketController.h; sourceTree = "<group>"; };
@@ -186,16 +186,16 @@
 		5023E53D1559CDF100BCA578 /* iCab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iCab@2x.png"; sourceTree = "<group>"; };
 		5023E5411559CF1500BCA578 /* Instapaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Instapaper.png; sourceTree = "<group>"; };
 		5023E5421559CF1500BCA578 /* Instapaper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Instapaper@2x.png"; sourceTree = "<group>"; };
-		5030B475152DFFEC002EAE15 /* MWSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWSlidingViewController.h; sourceTree = "<group>"; };
-		5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWSlidingViewController.m; sourceTree = "<group>"; };
-		5030B4CB15307A32002EAE15 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
-		5030B4CC15307A32002EAE15 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
-		50317194153F25C500570E33 /* TTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWindow.h; sourceTree = "<group>"; };
-		50317195153F25C500570E33 /* TTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWindow.m; sourceTree = "<group>"; };
+		5030B475152DFFEC002EAE15 /* MWSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWSlidingViewController.h; path = TabulaTabs/MWSlidingViewController.h; sourceTree = "<group>"; };
+		5030B476152DFFEC002EAE15 /* MWSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWSlidingViewController.m; path = TabulaTabs/MWSlidingViewController.m; sourceTree = "<group>"; };
+		5030B4CB15307A32002EAE15 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SHA1.h"; path = "TabulaTabs/NSString+SHA1.h"; sourceTree = "<group>"; };
+		5030B4CC15307A32002EAE15 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SHA1.m"; path = "TabulaTabs/NSString+SHA1.m"; sourceTree = "<group>"; };
+		50317194153F25C500570E33 /* TTWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTWindow.h; path = TabulaTabs/TTWindow.h; sourceTree = "<group>"; };
+		50317195153F25C500570E33 /* TTWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTWindow.m; path = TabulaTabs/TTWindow.m; sourceTree = "<group>"; };
 		5032884F1520A41A000CC58D /* Twitter.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		503288521520B1C2000CC58D /* MessageUI.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		503288541520B745000CC58D /* NSURL+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+TabulaTabs.h"; sourceTree = "<group>"; };
-		503288551520B745000CC58D /* NSURL+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+TabulaTabs.m"; sourceTree = "<group>"; };
+		503288541520B745000CC58D /* NSURL+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+TabulaTabs.h"; path = "TabulaTabs/NSURL+TabulaTabs.h"; sourceTree = "<group>"; };
+		503288551520B745000CC58D /* NSURL+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+TabulaTabs.m"; path = "TabulaTabs/NSURL+TabulaTabs.m"; sourceTree = "<group>"; };
 		503893DD150BF10800CF22B6 /* TTBrowserRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserRepresentation.h; sourceTree = "<group>"; };
 		503893DE150BF10800CF22B6 /* TTBrowserRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserRepresentation.m; sourceTree = "<group>"; };
 		504167D7150AB2B9007A3431 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
@@ -216,47 +216,47 @@
 		504F71EF1527642D008B4F7A /* BrowserShare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserShare@2x.png"; sourceTree = "<group>"; };
 		504F72021527646B008B4F7A /* BrowserBackToListShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrowserBackToListShadow.png; sourceTree = "<group>"; };
 		504F72031527646B008B4F7A /* BrowserBackToListShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BrowserBackToListShadow@2x.png"; sourceTree = "<group>"; };
-		504F724A152789BC008B4F7A /* TTFlippingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFlippingButton.h; sourceTree = "<group>"; };
-		504F724B152789BC008B4F7A /* TTFlippingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFlippingButton.m; sourceTree = "<group>"; };
+		504F724A152789BC008B4F7A /* TTFlippingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTFlippingButton.h; path = TabulaTabs/TTFlippingButton.h; sourceTree = "<group>"; };
+		504F724B152789BC008B4F7A /* TTFlippingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTFlippingButton.m; path = TabulaTabs/TTFlippingButton.m; sourceTree = "<group>"; };
 		50623EF115249A160018BBD8 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECSlidingViewController.h; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.h; sourceTree = "<group>"; };
 		50623EF215249A160018BBD8 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		50623EF315249A160018BBD8 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		50623EF415249A160018BBD8 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageWithUIView.m"; path = "ECSlidingViewController/ECSlidingViewController/Vendor/ECSlidingViewController/UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		506430C8156697B60020B0C3 /* iphone_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_114.png; path = ../iphone_114.png; sourceTree = "<group>"; };
 		506430CA156697BA0020B0C3 /* iphone_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iphone_57.png; path = ../iphone_57.png; sourceTree = "<group>"; };
-		506430CC156A61080020B0C3 /* TTGlossyBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlossyBox.h; sourceTree = "<group>"; };
-		506430CD156A61080020B0C3 /* TTGlossyBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlossyBox.m; sourceTree = "<group>"; };
-		50672D6E1533477700536821 /* TTWebViewActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewActionViewController.h; sourceTree = "<group>"; };
-		50672D6F1533477700536821 /* TTWebViewActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewActionViewController.m; sourceTree = "<group>"; };
-		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
-		5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTAddBrowserFlowViewController.m; sourceTree = "<group>"; };
-		5067AE1815221B2800CF6BFA /* TTSettingsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsNavController.h; sourceTree = "<group>"; };
-		5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSettingsNavController.m; sourceTree = "<group>"; };
-		5069084C14EAB50200D39759 /* TTTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTab.h; sourceTree = "<group>"; };
-		5069084D14EAB50200D39759 /* TTTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTab.m; sourceTree = "<group>"; };
-		5069085014EAEAA300D39759 /* TTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTClient.h; sourceTree = "<group>"; };
-		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTClient.m; sourceTree = "<group>"; };
-		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
-		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
+		506430CC156A61080020B0C3 /* TTGlossyBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTGlossyBox.h; path = TabulaTabs/TTGlossyBox.h; sourceTree = "<group>"; };
+		506430CD156A61080020B0C3 /* TTGlossyBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTGlossyBox.m; path = TabulaTabs/TTGlossyBox.m; sourceTree = "<group>"; };
+		50672D6E1533477700536821 /* TTWebViewActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTWebViewActionViewController.h; path = TabulaTabs/TTWebViewActionViewController.h; sourceTree = "<group>"; };
+		50672D6F1533477700536821 /* TTWebViewActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTWebViewActionViewController.m; path = TabulaTabs/TTWebViewActionViewController.m; sourceTree = "<group>"; };
+		5067AE141522126E00CF6BFA /* TTAddBrowserFlowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTAddBrowserFlowViewController.h; path = TabulaTabs/TTAddBrowserFlowViewController.h; sourceTree = "<group>"; };
+		5067AE151522126E00CF6BFA /* TTAddBrowserFlowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTAddBrowserFlowViewController.m; path = TabulaTabs/TTAddBrowserFlowViewController.m; sourceTree = "<group>"; };
+		5067AE1815221B2800CF6BFA /* TTSettingsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSettingsNavController.h; path = TabulaTabs/TTSettingsNavController.h; sourceTree = "<group>"; };
+		5067AE1915221B2800CF6BFA /* TTSettingsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSettingsNavController.m; path = TabulaTabs/TTSettingsNavController.m; sourceTree = "<group>"; };
+		5069084C14EAB50200D39759 /* TTTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTab.h; path = TabulaTabs/TTTab.h; sourceTree = "<group>"; };
+		5069084D14EAB50200D39759 /* TTTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTab.m; path = TabulaTabs/TTTab.m; sourceTree = "<group>"; };
+		5069085014EAEAA300D39759 /* TTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTClient.h; path = TabulaTabs/TTClient.h; sourceTree = "<group>"; };
+		5069085114EAEAA300D39759 /* TTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTClient.m; path = TabulaTabs/TTClient.m; sourceTree = "<group>"; };
+		5069085314EAEB6D00D39759 /* TTRestfulEncryptedClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTRestfulEncryptedClient.h; path = TabulaTabs/TTRestfulEncryptedClient.h; sourceTree = "<group>"; };
+		5069085414EAEB6D00D39759 /* TTRestfulEncryptedClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTRestfulEncryptedClient.m; path = TabulaTabs/TTRestfulEncryptedClient.m; sourceTree = "<group>"; };
 		507C1F0314E8671F003085ED /* Security.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		508A7024157C0AE800C6C1AA /* TTCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCreditsViewController.h; sourceTree = "<group>"; };
-		508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCreditsViewController.m; sourceTree = "<group>"; };
+		508A7024157C0AE800C6C1AA /* TTCreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTCreditsViewController.h; path = TabulaTabs/TTCreditsViewController.h; sourceTree = "<group>"; };
+		508A7025157C0AE800C6C1AA /* TTCreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCreditsViewController.m; path = TabulaTabs/TTCreditsViewController.m; sourceTree = "<group>"; };
 		508A7027157C0BF700C6C1AA /* credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = credits.html; sourceTree = "<group>"; };
 		509070501528B969006D9DE4 /* TabListSettingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListSettingsButton.png; sourceTree = "<group>"; };
 		509070511528B969006D9DE4 /* TabListSettingsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListSettingsButton@2x.png"; sourceTree = "<group>"; };
 		509070541528BAF8006D9DE4 /* TabListBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBackground.png; sourceTree = "<group>"; };
 		509070551528BAF8006D9DE4 /* TabListBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListBackground@2x.png"; sourceTree = "<group>"; };
-		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSpinningReloadButton.h; sourceTree = "<group>"; };
-		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSpinningReloadButton.m; sourceTree = "<group>"; };
+		5092F6A0151E9E0300E2EC52 /* TTSpinningReloadButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSpinningReloadButton.h; path = TabulaTabs/TTSpinningReloadButton.h; sourceTree = "<group>"; };
+		5092F6A1151E9E0300E2EC52 /* TTSpinningReloadButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSpinningReloadButton.m; path = TabulaTabs/TTSpinningReloadButton.m; sourceTree = "<group>"; };
 		50947FF3155BF1CF003AAF99 /* Crashlytics.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		50947FF5155BF509003AAF99 /* 1Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1Password.png; sourceTree = "<group>"; };
 		50947FF6155BF509003AAF99 /* 1Password@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Password@2x.png"; sourceTree = "<group>"; };
-		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
-		509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TabulaTabs.m"; sourceTree = "<group>"; };
+		509EB49B1523387F009F7A2B /* UIColor+TabulaTabs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+TabulaTabs.h"; path = "TabulaTabs/UIColor+TabulaTabs.h"; sourceTree = "<group>"; };
+		509EB49C1523387F009F7A2B /* UIColor+TabulaTabs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+TabulaTabs.m"; path = "TabulaTabs/UIColor+TabulaTabs.m"; sourceTree = "<group>"; };
 		50A833BA1521FB3F007F97A8 /* TTBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowserController.h; sourceTree = "<group>"; };
 		50A833BB1521FB3F007F97A8 /* TTBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowserController.m; sourceTree = "<group>"; };
-		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullRefreshTableViewController.h; sourceTree = "<group>"; };
-		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		50AB685314FAADFE0040D328 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = TabulaTabs/PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		50AB685414FAADFE0040D328 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = TabulaTabs/PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		50AB685614FAAE100040D328 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		50AB685714FAAE100040D328 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		50AE694A14E8606C00788808 /* TabulaTabs Œ¥.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TabulaTabs Œ¥.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,48 +275,48 @@
 		50AE697014E8606C00788808 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50AE697214E8606C00788808 /* TabulaTabsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabulaTabsTests.h; sourceTree = "<group>"; };
 		50AE697314E8606C00788808 /* TabulaTabsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabulaTabsTests.m; sourceTree = "<group>"; };
-		50AE698B14E860C700788808 /* TTBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBrowser.h; sourceTree = "<group>"; };
-		50AE698C14E860C700788808 /* TTBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBrowser.m; sourceTree = "<group>"; };
-		50AE698D14E860C700788808 /* TTEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTEncryption.h; sourceTree = "<group>"; };
-		50AE698E14E860C700788808 /* TTEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTEncryption.m; sourceTree = "<group>"; };
-		50AE698F14E860C700788808 /* TTRestfulClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRestfulClient.h; sourceTree = "<group>"; };
-		50AE699014E860C700788808 /* TTRestfulClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRestfulClient.m; sourceTree = "<group>"; };
-		50AE699514E860DD00788808 /* NSData-AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-AES.h"; sourceTree = "<group>"; };
-		50AE699614E860DD00788808 /* NSData-AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-AES.m"; sourceTree = "<group>"; };
-		50AE699714E860DD00788808 /* NSData-hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-hex.h"; sourceTree = "<group>"; };
-		50AE699814E860DD00788808 /* NSData-hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData-hex.m"; sourceTree = "<group>"; };
-		50AE699914E860DD00788808 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		50AE699A14E860DD00788808 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		50AE698B14E860C700788808 /* TTBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTBrowser.h; path = TabulaTabs/TTBrowser.h; sourceTree = "<group>"; };
+		50AE698C14E860C700788808 /* TTBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTBrowser.m; path = TabulaTabs/TTBrowser.m; sourceTree = "<group>"; };
+		50AE698D14E860C700788808 /* TTEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTEncryption.h; path = TabulaTabs/TTEncryption.h; sourceTree = "<group>"; };
+		50AE698E14E860C700788808 /* TTEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTEncryption.m; path = TabulaTabs/TTEncryption.m; sourceTree = "<group>"; };
+		50AE698F14E860C700788808 /* TTRestfulClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTRestfulClient.h; path = TabulaTabs/TTRestfulClient.h; sourceTree = "<group>"; };
+		50AE699014E860C700788808 /* TTRestfulClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTRestfulClient.m; path = TabulaTabs/TTRestfulClient.m; sourceTree = "<group>"; };
+		50AE699514E860DD00788808 /* NSData-AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData-AES.h"; path = "TabulaTabs/NSData-AES.h"; sourceTree = "<group>"; };
+		50AE699614E860DD00788808 /* NSData-AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData-AES.m"; path = "TabulaTabs/NSData-AES.m"; sourceTree = "<group>"; };
+		50AE699714E860DD00788808 /* NSData-hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData-hex.h"; path = "TabulaTabs/NSData-hex.h"; sourceTree = "<group>"; };
+		50AE699814E860DD00788808 /* NSData-hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData-hex.m"; path = "TabulaTabs/NSData-hex.m"; sourceTree = "<group>"; };
+		50AE699914E860DD00788808 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "TabulaTabs/NSData+Base64.h"; sourceTree = "<group>"; };
+		50AE699A14E860DD00788808 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "TabulaTabs/NSData+Base64.m"; sourceTree = "<group>"; };
 		50C129E0150D378900A3E3DA /* TTDevelopmentHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDevelopmentHelpers.h; sourceTree = "<group>"; };
 		50C129E1150D378900A3E3DA /* TTDevelopmentHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDevelopmentHelpers.m; sourceTree = "<group>"; };
-		50C129E8150D4F1300A3E3DA /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
-		50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
-		50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabTableViewCell.h; sourceTree = "<group>"; };
-		50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabTableViewCell.m; sourceTree = "<group>"; };
-		50C12A3E150EA4B100A3E3DA /* MWHTTPImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWHTTPImageCache.h; sourceTree = "<group>"; };
-		50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWHTTPImageCache.m; sourceTree = "<group>"; };
-		50C12A5B150EACB500A3E3DA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
-		50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		50C129E8150D4F1300A3E3DA /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MTStatusBarOverlay.h; path = TabulaTabs/MTStatusBarOverlay.h; sourceTree = "<group>"; };
+		50C129E9150D4F1300A3E3DA /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MTStatusBarOverlay.m; path = TabulaTabs/MTStatusBarOverlay.m; sourceTree = "<group>"; };
+		50C12A3B150EA0AA00A3E3DA /* TTTabTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTabTableViewCell.h; path = TabulaTabs/TTTabTableViewCell.h; sourceTree = "<group>"; };
+		50C12A3C150EA0AA00A3E3DA /* TTTabTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTabTableViewCell.m; path = TabulaTabs/TTTabTableViewCell.m; sourceTree = "<group>"; };
+		50C12A3E150EA4B100A3E3DA /* MWHTTPImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWHTTPImageCache.h; path = TabulaTabs/MWHTTPImageCache.h; sourceTree = "<group>"; };
+		50C12A3F150EA4B100A3E3DA /* MWHTTPImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWHTTPImageCache.m; path = TabulaTabs/MWHTTPImageCache.m; sourceTree = "<group>"; };
+		50C12A5B150EACB500A3E3DA /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "TabulaTabs/UIImage+Resize.h"; sourceTree = "<group>"; };
+		50C12A5C150EACB500A3E3DA /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "TabulaTabs/UIImage+Resize.m"; sourceTree = "<group>"; };
 		50D5C3641570D4B200844241 /* ToolbarTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ToolbarTitle.png; sourceTree = "<group>"; };
 		50D5C3651570D4B200844241 /* ToolbarTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ToolbarTitle@2x.png"; sourceTree = "<group>"; };
-		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWebViewController.h; sourceTree = "<group>"; };
-		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWebViewController.m; sourceTree = "<group>"; };
+		50DB39DC151DEB7300CF421A /* TTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTWebViewController.h; path = TabulaTabs/TTWebViewController.h; sourceTree = "<group>"; };
+		50DB39DD151DEB7300CF421A /* TTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTWebViewController.m; path = TabulaTabs/TTWebViewController.m; sourceTree = "<group>"; };
 		50EB6A8115973DB800022859 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		50ECB319155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GenerousURLConvertion.h"; sourceTree = "<group>"; };
-		50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GenerousURLConvertion.m"; sourceTree = "<group>"; };
-		50ECB31D155AC5DC00B8D5F4 /* NSString+MatchesPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MatchesPattern.h"; sourceTree = "<group>"; };
-		50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MatchesPattern.m"; sourceTree = "<group>"; };
+		50ECB319155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSURL+GenerousURLConvertion.h"; path = "TabulaTabs/NSURL+GenerousURLConvertion.h"; sourceTree = "<group>"; };
+		50ECB31A155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSURL+GenerousURLConvertion.m"; path = "TabulaTabs/NSURL+GenerousURLConvertion.m"; sourceTree = "<group>"; };
+		50ECB31D155AC5DC00B8D5F4 /* NSString+MatchesPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+MatchesPattern.h"; path = "TabulaTabs/NSString+MatchesPattern.h"; sourceTree = "<group>"; };
+		50ECB31E155AC5DC00B8D5F4 /* NSString+MatchesPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+MatchesPattern.m"; path = "TabulaTabs/NSString+MatchesPattern.m"; sourceTree = "<group>"; };
 		50ECD790154A9B6F00CCC302 /* TabListBottomShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabListBottomShadow.png; sourceTree = "<group>"; };
 		50ECD791154A9B6F00CCC302 /* TabListBottomShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabListBottomShadow@2x.png"; sourceTree = "<group>"; };
 		50F3579B1521BE0700F2780F /* registrationGuide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = registrationGuide.html; sourceTree = "<group>"; };
-		50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ColorOverlay.h"; sourceTree = "<group>"; };
-		50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ColorOverlay.m"; sourceTree = "<group>"; };
-		50F357C51521CD6900F2780F /* TTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTSettingsViewController.h; sourceTree = "<group>"; };
-		50F357C61521CD6900F2780F /* TTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTSettingsViewController.m; sourceTree = "<group>"; };
-		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncTests.h; sourceTree = "<group>"; };
-		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncTests.m; sourceTree = "<group>"; };
-		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWURLConnection.h; sourceTree = "<group>"; };
-		50F363AB14E9496600AB104C /* MWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MWURLConnection.m; sourceTree = "<group>"; };
+		50F357C01521CBD500F2780F /* UIImage+ColorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ColorOverlay.h"; path = "TabulaTabs/UIImage+ColorOverlay.h"; sourceTree = "<group>"; };
+		50F357C11521CBD500F2780F /* UIImage+ColorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ColorOverlay.m"; path = "TabulaTabs/UIImage+ColorOverlay.m"; sourceTree = "<group>"; };
+		50F357C51521CD6900F2780F /* TTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSettingsViewController.h; path = TabulaTabs/TTSettingsViewController.h; sourceTree = "<group>"; };
+		50F357C61521CD6900F2780F /* TTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSettingsViewController.m; path = TabulaTabs/TTSettingsViewController.m; sourceTree = "<group>"; };
+		50F3639E14E925ED00AB104C /* AsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncTests.h; path = TabulaTabs/AsyncTests.h; sourceTree = "<group>"; };
+		50F3639F14E925ED00AB104C /* AsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncTests.m; path = TabulaTabs/AsyncTests.m; sourceTree = "<group>"; };
+		50F363AA14E9496600AB104C /* MWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MWURLConnection.h; path = TabulaTabs/MWURLConnection.h; sourceTree = "<group>"; };
+		50F363AB14E9496600AB104C /* MWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MWURLConnection.m; path = TabulaTabs/MWURLConnection.m; sourceTree = "<group>"; };
 		50F64742157396C700B111C1 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		50F64744157396CB00B111C1 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		50FE0A7714EB154100823CE6 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
@@ -344,12 +344,12 @@
 		50FE0A8E14EB154100823CE6 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		50FE0A8F14EB154100823CE6 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		50FE0A9014EB154100823CE6 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
-		50FE0A9D14EB27DF00823CE6 /* TTTabListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTabListViewController.h; sourceTree = "<group>"; };
-		50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTabListViewController.m; sourceTree = "<group>"; };
-		50FE0AA014EB289400823CE6 /* TTWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWelcomeViewController.h; sourceTree = "<group>"; };
-		50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWelcomeViewController.m; sourceTree = "<group>"; };
-		50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTScanQRViewController.h; sourceTree = "<group>"; };
-		50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTScanQRViewController.m; sourceTree = "<group>"; };
+		50FE0A9D14EB27DF00823CE6 /* TTTabListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTabListViewController.h; path = TabulaTabs/TTTabListViewController.h; sourceTree = "<group>"; };
+		50FE0A9E14EB27DF00823CE6 /* TTTabListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTabListViewController.m; path = TabulaTabs/TTTabListViewController.m; sourceTree = "<group>"; };
+		50FE0AA014EB289400823CE6 /* TTWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTWelcomeViewController.h; path = TabulaTabs/TTWelcomeViewController.h; sourceTree = "<group>"; };
+		50FE0AA114EB289400823CE6 /* TTWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTWelcomeViewController.m; path = TabulaTabs/TTWelcomeViewController.m; sourceTree = "<group>"; };
+		50FE0ABC14EB2F5E00823CE6 /* TTScanQRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTScanQRViewController.h; path = TabulaTabs/TTScanQRViewController.h; sourceTree = "<group>"; };
+		50FE0ABD14EB2F5E00823CE6 /* TTScanQRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTScanQRViewController.m; path = TabulaTabs/TTScanQRViewController.m; sourceTree = "<group>"; };
 		50FE0ABF14EB315000823CE6 /* AVFoundation.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		50FE0AC114EB315600823CE6 /* CoreMedia.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		50FE0AC314EB315F00823CE6 /* CoreVideo.framework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -1035,23 +1035,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5006937C15B1F08F008D662C /* TTBrowser.m in Sources */,
+				5006937D15B1F08F008D662C /* TTClient.m in Sources */,
+				5006937E15B1F08F008D662C /* TTTab.m in Sources */,
+				5006937F15B1F08F008D662C /* TTWindow.m in Sources */,
+				5006938015B1F08F008D662C /* TTEncryption.m in Sources */,
+				5006938115B1F08F008D662C /* TTRestfulClient.m in Sources */,
+				5006938215B1F08F008D662C /* TTRestfulEncryptedClient.m in Sources */,
 				5092F6A3151E9E2200E2EC52 /* TTSpinningReloadButton.m in Sources */,
 				50C129EB150D4F6900A3E3DA /* MTStatusBarOverlay.m in Sources */,
 				504167DA150AB323007A3431 /* SSKeychain.m in Sources */,
 				50AB685A14FAAE740040D328 /* PullRefreshTableViewController.m in Sources */,
 				50AE695B14E8606C00788808 /* main.m in Sources */,
 				50AE695F14E8606C00788808 /* TTAppDelegate.m in Sources */,
-				50AE699114E860C700788808 /* TTBrowser.m in Sources */,
-				50AE699214E860C700788808 /* TTEncryption.m in Sources */,
-				50AE699314E860C700788808 /* TTRestfulClient.m in Sources */,
 				50AE699B14E860DD00788808 /* NSData-AES.m in Sources */,
 				50AE699C14E860DD00788808 /* NSData-hex.m in Sources */,
 				50AE699D14E860DD00788808 /* NSData+Base64.m in Sources */,
 				50F363A014E925ED00AB104C /* AsyncTests.m in Sources */,
 				50F363AC14E9496600AB104C /* MWURLConnection.m in Sources */,
-				5069084E14EAB50200D39759 /* TTTab.m in Sources */,
-				5069085214EAEAA300D39759 /* TTClient.m in Sources */,
-				5069085514EAEB6D00D39759 /* TTRestfulEncryptedClient.m in Sources */,
 				50FE0A9F14EB27DF00823CE6 /* TTTabListViewController.m in Sources */,
 				50FE0AA214EB289400823CE6 /* TTWelcomeViewController.m in Sources */,
 				50FE0ABE14EB2F5E00823CE6 /* TTScanQRViewController.m in Sources */,
@@ -1075,7 +1076,6 @@
 				5030B4CD15307A32002EAE15 /* NSString+SHA1.m in Sources */,
 				50672D701533477700536821 /* TTWebViewActionViewController.m in Sources */,
 				5000E1981533661200100FB1 /* TTActionSheetButton.m in Sources */,
-				50317196153F25C500570E33 /* TTWindow.m in Sources */,
 				50ECB31B155AC48B00B8D5F4 /* NSURL+GenerousURLConvertion.m in Sources */,
 				50ECB31F155AC5DC00B8D5F4 /* NSString+MatchesPattern.m in Sources */,
 				506430CE156A61080020B0C3 /* TTGlossyBox.m in Sources */,
