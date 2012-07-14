@@ -13,6 +13,7 @@
 #import "NSURL+TabulaTabs.h"
 #import "TTAppDelegate.h"
 
+#import "TTRestfulClient.h"
 #import "TTClient.h"
 #import "TTTab.h"
 #import "TTWindow.h"
@@ -152,9 +153,9 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
     _client.label = [UIDevice currentDevice].name;
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        _client.iconURL = [NSURL URLWithString:@"http://apiv0.tabulatabs.com/icons/iPad.png"];
+        _client.iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@icons/iPad.png", TTRestfulControllerAPIDomain]];
     } else {
-        _client.iconURL = [NSURL URLWithString:@"http://apiv0.tabulatabs.com/icons/iPhone.png"];
+        _client.iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@icons/iPhone.png", TTRestfulControllerAPIDomain]];
     }
     
     [_client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
