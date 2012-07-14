@@ -13,7 +13,6 @@
 
 @interface TTTabTableViewCell ()
 
-@property (strong) UIImageView *imageView;
 @property (strong) UIView *backgroundColorView;
 @property (strong) UIView *pageColorStripeView;
 
@@ -30,7 +29,7 @@
         self.backgroundColorView.backgroundColor = [UIColor whiteColor];
         [self insertSubview:self.backgroundColorView atIndex:0];
         
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.imageView.frame = CGRectZero;
         self.imageView.contentMode = UIViewContentModeScaleToFill;
         [self insertSubview:self.imageView aboveSubview:self.backgroundColorView];
         
