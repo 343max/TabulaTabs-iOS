@@ -124,43 +124,47 @@ const int kPasswordByteLength = 16;
     }];
 }
 
++ (NSArray *)decryptWindowsAndTabs:(id)response encryption:(TTEncryption *)encryption;
+{
+    NSMutableDictionary *windows = [[NSMutableDictionary alloc] init];
+    
+    for (NSDictionary *encryptedTab in response) {
+        NSDictionary *decryptedTabData = [encryption decrypt:encryptedTab];
+        
+        if (decryptedTabData == nil) {
+            return nil;
+        }
+        
+        TTTab *tab = [[TTTab alloc] initWithDictionary:decryptedTabData];
+        
+        if (tab == nil) {
+            continue;
+        }
+        
+        tab.identifier = [encryptedTab objectForKey:@"identifier"];
+        
+        TTWindow *window = [windows objectForKey:tab.windowId];
+        if (window == nil) {
+            window = [[TTWindow alloc] init];
+            window.identifier = tab.windowId;
+            window.focused = tab.windowFocused;
+            [windows setObject:window forKey:window.identifier];
+        }
+        window.tabs = [window.tabs arrayByAddingObject:tab];
+    }
+
+    return [windows allValues];
+}
+
 - (void)loadWindowsAndTabs:(void (^)(NSArray *, id))callback;
 {
     [self sendJsonGetRequest:@"browsers/tabs.json?client_version=2" callback:^(id response) {
-        __block BOOL corruptData = NO;
+        NSArray *windows = [TTClient decryptWindowsAndTabs:response encryption:self.encryption];
         
-        NSMutableDictionary *windows = [[NSMutableDictionary alloc] init];
-        
-        [response enumerateObjectsUsingBlock:^(NSDictionary *encryptedTab, NSUInteger idx, BOOL *stop) {
-            NSDictionary *decryptedTabData = [self.encryption decrypt:encryptedTab];
-            
-            if (decryptedTabData == nil) {
-                corruptData = YES;
-                return;
-            }
-            
-            TTTab *tab = [[TTTab alloc] initWithDictionary:decryptedTabData];
-            
-            if (tab == nil) {
-                return;
-            }
-            
-            tab.identifier = [encryptedTab objectForKey:@"identifier"];
-            
-            TTWindow *window = [windows objectForKey:tab.windowId];
-            if (window == nil) {
-                window = [[TTWindow alloc] init];
-                window.identifier = tab.windowId;
-                window.focused = tab.windowFocused;
-                [windows setObject:window forKey:window.identifier];
-            }
-            window.tabs = [window.tabs arrayByAddingObject:tab];
-        }];
-        
-        if (corruptData) {
+        if (windows == nil) {
             [[NSNotificationCenter defaultCenter] postNotificationName:TTClientCorruptDataNotification object:self];
         } else {
-            callback([windows allValues], response);            
+            callback(windows, response);            
         }
     }];
 }

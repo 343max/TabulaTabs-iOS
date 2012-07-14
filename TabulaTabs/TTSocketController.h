@@ -15,6 +15,11 @@ extern NSString * const TTSocketControllerCategoryBrowsers;
 extern NSString * const TTSocketControllerConnectedNotification;
 extern NSString * const TTSocketControllerConnectionFailureNotification;
 
+extern NSString * const TTSocketControllerTabsReplacedNotification;
+extern NSString * const TTSocketControllerTabsUpdatedNotification;
+
+
+@class TTEncryption;
 
 @interface TTSocketController : NSObject
 
@@ -22,7 +27,12 @@ extern NSString * const TTSocketControllerConnectionFailureNotification;
 
 - (NSArray *)allCategories;
 - (void)connect;
-- (void)join:(NSString *)username password:(NSString *)password categories:(NSArray *)categories;
+
+- (void)join:(NSString *)username
+    password:(NSString *)password
+  categories:(NSArray *)categories
+  encryption:(TTEncryption *)encryption;
+
 - (void)leave:(NSString *)username password:(NSString *)password;
 
 @end

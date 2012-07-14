@@ -43,6 +43,7 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 - (void)joinSocketNotifications;
 - (void)leaveSocketNotifications;
 - (void)socketConnected:(NSNotification *)notification;
+- (void)tabsWhereReplaced:(NSNotification *)notification;
 
 @end
 
@@ -58,6 +59,11 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
                                                  selector:@selector(socketConnected:)
                                                      name:TTSocketControllerConnectedNotification
                                                    object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(tabsWhereReplaced:)
+                                                     name:TTSocketControllerTabsReplacedNotification
+                                                   object:nil];
     }
     
     return self;
@@ -66,7 +72,13 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 - (void)dealloc;
 {
     [self leaveSocketNotifications];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)setBrowser:(TTBrowser *)browser;
+{
+    _browser = browser;
 }
 
 - (void)setClient:(TTClient *)client;
@@ -273,7 +285,8 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 {
     [appDelegate.socketController join:self.client.username
                               password:self.client.password
-                            categories:@[ TTSocketControllerCategoryBrowsers, TTSocketControllerCategoryTabs ]];
+                            categories:@[ TTSocketControllerCategoryBrowsers, TTSocketControllerCategoryTabs ]
+                            encryption:self.client.encryption];
 }
 
 - (void)leaveSocketNotifications;
@@ -285,6 +298,13 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 - (void)socketConnected:(NSNotification *)notification;
 {
     [self joinSocketNotifications];
+}
+
+- (void)tabsWhereReplaced:(NSNotification *)notification;
+{
+    if ([notification.object isEqualToString:self.client.identifier]) {
+        self.windows = [notification.userInfo objectForKey:@"tabs"];
+    }
 }
 
 @end

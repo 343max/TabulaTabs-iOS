@@ -10,6 +10,8 @@
 
 extern NSString * const TTClientCorruptDataNotification;
 
+@class TTEncryption;
+
 @interface TTClient : TTRestfulEncryptedClient
 
 @property (assign, readonly) BOOL unclaimed;
@@ -23,6 +25,7 @@ extern NSString * const TTClientCorruptDataNotification;
 @property (strong, nonatomic) NSDictionary *dictionary;
 
 + (NSString *)generatePassword;
++ (NSArray *)decryptWindowsAndTabs:(id)response encryption:(TTEncryption *)encryption;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
