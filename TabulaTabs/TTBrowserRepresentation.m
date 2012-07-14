@@ -44,6 +44,7 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 - (void)leaveSocketNotifications;
 - (void)socketConnected:(NSNotification *)notification;
 - (void)tabsWhereReplaced:(NSNotification *)notification;
+- (void)tabsWhereUpdated:(NSNotification *)notification;
 
 @end
 
@@ -63,6 +64,11 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(tabsWhereReplaced:)
                                                      name:TTSocketControllerTabsReplacedNotification
+                                                   object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(tabsWhereUpdated:)
+                                                     name:TTSocketControllerTabsUpdatedNotification
                                                    object:nil];
     }
     
@@ -304,6 +310,28 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 {
     if ([notification.object isEqualToString:self.client.identifier]) {
         self.windows = [notification.userInfo objectForKey:@"tabs"];
+    }
+}
+
+- (void)tabsWhereUpdated:(NSNotification *)notification;
+{
+    if ([notification.object isEqualToString:self.client.identifier]) {
+        NSLog(@"updating tabs");
+        NSMutableArray *tabs = [self.windows mutableCopy];
+        NSArray *updates = [notification.userInfo objectForKey:@"tabs"];
+        for (TTTab *updatedTab in updates) {
+            NSUInteger index = [tabs indexOfObjectPassingTest:^BOOL(TTTab *tab, NSUInteger idx, BOOL *stop) {
+                return [tab.identifier isEqualToString:updatedTab.identifier];
+            }];
+            
+            if (index == NSNotFound) {
+                NSLog(@"tab not found, ignoring");
+            } else {
+                [tabs replaceObjectAtIndex:index withObject:updatedTab];
+            }
+        }
+        
+        self.windows = [tabs copy];
     }
 }
 
