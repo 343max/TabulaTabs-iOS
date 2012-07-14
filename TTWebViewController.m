@@ -57,18 +57,10 @@ CGFloat const TTWebViewControllerNavbarItemWidth = 24.0;
 
 @end
 
+
 @implementation TTWebViewController
 
 @synthesize URL = _URL;
-@synthesize webView = _webView;
-@synthesize gestureView = _gestureView;
-@synthesize toggleTabListButton = _toggleTabListButton;
-@synthesize backButton = _backButton, forwardButton = _forwardButton, reloadButton = _reloadButton;
-@synthesize titleLabel = _titleLabel, actionButton = _actionButton;
-@synthesize pageTitle = _pageTitle;
-@synthesize actionViewController = _actionViewController;
-@synthesize toolbar = _toolbar;
-@synthesize navigationBar = _navigationBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
 {

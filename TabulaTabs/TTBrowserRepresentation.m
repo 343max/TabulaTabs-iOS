@@ -44,10 +44,6 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 
 @implementation TTBrowserRepresentation
 
-@synthesize client = _client, browser = _browser, windows = _windows;
-@synthesize tabulatabsURL = _tabulatabsURL;
-@synthesize archiveFilePath = _archiveFilePath;
-
 - (void)dealloc;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];

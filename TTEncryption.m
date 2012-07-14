@@ -16,8 +16,6 @@ NSString * const TTEncryptionDecryptionErrorNotification = @"TTEncryptionDecrypt
 
 @implementation TTEncryption
 
-@synthesize encryptionKey = _encryptionKey;
-
 + (id)encryptionWithHexKey:(NSString *)hexKey;
 {
     NSData *key = [NSData dataWithHexString:hexKey];

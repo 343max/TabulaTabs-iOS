@@ -17,16 +17,6 @@ NSString * const TTClientCorruptDataNotification = @"TTClientCorruptDataNotifica
 
 @implementation TTClient
 
-@synthesize userAgent = _userAgent;
-@synthesize label = _label;
-@synthesize clientDescription = _clientDescription;
-@synthesize iconURL = _iconURL;
-@synthesize keychainIdentifier = _keychainIdentifier;
-@synthesize identifier = _identifier;
-
-@synthesize unclaimed = _unclaimed;
-@synthesize dictionary = _dictionary;
-
 const int kPasswordByteLength = 16;
 
 + (NSString *)generatePassword;

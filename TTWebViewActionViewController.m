@@ -21,7 +21,7 @@
 
 @property (strong) UIWebView *webView;
 @property (strong) TTGlossyBox *backgroundView;
-@property (strong, nonatomic, readonly) NSString *pageTitle;
+@property (strong, nonatomic) NSString *pageTitle;
 @property (strong, nonatomic, readonly) NSURL *URL;
 @property (strong) NSMutableArray *actions;
 @property (assign) BOOL animating;
@@ -39,14 +39,8 @@
 
 @end
 
-@implementation TTWebViewActionViewController
 
-@synthesize webView = _webView;
-@synthesize backgroundView = _backgroundView;
-@synthesize pageTitle = _pageTitle;
-@synthesize URL = _URL;
-@synthesize actions = _actions;
-@synthesize animating = _animating;
+@implementation TTWebViewActionViewController
 
 - (id)initWithWebView:(UIWebView *)webView;
 {

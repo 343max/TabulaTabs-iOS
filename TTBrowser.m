@@ -16,13 +16,6 @@ NSString * const TTBrowserCorruptDataNotification = @"TTBrowserCorruptDataNotifi
 
 @implementation TTBrowser
 
-@synthesize identifier = _identifier;
-@synthesize userAgent = _userAgent;
-@synthesize label = _label;
-@synthesize browserDescription = _browserDescription;
-@synthesize iconURL = _iconURL;
-@synthesize dictionary = _dictionary;
-
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 {
     self = [super init];

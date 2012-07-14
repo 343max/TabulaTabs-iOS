@@ -13,7 +13,7 @@
 @interface MWHTTPImageCache ()
 
 @property (strong) NSMutableDictionary *cache;
-@property (strong, readonly, nonatomic) NSURL *cacheDirectory;
+@property (strong, nonatomic) NSURL *cacheDirectory;
 
 - (void)didReceiveMemoryWarning:(NSNotification *)notification;
 - (NSMutableDictionary *)cacheForIdentifier:(NSString *)processIdentifier;
@@ -37,9 +37,6 @@ static MWHTTPImageCache *staticDefaultImageLoader;
     
     return staticDefaultImageLoader;
 }
-
-@synthesize cache = _cache;
-@synthesize cacheDirectory = _cacheDirectory;
 
 - (id)init;
 {

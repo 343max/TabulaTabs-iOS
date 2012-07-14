@@ -48,11 +48,6 @@
 
 @implementation TTTabListViewController
 
-@synthesize webViewController = _webViewController;
-@synthesize browserRepresentation = _browserRepresentation;
-@synthesize windows = _windows;
-@synthesize browserOverlap = _browserOverlap;
-
 - (id)init;
 {
     self = [super init];

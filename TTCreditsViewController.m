@@ -16,8 +16,6 @@
 
 @implementation TTCreditsViewController
 
-@synthesize webView = _webView;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

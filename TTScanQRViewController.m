@@ -24,8 +24,6 @@
 
 @implementation TTScanQRViewController
 
-@synthesize readerView = _readerView, cameraSimulator = _cameraSimulator;
-
 - (id)init;
 {
     self = [super init];

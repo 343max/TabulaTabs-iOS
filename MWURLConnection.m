@@ -21,13 +21,6 @@ NSString * const MWURLConnectionDidFinishNotification = @"MWURLConnectionDidFini
 
 @implementation MWURLConnection
 
-@synthesize dataReceived = _dataReceived;
-@synthesize request = _request, connection = _connection;
-@synthesize connectionDidFinishLoadingBlock = _connectionDidFinishLoadingBlock;
-@synthesize connectionDidReceiveDataBlock = _connectionDidReceiveDataBlock;
-@synthesize connectionDidFailWithErrorBlock = _connectionDidFailWithErrorBlock;
-@synthesize connectionDidReceiveAuthentificationChallenge = _connectionDidReceiveAuthentificationChallenge;
-
 - (id)initWithRequest:(NSURLRequest *)aRequest
 {
     self = [super init];

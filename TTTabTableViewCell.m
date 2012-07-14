@@ -22,18 +22,6 @@
 
 @implementation TTTabTableViewCell
 
-@synthesize marginRight = _marginRight;
-@synthesize faviconView = _faviconView;
-@synthesize imageView = __imageView;
-@synthesize pageColor = _pageColor;
-@synthesize imageSize = _imageSize;
-@synthesize favIconSize = _favIconSize;
-
-@synthesize thumbnailImageURL;
-@synthesize favIconURL;
-
-@synthesize backgroundColorView = _backgroundColorView, pageColorStripeView = _pageColorStripeView;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

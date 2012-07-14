@@ -11,30 +11,14 @@
 
 #import "TTTab.h"
 
-/*
- this.pageTitle = data.pageTitle;
- this.shortDomain = data.shortDomain;
- this.siteTitle = data.siteTitle;
- this.pageThumbnail = data.pageThumbnail;
-*/
+@interface TTTab ()
+
+@property (strong) NSDictionary *dictionary;
+
+@end
+
 
 @implementation TTTab
-
-@synthesize identifier = _identifier;
-@synthesize title = _title;
-@synthesize URL = _URL;
-@synthesize selected = _selected;
-@synthesize favIconURL = _favIconURL;
-@synthesize windowId = _windowId;
-@synthesize windowFocused = _windowFocused;
-@synthesize index = _index;
-@synthesize colorPalette = _colorPalette;
-@synthesize pageTitle = _pageTitle;
-@synthesize shortDomain = _shortDomain;
-@synthesize siteTitle = _siteTitle;
-@synthesize pageThumbnailURL = _pageThumbnailURL;
-
-@synthesize dictionary = _dictionary;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 {

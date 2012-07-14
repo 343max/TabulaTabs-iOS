@@ -49,13 +49,7 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
 
 @implementation TTAppDelegate
 
-@synthesize window = _window;
 @synthesize currentURL = _currentURL;
-@synthesize URLScheme = _URLScheme;
-@synthesize slidingViewController = _slidingViewController;
-@synthesize browserController = _browserController;
-@synthesize networkConnectionsInProgress = _networkConnectionsInProgress;
-@synthesize currentBrowser = _currentBrowser;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

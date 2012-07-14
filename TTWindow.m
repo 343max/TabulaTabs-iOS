@@ -11,11 +11,6 @@
 #import "TTTab.h"
 
 @implementation TTWindow
-@synthesize identifier = _identifier;
-@synthesize focused = _focused;
-@synthesize tabs = _tabs;
-
-@synthesize dictionary = _dictionary;
 
 - (id)init;
 {

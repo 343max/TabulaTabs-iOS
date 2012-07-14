@@ -36,8 +36,6 @@ NSString * const TTBrowserControllerBrowserHasBeenRemovedNotification = @"TTBrow
 
 @implementation TTBrowserController
 
-@synthesize allBrowsers = _allBrowsers;
-
 - (id)initWithClientDictionaries:(NSArray *)clientDictionaries;
 {
     self = [super init];

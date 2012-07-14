@@ -21,11 +21,6 @@
 
 @implementation TTSpinningReloadButton
 
-@synthesize spinning = _spinning;
-@synthesize spinningImageView = _spinningImageView;
-@synthesize spinningShadowImageView = _spinningShadowImageView;
-@synthesize animationInProgress = _animationInProgress;
-
 - (id)initWithImage:(UIImage *)image shadowImage:(UIImage *)shadowImage;
 {
     self = [super init];

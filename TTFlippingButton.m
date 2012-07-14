@@ -15,13 +15,8 @@
 
 @end
 
+
 @implementation TTFlippingButton
-
-@synthesize direction = _direction;
-
-@synthesize flippingImageView = _flippingImageView;
-@synthesize flippingShadowImageView = _flippingShadowImageView;
-
 
 - (id)initWithImage:(UIImage *)image shadowImage:(UIImage *)shadowImage;
 {

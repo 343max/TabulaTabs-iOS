@@ -17,13 +17,6 @@ NSString const * TTRestfulControllerAPIDomain = @"http://maxbook-air.local:4242/
 
 @implementation TTRestfulClient
 
-@synthesize username = _username;
-@synthesize password = _password;
-
-@synthesize connectionDidFailWithErrorBlock = _connectionDidFailWithErrorBlock;
-@synthesize connectionDidReceiveAuthentificationChallenge = _connectionDidReceiveAuthentificationChallenge;
-@synthesize connectionDidReceiveDataBlock = _connectionDidReceiveDataBlock;
-
 - (MWURLConnection *)sendJsonGetRequest:(NSString *)path callback:(void (^)(id))callback;
 {
     return [self sendJsonRequest:path method:@"GET" jsonParameters:nil callback:callback];
