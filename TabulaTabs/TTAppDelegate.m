@@ -23,6 +23,7 @@
 #import "NSURL+TabulaTabs.h"
 #import "MWURLConnection.h"
 
+#import "TTSocketController.h"
 #import "TTBrowserController.h"
 #import "TTBrowserRepresentation.h"
 #import "TTClient.h"
@@ -117,6 +118,9 @@ CGFloat const TTAppDelegateWebBrowserPeekAmount = 25.0;
     } else {
         [self handleInternalURL:[NSURL firstBrowserURL]];
     }
+    
+    _socketController = [[TTSocketController alloc] init];
+    [_socketController connect];
     
     return YES;
 }

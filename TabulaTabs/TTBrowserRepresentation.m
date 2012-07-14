@@ -12,6 +12,7 @@
 
 #import "NSURL+TabulaTabs.h"
 #import "TTAppDelegate.h"
+#import "TTSocketController.h"
 
 #import "TTRestfulClient.h"
 #import "TTClient.h"
@@ -39,14 +40,32 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 
 - (void)saveToDisk;
 - (void)browserDataIsCorrupt:(NSNotification *)notifcation;
+- (void)joinSocketNotifications;
+- (void)leaveSocketNotifications;
+- (void)socketConnected:(NSNotification *)notification;
 
 @end
 
 
 @implementation TTBrowserRepresentation
 
+- (id)init;
+{
+    self = [super init];
+    
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(socketConnected:)
+                                                     name:TTSocketControllerConnectedNotification
+                                                   object:nil];
+    }
+    
+    return self;
+}
+
 - (void)dealloc;
 {
+    [self leaveSocketNotifications];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -55,7 +74,9 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
     self.windows = nil;
     self.browser = nil;
     
-    _client.connectionDidReceiveAuthentificationChallenge = nil;
+    if (_client != nil) {
+        _client.connectionDidReceiveAuthentificationChallenge = nil;
+    }
     
     _client = client;
     
@@ -82,16 +103,13 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
             [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationBrowserWasUpdatedNotification
                                                                 object:self
                                                               userInfo:nil];
+            
+            [self joinSocketNotifications];
         }
         
         [self loadBrowser];
         [self loadWindowsAndTabs];
     }
-}
-
-- (TTBrowser *)browser;
-{
-    return _browser;
 }
 
 - (void)setWindows:(NSArray *)windows;
@@ -149,17 +167,22 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
     
     [[NSNotificationCenter defaultCenter] postNotificationName:TTBrowserRepresentationClaimingClientNotification object:self];
     
-    _client.userAgent = [NSString stringWithFormat:@"TabulaTabs iOS (%@ %@ %@)", [UIDevice currentDevice].model, [UIDevice currentDevice].systemName, [UIDevice currentDevice].systemVersion];
-    _client.label = [UIDevice currentDevice].name;
+    self.client.userAgent = [NSString stringWithFormat:@"TabulaTabs iOS (%@ %@ %@)",
+                             [UIDevice currentDevice].model,
+                             [UIDevice currentDevice].systemName,
+                             [UIDevice currentDevice].systemVersion];
+    self.client.label = [UIDevice currentDevice].name;
     
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        _client.iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@icons/iPad.png", TTRestfulControllerAPIDomain]];
+        self.client.iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@icons/iPad.png", TTRestfulControllerAPIDomain]];
     } else {
-        _client.iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@icons/iPhone.png", TTRestfulControllerAPIDomain]];
+        self.client.iconURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@icons/iPhone.png", TTRestfulControllerAPIDomain]];
     }
     
-    [_client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
+    [self.client claimClient:claimingPassword finalPassword:[TTClient generatePassword] callback:^(BOOL success, id response) {
         if (success) {
+            [self joinSocketNotifications];
+
             [self loadBrowserCompletion:^(id response) {
                  [appDelegate.browserController addBrowser:self];
             }];
@@ -233,7 +256,7 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
 
 - (void)browserDataIsCorrupt:(NSNotification *)notifcation;
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self 
+    [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:TTBrowserCorruptDataNotification 
                                                   object:notifcation.object];
     
@@ -244,6 +267,24 @@ NSString * const TTBrowserRepresentationWindowsWhereUpdatedNotification = @"TTBr
                                               otherButtonTitles:nil];
     
     [alertView show];
+}
+
+- (void)joinSocketNotifications;
+{
+    [appDelegate.socketController join:self.client.username
+                              password:self.client.password
+                            categories:@[ TTSocketControllerCategoryBrowsers, TTSocketControllerCategoryTabs ]];
+}
+
+- (void)leaveSocketNotifications;
+{
+    [appDelegate.socketController leave:self.client.username
+                               password:self.client.password];
+}
+
+- (void)socketConnected:(NSNotification *)notification;
+{
+    [self joinSocketNotifications];
 }
 
 @end

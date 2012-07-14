@@ -16,6 +16,7 @@ extern CGFloat const TTAppDelegateWebBrowserPeekAmount;
 @class TTBrowserController;
 @class TTBrowserRepresentation;
 @class MWSlidingViewController;
+@class TTSocketController;
 
 @interface TTAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -27,6 +28,8 @@ extern CGFloat const TTAppDelegateWebBrowserPeekAmount;
 
 @property (strong, readonly) TTBrowserController *browserController;
 @property (strong, nonatomic) TTBrowserRepresentation *currentBrowser;
+
+@property (strong, readonly) TTSocketController *socketController;
 
 - (void)handleInternalURL:(NSURL *)URL;
 - (IBAction)showSettings:(id)sender;
